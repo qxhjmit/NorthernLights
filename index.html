@@ -69,6 +69,40 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-string-list" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/28/string-list/" class="article-date">
+  <time datetime="2019-03-28T05:26:22.743Z" itemprop="datePublished">2019-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="title-String-转化为-List-数组"><a href="#title-String-转化为-List-数组" class="headerlink" title="title:String[] 转化为 List 数组"></a>title:String[] 转化为 List 数组</h2><p>转化形式:</p>
+<p>String [] arr = new String[] {“1”, “2”};</p>
+<p>List<string> list = Arrays.asList(arr); </string></p>
+<p>由于String[]转化为list的时候存储空间已经固定为2,所以不能是用list中的list.remove(i)方法,如果想要<br>使用remove(i)这个方式,必须开辟一个新的空间.</p>
+<p>如何开辟新的空间?</p>
+<p>形式如下:</p>
+<p>List<string> list = new ArrayList(Arrays.asList(arr)); </string></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://whlsan.top/2019/03/28/string-list/" data-id="cjts7tlmj0001fwe4z96xexkb" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/03/10/hello-world/" class="article-date">
@@ -104,7 +138,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://whlsan.top/2019/03/10/hello-world/" data-id="cjt2q4szl0000f0e4o31tvq9t" class="article-share-link">Share</a>
+      <a data-url="https://whlsan.top/2019/03/10/hello-world/" data-id="cjts7tlm40000fwe40ce2ao9x" class="article-share-link">Share</a>
       
       
     </footer>
@@ -145,6 +179,10 @@
       <ul>
         
           <li>
+            <a href="/2019/03/28/string-list/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2019/03/10/hello-world/">Hello World</a>
           </li>
         
@@ -160,7 +198,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2019 fenglingluo<br>
+      &copy; 2019 极点之上<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

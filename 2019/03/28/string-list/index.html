@@ -5,18 +5,19 @@
   
 
   
-  <title>Archives: 2019/3 | T9&#39;S Develop Blog</title>
+  <title>T9&#39;S Develop Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="喜欢探索未知,保持好奇心">
-<meta property="og:type" content="website">
+  <meta name="description" content="title:String[] 转化为 List 数组转化形式: String [] arr = new String[] {“1”, “2”}; List list = Arrays.asList(arr);  由于String[]转化为list的时候存储空间已经固定为2,所以不能是用list中的list.remove(i)方法,如果想要使用remove(i)这个方式,必须开辟一个新的空间. 如">
+<meta property="og:type" content="article">
 <meta property="og:title" content="T9&#39;S Develop Blog">
-<meta property="og:url" content="https://whlsan.top/archives/2019/03/index.html">
+<meta property="og:url" content="https://whlsan.top/2019/03/28/string-list/index.html">
 <meta property="og:site_name" content="T9&#39;S Develop Blog">
-<meta property="og:description" content="喜欢探索未知,保持好奇心">
+<meta property="og:description" content="title:String[] 转化为 List 数组转化形式: String [] arr = new String[] {“1”, “2”}; List list = Arrays.asList(arr);  由于String[]转化为list的时候存储空间已经固定为2,所以不能是用list中的list.remove(i)方法,如果想要使用remove(i)这个方式,必须开辟一个新的空间. 如">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-28T05:45:55.252Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="T9&#39;S Develop Blog">
-<meta name="twitter:description" content="喜欢探索未知,保持好奇心">
+<meta name="twitter:description" content="title:String[] 转化为 List 数组转化形式: String [] arr = new String[] {“1”, “2”}; List list = Arrays.asList(arr);  由于String[]转化为list的时候存储空间已经固定为2,所以不能是用list中的list.remove(i)方法,如果想要使用remove(i)这个方式,必须开辟一个新的空间. 如">
   
     <link rel="alternate" href="/atom.xml" title="T9&#39;S Develop Blog" type="application/atom+xml">
   
@@ -67,53 +68,49 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/03/28/string-list/" class="archive-article-date">
-  <time datetime="2019-03-28T05:26:22.743Z" itemprop="datePublished">Mar 28</time>
+        <section id="main"><article id="post-string-list" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/28/string-list/" class="article-date">
+  <time datetime="2019-03-28T05:26:22.743Z" itemprop="datePublished">2019-03-28</time>
 </a>
-      
-    </header>
+    
   </div>
-</article>
-  
+  <div class="article-inner">
     
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/03/10/hello-world/" class="archive-article-date">
-  <time datetime="2019-03-10T09:11:49.880Z" itemprop="datePublished">Mar 10</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/10/hello-world/">Hello World</a>
-    </h1>
-  
+        <hr>
+<h2 id="title-String-转化为-List-数组"><a href="#title-String-转化为-List-数组" class="headerlink" title="title:String[] 转化为 List 数组"></a>title:String[] 转化为 List 数组</h2><p>转化形式:</p>
+<p>String [] arr = new String[] {“1”, “2”};</p>
+<p>List<string> list = Arrays.asList(arr); </string></p>
+<p>由于String[]转化为list的时候存储空间已经固定为2,所以不能是用list中的list.remove(i)方法,如果想要<br>使用remove(i)这个方式,必须开辟一个新的空间.</p>
+<p>如何开辟新的空间?</p>
+<p>形式如下:</p>
+<p>List<string> list = new ArrayList(Arrays.asList(arr)); </string></p>
 
-    </header>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://whlsan.top/2019/03/28/string-list/" data-id="cjts7tlmj0001fwe4z96xexkb" class="article-share-link">Share</a>
+      
+      
+    </footer>
   </div>
-</article>
+  
+    
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/03/10/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
   
+</nav>
 
+  
+</article>
 
 </section>
         
