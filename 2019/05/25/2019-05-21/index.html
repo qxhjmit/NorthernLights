@@ -15,17 +15,17 @@
 
 
 
-<meta name="description" content="title:  对象 #对象 ##访问对象的属性方式:1.通过.a,这个语法通常被称为”属性访问”.2.通过[“a”],这个语法通常被称为”键访问” ##两者的区别:1.属性访问满足了命名规范,键值访问可以接受任意UFT-8/unicode字符串作为属性名. ##对象的属性描述：   var myObject = { }   object.getOwnPropertyDescriptor(myO">
+<meta name="description" content="##访问对象的属性方式:1.通过.a,这个语法通常被称为”属性访问”.2.通过[“a”],这个语法通常被称为”键访问” ##两者的区别:1.属性访问满足了命名规范,键值访问可以接受任意UFT-8/unicode字符串作为属性名. ##对象的属性描述：   var myObject = { }   object.getOwnPropertyDescriptor(myObject,”a”,{">
 <meta property="og:type" content="article">
-<meta property="og:title" content="The top of the world">
+<meta property="og:title" content="对象">
 <meta property="og:url" content="onemind.top/2019/05/25/2019-05-21/index.html">
 <meta property="og:site_name" content="The top of the world">
-<meta property="og:description" content="title:  对象 #对象 ##访问对象的属性方式:1.通过.a,这个语法通常被称为”属性访问”.2.通过[“a”],这个语法通常被称为”键访问” ##两者的区别:1.属性访问满足了命名规范,键值访问可以接受任意UFT-8/unicode字符串作为属性名. ##对象的属性描述：   var myObject = { }   object.getOwnPropertyDescriptor(myO">
+<meta property="og:description" content="##访问对象的属性方式:1.通过.a,这个语法通常被称为”属性访问”.2.通过[“a”],这个语法通常被称为”键访问” ##两者的区别:1.属性访问满足了命名规范,键值访问可以接受任意UFT-8/unicode字符串作为属性名. ##对象的属性描述：   var myObject = { }   object.getOwnPropertyDescriptor(myObject,”a”,{">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-26T14:54:58.688Z">
+<meta property="og:updated_time" content="2019-05-26T15:20:33.252Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="The top of the world">
-<meta name="twitter:description" content="title:  对象 #对象 ##访问对象的属性方式:1.通过.a,这个语法通常被称为”属性访问”.2.通过[“a”],这个语法通常被称为”键访问” ##两者的区别:1.属性访问满足了命名规范,键值访问可以接受任意UFT-8/unicode字符串作为属性名. ##对象的属性描述：   var myObject = { }   object.getOwnPropertyDescriptor(myO">
+<meta name="twitter:title" content="对象">
+<meta name="twitter:description" content="##访问对象的属性方式:1.通过.a,这个语法通常被称为”属性访问”.2.通过[“a”],这个语法通常被称为”键访问” ##两者的区别:1.属性访问满足了命名规范,键值访问可以接受任意UFT-8/unicode字符串作为属性名. ##对象的属性描述：   var myObject = { }   object.getOwnPropertyDescriptor(myObject,”a”,{">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -57,7 +57,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>The top of the world</title>
+<title>对象 | The top of the world</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -276,13 +276,28 @@
       <input type="hidden" class="isFancy">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      对象
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
     <div class="article-entry" itemprop="articleBody">
       
           
-        <hr>
-<p>title:  对象</p>
-<p>#对象</p>
-<p>##访问对象的属性方式:<br>1.通过.a,这个语法通常被称为”属性访问”.<br>2.通过[“a”],这个语法通常被称为”键访问”</p>
+        <p>##访问对象的属性方式:<br>1.通过.a,这个语法通常被称为”属性访问”.<br>2.通过[“a”],这个语法通常被称为”键访问”</p>
 <p>##两者的区别:<br>1.属性访问满足了命名规范,键值访问可以接受任意UFT-8/unicode字符串作为属性名.</p>
 <p>##对象的属性描述：<br>   var myObject = { }<br>   object.getOwnPropertyDescriptor(myObject,”a”,{<br>     value:2,<br>     writable:true,//决定是否可以修改属性的值，即我们通常说的，可读和可写。<br>     enumerable:true,//这个属性为是否可枚举，（简单理解就是存在，但是不展示出来）可通过for … in循环，也可以通过object.keys(..) 来判断。<br>     configurable:true//这个只有设置了可配置，才能使用defineProperty(..)方法来修改属性描述符<br>   });</p>
 <p>## </p>
@@ -295,12 +310,12 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/05/25/2019-05-21/"></a></p>
+        <p><span>本文标题:</span><a href="/2019/05/25/2019-05-21/">对象</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">极点之上</a></p>
         <p><span>发布时间:</span>2019-05-25, 18:12:16</p>
-        <p><span>最后更新:</span>2019-05-26, 22:54:58</p>
+        <p><span>最后更新:</span>2019-05-26, 23:20:33</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/05/25/2019-05-21/" title>onemind.top/2019/05/25/2019-05-21/</a>
+            <span>原始链接:</span><a class="post-url" href="/2019/05/25/2019-05-21/" title="对象">onemind.top/2019/05/25/2019-05-21/</a>
             <span class="copy-path" data-clipboard-text="原文: onemind.top/2019/05/25/2019-05-21/　　作者: 极点之上" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -315,14 +330,14 @@
         
             <div id="article-nav-newer" class="article-nav-title">
                 <a href="/2019/05/25/2019-05-22/">
-                    
+                    小王子
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
                 <a href="/2019/05/25/2019-05-20/">
-                    
+                    恰似花火
                 </a>
             </div>
         
@@ -370,7 +385,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"　| The top of the world　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"对象　| The top of the world　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -390,7 +405,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/05/25/2019-05-22/" title="上一篇: ">
+            <a href="/2019/05/25/2019-05-22/" title="上一篇: 小王子">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -398,13 +413,13 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/05/25/2019-05-20/" title="下一篇: ">
+            <a href="/2019/05/25/2019-05-20/" title="下一篇: 恰似花火">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/05/26/2019-05-24-26/">2019-05-24-26</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/26/2019-05-23/">2019-05-23</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-22/">2019-05-22</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-21/">2019-05-21</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-20/">2019-05-20</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-15/">页面的重绘</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-14/">Oracle commonly used sql syntax</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-13/">读取文件,替换参数根据参数生成excel文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-10/">使用打印功能重新渲染页面,导致jq按钮功能失效!</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-09/">使用打印功能重新渲染页面,导致jq按钮功能失效!</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-08/">根据游览器所在国家选中语言</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-07/">oracle-for</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-05/">List  remove</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-04-25/">Regular configuration</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-04-24/">java你不知道的list转换!</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-04-23/">激活window操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-03-28/">List  remove</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-03-10/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2015-05-04/">window.print()打印</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/05/26/2019-05-24/">页面的重绘</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/26/2019-05-24-26/">原型</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/26/2019-05-23/">混合对象"类"。</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-22/">小王子</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-21/">对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-20/">恰似花火</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-15/">页面的重绘</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-14/">Oracle commonly used sql syntax</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-13/">读取文件,替换参数根据参数生成excel文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-10/">使用打印功能重新渲染页面,导致jq按钮功能失效!</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-08/">根据游览器所在国家选中语言</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-07/">oracle-for</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-05/">List  remove</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-04-25/">Regular configuration</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-04-24/">java你不知道的list转换!</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-04-23/">激活window操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-03-28/">List  remove</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-03-10/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2015-05-04/">window.print()打印</a></li></ul>
 
 
 

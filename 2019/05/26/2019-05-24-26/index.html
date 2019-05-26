@@ -15,17 +15,17 @@
 
 
 
-<meta name="description" content="title: 原型1.访问对象并不存在一个属性，get的操作就会找到对象内部，关联的对象，这个关系实际上就是原型链。2.所有普通的对象多有内置的object.prototype，指向原型链的顶端，其中tostring()，valueOf()和其他一些通用的功能存在于object.prototype,所有对象多可以引用。3.使用new调用函数时会把新对象.prototype属性关联到”其他对象上”">
+<meta name="description" content="1.访问对象并不存在一个属性，get的操作就会找到对象内部，关联的对象，这个关系实际上就是原型链。2.所有普通的对象多有内置的object.prototype，指向原型链的顶端，其中tostring()，valueOf()和其他一些通用的功能存在于object.prototype,所有对象多可以引用。3.使用new调用函数时会把新对象.prototype属性关联到”其他对象上”，带new被称为”构">
 <meta property="og:type" content="article">
-<meta property="og:title" content="The top of the world">
+<meta property="og:title" content="原型">
 <meta property="og:url" content="onemind.top/2019/05/26/2019-05-24-26/index.html">
 <meta property="og:site_name" content="The top of the world">
-<meta property="og:description" content="title: 原型1.访问对象并不存在一个属性，get的操作就会找到对象内部，关联的对象，这个关系实际上就是原型链。2.所有普通的对象多有内置的object.prototype，指向原型链的顶端，其中tostring()，valueOf()和其他一些通用的功能存在于object.prototype,所有对象多可以引用。3.使用new调用函数时会把新对象.prototype属性关联到”其他对象上”">
+<meta property="og:description" content="1.访问对象并不存在一个属性，get的操作就会找到对象内部，关联的对象，这个关系实际上就是原型链。2.所有普通的对象多有内置的object.prototype，指向原型链的顶端，其中tostring()，valueOf()和其他一些通用的功能存在于object.prototype,所有对象多可以引用。3.使用new调用函数时会把新对象.prototype属性关联到”其他对象上”，带new被称为”构">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-26T15:16:27.039Z">
+<meta property="og:updated_time" content="2019-05-26T15:19:31.820Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="The top of the world">
-<meta name="twitter:description" content="title: 原型1.访问对象并不存在一个属性，get的操作就会找到对象内部，关联的对象，这个关系实际上就是原型链。2.所有普通的对象多有内置的object.prototype，指向原型链的顶端，其中tostring()，valueOf()和其他一些通用的功能存在于object.prototype,所有对象多可以引用。3.使用new调用函数时会把新对象.prototype属性关联到”其他对象上”">
+<meta name="twitter:title" content="原型">
+<meta name="twitter:description" content="1.访问对象并不存在一个属性，get的操作就会找到对象内部，关联的对象，这个关系实际上就是原型链。2.所有普通的对象多有内置的object.prototype，指向原型链的顶端，其中tostring()，valueOf()和其他一些通用的功能存在于object.prototype,所有对象多可以引用。3.使用new调用函数时会把新对象.prototype属性关联到”其他对象上”，带new被称为”构">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -57,7 +57,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>The top of the world</title>
+<title>原型 | The top of the world</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -276,11 +276,28 @@
       <input type="hidden" class="isFancy">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      原型
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
     <div class="article-entry" itemprop="articleBody">
       
           
-        <hr>
-<p>title: 原型<br>1.访问对象并不存在一个属性，get的操作就会找到对象内部，关联的对象，这个关系实际上就是原型链。<br>2.所有普通的对象多有内置的object.prototype，指向原型链的顶端，其中tostring()，valueOf()和其他一些通用的功能存在于object.prototype,所有对象多可以引用。<br>3.使用new调用函数时会把新对象.prototype属性关联到”其他对象上”，带new被称为”构造函数”。<br>4.虽然javascript有类似其他语言的类功能，但是它实际上是并不能进行复制，只是通过prototype链进行对象内部之间的关联，所以我们不能用继续进行描述，而是用委托更合适，因为对象之间的关系不是复制而是委托。</p>
+        <p>1.访问对象并不存在一个属性，get的操作就会找到对象内部，关联的对象，这个关系实际上就是原型链。<br>2.所有普通的对象多有内置的object.prototype，指向原型链的顶端，其中tostring()，valueOf()和其他一些通用的功能存在于object.prototype,所有对象多可以引用。<br>3.使用new调用函数时会把新对象.prototype属性关联到”其他对象上”，带new被称为”构造函数”。<br>4.虽然javascript有类似其他语言的类功能，但是它实际上是并不能进行复制，只是通过prototype链进行对象内部之间的关联，所以我们不能用继续进行描述，而是用委托更合适，因为对象之间的关系不是复制而是委托。</p>
 
       
     </div>
@@ -289,12 +306,12 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/05/26/2019-05-24-26/"></a></p>
+        <p><span>本文标题:</span><a href="/2019/05/26/2019-05-24-26/">原型</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">极点之上</a></p>
         <p><span>发布时间:</span>2019-05-26, 23:06:38</p>
-        <p><span>最后更新:</span>2019-05-26, 23:16:27</p>
+        <p><span>最后更新:</span>2019-05-26, 23:19:31</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/05/26/2019-05-24-26/" title>onemind.top/2019/05/26/2019-05-24-26/</a>
+            <span>原始链接:</span><a class="post-url" href="/2019/05/26/2019-05-24-26/" title="原型">onemind.top/2019/05/26/2019-05-24-26/</a>
             <span class="copy-path" data-clipboard-text="原文: onemind.top/2019/05/26/2019-05-24-26/　　作者: 极点之上" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -307,10 +324,16 @@
 
     <nav id="article-nav">
         
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2019/05/26/2019-05-24/">
+                    页面的重绘
+                </a>
+            </div>
+        
         
             <div id="article-nav-older" class="article-nav-title">
                 <a href="/2019/05/26/2019-05-23/">
-                    
+                    混合对象&#34;类&#34;。
                 </a>
             </div>
         
@@ -358,7 +381,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"　| The top of the world　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"原型　| The top of the world　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -378,19 +401,21 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2019/05/26/2019-05-24/" title="上一篇: 页面的重绘">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/05/26/2019-05-23/" title="下一篇: ">
+            <a href="/2019/05/26/2019-05-23/" title="下一篇: 混合对象&#34;类&#34;。">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/05/26/2019-05-24-26/">2019-05-24-26</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/26/2019-05-23/">2019-05-23</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-22/">2019-05-22</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-21/">2019-05-21</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-20/">2019-05-20</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-15/">页面的重绘</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-14/">Oracle commonly used sql syntax</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-13/">读取文件,替换参数根据参数生成excel文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-10/">使用打印功能重新渲染页面,导致jq按钮功能失效!</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-09/">使用打印功能重新渲染页面,导致jq按钮功能失效!</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-08/">根据游览器所在国家选中语言</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-07/">oracle-for</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-05/">List  remove</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-04-25/">Regular configuration</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-04-24/">java你不知道的list转换!</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-04-23/">激活window操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-03-28/">List  remove</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-03-10/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2015-05-04/">window.print()打印</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/05/26/2019-05-24/">页面的重绘</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/26/2019-05-24-26/">原型</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/26/2019-05-23/">混合对象"类"。</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-22/">小王子</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-21/">对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-20/">恰似花火</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-15/">页面的重绘</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-14/">Oracle commonly used sql syntax</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-13/">读取文件,替换参数根据参数生成excel文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-10/">使用打印功能重新渲染页面,导致jq按钮功能失效!</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-08/">根据游览器所在国家选中语言</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-07/">oracle-for</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-05/">List  remove</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-04-25/">Regular configuration</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-04-24/">java你不知道的list转换!</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-04-23/">激活window操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-03-28/">List  remove</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-03-10/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2015-05-04/">window.print()打印</a></li></ul>
 
 
 

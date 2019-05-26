@@ -267,6 +267,62 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-2019-05-24" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/05/26/2019-05-24/" class="article-date">
+      <time datetime="2019-05-26T15:19:19.000Z" itemprop="datePublished">2019-05-26</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/26/2019-05-24/">页面的重绘</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>1.访问对象并不存在一个属性，get的操作就会找到对象内部，关联的对象，这个关系实际上就是原型链。<br>2.所有普通的对象多有内置的object.prototype，指向原型链的顶端，其中tostring()，valueOf()和其他一些通用的功能存在于object.prototype,所有对象多可以引用。<br>3.使用new调用函数时会把新对象.prototype属性关联到”其他对象上”，带new被称为”构造函数”。<br>4.虽然javascript有类似其他语言的类功能，但是它实际上是并不能进行复制，只是通过prototype链进行对象内部之间的关联，所以我们不能用继续进行描述，而是用委托更合适，因为对象之间的关系不是复制而是委托。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-2019-05-24-26" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -282,11 +338,21 @@
       <input type="hidden" class="isFancy">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/26/2019-05-24-26/">原型</a>
+    </h1>
+  
+
+      </header>
+      
+    
     <div class="article-entry" itemprop="articleBody">
       
           
-        <hr>
-<p>title: 原型<br>1.访问对象并不存在一个属性，get的操作就会找到对象内部，关联的对象，这个关系实际上就是原型链。<br>2.所有普通的对象多有内置的object.prototype，指向原型链的顶端，其中tostring()，valueOf()和其他一些通用的功能存在于object.prototype,所有对象多可以引用。<br>3.使用new调用函数时会把新对象.prototype属性关联到”其他对象上”，带new被称为”构造函数”。<br>4.虽然javascript有类似其他语言的类功能，但是它实际上是并不能进行复制，只是通过prototype链进行对象内部之间的关联，所以我们不能用继续进行描述，而是用委托更合适，因为对象之间的关系不是复制而是委托。</p>
+        <p>1.访问对象并不存在一个属性，get的操作就会找到对象内部，关联的对象，这个关系实际上就是原型链。<br>2.所有普通的对象多有内置的object.prototype，指向原型链的顶端，其中tostring()，valueOf()和其他一些通用的功能存在于object.prototype,所有对象多可以引用。<br>3.使用new调用函数时会把新对象.prototype属性关联到”其他对象上”，带new被称为”构造函数”。<br>4.虽然javascript有类似其他语言的类功能，但是它实际上是并不能进行复制，只是通过prototype链进行对象内部之间的关联，所以我们不能用继续进行描述，而是用委托更合适，因为对象之间的关系不是复制而是委托。</p>
 
       
     </div>
@@ -328,12 +394,21 @@
       <input type="hidden" class="isFancy">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/26/2019-05-23/">混合对象&#34;类&#34;。</a>
+    </h1>
+  
+
+      </header>
+      
+    
     <div class="article-entry" itemprop="articleBody">
       
           
-        <hr>
-<p>title:  混合对象”类”。</p>
-<p>#读后结语。<br>1.类是一种设计模式。许多语言提供了对于面向类软件的原生语法，例如java。但是在javascript有类似的语言，但是一定要区分他和其他语言是不一样的，他没有类的，只有对象，只是通过复杂的逻辑模拟了类似的语法。<br>2.类他意味着复制。<br>3.传统的类被实例化，会被复制到实例中。类被继承，行为也会被子类继承。<br>4.多态，看起来似乎是从子类引用了父类，但是本质上引用的其实是复制的结果。（就是复制父类的行为结合子类本身不一样的行为，形成了多种多样的类）<br>5.javascript并不会像类那样，自动创建对象的副本。 本质上其实是创建的还是指向的对象。因为对象只能复制引用，没有办法复制被引用的对象或者函数本身。这一点不能忽视不然会导致许多问题。<br>最好不要在javascript模拟类，虽然可以解决很多问题，但是可能会买下很多隐患。</p>
+        <p>#读后结语。<br>1.类是一种设计模式。许多语言提供了对于面向类软件的原生语法，例如java。但是在javascript有类似的语言，但是一定要区分他和其他语言是不一样的，他没有类的，只有对象，只是通过复杂的逻辑模拟了类似的语法。<br>2.类他意味着复制。<br>3.传统的类被实例化，会被复制到实例中。类被继承，行为也会被子类继承。<br>4.多态，看起来似乎是从子类引用了父类，但是本质上引用的其实是复制的结果。（就是复制父类的行为结合子类本身不一样的行为，形成了多种多样的类）<br>5.javascript并不会像类那样，自动创建对象的副本。 本质上其实是创建的还是指向的对象。因为对象只能复制引用，没有办法复制被引用的对象或者函数本身。这一点不能忽视不然会导致许多问题。<br>最好不要在javascript模拟类，虽然可以解决很多问题，但是可能会买下很多隐患。</p>
 
       
     </div>
@@ -375,12 +450,21 @@
       <input type="hidden" class="isFancy">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/25/2019-05-22/">小王子</a>
+    </h1>
+  
+
+      </header>
+      
+    
     <div class="article-entry" itemprop="articleBody">
       
           
-        <hr>
-<p>title:  2019-5-21</p>
-<p>#小王子读后感<br>看东西只有用心才能看得清楚,重要的东西眼睛是看不见的.<br>其实所有的人对于刚开始的多是一样的.只是你付出了感情和时间,才会让他独一无二.</p>
+        <p>#小王子读后感<br>看东西只有用心才能看得清楚,重要的东西眼睛是看不见的.<br>其实所有的人对于刚开始的多是一样的.只是你付出了感情和时间,才会让他独一无二.</p>
 
       
     </div>
@@ -422,13 +506,21 @@
       <input type="hidden" class="isFancy">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/25/2019-05-21/">对象</a>
+    </h1>
+  
+
+      </header>
+      
+    
     <div class="article-entry" itemprop="articleBody">
       
           
-        <hr>
-<p>title:  对象</p>
-<p>#对象</p>
-<p>##访问对象的属性方式:<br>1.通过.a,这个语法通常被称为”属性访问”.<br>2.通过[“a”],这个语法通常被称为”键访问”</p>
+        <p>##访问对象的属性方式:<br>1.通过.a,这个语法通常被称为”属性访问”.<br>2.通过[“a”],这个语法通常被称为”键访问”</p>
 <p>##两者的区别:<br>1.属性访问满足了命名规范,键值访问可以接受任意UFT-8/unicode字符串作为属性名.</p>
 <p>##对象的属性描述：<br>   var myObject = { }<br>   object.getOwnPropertyDescriptor(myObject,”a”,{<br>     value:2,<br>     writable:true,//决定是否可以修改属性的值，即我们通常说的，可读和可写。<br>     enumerable:true,//这个属性为是否可枚举，（简单理解就是存在，但是不展示出来）可通过for … in循环，也可以通过object.keys(..) 来判断。<br>     configurable:true//这个只有设置了可配置，才能使用defineProperty(..)方法来修改属性描述符<br>   });</p>
 <p>## </p>
@@ -474,12 +566,21 @@
       <input type="hidden" class="isFancy">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/25/2019-05-20/">恰似花火</a>
+    </h1>
+  
+
+      </header>
+      
+    
     <div class="article-entry" itemprop="articleBody">
       
           
-        <hr>
-<p>title: 恰似花火</p>
-<p>#播放mp3音乐的时候,微信端和手机不能支持自动播放问题</p>
+        <p>#播放mp3音乐的时候,微信端和手机不能支持自动播放问题</p>
 <p>##原因是：android ios 内部原因 为了节省流量，规定不自动播放音频视频</p>
 <p>###解决微信或钉钉不能自动播放处理方法:<br>     window.onload = function () {<br>        var myAudio = document.getElementById(‘audio’);<br>        myAudio.addEventListener(‘ends’,loopAudio,false);<br>    }</p>
 <pre><code>function loopAudio(){
@@ -1304,70 +1405,6 @@ private static void getI18nPropertiesToExcel(String path) throws Exception {
   
     <h1 itemprop="name">
       <a class="article-title" href="/2019/05/25/2019-05-10/">使用打印功能重新渲染页面,导致jq按钮功能失效!</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="05-09-用jq绑定的节点按钮失效"><a href="#05-09-用jq绑定的节点按钮失效" class="headerlink" title="05-09 用jq绑定的节点按钮失效."></a>05-09 用jq绑定的节点按钮失效.</h2><pre><code>var OldDdhtml = window.document.body.innerHTML;//获取当前页的html代码    
-var prnhtml = &quot;html&quot;;//这里随便定义,可以定义任意html内容
-window.document.body.innerHTML = prnhtml; 
-window.document.body.innerHTML = OldDdhtml;
-使用上述方法改变页面内容,导致按钮点击事件失效.
-</code></pre><p>原因分析:由于直接使用节点绑定事件,当页面重新内容替换,虽然没有改变布局,但是节点的点击事件并没有重新绑定,导致了按钮点击事件失效.</p>
-<p>解决方法:</p>
-<p>第一种方法:重新刷新当前页 —– window.location.reload();</p>
-<p>第二种方法:如果你是用节点绑定事件,例如:$(‘.button’).clcik(function(){}),改用用document绑定$(document).on(‘click’,’.button’,function(){})这样就可以解决按钮事件失效.<br>为什么这样可以处理这个问题,这就是你直接操作节点,但是你页面并没有重新渲染,导致事件没有绑定,但是如果直接把时间绑定在document上,在去寻找这个节点,就可以找寻得到.   </p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-2019-05-09" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/05/25/2019-05-09/" class="article-date">
-      <time datetime="2019-05-25T10:12:16.434Z" itemprop="datePublished">2019-05-25</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/25/2019-05-09/">使用打印功能重新渲染页面,导致jq按钮功能失效!</a>
     </h1>
   
 
