@@ -267,6 +267,99 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-2019-05-24-26" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/05/26/2019-05-24-26/" class="article-date">
+      <time datetime="2019-05-26T15:06:38.093Z" itemprop="datePublished">2019-05-26</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <hr>
+<p>title: 原型<br>1.访问对象并不存在一个属性，get的操作就会找到对象内部，关联的对象，这个关系实际上就是原型链。<br>2.所有普通的对象多有内置的object.prototype，指向原型链的顶端，其中tostring()，valueOf()和其他一些通用的功能存在于object.prototype,所有对象多可以引用。<br>3.使用new调用函数时会把新对象.prototype属性关联到”其他对象上”，带new被称为”构造函数”。<br>4.虽然javascript有类似其他语言的类功能，但是它实际上是并不能进行复制，只是通过prototype链进行对象内部之间的关联，所以我们不能用继续进行描述，而是用委托更合适，因为对象之间的关系不是复制而是委托。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-2019-05-23" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/05/26/2019-05-23/" class="article-date">
+      <time datetime="2019-05-26T14:55:04.779Z" itemprop="datePublished">2019-05-26</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <hr>
+<p>title:  混合对象”类”。</p>
+<p>#读后结语。<br>1.类是一种设计模式。许多语言提供了对于面向类软件的原生语法，例如java。但是在javascript有类似的语言，但是一定要区分他和其他语言是不一样的，他没有类的，只有对象，只是通过复杂的逻辑模拟了类似的语法。<br>2.类他意味着复制。<br>3.传统的类被实例化，会被复制到实例中。类被继承，行为也会被子类继承。<br>4.多态，看起来似乎是从子类引用了父类，但是本质上引用的其实是复制的结果。（就是复制父类的行为结合子类本身不一样的行为，形成了多种多样的类）<br>5.javascript并不会像类那样，自动创建对象的副本。 本质上其实是创建的还是指向的对象。因为对象只能复制引用，没有办法复制被引用的对象或者函数本身。这一点不能忽视不然会导致许多问题。<br>最好不要在javascript模拟类，虽然可以解决很多问题，但是可能会买下很多隐患。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-2019-05-22" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -333,11 +426,13 @@
       
           
         <hr>
-<p>title:  2019-5-21</p>
+<p>title:  对象</p>
 <p>#对象</p>
 <p>##访问对象的属性方式:<br>1.通过.a,这个语法通常被称为”属性访问”.<br>2.通过[“a”],这个语法通常被称为”键访问”</p>
 <p>##两者的区别:<br>1.属性访问满足了命名规范,键值访问可以接受任意UFT-8/unicode字符串作为属性名.</p>
-<p>##其他知识<br>1.对象中属性名永远是字符串。</p>
+<p>##对象的属性描述：<br>   var myObject = { }<br>   object.getOwnPropertyDescriptor(myObject,”a”,{<br>     value:2,<br>     writable:true,//决定是否可以修改属性的值，即我们通常说的，可读和可写。<br>     enumerable:true,//这个属性为是否可枚举，（简单理解就是存在，但是不展示出来）可通过for … in循环，也可以通过object.keys(..) 来判断。<br>     configurable:true//这个只有设置了可配置，才能使用defineProperty(..)方法来修改属性描述符<br>   });</p>
+<p>## </p>
+<p>##其他知识<br>1.对象中属性名永远是字符串。<br>2.属性不一定包含值，但是它们可能多具备getter/setter的”访问描述符”。</p>
 
       
     </div>
@@ -1292,205 +1387,6 @@ window.document.body.innerHTML = OldDdhtml;
 <p>第一种方法:重新刷新当前页 —– window.location.reload();</p>
 <p>第二种方法:如果你是用节点绑定事件,例如:$(‘.button’).clcik(function(){}),改用用document绑定$(document).on(‘click’,’.button’,function(){})这样就可以解决按钮事件失效.<br>为什么这样可以处理这个问题,这就是你直接操作节点,但是你页面并没有重新渲染,导致事件没有绑定,但是如果直接把时间绑定在document上,在去寻找这个节点,就可以找寻得到.   </p>
 
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-2019-05-08" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/05/25/2019-05-08/" class="article-date">
-      <time datetime="2019-05-25T10:12:16.431Z" itemprop="datePublished">2019-05-25</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/25/2019-05-08/">根据游览器所在国家选中语言</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>##5.-08 开发是遇到的问题<br>用户反馈游览器没有根据国家切换默认语言,导致默认语言错误.</p>
-<h2 id="前端获取游览器默认语言"><a href="#前端获取游览器默认语言" class="headerlink" title="前端获取游览器默认语言"></a>前端获取游览器默认语言</h2><p>lang = (navigator.language || navigator.userLanguage).substr(0, 2);//常规浏览器语言和IE浏览器     截取lang前2位字符</p>
-<h2 id="后端获取游览器默认语言"><a href="#后端获取游览器默认语言" class="headerlink" title="后端获取游览器默认语言"></a>后端获取游览器默认语言</h2><p>req.getLocale().getLanguage()</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-2019-05-07" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/05/25/2019-05-07/" class="article-date">
-      <time datetime="2019-05-25T10:12:16.424Z" itemprop="datePublished">2019-05-25</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/25/2019-05-07/">oracle-for</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h2><pre><code>begin
- for j in (SELECT max(hd.pfh_id) as pfh_id,
-               hd.pfh_mer_no,
-               hd.pfh_gw_no,
-               max(hd.pfh_version)
-          FROM ccps_prc_fee_hd hd
-         where hd.pfh_status = 4
-         group by hd.pfh_mer_no, hd.pfh_gw_no)     
-         loop
-   delete from ccps_prc_fee_tier t
-    where exists (select h.param_id
-          from ccps_prc_feelist_param h
-         where h.pfh_id = j.pfh_id);
-   delete from CCPS_prc_FEELIST_PARAM fp where fp.pfh_id = j.pfh_id;
-   for i in (select * from ccps_feelist_param p where p.gw_no = j.pfh_gw_no) loop
-   insert into ccps_prc_feelist_param
-    (param_id,
-     PFH_ID,
-     feelist_id,
-     contient,
-     country,
-     cardtyp,
-     chrgmth,
-     chrgcle,
-     stardate,
-     tier_flg,
-     chrgpct,
-     chrgval,
-     aft_chrgpct,
-     aft_chrgval,
-     tier_mth,
-     tier_unit,
-     succ_flag,
-     minchrgval,
-     chrg_apply_flag,
-     maxchrgval,
-     chrg_currency,
-     chrgval_currency)
-  values
-    (sq_ccps_feelist_param_seq.nextval,
-     j.pfh_id,
-     i.feelist_id,
-     i.contient,
-     i.country,
-     i.cardtyp,
-     i.chrgmth,
-     i.chrgcle,
-     i.stardate,
-     i.tier_flg,
-     i.chrgpct,
-     i.chrgval,
-     i.aft_chrgpct,
-     i.aft_chrgval,
-     i.tier_mth,
-     i.tier_unit,
-     i.succ_flag,
-     i.minchrgval,
-     i.chrg_apply_flag,
-     i.maxchrgval,
-     i.chrg_currency,
-     i.chrgval_currency);
-  for k in (select * from ccps_fee_tier t where t.param_id = i.param_id) loop
-    insert into ccps_prc_fee_tier
-      (tier_id,
-       param_id,
-       tier_frm,
-       tier_to,
-       tier_pct,
-       tier_val,
-       tier_startdate,
-       tier_aft_pct,
-       tier_aft_val)
-    values
-      (sq_ccps_fee_tier_seq.nextval,
-       sq_ccps_feelist_param_seq.currval,//取的为前面的索引
-       k.tier_frm,
-       k.tier_to,
-       k.tier_pct,
-       k.tier_val,
-       k.tier_startdate,
-       k.tier_aft_pct,
-       k.tier_aft_val);
-  end loop;
-end loop;
-end loop;
-end ;
-</code></pre>
       
     </div>
     
