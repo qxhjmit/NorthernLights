@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>读取文件,替换参数根据参数生成excel文件 | The top of the world</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="05-09 获取需要参数,动态生成需要的sql语句package ExcelToJSON;  import java.io.BufferedReader; import java.io.File; import java.io.FileReader; import java.io.IOException; import java.text.SimpleDateFormat; import java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="读取文件,替换参数根据参数生成excel文件">
+<meta property="og:url" content="whlsan.top/2019/05/25/2019-05-13/index.html">
+<meta property="og:site_name" content="The top of the world">
+<meta property="og:description" content="05-09 获取需要参数,动态生成需要的sql语句package ExcelToJSON;  import java.io.BufferedReader; import java.io.File; import java.io.FileReader; import java.io.IOException; import java.text.SimpleDateFormat; import java">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-14T00:44:38.007Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="读取文件,替换参数根据参数生成excel文件">
+<meta name="twitter:description" content="05-09 获取需要参数,动态生成需要的sql语句package ExcelToJSON;  import java.io.BufferedReader; import java.io.File; import java.io.FileReader; import java.io.IOException; import java.text.SimpleDateFormat; import java">
+  
+    <link rel="alternate" href="/atom.xml" title="The top of the world" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">The top of the world</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">去世界之极,看极光万里</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="whlsan.top"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2019-05-13" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/25/2019-05-13/" class="article-date">
+  <time datetime="2019-05-25T10:12:16.456Z" itemprop="datePublished">2019-05-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      读取文件,替换参数根据参数生成excel文件
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="05-09-获取需要参数-动态生成需要的sql语句"><a href="#05-09-获取需要参数-动态生成需要的sql语句" class="headerlink" title="05-09 获取需要参数,动态生成需要的sql语句"></a>05-09 获取需要参数,动态生成需要的sql语句</h2><pre><code>package ExcelToJSON;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import jxl.Workbook;
+import jxl.write.Label;
+import jxl.write.WritableSheet;
+import jxl.write.WritableWorkbook;
+import jxl.write.WriteException;
+
+import com.lot.back.bean.ExportDemo;
+@SuppressWarnings(&quot;resource&quot;)
+public class createInsertSql1 {
+    private static final String SAVEFILE = &quot;C:\\Users\\huangjianming\\Desktop&quot;;//存放目录
+
+public static void main(String[] args) throws Exception {
+    String i18nPath = &quot;C:\\Users\\huangjianming\\Desktop\\demoData.txt&quot;;//读取文件路径
+    getI18nPropertiesToExcel(i18nPath);
+    System.out.println(&quot;completed&quot;);
+    System.exit(0);
+}
+
+private static List&lt;File&gt; getFiles(String path) {
+    File root = new File(path);
+    List&lt;File&gt; files = new ArrayList&lt;File&gt;();
+    if (!root.isDirectory()) {
+        files.add(root);
+    } else {
+        File[] subFiles = root.listFiles();
+        for (File f : subFiles) {
+            files.addAll(getFiles(f.getAbsolutePath()));
+        }
+    }
+    return files;
+}
+
+//通过冲入的list&lt;object&gt;创建excel表格.2017
+private static String createExcel(List&lt;? extends Object&gt; list, String path) {
+    String result = &quot;&quot;;
+    if (list.size() == 0 || list == null) {
+        result = &quot;没有对象信息&quot;;
+    } else {
+        Object o = list.get(0);
+        Class&lt;? extends Object&gt; clazz = o.getClass();
+        String className = clazz.getSimpleName();
+        java.lang.reflect.Field[] fields = clazz.getDeclaredFields(); // 这里通过反射获取字段数组
+        File folder = new File(path);
+        if (!folder.exists()) {
+            folder.mkdirs();
+        }
+        //获取String类型的时间
+        String fileName = &quot;&quot;;
+        SimpleDateFormat df = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);//设置日期格式
+        String dateStr = df.format(new Date());
+        dateStr = dateStr.replaceAll(&quot;[-/:\\s]+&quot;, &quot;&quot;);
+        fileName = &quot;exportI18n&quot; + dateStr;
+        String name = fileName.concat(&quot;.xls&quot;);
+        WritableWorkbook book = null;
+        File file = null;
+        try {
+            file = new File(path.concat(File.separator).concat(name));
+            book = Workbook.createWorkbook(file); // 创建xls文件
+            WritableSheet sheet = book.createSheet(className, 0);
+            int i = 0; // 列
+            int j = 0; // 行
+            for (java.lang.reflect.Field f : fields) {
+                j = 0;
+                Label label = new Label(i, j, f.getName()); // 这里把字段名称写入excel第一行中
+                sheet.addCell(label);
+                j = 1;
+                for (Object obj : list) {
+                    Object temp = getFieldValueByName(f.getName(), obj);
+                    String strTemp = &quot;&quot;;
+                    if (temp != null) {
+                        strTemp = temp.toString();
+                    }
+                    sheet.addCell(new Label(i, j, strTemp)); // 把每个对象此字段的属性写入这一列excel中
+                    j++;
+                }
+                i++;
+            }
+            book.write();
+            result = file.getPath();
+        } catch (Exception e) {
+            result = &quot;SystemException&quot;;
+            e.printStackTrace();
+        } finally {
+
+            fileName = null;
+            name = null;
+            folder = null;
+            file = null;
+
+            if (book != null) {
+                try {
+                    book.close();
+                } catch (WriteException e) {
+                    result = &quot;WriteException&quot;;
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    result = &quot;IOException&quot;;
+                    e.printStackTrace();
+                }
+            }
+        }
+
+    }
+
+    return result; // 最后输出文件路径
+}
+
+//根据参数名生成栏位和数据
+private static Object getFieldValueByName(String fieldName, Object o) {
+    try {
+        String firstLetter = fieldName.substring(0, 1).toUpperCase();
+        String getter = &quot;get&quot; + firstLetter + fieldName.substring(1); // 获取方法名
+        java.lang.reflect.Method method = o.getClass().getMethod(getter,
+                new Class[]{}); // 获取方法对象
+        Object value = method.invoke(o, new Object[]{}); // 用invoke调用此对象的get字段方法
+        return value; // 返回值
+    } catch (Exception e) {
+        e.printStackTrace();
+        return null;
+    }
+}
+
+private static void getI18nPropertiesToExcel(String path) throws Exception {
+    List&lt;File&gt; files = getFiles(path);
+    for (File file : files) { 
+            FileReader fileReader = new FileReader(file);
+
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String line;
+            Long lineNum = 0L;
+            String first = &quot;&quot;;
+            String two = &quot;&quot;;
+            String  table = &quot;S00016&quot;;
+            String  tableName = &quot;em.&quot;;
+            List&lt;DemoData&gt; keyValueMap = new ArrayList&lt;DemoData&gt;();
+            while ((line = bufferedReader.readLine()) != null) {
+                lineNum++;
+                DemoData map = new DemoData();
+                first = &quot;insert into ccps_report_format (RF_ID, RH_ID, RF_SEQNUM, RF_COLKEY, RF_SEL_COL, RF_COLNAM_EN, RF_COLNAM_ZH, RF_KEY_TYPE, RF_DFT_SHOW, RF_FILTER_ALLOW, RF_CRTUSR, RF_CRTLOG, RF_DN_FILTER_ALLOW, RF_CONDITION, RF_CONDITION_2, RF_EMAIL_COL, RF_SETUP_HIDE_FLAG, RF_SCHDULE_HIDE_FLAG, RF_SYS_TYPE, RF_DATE_RANGE, RF_KEY_TYPE_DESC, RF_ST_CODE,RF_REPLACE)values (sq_ccps_report_format.nextval, (select rh_id from ccps_report_hd where RH_CODE = &apos;@ONE@&apos;), @TWO@, &apos;@THREE@&apos;, &apos;@FOUR@&apos;, &apos;@FIVE@&apos;, &apos;@SIX@&apos;, &apos;@SEVEN@&apos;, 0, 1, &apos;admin&apos;, systimestamp, 0, &apos;  @EIGHT@ &apos;, null ,&apos;@FOUR@&apos;, 1, 1, 2, null, &apos;@NINE@&apos;, null ,&apos;@replace1&apos;);&quot;;
+                two = &quot;insert into ccps_report_profile_format (RFP_ID, RFM_ID, RF_ID, RFP_SEQNUM, RFP_SHOW_FLAG, RFP_FILTER_FLAG, RFP_CRTUSR, RFP_CRTLOG) values (sq_ccps_report_profile_format.nextval, (select RFM_ID from ccps_report_mer_profile where rh_id = (select rh_id from ccps_report_hd where RH_CODE = &apos;@ONE@&apos;) and RFM_PROFILE = &apos;Default&apos;), (select rf_id from ccps_report_format where RH_ID = (select rh_id from ccps_report_hd where RH_CODE = &apos;@ONE@&apos;) and RF_COLKEY = &apos;@TWO@&apos;), @THREE@, 1, 0, &apos;admin&apos;, systimestamp);&quot;;
+                String[] lineList = line.split(&quot;;&quot;);  
+                String type = &quot;S&quot;;
+                String types = &quot;string&quot;;
+                String lineType = lineList[2];
+                if(lineType.contains(&quot;NUMBER&quot;)) {
+                    type = &quot;N&quot;;
+                    types = &quot;number1&quot;;
+                }else if(lineType.contains(&quot;VARCHANT&quot;)) {
+                    type = &quot;S&quot;;
+                    types = &quot;string&quot;;
+                }else if(lineType.contains(&quot;DATE&quot;)) {
+                    type = &quot;D&quot;;
+                    types = &quot;datetime&quot;;
+                }
+                String sqlOne  = first.replace(&quot;@ONE@&quot;,table).replace(&quot;@TWO@&quot;,&quot;&quot;+lineNum+&quot;&quot;).replace(&quot;@THREE@&quot;,lineList[0].trim()).replace(&quot;@FOUR@&quot;,&quot; &quot;+tableName + lineList[1].trim() + &quot; as &quot; + lineList[0].trim() +&quot;,&quot;).replace(&quot;@FIVE@&quot;,lineList[5]).replace(&quot;@SIX@&quot;,lineList[4].trim()).replace(&quot;@SEVEN@&quot;,type).replace(&quot;@EIGHT@&quot;,&quot; and &quot;+ tableName +lineList[1].trim()+&quot; = ?&quot;).replace(&quot;@NINE@&quot;,types);
+                String sqlTwo  = two.replace(&quot;@ONE@&quot;,table).replace(&quot;@TWO@&quot;,lineList[0].trim()).replace(&quot;@THREE@&quot;,&quot;&quot;+lineNum+&quot;&quot;);
+                map.setSqlOne(sqlOne);
+                map.setSqlTwo(sqlTwo);
+                keyValueMap.add(map);
+            }
+            createExcel(keyValueMap, SAVEFILE);
+    }
+}
+</code></pre><p>}</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="whlsan.top/2019/05/25/2019-05-13/" data-id="cjw50ezhb000bssu1ahigze1p" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/05/25/2019-05-14/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Oracle commonly used sql syntax
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/05/25/2019-05-10/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">使用打印功能重新渲染页面,导致jq按钮功能失效!</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/05/25/2019-05-22/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/25/2019-05-21/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/25/2019-05-20/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/25/2019-05-15/">页面的重绘</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/25/2019-05-14/">Oracle commonly used sql syntax</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 极点之上<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
