@@ -267,6 +267,156 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-2019-05-27" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/05/27/2019-05-27/" class="article-date">
+      <time datetime="2019-05-27T02:08:53.421Z" itemprop="datePublished">2019-05-27</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/27/2019-05-27/">90%程序员都没有完全答对Cookie和Session的区别</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>第一层楼</p>
+<p>什么是 Cookie 和 Session ?初级程序员高频面试题。</p>
+<p>什么是 Cookie</p>
+<p>HTTP Cookie（也叫 Web Cookie或浏览器 Cookie）是服务器发送到用户浏览器并保存在本地的一小块数据，它会在浏览器下次向同一服务器再发起请求时被携带并发送到服务器上。通常，它用于告知服务端两个请求是否来自同一浏览器，如保持用户的登录状态。Cookie 使基于无状态的 HTTP 协议记录稳定的状态信息成为了可能。</p>
+<p>Cookie 主要用于以下三个方面：<br>◾会话状态管理（如用户登录状态、购物车、游戏分数或其它需要记录的信息）<br>◾个性化设置（如用户自定义设置、主题等）<br>◾浏览器行为跟踪（如跟踪分析用户行为等）</p>
+<p>什么是 Session</p>
+<p>Session 代表着服务器和客户端一次会话的过程。Session 对象存储特定用户会话所需的属性及配置信息。这样，当用户在应用程序的 Web 页之间跳转时，存储在 Session 对象中的变量将不会丢失，而是在整个用户会话中一直存在下去。当客户端关闭会话，或者 Session 超时失效时会话结束。</p>
+<p>第二层楼</p>
+<p>Cookie 和 Session 有什么不同？<br>◾作用范围不同，Cookie 保存在客户端（浏览器），Session 保存在服务器端。<br>◾存取方式的不同，Cookie 只能保存 ASCII，Session 可以存任意数据类型，一般情况下我们可以在 Session 中保持一些常用变量信息，比如说 UserId 等。<br>◾有效期不同，Cookie 可设置为长时间保持，比如我们经常使用的默认登录功能，Session 一般失效时间较短，客户端关闭或者 Session 超时都会失效。<br>◾隐私策略不同，Cookie 存储在客户端，比较容易遭到不法获取，早期有人将用户的登录名和密码存储在 Cookie 中导致信息被窃取；Session 存储在服务端，安全性相对 Cookie 要好一些。<br>◾存储大小不同， 单个 Cookie 保存的数据不能超过 4K，Session 可存储数据远高于 Cookie。</p>
+<p>前两层楼内容，绝大部分同学都可以准确回答</p>
+<p>第三层楼</p>
+<p>为什么需要 Cookie 和 Session，他们有什么关联？</p>
+<p>说起来为什么需要 Cookie ，这就需要从浏览器开始说起，我们都知道浏览器是没有状态的(HTTP 协议无状态)，这意味着浏览器并不知道是张三还是李四在和服务端打交道。这个时候就需要有一个机制来告诉服务端，本次操作用户是否登录，是哪个用户在执行的操作，那这套机制的实现就需要 Cookie 和 Session 的配合。</p>
+<p>那么 Cookie 和 Session 是如何配合的呢？我画了一张图大家可以先了解下。</p>
+<p>90%程序员都没有完全答对Cookie和Session的区别<br>用户第一次请求服务器的时候，服务器根据用户提交的相关信息，创建创建对应的 Session ，请求返回时将此 Session 的唯一标识信息 SessionID 返回给浏览器，浏览器接收到服务器返回的 SessionID 信息后，会将此信息存入到 Cookie 中，同时 Cookie 记录此 SessionID 属于哪个域名。</p>
+<p>当用户第二次访问服务器的时候，请求会自动判断此域名下是否存在 Cookie 信息，如果存在自动将 Cookie 信息也发送给服务端，服务端会从 Cookie 中获取 SessionID，再根据 SessionID 查找对应的 Session 信息，如果没有找到说明用户没有登录或者登录失效，如果找到 Session 证明用户已经登录可执行后面操作。</p>
+<p>根据以上流程可知，SessionID 是连接 Cookie 和 Session 的一道桥梁，大部分系统也是根据此原理来验证用户登录状态。</p>
+<p>三层楼的内容，大部分同学可以讲清楚。</p>
+<p>第四层楼</p>
+<p>既然服务端是根据 Cookie 中的信息判断用户是否登录，那么如果浏览器中禁止了 Cookie，如何保障整个机制的正常运转。</p>
+<p>第一种方案，每次请求中都携带一个 SessionID 的参数，也可以 Post 的方式提交，也可以在请求的地址后面拼接 xxx?SessionID=123456…。</p>
+<p>第二种方案，Token 机制。Token 机制多用于 App 客户端和服务器交互的模式，也可以用于 Web 端做用户状态管理。</p>
+<p>Token 的意思是“令牌”，是服务端生成的一串字符串，作为客户端进行请求的一个标识。Token 机制和 Cookie 和 Session 的使用机制比较类似。</p>
+<p>当用户第一次登录后，服务器根据提交的用户信息生成一个 Token，响应时将 Token 返回给客户端，以后客户端只需带上这个 Token 前来请求数据即可，无需再次登录验证。</p>
+<p>四层楼的内容，一部分同学可以讲清楚。</p>
+<p>第五层楼</p>
+<p>如何考虑分布式 Session 问题？</p>
+<p>在互联网公司为了可以支撑更大的流量，后端往往需要多台服务器共同来支撑前端用户请求，那如果用户在 A 服务器登录了，第二次请求跑到服务 B 就会出现登录失效问题。</p>
+<p>分布式 Session 一般会有以下几种解决方案：<br>◾Nginx ip_hash 策略，服务端使用 Nginx 代理，每个请求按访问 IP 的 hash 分配，这样来自同一 IP 固定访问一个后台服务器，避免了在服务器 A 创建 Session，第二次分发到服务器 B 的现象。<br>◾Session 复制，任何一个服务器上的 Session 发生改变（增删改），该节点会把这个 Session 的所有内容序列化，然后广播给所有其它节点。<br>◾共享 Session，服务端无状态话，将用户的 Session 等信息使用缓存中间件来统一管理，保障分发到每一个服务器的响应结果都一致。</p>
+<p>建议采用第三种方案。</p>
+<p>第六层楼</p>
+<p>如何解决跨域请求？Jsonp 跨域的原理是什么？</p>
+<p>说起跨域请求，必须要了解浏览器的同源策略，同源策略/SOP（Same origin policy）是一种约定，由 Netscape 公司 1995年引入浏览器，它是浏览器最核心也最基本的安全功能，如果缺少了同源策略，浏览器很容易受到 XSS、CSFR 等攻击。所谓同源是指”协议+域名+端口”三者相同，即便两个不同的域名指向同一个 ip 地址，也非同源。</p>
+<p>解决跨域请求的常用方法是：<br>◾通过代理来避免，比如使用 Nginx 在后端转发请求，避免了前端出现跨域的问题。<br>◾通过 Jsonp 跨域<br>◾其它跨域解决方案</p>
+<p>重点谈一下 Jsonp 跨域原理。浏览器的同源策略把跨域请求都禁止了，但是页面中的 <script><img><iframe>标签是例外，不受同源策略限制。Jsonp 就是利用 <script> 标签跨域特性进行跨域数据访问。</p>
+<p>JSONP 的理念就是，与服务端约定好一个回调函数名，服务端接收到请求后，将返回一段 Javascript，在这段 Javascript 代码中调用了约定好的回调函数，并且将数据作为参数进行传递。当网页接收到这段 Javascript 代码后，就会执行这个回调函数，这时数据已经成功传输到客户端了。</p>
+<p>JSONP 的缺点是：它只支持 GET 请求，而不支持 POST 请求等其他类型的 HTTP 请求。</p>
+<p>以上就是有关 Cookie 和 Session 常见的面试点，不知道有多少同学可以在面试中准确回答所有问题。</p>
+<p>转载自:<a href="https://www.toutiao.com/a6693986851193094664/?tt_from=weixin&amp;utm_campaign=client_share&amp;wxshare_count=1&amp;timestamp=1558654439&amp;app=news_article&amp;utm_source=weixin&amp;utm_medium=toutiao_ios&amp;req_id=2019052407335801002205604796699C4&amp;group_id=6693986851193094664">https://www.toutiao.com/a6693986851193094664/?tt_from=weixin&amp;utm_campaign=client_share&amp;wxshare_count=1&amp;timestamp=1558654439&amp;app=news_article&amp;utm_source=weixin&amp;utm_medium=toutiao_ios&amp;req_id=2019052407335801002205604796699C4&amp;group_id=6693986851193094664</a></p>
+</script></p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-2019-05-25" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/05/27/2019-05-25/" class="article-date">
+      <time datetime="2019-05-27T00:46:50.495Z" itemprop="datePublished">2019-05-27</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/27/2019-05-25/">SEO优化</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>1.百度抓取标题一定是从h1-&gt;h2-&gt;h3…<br>2.请求的时候尽量用get请求而不是用post请求,这里由于百度抓取的时候是很难抓取或者根本抓取不到post请求的内容.<br>3.页面的路径要用绝对路径,而相对路径百度是抓取不到的<br>4.在一个网站里放一个xml文件,把网站所有页面的绝对路径存放到里面有利于搜索引擎抓取.<br>5.如果你不想让百度爬虫爬去, 而想要他只能站内搜索,可以添加一个js文件,来告诉百度爬虫,不让你爬去我网站里面的内容.例如淘宝内的商品只能在淘宝内搜索.</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-2019-05-24" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -323,10 +473,10 @@
 
 
   
-    <article id="post-2019-05-24-26" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2019-05-26" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/05/26/2019-05-24-26/" class="article-date">
+      <a href="/2019/05/26/2019-05-26/" class="article-date">
       <time datetime="2019-05-26T15:06:38.093Z" itemprop="datePublished">2019-05-26</time>
 </a>
 
@@ -342,7 +492,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/26/2019-05-24-26/">原型</a>
+      <a class="article-title" href="/2019/05/26/2019-05-26/">原型</a>
     </h1>
   
 
@@ -1155,303 +1305,9 @@ alter sequence sys_admin_loginlog_seq increment by 1;
 
 
   
-    <article id="post-2019-05-13" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/05/25/2019-05-13/" class="article-date">
-      <time datetime="2019-05-25T10:12:16.456Z" itemprop="datePublished">2019-05-25</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/25/2019-05-13/">读取文件,替换参数根据参数生成excel文件</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="05-09-获取需要参数-动态生成需要的sql语句"><a href="#05-09-获取需要参数-动态生成需要的sql语句" class="headerlink" title="05-09 获取需要参数,动态生成需要的sql语句"></a>05-09 获取需要参数,动态生成需要的sql语句</h2><pre><code>package ExcelToJSON;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
-import jxl.Workbook;
-import jxl.write.Label;
-import jxl.write.WritableSheet;
-import jxl.write.WritableWorkbook;
-import jxl.write.WriteException;
-
-import com.lot.back.bean.ExportDemo;
-@SuppressWarnings(&quot;resource&quot;)
-public class createInsertSql1 {
-    private static final String SAVEFILE = &quot;C:\\Users\\huangjianming\\Desktop&quot;;//存放目录
-
-public static void main(String[] args) throws Exception {
-    String i18nPath = &quot;C:\\Users\\huangjianming\\Desktop\\demoData.txt&quot;;//读取文件路径
-    getI18nPropertiesToExcel(i18nPath);
-    System.out.println(&quot;completed&quot;);
-    System.exit(0);
-}
-
-private static List&lt;File&gt; getFiles(String path) {
-    File root = new File(path);
-    List&lt;File&gt; files = new ArrayList&lt;File&gt;();
-    if (!root.isDirectory()) {
-        files.add(root);
-    } else {
-        File[] subFiles = root.listFiles();
-        for (File f : subFiles) {
-            files.addAll(getFiles(f.getAbsolutePath()));
-        }
-    }
-    return files;
-}
-
-//通过冲入的list&lt;object&gt;创建excel表格.2017
-private static String createExcel(List&lt;? extends Object&gt; list, String path) {
-    String result = &quot;&quot;;
-    if (list.size() == 0 || list == null) {
-        result = &quot;没有对象信息&quot;;
-    } else {
-        Object o = list.get(0);
-        Class&lt;? extends Object&gt; clazz = o.getClass();
-        String className = clazz.getSimpleName();
-        java.lang.reflect.Field[] fields = clazz.getDeclaredFields(); // 这里通过反射获取字段数组
-        File folder = new File(path);
-        if (!folder.exists()) {
-            folder.mkdirs();
-        }
-        //获取String类型的时间
-        String fileName = &quot;&quot;;
-        SimpleDateFormat df = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);//设置日期格式
-        String dateStr = df.format(new Date());
-        dateStr = dateStr.replaceAll(&quot;[-/:\\s]+&quot;, &quot;&quot;);
-        fileName = &quot;exportI18n&quot; + dateStr;
-        String name = fileName.concat(&quot;.xls&quot;);
-        WritableWorkbook book = null;
-        File file = null;
-        try {
-            file = new File(path.concat(File.separator).concat(name));
-            book = Workbook.createWorkbook(file); // 创建xls文件
-            WritableSheet sheet = book.createSheet(className, 0);
-            int i = 0; // 列
-            int j = 0; // 行
-            for (java.lang.reflect.Field f : fields) {
-                j = 0;
-                Label label = new Label(i, j, f.getName()); // 这里把字段名称写入excel第一行中
-                sheet.addCell(label);
-                j = 1;
-                for (Object obj : list) {
-                    Object temp = getFieldValueByName(f.getName(), obj);
-                    String strTemp = &quot;&quot;;
-                    if (temp != null) {
-                        strTemp = temp.toString();
-                    }
-                    sheet.addCell(new Label(i, j, strTemp)); // 把每个对象此字段的属性写入这一列excel中
-                    j++;
-                }
-                i++;
-            }
-            book.write();
-            result = file.getPath();
-        } catch (Exception e) {
-            result = &quot;SystemException&quot;;
-            e.printStackTrace();
-        } finally {
-
-            fileName = null;
-            name = null;
-            folder = null;
-            file = null;
-
-            if (book != null) {
-                try {
-                    book.close();
-                } catch (WriteException e) {
-                    result = &quot;WriteException&quot;;
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    result = &quot;IOException&quot;;
-                    e.printStackTrace();
-                }
-            }
-        }
-
-    }
-
-    return result; // 最后输出文件路径
-}
-
-//根据参数名生成栏位和数据
-private static Object getFieldValueByName(String fieldName, Object o) {
-    try {
-        String firstLetter = fieldName.substring(0, 1).toUpperCase();
-        String getter = &quot;get&quot; + firstLetter + fieldName.substring(1); // 获取方法名
-        java.lang.reflect.Method method = o.getClass().getMethod(getter,
-                new Class[]{}); // 获取方法对象
-        Object value = method.invoke(o, new Object[]{}); // 用invoke调用此对象的get字段方法
-        return value; // 返回值
-    } catch (Exception e) {
-        e.printStackTrace();
-        return null;
-    }
-}
-
-private static void getI18nPropertiesToExcel(String path) throws Exception {
-    List&lt;File&gt; files = getFiles(path);
-    for (File file : files) { 
-            FileReader fileReader = new FileReader(file);
-
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-            String line;
-            Long lineNum = 0L;
-            String first = &quot;&quot;;
-            String two = &quot;&quot;;
-            String  table = &quot;S00016&quot;;
-            String  tableName = &quot;em.&quot;;
-            List&lt;DemoData&gt; keyValueMap = new ArrayList&lt;DemoData&gt;();
-            while ((line = bufferedReader.readLine()) != null) {
-                lineNum++;
-                DemoData map = new DemoData();
-                first = &quot;insert into ccps_report_format (RF_ID, RH_ID, RF_SEQNUM, RF_COLKEY, RF_SEL_COL, RF_COLNAM_EN, RF_COLNAM_ZH, RF_KEY_TYPE, RF_DFT_SHOW, RF_FILTER_ALLOW, RF_CRTUSR, RF_CRTLOG, RF_DN_FILTER_ALLOW, RF_CONDITION, RF_CONDITION_2, RF_EMAIL_COL, RF_SETUP_HIDE_FLAG, RF_SCHDULE_HIDE_FLAG, RF_SYS_TYPE, RF_DATE_RANGE, RF_KEY_TYPE_DESC, RF_ST_CODE,RF_REPLACE)values (sq_ccps_report_format.nextval, (select rh_id from ccps_report_hd where RH_CODE = &apos;@ONE@&apos;), @TWO@, &apos;@THREE@&apos;, &apos;@FOUR@&apos;, &apos;@FIVE@&apos;, &apos;@SIX@&apos;, &apos;@SEVEN@&apos;, 0, 1, &apos;admin&apos;, systimestamp, 0, &apos;  @EIGHT@ &apos;, null ,&apos;@FOUR@&apos;, 1, 1, 2, null, &apos;@NINE@&apos;, null ,&apos;@replace1&apos;);&quot;;
-                two = &quot;insert into ccps_report_profile_format (RFP_ID, RFM_ID, RF_ID, RFP_SEQNUM, RFP_SHOW_FLAG, RFP_FILTER_FLAG, RFP_CRTUSR, RFP_CRTLOG) values (sq_ccps_report_profile_format.nextval, (select RFM_ID from ccps_report_mer_profile where rh_id = (select rh_id from ccps_report_hd where RH_CODE = &apos;@ONE@&apos;) and RFM_PROFILE = &apos;Default&apos;), (select rf_id from ccps_report_format where RH_ID = (select rh_id from ccps_report_hd where RH_CODE = &apos;@ONE@&apos;) and RF_COLKEY = &apos;@TWO@&apos;), @THREE@, 1, 0, &apos;admin&apos;, systimestamp);&quot;;
-                String[] lineList = line.split(&quot;;&quot;);  
-                String type = &quot;S&quot;;
-                String types = &quot;string&quot;;
-                String lineType = lineList[2];
-                if(lineType.contains(&quot;NUMBER&quot;)) {
-                    type = &quot;N&quot;;
-                    types = &quot;number1&quot;;
-                }else if(lineType.contains(&quot;VARCHANT&quot;)) {
-                    type = &quot;S&quot;;
-                    types = &quot;string&quot;;
-                }else if(lineType.contains(&quot;DATE&quot;)) {
-                    type = &quot;D&quot;;
-                    types = &quot;datetime&quot;;
-                }
-                String sqlOne  = first.replace(&quot;@ONE@&quot;,table).replace(&quot;@TWO@&quot;,&quot;&quot;+lineNum+&quot;&quot;).replace(&quot;@THREE@&quot;,lineList[0].trim()).replace(&quot;@FOUR@&quot;,&quot; &quot;+tableName + lineList[1].trim() + &quot; as &quot; + lineList[0].trim() +&quot;,&quot;).replace(&quot;@FIVE@&quot;,lineList[5]).replace(&quot;@SIX@&quot;,lineList[4].trim()).replace(&quot;@SEVEN@&quot;,type).replace(&quot;@EIGHT@&quot;,&quot; and &quot;+ tableName +lineList[1].trim()+&quot; = ?&quot;).replace(&quot;@NINE@&quot;,types);
-                String sqlTwo  = two.replace(&quot;@ONE@&quot;,table).replace(&quot;@TWO@&quot;,lineList[0].trim()).replace(&quot;@THREE@&quot;,&quot;&quot;+lineNum+&quot;&quot;);
-                map.setSqlOne(sqlOne);
-                map.setSqlTwo(sqlTwo);
-                keyValueMap.add(map);
-            }
-            createExcel(keyValueMap, SAVEFILE);
-    }
-}
-</code></pre><p>}</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-2019-05-10" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/05/25/2019-05-10/" class="article-date">
-      <time datetime="2019-05-25T10:12:16.447Z" itemprop="datePublished">2019-05-25</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/25/2019-05-10/">使用打印功能重新渲染页面,导致jq按钮功能失效!</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="05-09-用jq绑定的节点按钮失效"><a href="#05-09-用jq绑定的节点按钮失效" class="headerlink" title="05-09 用jq绑定的节点按钮失效."></a>05-09 用jq绑定的节点按钮失效.</h2><pre><code>var OldDdhtml = window.document.body.innerHTML;//获取当前页的html代码    
-var prnhtml = &quot;html&quot;;//这里随便定义,可以定义任意html内容
-window.document.body.innerHTML = prnhtml; 
-window.document.body.innerHTML = OldDdhtml;
-使用上述方法改变页面内容,导致按钮点击事件失效.
-</code></pre><p>原因分析:由于直接使用节点绑定事件,当页面重新内容替换,虽然没有改变布局,但是节点的点击事件并没有重新绑定,导致了按钮点击事件失效.</p>
-<p>解决方法:</p>
-<p>第一种方法:重新刷新当前页 —– window.location.reload();</p>
-<p>第二种方法:如果你是用节点绑定事件,例如:$(‘.button’).clcik(function(){}),改用用document绑定$(document).on(‘click’,’.button’,function(){})这样就可以解决按钮事件失效.<br>为什么这样可以处理这个问题,这就是你直接操作节点,但是你页面并没有重新渲染,导致事件没有绑定,但是如果直接把时间绑定在document上,在去寻找这个节点,就可以找寻得到.   </p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </div>
