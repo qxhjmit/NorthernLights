@@ -15,17 +15,17 @@
 
 
 
-<meta name="description" content="如何在线上直接跳过一个验证方法。1.重写函数方法即可。 #点击元素以为的位置，隐藏该元素。    $(‘.protocoll-content .layer-main’).click(function(){        event.stopPropagation();    });    $(document).click(function(){       $(‘.protocoll-conte">
+<meta name="description" content="#点击元素以为的位置，隐藏该元素。    $(‘.protocoll-content .layer-main’).click(function(){        event.stopPropagation();    });    $(document).click(function(){       $(‘.protocoll-content .layer-main’).hide();">
 <meta property="og:type" content="article">
-<meta property="og:title" content="页面的重绘">
+<meta property="og:title" content="jq绑定元素,事件丢失问题">
 <meta property="og:url" content="onemind.top/2019/05/25/2019-05-15/index.html">
 <meta property="og:site_name" content="The top of the world">
-<meta property="og:description" content="如何在线上直接跳过一个验证方法。1.重写函数方法即可。 #点击元素以为的位置，隐藏该元素。    $(‘.protocoll-content .layer-main’).click(function(){        event.stopPropagation();    });    $(document).click(function(){       $(‘.protocoll-conte">
+<meta property="og:description" content="#点击元素以为的位置，隐藏该元素。    $(‘.protocoll-content .layer-main’).click(function(){        event.stopPropagation();    });    $(document).click(function(){       $(‘.protocoll-content .layer-main’).hide();">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-15T11:29:56.065Z">
+<meta property="og:updated_time" content="2019-05-27T07:38:07.715Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="页面的重绘">
-<meta name="twitter:description" content="如何在线上直接跳过一个验证方法。1.重写函数方法即可。 #点击元素以为的位置，隐藏该元素。    $(‘.protocoll-content .layer-main’).click(function(){        event.stopPropagation();    });    $(document).click(function(){       $(‘.protocoll-conte">
+<meta name="twitter:title" content="jq绑定元素,事件丢失问题">
+<meta name="twitter:description" content="#点击元素以为的位置，隐藏该元素。    $(‘.protocoll-content .layer-main’).click(function(){        event.stopPropagation();    });    $(document).click(function(){       $(‘.protocoll-content .layer-main’).hide();">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -57,7 +57,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>页面的重绘 | The top of the world</title>
+<title>jq绑定元素,事件丢失问题 | The top of the world</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -280,7 +280,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      页面的重绘
+      jq绑定元素,事件丢失问题
     </h1>
   
 
@@ -297,8 +297,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="如何在线上直接跳过一个验证方法。"><a href="#如何在线上直接跳过一个验证方法。" class="headerlink" title="如何在线上直接跳过一个验证方法。"></a>如何在线上直接跳过一个验证方法。</h1><pre><code>1.重写函数方法即可。
-</code></pre><p>#点击元素以为的位置，隐藏该元素。<br>    $(‘.protocoll-content .layer-main’).click(function(){<br>        event.stopPropagation();<br>    });<br>    $(document).click(function(){<br>       $(‘.protocoll-content .layer-main’).hide();<br>    });</p>
+        <p>#点击元素以为的位置，隐藏该元素。<br>    $(‘.protocoll-content .layer-main’).click(function(){<br>        event.stopPropagation();<br>    });<br>    $(document).click(function(){<br>       $(‘.protocoll-content .layer-main’).hide();<br>    });</p>
 <p>#重新绘制元素，需要注意调用方式，不能直接用该元素绑定事件，由于页面部分重绘导致，找不到该元素。<br>    例如：var pprotocollContent = $(“.layer-main .layer-main-content”).html();<br>         pprotocollContent = pprotocollContent.replace(“@card@”,cardNumber).replace(“@date@”,month+”/“+year);<br>         $(“.layer-main .layer-main-content”).html(pprotocollCont);<br>         //不能直接用一下方式绑定：<br>         $(‘.protocoll-content .layer-main .layer-main-content’).click(function(){<br>            console.log(1)<br>         });<br>          //用以下方式绑定：<br>         $(document).on(‘click’,’.protocoll-content .layer-main .layer-main-content’,function(){<br>            $(‘.protocoll-content .layer-main’).hide();<br>          });</p>
 <p>#数据库连接池自动断开<br>     java.sql.SQLException: Couldn’t perform the operation setAutoCommit: You can’t perform any operations on this connection. It has been automatically closed by Proxool for some reason (see logs).<br>       解决方法：错误的意思是说，由于某些原因连接被Proxool自动关闭，出现这种情况，一般有如下原因：</p>
 <pre><code>1.可能为连接数据库超时，比如调试时，对一个窗口停留太久。（对Lucene建立的站内搜索时，俺就出现了这个错误~）
@@ -310,7 +309,8 @@
  &lt;proxool.simultaneousBuildThrottle&gt;20&lt;/proxool.simultaneousBuildThrottle&gt;//同时最大连接数
 
 连接数够用，但是同时最大连接数设置的小了点，取不到连接导致报错。
-</code></pre>
+</code></pre><p>##如何在线上直接跳过一个验证方法。<br>     1.重写函数方法即可。</p>
+
       
     </div>
     
@@ -318,12 +318,12 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/05/25/2019-05-15/">页面的重绘</a></p>
+        <p><span>本文标题:</span><a href="/2019/05/25/2019-05-15/">jq绑定元素,事件丢失问题</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">极点之上</a></p>
         <p><span>发布时间:</span>2019-05-25, 18:12:16</p>
-        <p><span>最后更新:</span>2019-05-15, 19:29:56</p>
+        <p><span>最后更新:</span>2019-05-27, 15:38:07</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/05/25/2019-05-15/" title="页面的重绘">onemind.top/2019/05/25/2019-05-15/</a>
+            <span>原始链接:</span><a class="post-url" href="/2019/05/25/2019-05-15/" title="jq绑定元素,事件丢失问题">onemind.top/2019/05/25/2019-05-15/</a>
             <span class="copy-path" data-clipboard-text="原文: onemind.top/2019/05/25/2019-05-15/　　作者: 极点之上" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -357,7 +357,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#如何在线上直接跳过一个验证方法。"><span class="toc-number">1.</span> <span class="toc-text">如何在线上直接跳过一个验证方法。</span></a></li></ol>
+            
         
     </div>
     <style>
@@ -393,7 +393,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"页面的重绘　| The top of the world　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"jq绑定元素,事件丢失问题　| The top of the world　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -427,7 +427,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/05/27/2019-05-27/">90%程序员都没有完全答对Cookie和Session的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/27/2019-05-25/">SEO优化</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/26/2019-05-24/">页面的重绘</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/26/2019-05-26/">原型</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/26/2019-05-23/">混合对象"类"。</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-22/">小王子</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-21/">对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-20/">恰似花火</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-15/">页面的重绘</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-14/">Oracle commonly used sql syntax</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-13/">读取文件,替换参数根据参数生成excel文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-10/">使用打印功能重新渲染页面,导致jq按钮功能失效!</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-08/">根据游览器所在国家选中语言</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-07/">oracle-for</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-05/">List  remove</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-04-25/">Regular configuration</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-04-24/">java你不知道的list转换!</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-04-23/">激活window操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-03-28/">List  remove</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-03-10/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2015-05-04/">window.print()打印</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/05/27/hotKey/">注释配置和快捷键啊</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/27/2019-05-27-01/">5-27</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/27/2019-05-27/">90%程序员都没有完全答对Cookie和Session的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/27/2019-05-25/">SEO优化</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/26/2019-05-24/">原型</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/26/2019-05-26/">原型</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/26/2019-05-23/">混合对象"类"。</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-22/">小王子</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-21/">对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-20/">恰似花火</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-15/">jq绑定元素,事件丢失问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-14/">Oracle commonly used sql syntax</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-13/">读取文件,替换参数根据参数生成excel文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-10/">使用打印功能重新渲染页面,导致jq按钮功能失效!</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-08/">根据游览器所在国家选中语言</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-07/">oracle-for</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-05-05/">List  remove</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-04-25/">Regular configuration</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-04-24/">java你不知道的list转换!</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-04-23/">激活window操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-03-28/">List  remove</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2019-03-10/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/2015-05-04/">window.print()打印</a></li></ul>
 
 
 

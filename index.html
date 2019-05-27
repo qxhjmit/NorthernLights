@@ -267,6 +267,237 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-hotKey" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/05/27/hotKey/" class="article-date">
+      <time datetime="2019-05-27T05:36:59.965Z" itemprop="datePublished">2019-05-27</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/27/hotKey/">注释配置和快捷键啊</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>转载自:<a href="https://www.cnblogs.com/chenmingjun/p/8876837.html" target="_blank" rel="noopener">https://www.cnblogs.com/chenmingjun/p/8876837.html</a><br>    一、多行注释快捷键</p>
+<pre><code>　　1.选中你要加注释的区域，用 Ctrl+Shift+C 或者 Ctrl+/ 会加上 // 注释，再重复按一下就会去掉 // 注释。（.js文件中只有 Ctrl+Shift+C 管用，.java文件中都管用）
+
+　　2.选中你要加注释的区域，用 Ctrl+shit+/  会加上 /*...*/ 注释，再用 Ctrl+shit+\  会去掉 /*...*/ 注释。（注意：正斜杠是加注释，反斜杠是去掉注释）
+
+　　3.要修改在eclispe中的命令的快捷键方式我们只需进入 Windows -&gt; Preferences -&gt; General -&gt; keys 设置就行。
+
+二、Eclipse中添加文档注释快捷键
+
+　　1.例如默认的文档注释：
+
+　　　　/**   
+　　　　* @author xxx
+　　　　* 
+　　　　* 
+　　　　*/
+
+　　2.快捷键为：Alt+Shift+J
+
+　　3.修改文档注释的注释格式内容，修改的方法有两种：
+
+　　　　A.直接在eclipse给的模板下进行修改
+
+　　　　打开Eclipse
+
+　　　　Window --&gt; Preferences --&gt; Java --&gt; Code Style  --&gt; Code Templates --&gt; Comments --&gt; types --&gt; Edit...
+
+　　　　例如：
+
+　　　　/**   
+　　　　* 项目名称：${project_name}   
+　　　　* 类名称：${type_name}   
+　　　　* 类描述：   
+　　　　* 创建人：${user}   
+　　　　* 创建时间：${date} ${time}   
+　　　　* @version        
+　　　　*/
+
+
+
+　　　　B.自己编写一个xml文档导入进去
+
+　　　　打开Eclipse
+
+　　　　Window --&gt; Preferences --&gt; Java --&gt; Code Style --&gt; Code Templates --&gt; Comments --&gt; types --&gt; Import...
+
+  　　　  选择你写好的模板.xml文件
+
+Eclipse中默认的模板.xml文件如下：
+
+复制代码
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;templates&gt;&lt;template autoinsert=&quot;true&quot; context=&quot;constructorcomment_context&quot; deleted=&quot;false&quot; description=&quot;Comment for created constructors&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.constructorcomment&quot; name=&quot;constructorcomment&quot;&gt;/**
+ * ${tags}
+ */&lt;/template&gt;&lt;template autoinsert=&quot;false&quot; context=&quot;typecomment_context&quot; deleted=&quot;false&quot; description=&quot;Comment for created types&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.typecomment&quot; name=&quot;typecomment&quot;&gt;/**
+ * @author ${user}
+ *
+ * ${tags}
+ */    &lt;/template&gt;&lt;template autoinsert=&quot;true&quot; context=&quot;fieldcomment_context&quot; deleted=&quot;false&quot; description=&quot;Comment for fields&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.fieldcomment&quot; name=&quot;fieldcomment&quot;&gt;/**
+ * 
+ */&lt;/template&gt;&lt;template autoinsert=&quot;true&quot; context=&quot;settercomment_context&quot; deleted=&quot;false&quot; description=&quot;Comment for setter method&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.settercomment&quot; name=&quot;settercomment&quot;&gt;/**
+ * @param ${param} the ${bare_field_name} to set
+ */&lt;/template&gt;&lt;template autoinsert=&quot;true&quot; context=&quot;filecomment_context&quot; deleted=&quot;false&quot; description=&quot;Comment for created Java files&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.filecomment&quot; name=&quot;filecomment&quot;&gt;/**
+ * 
+ */&lt;/template&gt;&lt;template autoinsert=&quot;true&quot; context=&quot;gettercomment_context&quot; deleted=&quot;false&quot; description=&quot;Comment for getter method&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.gettercomment&quot; name=&quot;gettercomment&quot;&gt;/**
+ * @return the ${bare_field_name}
+ */&lt;/template&gt;&lt;template autoinsert=&quot;true&quot; context=&quot;methodcomment_context&quot; deleted=&quot;false&quot; description=&quot;Comment for non-overriding methods&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.methodcomment&quot; name=&quot;methodcomment&quot;&gt;/**
+ * ${tags}
+ */&lt;/template&gt;&lt;template autoinsert=&quot;true&quot; context=&quot;delegatecomment_context&quot; deleted=&quot;false&quot; description=&quot;Comment for delegate methods&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.delegatecomment&quot; name=&quot;delegatecomment&quot;&gt;/**
+ * ${tags}
+ * ${see_to_target}
+ */&lt;/template&gt;&lt;template autoinsert=&quot;true&quot; context=&quot;overridecomment_context&quot; deleted=&quot;false&quot; description=&quot;Comment for overriding methods&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.overridecomment&quot; name=&quot;overridecomment&quot;&gt;/* (non-Javadoc)
+ * ${see_to_overridden}
+ */&lt;/template&gt;&lt;/templates&gt;
+复制代码
+自己写好的模板.xml文件如下：
+
+复制代码
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;templates&gt;&lt;template autoinsert=&quot;false&quot; context=&quot;filecomment_context&quot; deleted=&quot;false&quot; description=&quot;Comment for created Java files&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.filecomment&quot; name=&quot;filecomment&quot;/&gt;&lt;template autoinsert=&quot;false&quot; context=&quot;constructorcomment_context&quot; deleted=&quot;false&quot; description=&quot;Comment for created constructors&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.constructorcomment&quot; name=&quot;constructorcomment&quot;&gt;
+/**
+ *  Description:
+ *  @author hp  DateTime ${date} ${time}
+ *  ${tags}
+ */
+ &lt;/template&gt;&lt;template autoinsert=&quot;false&quot; context=&quot;methodcomment_context&quot; deleted=&quot;false&quot; description=&quot;Comment for non-overriding methods&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.methodcomment&quot; name=&quot;methodcomment&quot;&gt;
+/**
+ *  Description:
+ *  @author hp  DateTime ${date} ${time}
+ *  ${tags}
+ */&lt;/template&gt;&lt;template autoinsert=&quot;false&quot; context=&quot;fieldcomment_context&quot; deleted=&quot;false&quot; description=&quot;Comment for fields&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.fieldcomment&quot; name=&quot;fieldcomment&quot;&gt;
+/**
+ *  Description:
+ *  @author hp  DateTime ${date} 
+ *  
+ */&lt;/template&gt;&lt;template autoinsert=&quot;false&quot; context=&quot;typecomment_context&quot; deleted=&quot;false&quot; description=&quot;Comment for created types&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.typecomment&quot; name=&quot;typecomment&quot;&gt;
+/**
+ *  Class Name: ${file_name}
+ *  Description: 
+ *  @author hp  DateTime ${date} ${time} 
+ *  @company bvit 
+ *  @email hu.peng@bvit.com.cn  
+ *  @version 1.0
+ *  ${tags}
+ */&lt;/template&gt;&lt;template autoinsert=&quot;false&quot; context=&quot;gettercomment_context&quot; deleted=&quot;false&quot; description=&quot;Comment for getter method&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.gettercomment&quot; name=&quot;gettercomment&quot;&gt;
+/**
+ * @return get ${bare_field_name}
+ */&lt;/template&gt;&lt;template autoinsert=&quot;false&quot; context=&quot;overridecomment_context&quot; deleted=&quot;false&quot; description=&quot;Comment for overriding methods&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.overridecomment&quot; name=&quot;overridecomment&quot;&gt;
+/**
+ *  Description:
+ *  @author hp  DateTime ${date} ${time}
+ *  ${tags}
+ */&lt;/template&gt;&lt;template autoinsert=&quot;false&quot; context=&quot;delegatecomment_context&quot; deleted=&quot;false&quot; description=&quot;Comment for delegate methods&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.delegatecomment&quot; name=&quot;delegatecomment&quot;&gt;
+/**
+ * Description:
+ * @author hp DateTime ${date} 
+ * ${tags}
+ * ${see_to_target}
+ */&lt;/template&gt;&lt;template autoinsert=&quot;false&quot; context=&quot;settercomment_context&quot; deleted=&quot;false&quot; description=&quot;Comment for setter method&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.settercomment&quot; name=&quot;settercomment&quot;&gt;
+/**
+ * @param ${param} set ${bare_field_name}
+ */&lt;/template&gt;&lt;/templates&gt;
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-2019-05-27-01" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/05/27/2019-05-27-01/" class="article-date">
+      <time datetime="2019-05-27T03:37:52.667Z" itemprop="datePublished">2019-05-27</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/27/2019-05-27-01/">5-27</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>1.aci的dao没有配置(applicationContext.xml)导致执行aci任务的时候抛出空指针.</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-2019-05-27" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -436,7 +667,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/26/2019-05-24/">页面的重绘</a>
+      <a class="article-title" href="/2019/05/26/2019-05-24/">原型</a>
     </h1>
   
 
@@ -614,7 +845,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>#小王子读后感<br>看东西只有用心才能看得清楚,重要的东西眼睛是看不见的.<br>其实所有的人对于刚开始的事物感情多是一样的.只是你付出了感情和时间,才会让他独一无二.</p>
+        <p>#小王子读后感<br>1.小孩子时候的思维,才是最纯粹的,等我们长大成人就会被外物所左右,例如当你认识一个人的时候,他住的房子,开的车就可以让你评价一个人,<br>2.看东西只有用心才能看得清楚,重要的东西眼睛是看不见的.<br>其实所有的人对于刚开始的事物感情多是一样的.只是你付出了感情和时间,才会让他独一无二.</p>
 
       
     </div>
@@ -1123,162 +1354,6 @@ document.addEventListener(&apos;DOMContentLoaded&apos;,
 
 　　//JSON字符串转JSON对象
 　　obj=JSON.parse(localStorage.getItem(&quot;stor1&quot;));
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-2019-05-15" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/05/25/2019-05-15/" class="article-date">
-      <time datetime="2019-05-25T10:12:16.472Z" itemprop="datePublished">2019-05-25</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/25/2019-05-15/">页面的重绘</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="如何在线上直接跳过一个验证方法。"><a href="#如何在线上直接跳过一个验证方法。" class="headerlink" title="如何在线上直接跳过一个验证方法。"></a>如何在线上直接跳过一个验证方法。</h1><pre><code>1.重写函数方法即可。
-</code></pre><p>#点击元素以为的位置，隐藏该元素。<br>    $(‘.protocoll-content .layer-main’).click(function(){<br>        event.stopPropagation();<br>    });<br>    $(document).click(function(){<br>       $(‘.protocoll-content .layer-main’).hide();<br>    });</p>
-<p>#重新绘制元素，需要注意调用方式，不能直接用该元素绑定事件，由于页面部分重绘导致，找不到该元素。<br>    例如：var pprotocollContent = $(“.layer-main .layer-main-content”).html();<br>         pprotocollContent = pprotocollContent.replace(“@card@”,cardNumber).replace(“@date@”,month+”/“+year);<br>         $(“.layer-main .layer-main-content”).html(pprotocollCont);<br>         //不能直接用一下方式绑定：<br>         $(‘.protocoll-content .layer-main .layer-main-content’).click(function(){<br>            console.log(1)<br>         });<br>          //用以下方式绑定：<br>         $(document).on(‘click’,’.protocoll-content .layer-main .layer-main-content’,function(){<br>            $(‘.protocoll-content .layer-main’).hide();<br>          });</p>
-<p>#数据库连接池自动断开<br>     java.sql.SQLException: Couldn’t perform the operation setAutoCommit: You can’t perform any operations on this connection. It has been automatically closed by Proxool for some reason (see logs).<br>       解决方法：错误的意思是说，由于某些原因连接被Proxool自动关闭，出现这种情况，一般有如下原因：</p>
-<pre><code>1.可能为连接数据库超时，比如调试时，对一个窗口停留太久。（对Lucene建立的站内搜索时，俺就出现了这个错误~）
-
-2.网上的说法：
-
-&lt;proxool.minimumConnectionCount&gt;5&lt;/proxool.minimumConnectionCount&gt;//最小连接数
-&lt;proxool.maximumConnectionCount&gt;150&lt;/proxool.maximumConnectionCount&gt;//最大连接数
- &lt;proxool.simultaneousBuildThrottle&gt;20&lt;/proxool.simultaneousBuildThrottle&gt;//同时最大连接数
-
-连接数够用，但是同时最大连接数设置的小了点，取不到连接导致报错。
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-2019-05-14" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/05/25/2019-05-14/" class="article-date">
-      <time datetime="2019-05-25T10:12:16.469Z" itemprop="datePublished">2019-05-25</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/25/2019-05-14/">Oracle commonly used sql syntax</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="oracle常用sql语法汇总"><a href="#oracle常用sql语法汇总" class="headerlink" title="oracle常用sql语法汇总:"></a>oracle常用sql语法汇总:</h1><p>#创建表：<br>    　CREATE TABLE Student(</p>
-<pre><code>　　　　id varchar2(32) primary key,
-
-　　　　name varchar2(8) not null,
-
-　　　　age number
-
-　　);
-</code></pre><p>#修改字段名:<br>    alter table Student rename name to StuName;</p>
-<p>#修改数据类型：<br>    alter table Student modify (id varchar2(64));</p>
-<p>#添加字段<br>    alter table 表名 add 新字段名 类型+长度</p>
-<p>例如:alter table test add pid varchar2(10);</p>
-<p>#添加备注<br>    comment on column  test.pid  IS  ‘测试备注’;</p>
-<p>#删除字段<br>    ALTER TABLE ccps_report_hd DROP COLUMN RH_MENU_POSITION;</p>
-<p>#修改增值序列<br>    alter sequence sq_CCPS_TRADERECORD_STATUS increment by 1;</p>
-<p>#字段名查表<br>    select * from user_tab_columns t where t.COLUMN_NAME =’BCI_SEND_ORDERNO_FLAG’;</p>
-<p>#分组<br>    –使用分析函数row_number() over (partiion by … order by …)来进行分组编号，然后取分组标号值为1的记录即可。目前主流的数据库都有支持分析函数，很好用。</p>
-<pre><code>--其中，partition by 是指定按哪些字段进行分组，这些字段值相同的记录将在一起编号；order by则是指定在同一组中进行编号时是按照怎样的顺序。
-
-select s.*  from ( 
-    select pfh.*, row_number() over (partition by pfh.pfh_mer_no,pfh.pfh_gw_no,pfh.pfh_version order by pfh.pfh_version) as group_idx  
-    from ccps_prc_fee_hd pfh where pfh.pfh_mer_no = 21580
-) s
-where s.group_idx = 1
-</code></pre><p>#去重<br>    select  distinct(a.rf_key_type_desc) from ccps_report_format a</p>
-<p>#删除 或者更新失误返回数据(不适用有外键的表)<br>    select * from ccps_report_format as of timestamp to_timestamp(‘2018-05-11 16:48:11’,’yyyy-mm-dd hh24:mi:ss’)<br>    alter table ccps_report_format enable row movement;<br>    flashback table ccps_report_format to timestamp to_timestamp(‘2018-05-11 16:48:11’,’yyyy-mm-dd hh24:mi:ss’)</p>
-<p>#合并多列成一个字符串，多行成一个字符串<br>    select deptno,listagg(ename,’,’)within group(order by sal)name from emp group by deptno;</p>
-<p>#过滤重复数据<br>    select <em> from xi a where (a.username) in  (select username from xi group by username  having count(</em>) &gt; 1)</p>
-<p>#删除重复数据<br>    delete from ccps_test_1 a where (a.PARAM_ID) in (select ft.PARAM_ID from ccps_test_1 t , ccps_test_2 ft where t.param_id=ft.param_id and ft.gw_no = 9999999999001 group by ft.PARAM_ID having count(<em>) &gt; 1) and rowid not in (select min(rowid) from ccps_test_1 t   group by t.PARAM_ID having count(</em>) &gt; 1)</p>
-<p>#自增索引</p>
-<pre><code>alter sequence sys_admin_loginlog_seq increment by 30000;
-  select sys_admin_loginlog_seq.nextval from dual;
-alter sequence sys_admin_loginlog_seq increment by 1;
 </code></pre>
       
     </div>
