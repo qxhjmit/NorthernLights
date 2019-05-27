@@ -442,62 +442,6 @@ Eclipse中默认的模板.xml文件如下：
 
 
   
-    <article id="post-2019-05-27-01" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/05/27/2019-05-27-01/" class="article-date">
-      <time datetime="2019-05-27T03:37:52.667Z" itemprop="datePublished">2019-05-27</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/27/2019-05-27-01/">5-27</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>1.aci的dao没有配置(applicationContext.xml)导致执行aci任务的时候抛出空指针.</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-2019-05-27" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -517,7 +461,7 @@ Eclipse中默认的模板.xml文件如下：
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/27/2019-05-27/">90%程序员都没有完全答对Cookie和Session的区别</a>
+      <a class="article-title" href="/2019/05/27/2019-05-27/">5-27</a>
     </h1>
   
 
@@ -527,46 +471,8 @@ Eclipse中默认的模板.xml文件如下：
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>来自：Java极客技术<br>转载自:<a href="https://www.toutiao.com/a6693986851193094664/?tt_from=weixin&amp;utm_campaign=client_share&amp;wxshare_count=1&amp;timestamp=1558654439&amp;app=news_article&amp;utm_source=weixin&amp;utm_medium=toutiao_ios&amp;req_id=2019052407335801002205604796699C4&amp;group_id=6693986851193094664" target="_blank" rel="noopener">https://www.toutiao.com/a6693986851193094664/?tt_from=weixin&amp;utm_campaign=client_share&amp;wxshare_count=1&amp;timestamp=1558654439&amp;app=news_article&amp;utm_source=weixin&amp;utm_medium=toutiao_ios&amp;req_id=2019052407335801002205604796699C4&amp;group_id=6693986851193094664</a></p>
-<p>第一层楼</p>
-<p>什么是 Cookie 和 Session ?初级程序员高频面试题。</p>
-<p>什么是 Cookie</p>
-<p>HTTP Cookie（也叫 Web Cookie或浏览器 Cookie）是服务器发送到用户浏览器并保存在本地的一小块数据，它会在浏览器下次向同一服务器再发起请求时被携带并发送到服务器上。通常，它用于告知服务端两个请求是否来自同一浏览器，如保持用户的登录状态。Cookie 使基于无状态的 HTTP 协议记录稳定的状态信息成为了可能。</p>
-<p>Cookie 主要用于以下三个方面：<br>◾会话状态管理（如用户登录状态、购物车、游戏分数或其它需要记录的信息）<br>◾个性化设置（如用户自定义设置、主题等）<br>◾浏览器行为跟踪（如跟踪分析用户行为等）</p>
-<p>什么是 Session</p>
-<p>Session 代表着服务器和客户端一次会话的过程。Session 对象存储特定用户会话所需的属性及配置信息。这样，当用户在应用程序的 Web 页之间跳转时，存储在 Session 对象中的变量将不会丢失，而是在整个用户会话中一直存在下去。当客户端关闭会话，或者 Session 超时失效时会话结束。</p>
-<p>第二层楼</p>
-<p>Cookie 和 Session 有什么不同？<br>◾作用范围不同，Cookie 保存在客户端（浏览器），Session 保存在服务器端。<br>◾存取方式的不同，Cookie 只能保存 ASCII，Session 可以存任意数据类型，一般情况下我们可以在 Session 中保持一些常用变量信息，比如说 UserId 等。<br>◾有效期不同，Cookie 可设置为长时间保持，比如我们经常使用的默认登录功能，Session 一般失效时间较短，客户端关闭或者 Session 超时都会失效。<br>◾隐私策略不同，Cookie 存储在客户端，比较容易遭到不法获取，早期有人将用户的登录名和密码存储在 Cookie 中导致信息被窃取；Session 存储在服务端，安全性相对 Cookie 要好一些。<br>◾存储大小不同， 单个 Cookie 保存的数据不能超过 4K，Session 可存储数据远高于 Cookie。</p>
-<p>前两层楼内容，绝大部分同学都可以准确回答</p>
-<p>第三层楼</p>
-<p>为什么需要 Cookie 和 Session，他们有什么关联？</p>
-<p>说起来为什么需要 Cookie ，这就需要从浏览器开始说起，我们都知道浏览器是没有状态的(HTTP 协议无状态)，这意味着浏览器并不知道是张三还是李四在和服务端打交道。这个时候就需要有一个机制来告诉服务端，本次操作用户是否登录，是哪个用户在执行的操作，那这套机制的实现就需要 Cookie 和 Session 的配合。</p>
-<p>那么 Cookie 和 Session 是如何配合的呢？我画了一张图大家可以先了解下。</p>
-<p>90%程序员都没有完全答对Cookie和Session的区别<br>用户第一次请求服务器的时候，服务器根据用户提交的相关信息，创建创建对应的 Session ，请求返回时将此 Session 的唯一标识信息 SessionID 返回给浏览器，浏览器接收到服务器返回的 SessionID 信息后，会将此信息存入到 Cookie 中，同时 Cookie 记录此 SessionID 属于哪个域名。</p>
-<p>当用户第二次访问服务器的时候，请求会自动判断此域名下是否存在 Cookie 信息，如果存在自动将 Cookie 信息也发送给服务端，服务端会从 Cookie 中获取 SessionID，再根据 SessionID 查找对应的 Session 信息，如果没有找到说明用户没有登录或者登录失效，如果找到 Session 证明用户已经登录可执行后面操作。</p>
-<p>根据以上流程可知，SessionID 是连接 Cookie 和 Session 的一道桥梁，大部分系统也是根据此原理来验证用户登录状态。</p>
-<p>三层楼的内容，大部分同学可以讲清楚。</p>
-<p>第四层楼</p>
-<p>既然服务端是根据 Cookie 中的信息判断用户是否登录，那么如果浏览器中禁止了 Cookie，如何保障整个机制的正常运转。</p>
-<p>第一种方案，每次请求中都携带一个 SessionID 的参数，也可以 Post 的方式提交，也可以在请求的地址后面拼接 xxx?SessionID=123456…。</p>
-<p>第二种方案，Token 机制。Token 机制多用于 App 客户端和服务器交互的模式，也可以用于 Web 端做用户状态管理。</p>
-<p>Token 的意思是“令牌”，是服务端生成的一串字符串，作为客户端进行请求的一个标识。Token 机制和 Cookie 和 Session 的使用机制比较类似。</p>
-<p>当用户第一次登录后，服务器根据提交的用户信息生成一个 Token，响应时将 Token 返回给客户端，以后客户端只需带上这个 Token 前来请求数据即可，无需再次登录验证。</p>
-<p>四层楼的内容，一部分同学可以讲清楚。</p>
-<p>第五层楼</p>
-<p>如何考虑分布式 Session 问题？</p>
-<p>在互联网公司为了可以支撑更大的流量，后端往往需要多台服务器共同来支撑前端用户请求，那如果用户在 A 服务器登录了，第二次请求跑到服务 B 就会出现登录失效问题。</p>
-<p>分布式 Session 一般会有以下几种解决方案：<br>◾Nginx ip_hash 策略，服务端使用 Nginx 代理，每个请求按访问 IP 的 hash 分配，这样来自同一 IP 固定访问一个后台服务器，避免了在服务器 A 创建 Session，第二次分发到服务器 B 的现象。<br>◾Session 复制，任何一个服务器上的 Session 发生改变（增删改），该节点会把这个 Session 的所有内容序列化，然后广播给所有其它节点。<br>◾共享 Session，服务端无状态话，将用户的 Session 等信息使用缓存中间件来统一管理，保障分发到每一个服务器的响应结果都一致。</p>
-<p>建议采用第三种方案。</p>
-<p>第六层楼</p>
-<p>如何解决跨域请求？Jsonp 跨域的原理是什么？</p>
-<p>说起跨域请求，必须要了解浏览器的同源策略，同源策略/SOP（Same origin policy）是一种约定，由 Netscape 公司 1995年引入浏览器，它是浏览器最核心也最基本的安全功能，如果缺少了同源策略，浏览器很容易受到 XSS、CSFR 等攻击。所谓同源是指”协议+域名+端口”三者相同，即便两个不同的域名指向同一个 ip 地址，也非同源。</p>
-<p>解决跨域请求的常用方法是：<br>◾通过代理来避免，比如使用 Nginx 在后端转发请求，避免了前端出现跨域的问题。<br>◾通过 Jsonp 跨域<br>◾其它跨域解决方案</p>
-<p>重点谈一下 Jsonp 跨域原理。浏览器的同源策略把跨域请求都禁止了，但是页面中的 <script><img><iframe>标签是例外，不受同源策略限制。Jsonp 就是利用 <script> 标签跨域特性进行跨域数据访问。</p>
-<p>JSONP 的理念就是，与服务端约定好一个回调函数名，服务端接收到请求后，将返回一段 Javascript，在这段 Javascript 代码中调用了约定好的回调函数，并且将数据作为参数进行传递。当网页接收到这段 Javascript 代码后，就会执行这个回调函数，这时数据已经成功传输到客户端了。</p>
-<p>JSONP 的缺点是：它只支持 GET 请求，而不支持 POST 请求等其他类型的 HTTP 请求。</p>
-<p>以上就是有关 Cookie 和 Session 常见的面试点，不知道有多少同学可以在面试中准确回答所有问题。</p>
-</script></p>
+        <p>1.aci的dao没有配置(applicationContext.xml)导致执行aci任务的时候抛出空指针.</p>
+
       
     </div>
     
@@ -723,7 +629,7 @@ Eclipse中默认的模板.xml文件如下：
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/26/2019-05-26/">原型</a>
+      <a class="article-title" href="/2019/05/26/2019-05-26/">90%程序员都没有完全答对Cookie和Session的区别</a>
     </h1>
   
 
@@ -733,8 +639,46 @@ Eclipse中默认的模板.xml文件如下：
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>1.访问对象并不存在的一个属性，get的操作就会找到对象内部关联的对象，这个关系实际上就是原型链。<br>2.所有普通的对象多有内置的object.prototype，指向原型链的顶端，其中tostring()，valueOf()和其他一些通用的功能存在于object.prototype,所有对象多可以引用。<br>3.使用new调用函数时会把新对象.prototype属性关联到”其他对象上”，带new被称为”构造函数”。<br>4.虽然javascript有类似其他语言的类功能，但是它实际上是并不能进行复制，只是通过prototype链进行对象内部之间的关联，所以我们不能用继续进行描述，而是用委托更合适，因为对象之间的关系不是复制而是委托。</p>
-
+        <p>来自：Java极客技术<br>转载自:<a href="https://www.toutiao.com/a6693986851193094664/?tt_from=weixin&amp;utm_campaign=client_share&amp;wxshare_count=1&amp;timestamp=1558654439&amp;app=news_article&amp;utm_source=weixin&amp;utm_medium=toutiao_ios&amp;req_id=2019052407335801002205604796699C4&amp;group_id=6693986851193094664" target="_blank" rel="noopener">https://www.toutiao.com/a6693986851193094664/?tt_from=weixin&amp;utm_campaign=client_share&amp;wxshare_count=1&amp;timestamp=1558654439&amp;app=news_article&amp;utm_source=weixin&amp;utm_medium=toutiao_ios&amp;req_id=2019052407335801002205604796699C4&amp;group_id=6693986851193094664</a></p>
+<p>第一层楼</p>
+<p>什么是 Cookie 和 Session ?初级程序员高频面试题。</p>
+<p>什么是 Cookie</p>
+<p>HTTP Cookie（也叫 Web Cookie或浏览器 Cookie）是服务器发送到用户浏览器并保存在本地的一小块数据，它会在浏览器下次向同一服务器再发起请求时被携带并发送到服务器上。通常，它用于告知服务端两个请求是否来自同一浏览器，如保持用户的登录状态。Cookie 使基于无状态的 HTTP 协议记录稳定的状态信息成为了可能。</p>
+<p>Cookie 主要用于以下三个方面：<br>◾会话状态管理（如用户登录状态、购物车、游戏分数或其它需要记录的信息）<br>◾个性化设置（如用户自定义设置、主题等）<br>◾浏览器行为跟踪（如跟踪分析用户行为等）</p>
+<p>什么是 Session</p>
+<p>Session 代表着服务器和客户端一次会话的过程。Session 对象存储特定用户会话所需的属性及配置信息。这样，当用户在应用程序的 Web 页之间跳转时，存储在 Session 对象中的变量将不会丢失，而是在整个用户会话中一直存在下去。当客户端关闭会话，或者 Session 超时失效时会话结束。</p>
+<p>第二层楼</p>
+<p>Cookie 和 Session 有什么不同？<br>◾作用范围不同，Cookie 保存在客户端（浏览器），Session 保存在服务器端。<br>◾存取方式的不同，Cookie 只能保存 ASCII，Session 可以存任意数据类型，一般情况下我们可以在 Session 中保持一些常用变量信息，比如说 UserId 等。<br>◾有效期不同，Cookie 可设置为长时间保持，比如我们经常使用的默认登录功能，Session 一般失效时间较短，客户端关闭或者 Session 超时都会失效。<br>◾隐私策略不同，Cookie 存储在客户端，比较容易遭到不法获取，早期有人将用户的登录名和密码存储在 Cookie 中导致信息被窃取；Session 存储在服务端，安全性相对 Cookie 要好一些。<br>◾存储大小不同， 单个 Cookie 保存的数据不能超过 4K，Session 可存储数据远高于 Cookie。</p>
+<p>前两层楼内容，绝大部分同学都可以准确回答</p>
+<p>第三层楼</p>
+<p>为什么需要 Cookie 和 Session，他们有什么关联？</p>
+<p>说起来为什么需要 Cookie ，这就需要从浏览器开始说起，我们都知道浏览器是没有状态的(HTTP 协议无状态)，这意味着浏览器并不知道是张三还是李四在和服务端打交道。这个时候就需要有一个机制来告诉服务端，本次操作用户是否登录，是哪个用户在执行的操作，那这套机制的实现就需要 Cookie 和 Session 的配合。</p>
+<p>那么 Cookie 和 Session 是如何配合的呢？我画了一张图大家可以先了解下。</p>
+<p>90%程序员都没有完全答对Cookie和Session的区别<br>用户第一次请求服务器的时候，服务器根据用户提交的相关信息，创建创建对应的 Session ，请求返回时将此 Session 的唯一标识信息 SessionID 返回给浏览器，浏览器接收到服务器返回的 SessionID 信息后，会将此信息存入到 Cookie 中，同时 Cookie 记录此 SessionID 属于哪个域名。</p>
+<p>当用户第二次访问服务器的时候，请求会自动判断此域名下是否存在 Cookie 信息，如果存在自动将 Cookie 信息也发送给服务端，服务端会从 Cookie 中获取 SessionID，再根据 SessionID 查找对应的 Session 信息，如果没有找到说明用户没有登录或者登录失效，如果找到 Session 证明用户已经登录可执行后面操作。</p>
+<p>根据以上流程可知，SessionID 是连接 Cookie 和 Session 的一道桥梁，大部分系统也是根据此原理来验证用户登录状态。</p>
+<p>三层楼的内容，大部分同学可以讲清楚。</p>
+<p>第四层楼</p>
+<p>既然服务端是根据 Cookie 中的信息判断用户是否登录，那么如果浏览器中禁止了 Cookie，如何保障整个机制的正常运转。</p>
+<p>第一种方案，每次请求中都携带一个 SessionID 的参数，也可以 Post 的方式提交，也可以在请求的地址后面拼接 xxx?SessionID=123456…。</p>
+<p>第二种方案，Token 机制。Token 机制多用于 App 客户端和服务器交互的模式，也可以用于 Web 端做用户状态管理。</p>
+<p>Token 的意思是“令牌”，是服务端生成的一串字符串，作为客户端进行请求的一个标识。Token 机制和 Cookie 和 Session 的使用机制比较类似。</p>
+<p>当用户第一次登录后，服务器根据提交的用户信息生成一个 Token，响应时将 Token 返回给客户端，以后客户端只需带上这个 Token 前来请求数据即可，无需再次登录验证。</p>
+<p>四层楼的内容，一部分同学可以讲清楚。</p>
+<p>第五层楼</p>
+<p>如何考虑分布式 Session 问题？</p>
+<p>在互联网公司为了可以支撑更大的流量，后端往往需要多台服务器共同来支撑前端用户请求，那如果用户在 A 服务器登录了，第二次请求跑到服务 B 就会出现登录失效问题。</p>
+<p>分布式 Session 一般会有以下几种解决方案：<br>◾Nginx ip_hash 策略，服务端使用 Nginx 代理，每个请求按访问 IP 的 hash 分配，这样来自同一 IP 固定访问一个后台服务器，避免了在服务器 A 创建 Session，第二次分发到服务器 B 的现象。<br>◾Session 复制，任何一个服务器上的 Session 发生改变（增删改），该节点会把这个 Session 的所有内容序列化，然后广播给所有其它节点。<br>◾共享 Session，服务端无状态话，将用户的 Session 等信息使用缓存中间件来统一管理，保障分发到每一个服务器的响应结果都一致。</p>
+<p>建议采用第三种方案。</p>
+<p>第六层楼</p>
+<p>如何解决跨域请求？Jsonp 跨域的原理是什么？</p>
+<p>说起跨域请求，必须要了解浏览器的同源策略，同源策略/SOP（Same origin policy）是一种约定，由 Netscape 公司 1995年引入浏览器，它是浏览器最核心也最基本的安全功能，如果缺少了同源策略，浏览器很容易受到 XSS、CSFR 等攻击。所谓同源是指”协议+域名+端口”三者相同，即便两个不同的域名指向同一个 ip 地址，也非同源。</p>
+<p>解决跨域请求的常用方法是：<br>◾通过代理来避免，比如使用 Nginx 在后端转发请求，避免了前端出现跨域的问题。<br>◾通过 Jsonp 跨域<br>◾其它跨域解决方案</p>
+<p>重点谈一下 Jsonp 跨域原理。浏览器的同源策略把跨域请求都禁止了，但是页面中的 <script><img><iframe>标签是例外，不受同源策略限制。Jsonp 就是利用 <script> 标签跨域特性进行跨域数据访问。</p>
+<p>JSONP 的理念就是，与服务端约定好一个回调函数名，服务端接收到请求后，将返回一段 Javascript，在这段 Javascript 代码中调用了约定好的回调函数，并且将数据作为参数进行传递。当网页接收到这段 Javascript 代码后，就会执行这个回调函数，这时数据已经成功传输到客户端了。</p>
+<p>JSONP 的缺点是：它只支持 GET 请求，而不支持 POST 请求等其他类型的 HTTP 请求。</p>
+<p>以上就是有关 Cookie 和 Session 常见的面试点，不知道有多少同学可以在面试中准确回答所有问题。</p>
+</script></p>
       
     </div>
     
@@ -1355,6 +1299,74 @@ document.addEventListener(&apos;DOMContentLoaded&apos;,
 　　//JSON字符串转JSON对象
 　　obj=JSON.parse(localStorage.getItem(&quot;stor1&quot;));
 </code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-2019-05-15" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/05/25/2019-05-15/" class="article-date">
+      <time datetime="2019-05-25T10:12:16.472Z" itemprop="datePublished">2019-05-25</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/25/2019-05-15/">jq绑定元素,事件丢失问题</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>#点击元素以为的位置，隐藏该元素。<br>    $(‘.protocoll-content .layer-main’).click(function(){<br>        event.stopPropagation();<br>    });<br>    $(document).click(function(){<br>       $(‘.protocoll-content .layer-main’).hide();<br>    });</p>
+<p>#重新绘制元素，需要注意调用方式，不能直接用该元素绑定事件，由于页面部分重绘导致，找不到该元素。<br>    例如：var pprotocollContent = $(“.layer-main .layer-main-content”).html();<br>         pprotocollContent = pprotocollContent.replace(“@card@”,cardNumber).replace(“@date@”,month+”/“+year);<br>         $(“.layer-main .layer-main-content”).html(pprotocollCont);<br>         //不能直接用一下方式绑定：<br>         $(‘.protocoll-content .layer-main .layer-main-content’).click(function(){<br>            console.log(1)<br>         });<br>          //用以下方式绑定：<br>         $(document).on(‘click’,’.protocoll-content .layer-main .layer-main-content’,function(){<br>            $(‘.protocoll-content .layer-main’).hide();<br>          });</p>
+<p>#数据库连接池自动断开<br>     java.sql.SQLException: Couldn’t perform the operation setAutoCommit: You can’t perform any operations on this connection. It has been automatically closed by Proxool for some reason (see logs).<br>       解决方法：错误的意思是说，由于某些原因连接被Proxool自动关闭，出现这种情况，一般有如下原因：</p>
+<pre><code>1.可能为连接数据库超时，比如调试时，对一个窗口停留太久。（对Lucene建立的站内搜索时，俺就出现了这个错误~）
+
+2.网上的说法：
+
+&lt;proxool.minimumConnectionCount&gt;5&lt;/proxool.minimumConnectionCount&gt;//最小连接数
+&lt;proxool.maximumConnectionCount&gt;150&lt;/proxool.maximumConnectionCount&gt;//最大连接数
+ &lt;proxool.simultaneousBuildThrottle&gt;20&lt;/proxool.simultaneousBuildThrottle&gt;//同时最大连接数
+
+连接数够用，但是同时最大连接数设置的小了点，取不到连接导致报错。
+</code></pre><p>##如何在线上直接跳过一个验证方法。<br>     1.重写函数方法即可。</p>
+
       
     </div>
     
