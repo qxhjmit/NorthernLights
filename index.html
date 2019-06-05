@@ -232,6 +232,246 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/06/05/2019-06-02/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="极点之上">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/05/2019-06-02/" itemprop="url">你不知道的javaScript--中卷</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-05T21:51:33+08:00">
+                2019-06-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>##值：<br>1.javaScript中的数组是通过数字索引的一组任意类型的值。字符串和数组类似，但是他们的行为特征不同，在将字符作为数组来处理是需要特别小心。javaScript中的数字包括”整数”和”浮点型”。<br>2.null类型只有一个值null，undefined类型也只有一个值undefined。所有变量在赋值之前默认值都是undefined。void运算符返回undefined。<br>3.数字类型有几个特殊值，包括NaN（意思是“not a number”），更确切地说是“invalid number”、+Infinity，-Infinity和-0。<br>4.NaN是一个特殊值，他和自身不相等，是唯一一个非自反（自反，reflexive，即x===x不成立）的值，而NaN != NaN为true。<br>5.一个有意思的事，JSON.stringify(-0)返回为”0”,而JSON.stringify(“-0”)为0。<br>6.简单标量基本类型值（字符串和数字等）通过值复制来复制/传递，而复合值（对象等），通过引用复制来赋值/传递。javaScript中的引用和其他语言中的引用/指针不同，它们不能只想别的变量/引用，只能指向值。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/06/05/2019-06-01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="极点之上">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/05/2019-06-01/" itemprop="url">你不知道的javaScript--中卷</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-05T21:25:12+08:00">
+                2019-06-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>##类型：<br>1.javaScript有七种内置类型：null，undefined，boolean，number，string，object和symbol（符号为ES6新增），当然你可以用typeof查看他们的类型。<br>2.变量没有类型，但是他们持有的值有类型，类型定义了值的行为特征。<br>3.我们经常把undefined和undeclared混为一谈，但在javaScript中它们是两码事。undefined是值的一种，undeclared则表示变量还没有被声明过。<br>4.javaScript却将它们混为一谈，在我们试图访问”undeclared”变量时这样报错：ReferenceError：a is not defined，并且typeof 对undefined和undeclared变量都返回”undefined”,<br>然而，通过typeof的安全防范机制（阻止报错）来检查undeclared变量，有时是个不错的办法。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="onemind.top/2019/05/31/2019-05-31/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -251,7 +491,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/31/2019-05-31/" itemprop="url">5-31</a></h1>
+                <a class="post-title-link" href="/2019/05/31/2019-05-31/" itemprop="url">listagg的拼接为空</a></h1>
         
 
         <div class="post-meta">
@@ -303,7 +543,7 @@
       
         
           
-            <p>开发时遇到的问题:<br>1.用 listagg(i.eti_lang_code,’;’)within group(order by eti_lang_code) as eti_lang_code 转化查询为空.<br>由于eti_lang_code为varchar类型,所以导致拼接为空而number则没有这个问题.<br>解决方法:加上to_char(),如下:<br>listagg(to_char(i.eti_lang_code),’;’)within group(order by eti_lang_code) as eti_lang_code</p>
+            <p>时间：2019-06-05<br>开发时遇到的问题:<br>1.用 listagg(i.eti_lang_code,’;’)within group(order by eti_lang_code) as eti_lang_code 转化查询为空.<br>由于eti_lang_code为varchar类型,所以导致拼接为空而number则没有这个问题.<br>解决方法:加上to_char(),如下:<br>listagg(to_char(i.eti_lang_code),’;’)within group(order by eti_lang_code) as eti_lang_code</p>
 
           
         
@@ -371,7 +611,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/30/2019-05-29/" itemprop="url">5-29</a></h1>
+                <a class="post-title-link" href="/2019/05/30/2019-05-29/" itemprop="url">JSONObject.fromObject不能转换为空字符</a></h1>
         
 
         <div class="post-meta">
@@ -423,10 +663,10 @@
       
         
           
-            <p>###时间:2019-05-29</p>
-<p>###1.ACI报 A JSONObject text must begin with ‘{‘ at character 0 of 错误。</p>
-<p>####经过查询产生错误如下：<br>    String returnXml = “”;<br>    JSONObject  jasonObject = JSONObject.fromObject(returnXml);<br>    由于空字符串导致转换错误。</p>
-<p>####解决方法：<br>    String returnXml = “”;<br>    if(returnXml != null || returnXml.equals(“”)){<br>            return null;<br>    }<br>    JSONObject  jasonObject = JSONObject.fromObject(returnXml);</p>
+            <p>时间:2019-05-29</p>
+<p>##1.ACI报 A JSONObject text must begin with ‘{‘ at character 0 of 错误。</p>
+<p>###经过查询产生错误如下：<br>    String returnXml = “”;<br>    JSONObject  jasonObject = JSONObject.fromObject(returnXml);<br>    由于空字符串导致转换错误。</p>
+<p>###解决方法：<br>    String returnXml = “”;<br>    if(returnXml != null || returnXml.equals(“”)){<br>            return null;<br>    }<br>    JSONObject  jasonObject = JSONObject.fromObject(returnXml);</p>
 
           
         
@@ -905,7 +1145,7 @@ Eclipse中默认的模板.xml文件如下：
       
         
           
-            <p>###时间:2019-05-27<br>1.aci的dao没有配置(applicationContext.xml)导致执行aci任务的时候抛出空指针.<br>2.我们知道一般任何对象都是Object的instance，因为原型链的顶端都指向Object.prototype。那么Object本身是什么？Object也是个函数，而任何函数都是Function的实例对象，比如Array，String，当然Object也包括在内，它也是Function的实例;<br>Object instanceof Function === true<br>Function instanceof Object === true</p>
+            <p>时间:2019-05-27<br>1.aci的dao没有配置(applicationContext.xml)导致执行aci任务的时候抛出空指针.<br>2.我们知道一般任何对象都是Object的instance，因为原型链的顶端都指向Object.prototype。那么Object本身是什么？Object也是个函数，而任何函数都是Function的实例对象，比如Array，String，当然Object也包括在内，它也是Function的实例;<br>Object instanceof Function === true<br>Function instanceof Object === true</p>
 
           
         
@@ -1025,8 +1265,7 @@ Eclipse中默认的模板.xml文件如下：
       
         
           
-            <p>###时间:2019-05-25</p>
-<p>1.百度抓取标题一定是从h1-&gt;h2-&gt;h3…<br>2.请求的时候尽量用get请求而不是用post请求,这里由于百度抓取的时候是很难抓取或者根本抓取不到post请求的内容.<br>3.页面的路径要用绝对路径,而相对路径百度是抓取不到的<br>4.在一个网站里放一个xml文件,把网站所有页面的绝对路径存放到里面有利于搜索引擎抓取.<br>5.如果你不想让百度爬虫爬去, 而想要他只能站内搜索,可以添加一个js文件,来告诉百度爬虫,不让你爬去我网站里面的内容.例如淘宝内的商品只能在淘宝内搜索.</p>
+            <p>时间:2019-05-25<br>1.百度抓取标题一定是从h1-&gt;h2-&gt;h3…<br>2.请求的时候尽量用get请求而不是用post请求,这里由于百度抓取的时候是很难抓取或者根本抓取不到post请求的内容.<br>3.页面的路径要用绝对路径,而相对路径百度是抓取不到的<br>4.在一个网站里放一个xml文件,把网站所有页面的绝对路径存放到里面有利于搜索引擎抓取.<br>5.如果你不想让百度爬虫爬去, 而想要他只能站内搜索,可以添加一个js文件,来告诉百度爬虫,不让你爬去我网站里面的内容.例如淘宝内的商品只能在淘宝内搜索.</p>
 
           
         
@@ -1094,7 +1333,7 @@ Eclipse中默认的模板.xml文件如下：
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/26/2019-05-24/" itemprop="url">原型</a></h1>
+                <a class="post-title-link" href="/2019/05/26/2019-05-24/" itemprop="url">object.prototype原型</a></h1>
         
 
         <div class="post-meta">
@@ -1146,7 +1385,7 @@ Eclipse中默认的模板.xml文件如下：
       
         
           
-            <p>###时间:2019-05-24</p>
+            <p>时间:2019-05-24</p>
 <p>1.访问对象并不存在一个属性，get的操作就会找到对象内部，关联的对象，这个关系实际上就是原型链。<br>2.所有普通的对象多有内置的object.prototype，指向原型链的顶端，其中tostring()，valueOf()和其他一些通用的功能存在于object.prototype,所有对象多可以引用。<br>3.使用new调用函数时会把新对象.prototype属性关联到”其他对象上”，带new被称为”构造函数”。<br>4.虽然javascript有类似其他语言的类功能，但是它实际上是并不能进行复制，只是通过prototype链进行对象内部之间的关联，所以我们不能用继续进行描述，而是用委托更合适，因为对象之间的关系不是复制而是委托。</p>
 
           
@@ -1267,7 +1506,7 @@ Eclipse中默认的模板.xml文件如下：
       
         
           
-            <p>###时间:2019-05-26</p>
+            <p>时间:2019-05-26</p>
 <p>来自：Java极客技术<br>转载自:<a href="https://www.toutiao.com/a6693986851193094664/?tt_from=weixin&amp;utm_campaign=client_share&amp;wxshare_count=1&amp;timestamp=1558654439&amp;app=news_article&amp;utm_source=weixin&amp;utm_medium=toutiao_ios&amp;req_id=2019052407335801002205604796699C4&amp;group_id=6693986851193094664" target="_blank" rel="noopener">https://www.toutiao.com/a6693986851193094664/?tt_from=weixin&amp;utm_campaign=client_share&amp;wxshare_count=1&amp;timestamp=1558654439&amp;app=news_article&amp;utm_source=weixin&amp;utm_medium=toutiao_ios&amp;req_id=2019052407335801002205604796699C4&amp;group_id=6693986851193094664</a></p>
 <p>第一层楼</p>
 <p>什么是 Cookie 和 Session ?初级程序员高频面试题。</p>
@@ -1308,248 +1547,6 @@ Eclipse中默认的模板.xml文件如下：
 <p>JSONP 的缺点是：它只支持 GET 请求，而不支持 POST 请求等其他类型的 HTTP 请求。</p>
 <p>以上就是有关 Cookie 和 Session 常见的面试点，不知道有多少同学可以在面试中准确回答所有问题。</p>
 </script></p>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/05/26/2019-05-23/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="极点之上">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/26/2019-05-23/" itemprop="url">混合对象"类"。</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-26T22:55:04+08:00">
-                2019-05-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>###时间:2019-05-23</p>
-<p>#读后结语。<br>1.类是一种设计模式。许多语言提供了对于面向类软件的原生语法，例如java。但是在javascript有类似的语言，但是一定要区分他和其他语言是不一样的，他没有类的，只有对象，只是通过复杂的逻辑模拟了类似的语法。<br>2.类他意味着复制。<br>3.传统的类被实例化，会被复制到实例中。类被继承，行为也会被子类继承。<br>4.多态，看起来似乎是从子类引用了父类，但是本质上引用的其实是复制的结果。（就是复制父类的行为结合子类本身不一样的行为，形成了多种多样的类）<br>5.javascript并不会像类那样，自动创建对象的副本。 本质上其实是创建的还是指向的对象。因为对象只能复制引用，没有办法复制被引用的对象或者函数本身。这一点不能忽视不然会导致许多问题。<br>最好不要在javascript模拟类，虽然可以解决很多问题，但是可能会买下很多隐患。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/05/25/2019-05-22/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="极点之上">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/25/2019-05-22/" itemprop="url">小王子</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-25T18:12:16+08:00">
-                2019-05-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>###时间:2019-05-22</p>
-<p>#小王子读后感<br>1.小孩子时候的思维,才是最纯粹的,等我们长大成人就会被外物所左右,例如当你认识一个人的时候,他住的房子,开的车就可以让你评价一个人,<br>2.看东西只有用心才能看得清楚,重要的东西眼睛是看不见的.<br>其实所有的人对于刚开始的事物感情多是一样的.只是你付出了感情和时间,才会让他独一无二.</p>
-
           
         
       
@@ -1634,7 +1631,7 @@ Eclipse中默认的模板.xml文件如下：
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
