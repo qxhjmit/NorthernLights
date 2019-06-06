@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="###时间:2019-05-20 #播放mp3音乐的时候,微信端和手机不能支持自动播放问题 ##原因是：android ios 内部原因 为了节省流量，规定不自动播放音频视频 ###解决微信或钉钉不能自动播放处理方法:     window.onload = function () {        var myAudio = document.getElementById(‘audio’);">
+<meta property="og:type" content="article">
+<meta property="og:title" content="恰似花火">
+<meta property="og:url" content="onemind.top/2019/05/25/2019-05-20/index.html">
+<meta property="og:site_name" content="The top of the world">
+<meta property="og:description" content="###时间:2019-05-20 #播放mp3音乐的时候,微信端和手机不能支持自动播放问题 ##原因是：android ios 内部原因 为了节省流量，规定不自动播放音频视频 ###解决微信或钉钉不能自动播放处理方法:     window.onload = function () {        var myAudio = document.getElementById(‘audio’);">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-27T08:13:10.331Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="恰似花火">
+<meta name="twitter:description" content="###时间:2019-05-20 #播放mp3音乐的时候,微信端和手机不能支持自动播放问题 ##原因是：android ios 内部原因 为了节省流量，规定不自动播放音频视频 ###解决微信或钉钉不能自动播放处理方法:     window.onload = function () {        var myAudio = document.getElementById(‘audio’);">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="onemind.top/2019/05/25/2019-05-20/">
+
+
+
+
+
+  <title>恰似花火 | The top of the world</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">The top of the world</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">凡是过往,皆为序章--零之章</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/05/25/2019-05-20/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="零之zero">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">恰似花火</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-25T18:12:16+08:00">
+                2019-05-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>###时间:2019-05-20</p>
+<p>#播放mp3音乐的时候,微信端和手机不能支持自动播放问题</p>
+<p>##原因是：android ios 内部原因 为了节省流量，规定不自动播放音频视频</p>
+<p>###解决微信或钉钉不能自动播放处理方法:<br>     window.onload = function () {<br>        var myAudio = document.getElementById(‘audio’);<br>        myAudio.addEventListener(‘ends’,loopAudio,false);<br>    }</p>
+<pre><code>function loopAudio(){
+    var myAudio = document.getElementById(&apos;audio&apos;);
+     myAudio.play();
+}
+document.addEventListener(&apos;DOMContentLoaded&apos;,
+    function () {
+        function audioAutoPlay() {
+            var audio = document.getElementById(&apos;audio&apos;);
+            audio.play();
+            document.addEventListener(&quot;WeixinJSBridgeReady&quot;,
+                function () {
+                    audio.play();
+                },
+                false);
+        }
+        audioAutoPlay();
+    });
+</code></pre><h3 id="游览器不能播放处理方法"><a href="#游览器不能播放处理方法" class="headerlink" title="游览器不能播放处理方法:"></a>游览器不能播放处理方法:</h3><pre><code>var canvas = document.getElementById(&quot;canvas&quot;);
+   canvas.addEventListener(&apos;touchstart&apos;, function() {
+       audio.play();
+})
+</code></pre><h3 id="烟花源码"><a href="#烟花源码" class="headerlink" title="烟花源码"></a>烟花源码</h3><pre><code>&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;happy always&lt;/title&gt;
+
+&lt;style&gt;
+    html,body{
+        margin:0px;
+        width:100%;
+        height:100%;
+        overflow:hidden;
+        background:#000;
+    }
+
+    #canvas{
+        width:100%;
+        height:100%;
+    }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;canvas id=&quot;canvas&quot;&gt;&lt;/canvas&gt;&lt;script&gt;
+function initVars(){
+
+    pi=Math.PI;
+    ctx=canvas.getContext(&quot;2d&quot;);
+    canvas.width=canvas.clientWidth;
+    canvas.height=canvas.clientHeight;
+    cx=canvas.width/2;
+    cy=canvas.height/2;
+    playerZ=-25;
+    playerX=playerY=playerVX=playerVY=playerVZ=pitch=yaw=pitchV=yawV=0;
+    scale=600;
+    seedTimer=0;seedInterval=5,seedLife=100;gravity=.02;
+    seeds=new Array();
+    sparkPics=new Array();
+    s=&quot;https://cantelope.org/NYE/&quot;;
+    for(i=1;i&lt;=10;++i){
+        sparkPic=new Image();
+        sparkPic.src=s+&quot;spark&quot;+i+&quot;.png&quot;;
+        sparkPics.push(sparkPic);
+    }
+    sparks=new Array();
+    pow1=new Audio(s+&quot;pow1.ogg&quot;);
+    pow2=new Audio(s+&quot;pow2.ogg&quot;);
+    pow3=new Audio(s+&quot;pow3.ogg&quot;);
+    pow4=new Audio(s+&quot;pow4.ogg&quot;);
+    frames = 0;
+}
+
+function rasterizePoint(x,y,z){
+
+    var p,d;
+    x-=playerX;
+    y-=playerY;
+    z-=playerZ;
+    p=Math.atan2(x,z);
+    d=Math.sqrt(x*x+z*z);
+    x=Math.sin(p-yaw)*d;
+    z=Math.cos(p-yaw)*d;
+    p=Math.atan2(y,z);
+    d=Math.sqrt(y*y+z*z);
+    y=Math.sin(p-pitch)*d;
+    z=Math.cos(p-pitch)*d;
+    var rx1=-1000,ry1=1,rx2=1000,ry2=1,rx3=0,ry3=0,rx4=x,ry4=z,uc=(ry4-ry3)*(rx2-rx1)-(rx4-rx3)*(ry2-ry1);
+    if(!uc) return {x:0,y:0,d:-1};
+    var ua=((rx4-rx3)*(ry1-ry3)-(ry4-ry3)*(rx1-rx3))/uc;
+    var ub=((rx2-rx1)*(ry1-ry3)-(ry2-ry1)*(rx1-rx3))/uc;
+    if(!z)z=.000000001;
+    if(ua&gt;0&amp;&amp;ua&lt;1&amp;&amp;ub&gt;0&amp;&amp;ub&lt;1){
+        return {
+            x:cx+(rx1+ua*(rx2-rx1))*scale,
+            y:cy+y/z*scale,
+            d:Math.sqrt(x*x+y*y+z*z)
+        };
+    }else{
+        return {
+            x:cx+(rx1+ua*(rx2-rx1))*scale,
+            y:cy+y/z*scale,
+            d:-1
+        };
+    }
+}
+
+function spawnSeed(){
+
+    seed=new Object();
+    seed.x=-50+Math.random()*100;
+    seed.y=25;
+    seed.z=-50+Math.random()*100;
+    seed.vx=.1-Math.random()*.2;
+    seed.vy=-1.5;//*(1+Math.random()/2);
+    seed.vz=.1-Math.random()*.2;
+    seed.born=frames;
+    seeds.push(seed);
+}
+
+function splode(x,y,z){
+
+    t=5+parseInt(Math.random()*150);
+    sparkV=1+Math.random()*2.5;
+    type=parseInt(Math.random()*3);
+    switch(type){
+        case 0:
+            pic1=parseInt(Math.random()*10);
+            break;
+        case 1:
+            pic1=parseInt(Math.random()*10);
+            do{ pic2=parseInt(Math.random()*10); }while(pic2==pic1);
+            break;
+        case 2:
+            pic1=parseInt(Math.random()*10);
+            do{ pic2=parseInt(Math.random()*10); }while(pic2==pic1);
+            do{ pic3=parseInt(Math.random()*10); }while(pic3==pic1 || pic3==pic2);
+            break;
+    }
+    for(m=1;m&lt;t;++m){
+        spark=new Object();
+        spark.x=x; spark.y=y; spark.z=z;
+        p1=pi*2*Math.random();
+        p2=pi*Math.random();
+        v=sparkV*(1+Math.random()/6)
+        spark.vx=Math.sin(p1)*Math.sin(p2)*v;
+        spark.vz=Math.cos(p1)*Math.sin(p2)*v;
+        spark.vy=Math.cos(p2)*v;
+        switch(type){
+            case 0: spark.img=sparkPics[pic1]; break;
+            case 1:
+                spark.img=sparkPics[parseInt(Math.random()*2)?pic1:pic2];
+                break;
+            case 2:
+                switch(parseInt(Math.random()*3)){
+                    case 0: spark.img=sparkPics[pic1]; break;
+                    case 1: spark.img=sparkPics[pic2]; break;
+                    case 2: spark.img=sparkPics[pic3]; break;
+                }
+                break;
+        }
+        spark.radius=25+Math.random()*50;
+        spark.alpha=1;
+        spark.trail=new Array();
+        sparks.push(spark);
+    }
+    switch(parseInt(Math.random()*4)){
+        case 0:    pow=new Audio(s+&quot;pow1.ogg&quot;); break;
+        case 1:    pow=new Audio(s+&quot;pow2.ogg&quot;); break;
+        case 2:    pow=new Audio(s+&quot;pow3.ogg&quot;); break;
+        case 3:    pow=new Audio(s+&quot;pow4.ogg&quot;); break;
+    }
+    d=Math.sqrt((x-playerX)*(x-playerX)+(y-playerY)*(y-playerY)+(z-playerZ)*(z-playerZ));
+    pow.volume=1.5/(1+d/10);
+    pow.play();
+}
+
+function doLogic(){
+
+    if(seedTimer&lt;frames){
+        seedTimer=frames+seedInterval*Math.random()*10;
+        spawnSeed();
+    }
+    for(i=0;i&lt;seeds.length;++i){
+        seeds[i].vy+=gravity;
+        seeds[i].x+=seeds[i].vx;
+        seeds[i].y+=seeds[i].vy;
+        seeds[i].z+=seeds[i].vz;
+        if(frames-seeds[i].born&gt;seedLife){
+            splode(seeds[i].x,seeds[i].y,seeds[i].z);
+            seeds.splice(i,1);
+        }
+    }
+    for(i=0;i&lt;sparks.length;++i){
+        if(sparks[i].alpha&gt;0 &amp;&amp; sparks[i].radius&gt;5){
+            sparks[i].alpha-=.01;
+            sparks[i].radius/=1.02;
+            sparks[i].vy+=gravity;
+            point=new Object();
+            point.x=sparks[i].x;
+            point.y=sparks[i].y;
+            point.z=sparks[i].z;
+            if(sparks[i].trail.length){
+                x=sparks[i].trail[sparks[i].trail.length-1].x;
+                y=sparks[i].trail[sparks[i].trail.length-1].y;
+                z=sparks[i].trail[sparks[i].trail.length-1].z;
+                d=((point.x-x)*(point.x-x)+(point.y-y)*(point.y-y)+(point.z-z)*(point.z-z));
+                if(d&gt;9){
+                    sparks[i].trail.push(point);
+                }
+            }else{
+                sparks[i].trail.push(point);
+            }
+            if(sparks[i].trail.length&gt;5)sparks[i].trail.splice(0,1);
+            sparks[i].x+=sparks[i].vx;
+            sparks[i].y+=sparks[i].vy;
+            sparks[i].z+=sparks[i].vz;
+            sparks[i].vx/=1.075;
+            sparks[i].vy/=1.075;
+            sparks[i].vz/=1.075;
+        }else{
+            sparks.splice(i,1);
+        }
+    }
+    p=Math.atan2(playerX,playerZ);
+    d=Math.sqrt(playerX*playerX+playerZ*playerZ);
+    d+=Math.sin(frames/80)/1.25;
+    t=Math.sin(frames/200)/40;
+    playerX=Math.sin(p+t)*d;
+    playerZ=Math.cos(p+t)*d;
+    yaw=pi+p+t;
+}
+
+function rgb(col){
+
+    var r = parseInt((.5+Math.sin(col)*.5)*16);
+    var g = parseInt((.5+Math.cos(col)*.5)*16);
+    var b = parseInt((.5-Math.sin(col)*.5)*16);
+    return &quot;#&quot;+r.toString(16)+g.toString(16)+b.toString(16);
+}
+
+function randColor() {
+    var r= Math.floor(Math.random() *256);
+    var g= Math.floor(Math.random() *256);
+    var b= Math.floor(Math.random() *256);
+    var color = &apos;rgb($r,$g,$b)&apos;;
+    color = color.replace(&apos;$r&apos;,r);
+    color = color.replace(&apos;$g&apos;,g);
+    color = color.replace(&apos;$b&apos;,b);
+    return color;
+}
+function draw(){
+
+    ctx.clearRect(0,0,cx*2,cy*2);
+
+    ctx.fillStyle=&quot;#ff8&quot;;
+    for(i=-100;i&lt;100;i+=3){
+        for(j=-100;j&lt;100;j+=4){
+            x=i;z=j;y=25;
+            point=rasterizePoint(x,y,z);
+            if(point.d!=-1){
+                size=250/(1+point.d);
+                d = Math.sqrt(x * x + z * z);
+                a = 0.75 - Math.pow(d / 100, 6) * 0.75;
+                if(a&gt;0){
+                    ctx.globalAlpha = a;
+                    ctx.fillRect(point.x-size/2,point.y-size/2,size,size);
+                }
+            }
+        }
+    }
+    ctx.globalAlpha=1;
+    for(i=0;i&lt;seeds.length;++i){
+        point=rasterizePoint(seeds[i].x,seeds[i].y,seeds[i].z);
+        if(point.d!=-1){
+            size=200/(1+point.d);
+            ctx.fillRect(point.x-size/2,point.y-size/2,size,size);
+        }
+    }
+    point1=new Object();
+    for(i=0;i&lt;sparks.length;++i){
+        point=rasterizePoint(sparks[i].x,sparks[i].y,sparks[i].z);
+        if(point.d!=-1){
+            size=sparks[i].radius*200/(1+point.d);
+            if(sparks[i].alpha&lt;0)sparks[i].alpha=0;
+            if(sparks[i].trail.length){
+                point1.x=point.x;
+                point1.y=point.y;
+                switch(sparks[i].img){
+                    case sparkPics[0]:ctx.strokeStyle=randColor();break;
+                    case sparkPics[1]:ctx.strokeStyle=randColor();break;
+                    case sparkPics[2]:ctx.strokeStyle=randColor();break;
+                    case sparkPics[3]:ctx.strokeStyle=randColor();break;
+                    case sparkPics[4]:ctx.strokeStyle=randColor();break;
+                    case sparkPics[5]:ctx.strokeStyle=randColor();break;
+                    case sparkPics[6]:ctx.strokeStyle=randColor();break;
+                    case sparkPics[7]:ctx.strokeStyle=randColor();break;
+                    case sparkPics[8]:ctx.strokeStyle=randColor();break;
+                    case sparkPics[9]:ctx.strokeStyle=randColor();break;
+                }
+                for(j=sparks[i].trail.length-1;j&gt;=0;--j){
+                    point2=rasterizePoint(sparks[i].trail[j].x,sparks[i].trail[j].y,sparks[i].trail[j].z);
+                    if(point2.d!=-1){
+                        ctx.globalAlpha=j/sparks[i].trail.length*sparks[i].alpha/2;
+                        ctx.beginPath();
+                        ctx.moveTo(point1.x,point1.y);
+                        ctx.lineWidth=1+sparks[i].radius*10/(sparks[i].trail.length-j)/(1+point2.d);
+                        ctx.lineTo(point2.x,point2.y);
+                        ctx.stroke();
+                        point1.x=point2.x;
+                        point1.y=point2.y;
+                    }
+                }
+            }
+            ctx.globalAlpha=sparks[i].alpha;
+            ctx.drawImage(sparks[i].img,point.x-size/2,point.y-size/2,size,size);
+        }
+    }
+}
+
+function frame(){
+
+    if(frames&gt;100000){
+        seedTimer=0;
+        frames=0;
+    }
+    frames++;
+    draw();
+    doLogic();
+    requestAnimationFrame(frame);
+}
+
+window.addEventListener(&quot;resize&quot;,()=&gt;{
+    canvas.width=canvas.clientWidth;
+    canvas.height=canvas.clientHeight;
+    cx=canvas.width/2;
+    cy=canvas.height/2;
+});
+
+initVars();
+frame();&lt;/script&gt;
+&lt;div style=&quot;text-align:center;&quot;&gt;
+&lt;/div&gt;
+&lt;audio src=&quot;fireworks.mp3&quot; autoplay=&quot;autoplay&quot; class=&quot;music-audio&quot; id=&quot;audio&quot; loop=&quot;loop&quot;&gt;&lt;/audio&gt;
+&lt;script&gt;
+window.onload = function () {
+    var myAudio = document.getElementById(&apos;audio&apos;);
+    myAudio.addEventListener(&apos;ends&apos;,loopAudio,false);
+}
+
+function loopAudio(){
+    var myAudio = document.getElementById(&apos;audio&apos;);
+     myAudio.play();
+}
+document.addEventListener(&apos;DOMContentLoaded&apos;,
+    function () {
+        function audioAutoPlay() {
+            var audio = document.getElementById(&apos;audio&apos;);
+            audio.play();
+            document.addEventListener(&quot;WeixinJSBridgeReady&quot;,
+                function () {
+                    audio.play();
+                },
+                false);
+        }
+        audioAutoPlay();
+    });
+  var canvas = document.getElementById(&quot;canvas&quot;);
+    canvas.addEventListener(&apos;touchstart&apos;, function() {
+        audio.play();
+ });
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>##本地缓存localStorage<br>     1.localStorage - 没有时间限制的数据存储<br>    　　 var arr=[1,2,3];<br>    　　 localStorage.setItem(“stor”,arr);<br>    　　 console.log(localStorage.getItem(“stor”));</p>
+<pre><code>　2.清空localStorage
+　　localStorage.clear(); //
+
+　3.删除键值对
+　　localStorage.removeItem(&quot;stor&quot;);　　
+　　注意：存入的数据只能以字符串形式存入。
+
+
+//JSON对象转JSON字符串
+　　var obj = {&quot;a&quot;: 1,&quot;b&quot;: 2};
+　　obj = JSON.stringify(obj); //转化为JSON字符串
+　　localStorage.setItem(&quot;stor1&quot;, obj);
+
+　　//JSON字符串转JSON对象
+　　obj=JSON.parse(localStorage.getItem(&quot;stor1&quot;));
+</code></pre>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/25/2019-05-15/" rel="next" title="jq绑定元素,事件丢失问题">
+                <i class="fa fa-chevron-left"></i> jq绑定元素,事件丢失问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/25/2019-05-21/" rel="prev" title="对象">
+                对象 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">零之zero</p>
+              <p class="site-description motion-element" itemprop="description">往昔种种,皆为成功序之章.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#游览器不能播放处理方法"><span class="nav-number">1.</span> <span class="nav-text">游览器不能播放处理方法:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#烟花源码"><span class="nav-number">2.</span> <span class="nav-text">烟花源码</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">零之zero</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
