@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="###时间:2019-3-28 String[] –&amp;gt; List转化形式:String [] arr = new String[] {“1”, “2”}; List list = Arrays.asList(arr);  由于String[]转化为list的时候存储空间已经固定为2,所以不能是用list中的list.remove(i)方法,如果想要使用remove(i)这个方式,必须开辟一个">
+<meta name="description" content="###时间:2019-3-28 String[] –&amp;gt; List转化形式:String [] arr = new String[] {&amp;quot;1&amp;quot;, &amp;quot;2&amp;quot;};  List&amp;lt;String&amp;gt; list = Arrays.asList(arr);  由于String[]转化为list的时候存储空间已经固定为2,所以不能是用list中的list.rem">
 <meta property="og:type" content="article">
 <meta property="og:title" content="List  remove">
 <meta property="og:url" content="onemind.top/2019/05/25/2019-03-28/index.html">
 <meta property="og:site_name" content="The top of the world">
-<meta property="og:description" content="###时间:2019-3-28 String[] –&amp;gt; List转化形式:String [] arr = new String[] {“1”, “2”}; List list = Arrays.asList(arr);  由于String[]转化为list的时候存储空间已经固定为2,所以不能是用list中的list.remove(i)方法,如果想要使用remove(i)这个方式,必须开辟一个">
+<meta property="og:description" content="###时间:2019-3-28 String[] –&amp;gt; List转化形式:String [] arr = new String[] {&amp;quot;1&amp;quot;, &amp;quot;2&amp;quot;};  List&amp;lt;String&amp;gt; list = Arrays.asList(arr);  由于String[]转化为list的时候存储空间已经固定为2,所以不能是用list中的list.rem">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-27T08:09:35.173Z">
+<meta property="og:updated_time" content="2019-06-06T00:38:11.035Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="List  remove">
-<meta name="twitter:description" content="###时间:2019-3-28 String[] –&amp;gt; List转化形式:String [] arr = new String[] {“1”, “2”}; List list = Arrays.asList(arr);  由于String[]转化为list的时候存储空间已经固定为2,所以不能是用list中的list.remove(i)方法,如果想要使用remove(i)这个方式,必须开辟一个">
+<meta name="twitter:description" content="###时间:2019-3-28 String[] –&amp;gt; List转化形式:String [] arr = new String[] {&amp;quot;1&amp;quot;, &amp;quot;2&amp;quot;};  List&amp;lt;String&amp;gt; list = Arrays.asList(arr);  由于String[]转化为list的时候存储空间已经固定为2,所以不能是用list中的list.rem">
 
 
 
@@ -300,13 +300,14 @@
 
       
         <p>###时间:2019-3-28</p>
-<h2 id="String-–-gt-List转化形式"><a href="#String-–-gt-List转化形式" class="headerlink" title="String[] –&gt; List转化形式:"></a>String[] –&gt; List转化形式:</h2><p>String [] arr = new String[] {“1”, “2”};</p>
-<p>List<string> list = Arrays.asList(arr); </string></p>
-<p>由于String[]转化为list的时候存储空间已经固定为2,所以不能是用list中的list.remove(i)方法,如果想要<br>使用remove(i)这个方式,必须开辟一个新的空间.</p>
+<h2 id="String-–-gt-List转化形式"><a href="#String-–-gt-List转化形式" class="headerlink" title="String[] –&gt; List转化形式:"></a>String[] –&gt; List转化形式:</h2><pre><code>String [] arr = new String[] {&quot;1&quot;, &quot;2&quot;};
+
+List&lt;String&gt; list = Arrays.asList(arr); 
+</code></pre><p>由于String[]转化为list的时候存储空间已经固定为2,所以不能是用list中的list.remove(i)方法,如果想要<br>使用remove(i)这个方式,必须开辟一个新的空间.</p>
 <p>如何开辟新的空间?</p>
 <p>形式如下:</p>
-<p>List<string> list = new ArrayList(Arrays.asList(arr)); </string></p>
-
+<pre><code>List&lt;String&gt; list = new ArrayList(Arrays.asList(arr)); 
+</code></pre>
       
     </div>
     
@@ -419,7 +420,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

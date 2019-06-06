@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="###时间:2019-05-21 ##访问对象的属性方式:1.通过.a,这个语法通常被称为”属性访问”.2.通过[“a”],这个语法通常被称为”键访问” ##两者的区别:1.属性访问满足了命名规范,键值访问可以接受任意UFT-8/unicode字符串作为属性名. ##对象的属性描述：   var myObject = { }   object.getOwnPropertyDescriptor(my">
+<meta name="description" content="###时间:2019-05-21 ##访问对象的属性方式:1.通过.a,这个语法通常被称为”属性访问”.2.通过[“a”],这个语法通常被称为”键访问” ##两者的区别:1.属性访问满足了命名规范,键值访问可以接受任意UFT-8/unicode字符串作为属性名. ##对象的属性描述：       var myObject = { }       object.getOwnPropertyDescr">
 <meta property="og:type" content="article">
 <meta property="og:title" content="对象">
 <meta property="og:url" content="onemind.top/2019/05/25/2019-05-21/index.html">
 <meta property="og:site_name" content="The top of the world">
-<meta property="og:description" content="###时间:2019-05-21 ##访问对象的属性方式:1.通过.a,这个语法通常被称为”属性访问”.2.通过[“a”],这个语法通常被称为”键访问” ##两者的区别:1.属性访问满足了命名规范,键值访问可以接受任意UFT-8/unicode字符串作为属性名. ##对象的属性描述：   var myObject = { }   object.getOwnPropertyDescriptor(my">
+<meta property="og:description" content="###时间:2019-05-21 ##访问对象的属性方式:1.通过.a,这个语法通常被称为”属性访问”.2.通过[“a”],这个语法通常被称为”键访问” ##两者的区别:1.属性访问满足了命名规范,键值访问可以接受任意UFT-8/unicode字符串作为属性名. ##对象的属性描述：       var myObject = { }       object.getOwnPropertyDescr">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-27T08:13:22.420Z">
+<meta property="og:updated_time" content="2019-06-06T00:36:10.619Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="对象">
-<meta name="twitter:description" content="###时间:2019-05-21 ##访问对象的属性方式:1.通过.a,这个语法通常被称为”属性访问”.2.通过[“a”],这个语法通常被称为”键访问” ##两者的区别:1.属性访问满足了命名规范,键值访问可以接受任意UFT-8/unicode字符串作为属性名. ##对象的属性描述：   var myObject = { }   object.getOwnPropertyDescriptor(my">
+<meta name="twitter:description" content="###时间:2019-05-21 ##访问对象的属性方式:1.通过.a,这个语法通常被称为”属性访问”.2.通过[“a”],这个语法通常被称为”键访问” ##两者的区别:1.属性访问满足了命名规范,键值访问可以接受任意UFT-8/unicode字符串作为属性名. ##对象的属性描述：       var myObject = { }       object.getOwnPropertyDescr">
 
 
 
@@ -302,7 +302,7 @@
         <p>###时间:2019-05-21</p>
 <p>##访问对象的属性方式:<br>1.通过.a,这个语法通常被称为”属性访问”.<br>2.通过[“a”],这个语法通常被称为”键访问”</p>
 <p>##两者的区别:<br>1.属性访问满足了命名规范,键值访问可以接受任意UFT-8/unicode字符串作为属性名.</p>
-<p>##对象的属性描述：<br>   var myObject = { }<br>   object.getOwnPropertyDescriptor(myObject,”a”,{<br>     value:2,<br>     writable:true,//决定是否可以修改属性的值，即我们通常说的，可读和可写。<br>     enumerable:true,//这个属性为是否可枚举，（简单理解就是存在，但是不展示出来）可通过for … in循环，也可以通过object.keys(..) 来判断。<br>     configurable:true//这个只有设置了可配置，才能使用defineProperty(..)方法来修改属性描述符<br>   });</p>
+<p>##对象的属性描述：<br>       var myObject = { }<br>       object.getOwnPropertyDescriptor(myObject,”a”,{<br>         value:2,<br>         writable:true,//决定是否可以修改属性的值，即我们通常说的，可读和可写。<br>         enumerable:true,//这个属性为是否可枚举，（简单理解就是存在，但是不展示出来）可通过for … in循环，也可以通过object.keys(..) 来判断。<br>         configurable:true//这个只有设置了可配置，才能使用defineProperty(..)方法来修改属性描述符<br>       });</p>
 <p>## </p>
 <p>##其他知识<br>1.对象中属性名永远是字符串。<br>2.属性不一定包含值，但是它们可能多具备getter/setter的”访问描述符”。</p>
 
@@ -409,7 +409,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

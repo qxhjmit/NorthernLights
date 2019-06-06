@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="The top of the world">
 <meta property="og:description" content="##值：1.javaScript中的数组是通过数字索引的一组任意类型的值。字符串和数组类似，但是他们的行为特征不同，在将字符作为数组来处理是需要特别小心。javaScript中的数字包括”整数”和”浮点型”。2.null类型只有一个值null，undefined类型也只有一个值undefined。所有变量在赋值之前默认值都是undefined。void运算符返回undefined。3.数字类型有几">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-05T14:09:52.171Z">
+<meta property="og:updated_time" content="2019-06-06T00:34:54.971Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="你不知道的javaScript--中卷">
 <meta name="twitter:description" content="##值：1.javaScript中的数组是通过数字索引的一组任意类型的值。字符串和数组类似，但是他们的行为特征不同，在将字符作为数组来处理是需要特别小心。javaScript中的数字包括”整数”和”浮点型”。2.null类型只有一个值null，undefined类型也只有一个值undefined。所有变量在赋值之前默认值都是undefined。void运算符返回undefined。3.数字类型有几">
@@ -300,6 +300,7 @@
 
       
         <p>##值：<br>1.javaScript中的数组是通过数字索引的一组任意类型的值。字符串和数组类似，但是他们的行为特征不同，在将字符作为数组来处理是需要特别小心。javaScript中的数字包括”整数”和”浮点型”。<br>2.null类型只有一个值null，undefined类型也只有一个值undefined。所有变量在赋值之前默认值都是undefined。void运算符返回undefined。<br>3.数字类型有几个特殊值，包括NaN（意思是“not a number”），更确切地说是“invalid number”、+Infinity，-Infinity和-0。<br>4.NaN是一个特殊值，他和自身不相等，是唯一一个非自反（自反，reflexive，即x===x不成立）的值，而NaN != NaN为true。<br>5.一个有意思的事，JSON.stringify(-0)返回为”0”,而JSON.stringify(“-0”)为0。<br>6.简单标量基本类型值（字符串和数字等）通过值复制来复制/传递，而复合值（对象等），通过引用复制来赋值/传递。javaScript中的引用和其他语言中的引用/指针不同，它们不能只想别的变量/引用，只能指向值。</p>
+<p>##开发遇到的问题<br>1.使用ueditor时想要引用其中的功能但是找不到all.mini.js文件.<br>解决方式:<br>git clone 仓库<br>npm install 安装依赖（如果没有安装 grunt , 请先在全局安装 grunt）<br>在终端执行 grunt default<br>打包成dist文件,在dist文件里就有全部的all.mini.js文件.</p>
 
       
     </div>
@@ -333,6 +334,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/05/0-Poetry/" rel="prev" title="诗，词，句">
+                诗，词，句 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -400,7 +405,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
