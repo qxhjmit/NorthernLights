@@ -232,6 +232,788 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/07/28/2019-07-02/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="零之zero">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/28/2019-07-02/" itemprop="url">axios实现原理</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-28T22:47:46+08:00">
+                2019-07-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>var Ajax={<br>        get: function(url, fn) {<br>            // XMLHttpRequest对象用于在后台与服务器交换数据<br>            var xhr = new XMLHttpRequest();<br>            xhr.open(‘GET’, url, true);<br>            xhr.onreadystatechange = function() {<br>                // readyState == 4说明请求已完成<br>                if (xhr.readyState == 4 &amp;&amp; xhr.status == 200) {<br>                    // 从服务器获得数据<br>                    fn.call(this, xhr.responseText);<br>                }<br>            };<br>            xhr.send();<br>        }<br>    }</p>
+<p>var Axios = {<br>        get: function(url) {<br>            return new Promise((resolve, reject) =&gt; {<br>                var xhr = new XMLHttpRequest();<br>                xhr.open(‘GET’, url, true);<br>                xhr.onreadystatechange = function() {<br>                    // readyState == 4说明请求已完成<br>                    if (xhr.readyState == 4 &amp;&amp; xhr.status == 200) {<br>                        // 从服务器获得数据<br>                        resolve(xhr.responseText)<br>                    }<br>                };<br>                xhr.send();<br>            })<br>        },<br>    }</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/07/28/2019-07-01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="零之zero">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/28/2019-07-01/" itemprop="url">水平垂直居中</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-28T22:45:58+08:00">
+                2019-07-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p> 1.body {<br>      background: #DDD;<br>    }<br>    .content {<br>      width: 50%;<br>      position: absolute;<br>      top: 50%; left: 50%;<br>      -webkit-transform: translate(-50%,-50%);<br>      -ms-transform: translate(-50%,-50%);<br>      transform: translate(-50%,-50%);<br>      background: purple;<br>    }</p>
+<ol start="2">
+<li><p>body {<br>  background: #DDD;<br>}<br>.content {<br>  width: 30px;<br>  height: 30px;<br>  margin: auto;<br>  position: absolute;<br>  top: 0; left: 0; bottom: 0; right: 0;<br>  background: purple;<br>}</p>
+<p>3<br>.is-Negative {</p>
+<pre><code>width: 300px;
+height: 200px;
+padding: 20px;
+position: absolute;
+top: 50%; left: 50%;
+margin-left: -170px; /* (width + padding)/2 */
+margin-top: -120px; /* (height + padding)/2 */
+</code></pre><p>}</p>
+</li>
+</ol>
+<p>4.<br>.content{</p>
+<p>display: flex;</p>
+<p>align-items: center;</p>
+<p>justify-content: center;</p>
+<p>}<br>5.<br>.parent{</p>
+<p>display: table;</p>
+<p>width: 50px; /<em>建议设置宽高，以便于查看效果</em>/</p>
+<p>height: 500px;</p>
+<p>}</p>
+<p>.content{</p>
+<p>display: table-cell;</p>
+<p>vertical-align: middle;</p>
+<p>background-color: aqua;</p>
+<p>}</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/06/30/2019-06-30-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="零之zero">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/30/2019-06-30-1/" itemprop="url">co的源码</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-30T14:33:38+08:00">
+                2019-06-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>function co(gen) {<br>  var ctx = this;</p>
+<p>  return new Promise(function(resolve, reject) {<br>    if (typeof gen === ‘function’) gen = gen.call(ctx);<br>    if (!gen || typeof gen.next !== ‘function’) return resolve(gen);</p>
+<pre><code>onFulfilled();
+function onFulfilled(res) {
+  var ret;
+  try {
+    ret = gen.next(res);
+  } catch (e) {
+    return reject(e);
+  }
+  next(ret);
+}
+</code></pre><p>  });<br>}<br>1.首先，co函数接受Generator函数作为参数，返回一个 Promise 对象。</p>
+<p>2.在返回的Promise对象里面，co先检查参数gen是否为Generator函数。如果是，就执行该函数，得到一个内部指针对象；如果不是就返回，并将Promise对象的状态改为resolved。</p>
+<p>3.接着，co将Generator函数的内部指针对象的next方法，包装成onFulfilled函数。这主要是为了能够捕捉抛出的错误。</p>
+<p>4.最后，就是关键的next函数，它会反复调用自身。</p>
+<p>function next(ret) {<br>  if (ret.done) return resolve(ret.value);<br>  var value = toPromise.call(ctx, ret.value);<br>  if (value &amp;&amp; isPromise(value)) return value.then(onFulfilled, onRejected);<br>  return onRejected(new TypeError(‘You may only yield a function, promise, generator, array, or object, ‘</p>
+<pre><code>+ &apos;but the following object was passed: &quot;&apos; + String(ret.value) + &apos;&quot;&apos;));
+</code></pre><p>}</p>
+<p>上面代码中，next 函数的内部代码，一共只有四行命令。</p>
+<p>1.第一行，检查当前是否为 Generator 函数的最后一步，如果是就返回。</p>
+<p>2.第二行，确保每一步的返回值，是 Promise 对象。</p>
+<p>3.第三行，使用 then 方法，为返回值加上回调函数，然后通过 onFulfilled 函数再次调用 next 函数。</p>
+<p>4.第四行，在参数不符合要求的情况下（参数非 Thunk 函数和 Promise 对象），将 Promise 对象的状态改为 rejected，从而终止执行。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/06/30/2019-06-30/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="零之zero">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/30/2019-06-30/" itemprop="url">斐波那契数列</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-30T14:28:38+08:00">
+                2019-06-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.何为斐波那契数列，例如 1,2,3,5,8,13,21,34……<br>function* fibonacci() {<br>  let [prev, curr] = [0, 1];<br>  for (;;) {<br>    [prev, curr] = [curr, prev + curr];<br>    yield curr;<br>  }<br>}</p>
+<p>for (let n of fibonacci()) {<br>  if (n &gt; 1000) break;<br>  console.log(n);<br>}</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/06/30/2019-06-29/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="零之zero">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/30/2019-06-29/" itemprop="url">斐波那契数列</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-30T14:23:34+08:00">
+                2019-06-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.何为斐波那契数列，例如 1,2,3,5,8,13,21,34……<br>function* fibonacci() {<br>  let [prev, curr] = [0, 1];<br>  for (;;) {<br>    [prev, curr] = [curr, prev + curr];<br>    yield curr;<br>  }<br>}</p>
+<p>for (let n of fibonacci()) {<br>  if (n &gt; 1000) break;<br>  console.log(n);<br>}</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/06/28/2019-06-28/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="零之zero">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/28/2019-06-28/" itemprop="url">深拷贝</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-28T19:06:35+08:00">
+                2019-06-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.function deepCopy(obj) {<br>   var newArray = Array.isArray(obj) ? []:{};<br>   for (key in obj) {//for in 循环可以取到对象名<br>      if(obj.hasOwnProperty(key)) {//Object的hasOwnProperty()方法返回一个布尔值，判断对象是否包含特定的自身（非继承）属性。<br>          if(typeof obj[key] === “object” &amp;&amp;  obj[key] != null ) {<br>            newArray[key] = deepCopy(obj[key])<br>           }else {<br>            newArray[key] = obj[key];</p>
+<pre><code>     }
+
+  }
+
+}
+</code></pre><p>return deepcopy<br>}</p>
+<p>2.function deepClone(obj){<br>    let _obj = JSON.stringify(obj),<br>        objClone = JSON.parse(_obj);<br>    return objClone<br>}<br>let a=[0,1,[2,3],4],<br>    b=deepClone(a);<br>a[0]=1;<br>a[2][0]=1;<br>console.log(a,b);</p>
+<p>3.$.extend( [deep ], target, object1 [, objectN ] )<br>let a=[0,1,[2,3],4],<br>    b=$.extend(true,[],a);<br>a[0]=1;<br>a[2][0]=1;<br>console.log(a,b);</p>
+<p>1.为什么要写一个深拷贝，因为这个平时的时候用到的地方很多，当然主要的是面试的时候被问到，知道原理但是不怎么会写，这当然不能允许了，<br>所以，今天我来写一个深拷贝，打扰代码可以网上找啦，主要还是讲下什么是深拷贝，这个涉及到堆和栈。<br>当然深拷贝主要是针对的引用类型。说到引用类型，就不得不说一下什么是基本类型和引用类型了。<br>基本类型：number，string，boolean，null，undefined，symbol以及未来ES10新增的BigInt(任意精度整数)七类。<br>引用类型：(Object类)有常规名值对的无序对象{a:1}，数组[1,2,3]，以及函数等。<br>基本数据类型只会在栈内存会新开辟一个内存。<br>而引用数据类型–名存在栈内存中，值存在于堆内存中，但是栈内存会提供一个引用的地址指向堆内存中的值<br>当b=a进行拷贝时，其实复制的是a的引用地址，而并非堆里面的值。<br>而当我们a[0]=1时进行数组修改时，由于a与b指向的是同一个地址，所以自然b也受了影响，这就是所谓的浅拷贝了。<br>那，要是在堆内存中也开辟一个新的内存专门为b存放值，就像基本类型那样，岂不就达到深拷贝的效果了，所以就有了上述3种方式进行深拷贝啦。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="onemind.top/2019/06/06/2019-05-28/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -745,854 +1527,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/05/31/2019-05-31/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/31/2019-05-31/" itemprop="url">listagg的拼接为空</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-31T17:23:38+08:00">
-                2019-05-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>时间：2019-06-05<br>开发时遇到的问题:<br>1.用 listagg(i.eti_lang_code,’;’)within group(order by eti_lang_code) as eti_lang_code 转化查询为空.<br>由于eti_lang_code为varchar类型,所以导致拼接为空而number则没有这个问题.<br>解决方法:加上to_char(),如下:<br>listagg(to_char(i.eti_lang_code),’;’)within group(order by eti_lang_code) as eti_lang_code</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/05/30/2019-05-29/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/30/2019-05-29/" itemprop="url">JSONObject.fromObject不能转换为空字符</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-30T09:09:13+08:00">
-                2019-05-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>时间:2019-05-29</p>
-<p>##1.ACI报 A JSONObject text must begin with ‘{‘ at character 0 of 错误。</p>
-<p>###经过查询产生错误如下：<br>    String returnXml = “”;<br>    JSONObject  jasonObject = JSONObject.fromObject(returnXml);<br>    由于空字符串导致转换错误。</p>
-<p>###解决方法：<br>    String returnXml = “”;<br>    if(returnXml != null || returnXml.equals(“”)){<br>            return null;<br>    }<br>    JSONObject  jasonObject = JSONObject.fromObject(returnXml);</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/05/27/hotKey/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/27/hotKey/" itemprop="url">注释配置和快捷键啊</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-27T13:36:59+08:00">
-                2019-05-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>转载自:<a href="https://www.cnblogs.com/chenmingjun/p/8876837.html" target="_blank" rel="noopener">https://www.cnblogs.com/chenmingjun/p/8876837.html</a><br>    一、多行注释快捷键</p>
-<pre><code>　　1.选中你要加注释的区域，用 Ctrl+Shift+C 或者 Ctrl+/ 会加上 // 注释，再重复按一下就会去掉 // 注释。（.js文件中只有 Ctrl+Shift+C 管用，.java文件中都管用）
-
-　　2.选中你要加注释的区域，用 Ctrl+shit+/  会加上 /*...*/ 注释，再用 Ctrl+shit+\  会去掉 /*...*/ 注释。（注意：正斜杠是加注释，反斜杠是去掉注释）
-
-　　3.要修改在eclispe中的命令的快捷键方式我们只需进入 Windows -&gt; Preferences -&gt; General -&gt; keys 设置就行。
-
-二、Eclipse中添加文档注释快捷键
-
-　　1.例如默认的文档注释：
-
-　　　　/**   
-　　　　* @author xxx
-　　　　* 
-　　　　* 
-　　　　*/
-
-　　2.快捷键为：Alt+Shift+J
-
-　　3.修改文档注释的注释格式内容，修改的方法有两种：
-
-　　　　A.直接在eclipse给的模板下进行修改
-
-　　　　打开Eclipse
-
-　　　　Window --&gt; Preferences --&gt; Java --&gt; Code Style  --&gt; Code Templates --&gt; Comments --&gt; types --&gt; Edit...
-
-　　　　例如：
-
-　　　　/**   
-　　　　* 项目名称：${project_name}   
-　　　　* 类名称：${type_name}   
-　　　　* 类描述：   
-　　　　* 创建人：${user}   
-　　　　* 创建时间：${date} ${time}   
-　　　　* @version        
-　　　　*/
-
-
-
-　　　　B.自己编写一个xml文档导入进去
-
-　　　　打开Eclipse
-
-　　　　Window --&gt; Preferences --&gt; Java --&gt; Code Style --&gt; Code Templates --&gt; Comments --&gt; types --&gt; Import...
-
-  　　　  选择你写好的模板.xml文件
-
-Eclipse中默认的模板.xml文件如下：
-
-复制代码
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;templates&gt;&lt;template autoinsert=&quot;true&quot; context=&quot;constructorcomment_context&quot; deleted=&quot;false&quot; description=&quot;Comment for created constructors&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.constructorcomment&quot; name=&quot;constructorcomment&quot;&gt;/**
- * ${tags}
- */&lt;/template&gt;&lt;template autoinsert=&quot;false&quot; context=&quot;typecomment_context&quot; deleted=&quot;false&quot; description=&quot;Comment for created types&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.typecomment&quot; name=&quot;typecomment&quot;&gt;/**
- * @author ${user}
- *
- * ${tags}
- */    &lt;/template&gt;&lt;template autoinsert=&quot;true&quot; context=&quot;fieldcomment_context&quot; deleted=&quot;false&quot; description=&quot;Comment for fields&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.fieldcomment&quot; name=&quot;fieldcomment&quot;&gt;/**
- * 
- */&lt;/template&gt;&lt;template autoinsert=&quot;true&quot; context=&quot;settercomment_context&quot; deleted=&quot;false&quot; description=&quot;Comment for setter method&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.settercomment&quot; name=&quot;settercomment&quot;&gt;/**
- * @param ${param} the ${bare_field_name} to set
- */&lt;/template&gt;&lt;template autoinsert=&quot;true&quot; context=&quot;filecomment_context&quot; deleted=&quot;false&quot; description=&quot;Comment for created Java files&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.filecomment&quot; name=&quot;filecomment&quot;&gt;/**
- * 
- */&lt;/template&gt;&lt;template autoinsert=&quot;true&quot; context=&quot;gettercomment_context&quot; deleted=&quot;false&quot; description=&quot;Comment for getter method&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.gettercomment&quot; name=&quot;gettercomment&quot;&gt;/**
- * @return the ${bare_field_name}
- */&lt;/template&gt;&lt;template autoinsert=&quot;true&quot; context=&quot;methodcomment_context&quot; deleted=&quot;false&quot; description=&quot;Comment for non-overriding methods&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.methodcomment&quot; name=&quot;methodcomment&quot;&gt;/**
- * ${tags}
- */&lt;/template&gt;&lt;template autoinsert=&quot;true&quot; context=&quot;delegatecomment_context&quot; deleted=&quot;false&quot; description=&quot;Comment for delegate methods&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.delegatecomment&quot; name=&quot;delegatecomment&quot;&gt;/**
- * ${tags}
- * ${see_to_target}
- */&lt;/template&gt;&lt;template autoinsert=&quot;true&quot; context=&quot;overridecomment_context&quot; deleted=&quot;false&quot; description=&quot;Comment for overriding methods&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.overridecomment&quot; name=&quot;overridecomment&quot;&gt;/* (non-Javadoc)
- * ${see_to_overridden}
- */&lt;/template&gt;&lt;/templates&gt;
-复制代码
-自己写好的模板.xml文件如下：
-
-复制代码
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;templates&gt;&lt;template autoinsert=&quot;false&quot; context=&quot;filecomment_context&quot; deleted=&quot;false&quot; description=&quot;Comment for created Java files&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.filecomment&quot; name=&quot;filecomment&quot;/&gt;&lt;template autoinsert=&quot;false&quot; context=&quot;constructorcomment_context&quot; deleted=&quot;false&quot; description=&quot;Comment for created constructors&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.constructorcomment&quot; name=&quot;constructorcomment&quot;&gt;
-/**
- *  Description:
- *  @author hp  DateTime ${date} ${time}
- *  ${tags}
- */
- &lt;/template&gt;&lt;template autoinsert=&quot;false&quot; context=&quot;methodcomment_context&quot; deleted=&quot;false&quot; description=&quot;Comment for non-overriding methods&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.methodcomment&quot; name=&quot;methodcomment&quot;&gt;
-/**
- *  Description:
- *  @author hp  DateTime ${date} ${time}
- *  ${tags}
- */&lt;/template&gt;&lt;template autoinsert=&quot;false&quot; context=&quot;fieldcomment_context&quot; deleted=&quot;false&quot; description=&quot;Comment for fields&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.fieldcomment&quot; name=&quot;fieldcomment&quot;&gt;
-/**
- *  Description:
- *  @author hp  DateTime ${date} 
- *  
- */&lt;/template&gt;&lt;template autoinsert=&quot;false&quot; context=&quot;typecomment_context&quot; deleted=&quot;false&quot; description=&quot;Comment for created types&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.typecomment&quot; name=&quot;typecomment&quot;&gt;
-/**
- *  Class Name: ${file_name}
- *  Description: 
- *  @author hp  DateTime ${date} ${time} 
- *  @company bvit 
- *  @email hu.peng@bvit.com.cn  
- *  @version 1.0
- *  ${tags}
- */&lt;/template&gt;&lt;template autoinsert=&quot;false&quot; context=&quot;gettercomment_context&quot; deleted=&quot;false&quot; description=&quot;Comment for getter method&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.gettercomment&quot; name=&quot;gettercomment&quot;&gt;
-/**
- * @return get ${bare_field_name}
- */&lt;/template&gt;&lt;template autoinsert=&quot;false&quot; context=&quot;overridecomment_context&quot; deleted=&quot;false&quot; description=&quot;Comment for overriding methods&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.overridecomment&quot; name=&quot;overridecomment&quot;&gt;
-/**
- *  Description:
- *  @author hp  DateTime ${date} ${time}
- *  ${tags}
- */&lt;/template&gt;&lt;template autoinsert=&quot;false&quot; context=&quot;delegatecomment_context&quot; deleted=&quot;false&quot; description=&quot;Comment for delegate methods&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.delegatecomment&quot; name=&quot;delegatecomment&quot;&gt;
-/**
- * Description:
- * @author hp DateTime ${date} 
- * ${tags}
- * ${see_to_target}
- */&lt;/template&gt;&lt;template autoinsert=&quot;false&quot; context=&quot;settercomment_context&quot; deleted=&quot;false&quot; description=&quot;Comment for setter method&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.settercomment&quot; name=&quot;settercomment&quot;&gt;
-/**
- * @param ${param} set ${bare_field_name}
- */&lt;/template&gt;&lt;/templates&gt;
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/05/27/2019-05-27/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/27/2019-05-27/" itemprop="url">5-27</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-27T10:08:53+08:00">
-                2019-05-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>时间:2019-05-27<br>1.aci的dao没有配置(applicationContext.xml)导致执行aci任务的时候抛出空指针.<br>2.我们知道一般任何对象都是Object的instance，因为原型链的顶端都指向Object.prototype。那么Object本身是什么？Object也是个函数，而任何函数都是Function的实例对象，比如Array，String，当然Object也包括在内，它也是Function的实例;<br>Object instanceof Function === true<br>Function instanceof Object === true</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/05/27/2019-05-25/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/27/2019-05-25/" itemprop="url">SEO优化</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-27T08:46:50+08:00">
-                2019-05-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>时间:2019-05-25<br>1.百度抓取标题一定是从h1-&gt;h2-&gt;h3…<br>2.请求的时候尽量用get请求而不是用post请求,这里由于百度抓取的时候是很难抓取或者根本抓取不到post请求的内容.<br>3.页面的路径要用绝对路径,而相对路径百度是抓取不到的<br>4.在一个网站里放一个xml文件,把网站所有页面的绝对路径存放到里面有利于搜索引擎抓取.<br>5.如果你不想让百度爬虫爬去, 而想要他只能站内搜索,可以添加一个js文件,来告诉百度爬虫,不让你爬去我网站里面的内容.例如淘宝内的商品只能在淘宝内搜索.</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/05/26/2019-05-24/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/26/2019-05-24/" itemprop="url">object.prototype原型</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-26T23:19:19+08:00">
-                2019-05-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>时间:2019-05-24</p>
-<p>1.访问对象并不存在一个属性，get的操作就会找到对象内部，关联的对象，这个关系实际上就是原型链。<br>2.所有普通的对象多有内置的object.prototype，指向原型链的顶端，其中tostring()，valueOf()和其他一些通用的功能存在于object.prototype,所有对象多可以引用。<br>3.使用new调用函数时会把新对象.prototype属性关联到”其他对象上”，带new被称为”构造函数”。<br>4.虽然javascript有类似其他语言的类功能，但是它实际上是并不能进行复制，只是通过prototype链进行对象内部之间的关联，所以我们不能用继续进行描述，而是用委托更合适，因为对象之间的关系不是复制而是委托。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1638,7 +1577,7 @@ Eclipse中默认的模板.xml文件如下：
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
