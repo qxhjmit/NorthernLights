@@ -232,6 +232,531 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/05/26/2019-05-26/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="零之zero">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/26/2019-05-26/" itemprop="url">90%程序员都没有完全答对Cookie和Session的区别</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-26T23:06:38+08:00">
+                2019-05-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>时间:2019-05-26</p>
+<p>来自：Java极客技术<br>转载自:<a href="https://www.toutiao.com/a6693986851193094664/?tt_from=weixin&amp;utm_campaign=client_share&amp;wxshare_count=1&amp;timestamp=1558654439&amp;app=news_article&amp;utm_source=weixin&amp;utm_medium=toutiao_ios&amp;req_id=2019052407335801002205604796699C4&amp;group_id=6693986851193094664" target="_blank" rel="noopener">https://www.toutiao.com/a6693986851193094664/?tt_from=weixin&amp;utm_campaign=client_share&amp;wxshare_count=1&amp;timestamp=1558654439&amp;app=news_article&amp;utm_source=weixin&amp;utm_medium=toutiao_ios&amp;req_id=2019052407335801002205604796699C4&amp;group_id=6693986851193094664</a></p>
+<p>第一层楼</p>
+<p>什么是 Cookie 和 Session ?初级程序员高频面试题。</p>
+<p>什么是 Cookie</p>
+<p>HTTP Cookie（也叫 Web Cookie或浏览器 Cookie）是服务器发送到用户浏览器并保存在本地的一小块数据，它会在浏览器下次向同一服务器再发起请求时被携带并发送到服务器上。通常，它用于告知服务端两个请求是否来自同一浏览器，如保持用户的登录状态。Cookie 使基于无状态的 HTTP 协议记录稳定的状态信息成为了可能。</p>
+<p>Cookie 主要用于以下三个方面：<br>◾会话状态管理（如用户登录状态、购物车、游戏分数或其它需要记录的信息）<br>◾个性化设置（如用户自定义设置、主题等）<br>◾浏览器行为跟踪（如跟踪分析用户行为等）</p>
+<p>什么是 Session</p>
+<p>Session 代表着服务器和客户端一次会话的过程。Session 对象存储特定用户会话所需的属性及配置信息。这样，当用户在应用程序的 Web 页之间跳转时，存储在 Session 对象中的变量将不会丢失，而是在整个用户会话中一直存在下去。当客户端关闭会话，或者 Session 超时失效时会话结束。</p>
+<p>第二层楼</p>
+<p>Cookie 和 Session 有什么不同？<br>◾作用范围不同，Cookie 保存在客户端（浏览器），Session 保存在服务器端。<br>◾存取方式的不同，Cookie 只能保存 ASCII，Session 可以存任意数据类型，一般情况下我们可以在 Session 中保持一些常用变量信息，比如说 UserId 等。<br>◾有效期不同，Cookie 可设置为长时间保持，比如我们经常使用的默认登录功能，Session 一般失效时间较短，客户端关闭或者 Session 超时都会失效。<br>◾隐私策略不同，Cookie 存储在客户端，比较容易遭到不法获取，早期有人将用户的登录名和密码存储在 Cookie 中导致信息被窃取；Session 存储在服务端，安全性相对 Cookie 要好一些。<br>◾存储大小不同， 单个 Cookie 保存的数据不能超过 4K，Session 可存储数据远高于 Cookie。</p>
+<p>前两层楼内容，绝大部分同学都可以准确回答</p>
+<p>第三层楼</p>
+<p>为什么需要 Cookie 和 Session，他们有什么关联？</p>
+<p>说起来为什么需要 Cookie ，这就需要从浏览器开始说起，我们都知道浏览器是没有状态的(HTTP 协议无状态)，这意味着浏览器并不知道是张三还是李四在和服务端打交道。这个时候就需要有一个机制来告诉服务端，本次操作用户是否登录，是哪个用户在执行的操作，那这套机制的实现就需要 Cookie 和 Session 的配合。</p>
+<p>那么 Cookie 和 Session 是如何配合的呢？我画了一张图大家可以先了解下。</p>
+<p>90%程序员都没有完全答对Cookie和Session的区别<br>用户第一次请求服务器的时候，服务器根据用户提交的相关信息，创建创建对应的 Session ，请求返回时将此 Session 的唯一标识信息 SessionID 返回给浏览器，浏览器接收到服务器返回的 SessionID 信息后，会将此信息存入到 Cookie 中，同时 Cookie 记录此 SessionID 属于哪个域名。</p>
+<p>当用户第二次访问服务器的时候，请求会自动判断此域名下是否存在 Cookie 信息，如果存在自动将 Cookie 信息也发送给服务端，服务端会从 Cookie 中获取 SessionID，再根据 SessionID 查找对应的 Session 信息，如果没有找到说明用户没有登录或者登录失效，如果找到 Session 证明用户已经登录可执行后面操作。</p>
+<p>根据以上流程可知，SessionID 是连接 Cookie 和 Session 的一道桥梁，大部分系统也是根据此原理来验证用户登录状态。</p>
+<p>三层楼的内容，大部分同学可以讲清楚。</p>
+<p>第四层楼</p>
+<p>既然服务端是根据 Cookie 中的信息判断用户是否登录，那么如果浏览器中禁止了 Cookie，如何保障整个机制的正常运转。</p>
+<p>第一种方案，每次请求中都携带一个 SessionID 的参数，也可以 Post 的方式提交，也可以在请求的地址后面拼接 xxx?SessionID=123456…。</p>
+<p>第二种方案，Token 机制。Token 机制多用于 App 客户端和服务器交互的模式，也可以用于 Web 端做用户状态管理。</p>
+<p>Token 的意思是“令牌”，是服务端生成的一串字符串，作为客户端进行请求的一个标识。Token 机制和 Cookie 和 Session 的使用机制比较类似。</p>
+<p>当用户第一次登录后，服务器根据提交的用户信息生成一个 Token，响应时将 Token 返回给客户端，以后客户端只需带上这个 Token 前来请求数据即可，无需再次登录验证。</p>
+<p>四层楼的内容，一部分同学可以讲清楚。</p>
+<p>第五层楼</p>
+<p>如何考虑分布式 Session 问题？</p>
+<p>在互联网公司为了可以支撑更大的流量，后端往往需要多台服务器共同来支撑前端用户请求，那如果用户在 A 服务器登录了，第二次请求跑到服务 B 就会出现登录失效问题。</p>
+<p>分布式 Session 一般会有以下几种解决方案：<br>◾Nginx ip_hash 策略，服务端使用 Nginx 代理，每个请求按访问 IP 的 hash 分配，这样来自同一 IP 固定访问一个后台服务器，避免了在服务器 A 创建 Session，第二次分发到服务器 B 的现象。<br>◾Session 复制，任何一个服务器上的 Session 发生改变（增删改），该节点会把这个 Session 的所有内容序列化，然后广播给所有其它节点。<br>◾共享 Session，服务端无状态话，将用户的 Session 等信息使用缓存中间件来统一管理，保障分发到每一个服务器的响应结果都一致。</p>
+<p>建议采用第三种方案。</p>
+<p>第六层楼</p>
+<p>如何解决跨域请求？Jsonp 跨域的原理是什么？</p>
+<p>说起跨域请求，必须要了解浏览器的同源策略，同源策略/SOP（Same origin policy）是一种约定，由 Netscape 公司 1995年引入浏览器，它是浏览器最核心也最基本的安全功能，如果缺少了同源策略，浏览器很容易受到 XSS、CSFR 等攻击。所谓同源是指”协议+域名+端口”三者相同，即便两个不同的域名指向同一个 ip 地址，也非同源。</p>
+<p>解决跨域请求的常用方法是：<br>◾通过代理来避免，比如使用 Nginx 在后端转发请求，避免了前端出现跨域的问题。<br>◾通过 Jsonp 跨域<br>◾其它跨域解决方案</p>
+<p>重点谈一下 Jsonp 跨域原理。浏览器的同源策略把跨域请求都禁止了，但是页面中的 <script><img><iframe>标签是例外，不受同源策略限制。Jsonp 就是利用 <script> 标签跨域特性进行跨域数据访问。</p>
+<p>JSONP 的理念就是，与服务端约定好一个回调函数名，服务端接收到请求后，将返回一段 Javascript，在这段 Javascript 代码中调用了约定好的回调函数，并且将数据作为参数进行传递。当网页接收到这段 Javascript 代码后，就会执行这个回调函数，这时数据已经成功传输到客户端了。</p>
+<p>JSONP 的缺点是：它只支持 GET 请求，而不支持 POST 请求等其他类型的 HTTP 请求。</p>
+<p>以上就是有关 Cookie 和 Session 常见的面试点，不知道有多少同学可以在面试中准确回答所有问题。</p>
+</script></p>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/05/26/2019-05-23/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="零之zero">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/26/2019-05-23/" itemprop="url">混合对象"类"。</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-26T22:55:04+08:00">
+                2019-05-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>时间:2019-05-23</p>
+<p>#读后结语。<br>1.类是一种设计模式。许多语言提供了对于面向类软件的原生语法，例如java。但是在javascript有类似的语言，但是一定要区分他和其他语言是不一样的，他没有类的，只有对象，只是通过复杂的逻辑模拟了类似的语法。<br>2.类他意味着复制。<br>3.传统的类被实例化，会被复制到实例中。类被继承，行为也会被子类继承。<br>4.多态，看起来似乎是从子类引用了父类，但是本质上引用的其实是复制的结果。（就是复制父类的行为结合子类本身不一样的行为，形成了多种多样的类）<br>5.javascript并不会像类那样，自动创建对象的副本。 本质上其实是创建的还是指向的对象。因为对象只能复制引用，没有办法复制被引用的对象或者函数本身。这一点不能忽视不然会导致许多问题。<br>最好不要在javascript模拟类，虽然可以解决很多问题，但是可能会买下很多隐患。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/05/25/2019-05-22/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="零之zero">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/25/2019-05-22/" itemprop="url">小王子读后感</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-25T18:12:16+08:00">
+                2019-05-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>时间:2019-05-22<br>1.看东西只有用心才能看得清楚,重要的东西眼睛是看不见的，其实所有的事与物.只是你付出了感情和时间,才会让他独一无二.<br>2.小孩子的思维,才是最纯粹的,因为他们不为外物所左右。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/05/25/2019-05-21/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="零之zero">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/25/2019-05-21/" itemprop="url">对象</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-25T18:12:16+08:00">
+                2019-05-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>###时间:2019-05-21</p>
+<p>##访问对象的属性方式:<br>1.通过.a,这个语法通常被称为”属性访问”.<br>2.通过[“a”],这个语法通常被称为”键访问”</p>
+<p>##两者的区别:<br>1.属性访问满足了命名规范,键值访问可以接受任意UFT-8/unicode字符串作为属性名.</p>
+<p>##对象的属性描述：<br>       var myObject = { }<br>       object.getOwnPropertyDescriptor(myObject,”a”,{<br>         value:2,<br>         writable:true,//决定是否可以修改属性的值，即我们通常说的，可读和可写。<br>         enumerable:true,//这个属性为是否可枚举，（简单理解就是存在，但是不展示出来）可通过for … in循环，也可以通过object.keys(..) 来判断。<br>         configurable:true//这个只有设置了可配置，才能使用defineProperty(..)方法来修改属性描述符<br>       });</p>
+<p>## </p>
+<p>##其他知识<br>1.对象中属性名永远是字符串。<br>2.属性不一定包含值，但是它们可能多具备getter/setter的”访问描述符”。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="onemind.top/2019/05/25/2019-05-20/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1565,580 +2090,6 @@ window.document.body.innerHTML = OldDdhtml;
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/05/25/2019-05-07/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/25/2019-05-07/" itemprop="url">oracle-for</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-25T18:12:16+08:00">
-                2019-05-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="oracle的for循环"><a href="#oracle的for循环" class="headerlink" title="oracle的for循环"></a>oracle的for循环</h2><pre><code>begin
- for j in (SELECT max(hd.pfh_id) as pfh_id,
-               hd.pfh_mer_no,
-               hd.pfh_gw_no,
-               max(hd.pfh_version)
-          FROM ccps_prc_fee_hd hd
-         where hd.pfh_status = 4
-         group by hd.pfh_mer_no, hd.pfh_gw_no)     
-         loop
-   delete from ccps_prc_fee_tier t
-    where exists (select h.param_id
-          from ccps_prc_feelist_param h
-         where h.pfh_id = j.pfh_id);
-   delete from CCPS_prc_FEELIST_PARAM fp where fp.pfh_id = j.pfh_id;
-   for i in (select * from ccps_feelist_param p where p.gw_no = j.pfh_gw_no) loop
-   insert into ccps_prc_feelist_param
-    (param_id,
-     PFH_ID,
-     feelist_id,
-     contient,
-     country,
-     cardtyp,
-     chrgmth,
-     chrgcle,
-     stardate,
-     tier_flg,
-     chrgpct,
-     chrgval,
-     aft_chrgpct,
-     aft_chrgval,
-     tier_mth,
-     tier_unit,
-     succ_flag,
-     minchrgval,
-     chrg_apply_flag,
-     maxchrgval,
-     chrg_currency,
-     chrgval_currency)
-  values
-    (sq_ccps_feelist_param_seq.nextval,
-     j.pfh_id,
-     i.feelist_id,
-     i.contient,
-     i.country,
-     i.cardtyp,
-     i.chrgmth,
-     i.chrgcle,
-     i.stardate,
-     i.tier_flg,
-     i.chrgpct,
-     i.chrgval,
-     i.aft_chrgpct,
-     i.aft_chrgval,
-     i.tier_mth,
-     i.tier_unit,
-     i.succ_flag,
-     i.minchrgval,
-     i.chrg_apply_flag,
-     i.maxchrgval,
-     i.chrg_currency,
-     i.chrgval_currency);
-  for k in (select * from ccps_fee_tier t where t.param_id = i.param_id) loop
-    insert into ccps_prc_fee_tier
-      (tier_id,
-       param_id,
-       tier_frm,
-       tier_to,
-       tier_pct,
-       tier_val,
-       tier_startdate,
-       tier_aft_pct,
-       tier_aft_val)
-    values
-      (sq_ccps_fee_tier_seq.nextval,
-       sq_ccps_feelist_param_seq.currval,//取的为前面的索引
-       k.tier_frm,
-       k.tier_to,
-       k.tier_pct,
-       k.tier_val,
-       k.tier_startdate,
-       k.tier_aft_pct,
-       k.tier_aft_val);
-  end loop;
-end loop;
-end loop;
-end ;
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/05/25/2019-05-05/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/25/2019-05-05/" itemprop="url">List  remove</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-25T18:12:16+08:00">
-                2019-05-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>时间:2019-05-05</p>
-<h2 id="修改tomcat底下的server-xml-E-apache-tomcat-8-5-9-conf-server-xml"><a href="#修改tomcat底下的server-xml-E-apache-tomcat-8-5-9-conf-server-xml" class="headerlink" title="修改tomcat底下的server.xml(E:\apache-tomcat-8.5.9\conf\server.xml)"></a>修改tomcat底下的server.xml(E:\apache-tomcat-8.5.9\conf\server.xml)</h2><p>   例如把127.0.0.1:8090/ApacPay的/ApacPay指向/。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/05/25/2019-04-25/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/25/2019-04-25/" itemprop="url">Regular configuration</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-25T18:12:16+08:00">
-                2019-05-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>###时间:2019-04-25</p>
-<h2 id="正则表达是整理"><a href="#正则表达是整理" class="headerlink" title="正则表达是整理:"></a>正则表达是整理:</h2><p>1.匹配最后一个字符后的所有内容（\）=MID(B2,FIND(“<em>“,SUBSTITUTE(B2,”\”,”</em>“,(LEN(B2)-LEN(SUBSTITUTE(B2,”\”,””)))))+1,99)</p>
-<p>2.匹配第二个字符后所有的内容：=RIGHT(D2,LEN(D2)-FIND(“/“,SUBSTITUTE(D2,”.”,”/“,2)))</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/05/25/2019-04-24/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/25/2019-04-24/" itemprop="url">java你不知道的list转换!</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-25T18:12:16+08:00">
-                2019-05-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>时间:2019-04-24</p>
-<h2 id="String-–-gt-List转化形式"><a href="#String-–-gt-List转化形式" class="headerlink" title="String[] –&gt; List转化形式:"></a>String[] –&gt; List转化形式:</h2><p>String [] arr = new String[] {“1”, “2”};</p>
-<p>List<string> list = Arrays.asList(arr); </string></p>
-<p>由于String[]转化为list的时候存储空间已经固定为2,所以不能是用list中的list.remove(i)方法,如果想要<br>使用remove(i)这个方式,必须开辟一个新的空间.</p>
-<p>如何开辟新的空间?</p>
-<p>形式如下:</p>
-<p>List<string> list = new ArrayList(Arrays.asList(arr)); </string></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2189,7 +2140,7 @@ end ;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

@@ -232,6 +232,532 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/06/06/2019-05-28/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="零之zero">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/06/2019-05-28/" itemprop="url">javaScript高性能</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-06T08:39:39+08:00">
+                2019-06-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>时间:2019-05-28</p>
+<p>##数据存储<br>1.访问字面量和局部变量速度最快,反之访问数组元素和对象成员变量相对较慢.</p>
+<p>2.局部变量存在于作用链的起始位置,变量在作用链越深,访问的数据越慢,全局变量位于作用链的最末端.</p>
+<p>3.把常用的变量存在局部变量中改善性能.</p>
+<p>##DOM编程(重排和重绘)<br>1.最小化访问DOM,把需要改变的在js中处理完成,一次改变为最优.</p>
+<p>2.多次用到DOM节点,存储在变量中在引用.</p>
+<p>3.引用HTML集合最好拷贝到一个数组中,由于它连接底层文档,不要直接改变它.</p>
+<p>4.离线操作DOM树,使用缓存,减少访问布局的次数</p>
+<p>5.动画中绝对定位,使用拖放代理</p>
+<p>6.事件委托减少处理器的数量</p>
+<h2 id="算法和流程控制"><a href="#算法和流程控制" class="headerlink" title="算法和流程控制"></a>算法和流程控制</h2><p>1.改善循环的最佳方式是减少每次迭代的运算量和减少循环迭代次数.</p>
+<p>##字符串和正则表达式<br>1.当连接数量巨大或者尺寸巨大的字符串时,数组合并是唯一在IE及更早版本中性能优化的合理方式.</p>
+<p>##快速响应的用户界面<br>1.任何javaScript任务都不应执行超过100毫秒,过长的时间会导致UI更新出现延迟,产生负面影响.</p>
+<p>2.worker在游览器UI线程之外运行代码.</p>
+<p>3.可用定时器切割成多个线程.</p>
+<p>##Ajax<br>1.五中常用的数据请求方式:XMLHttpRequest(XHR),动态脚本注入,iframe,comet,multipart XHR</p>
+<p>2.XHR发送数据到服务器时,Get方式会更快.Get请求只发送一个数据包,而Post至少发送两个数据包,一个装载头,另一个装载Post正文</p>
+<p>3.以即时通信为代表的web应用程序对数据的Low Latency要求，传统的基于轮询的方式已经无法满足，而且也会带来不好的用户体验。于是一种基于http长连接的“服务器推”技术便被hack出来。这种技术被命名为 Comet </p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/06/05/0-Poetry/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="零之zero">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/05/0-Poetry/" itemprop="url">诗，词，句</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-05T22:14:20+08:00">
+                2019-06-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>0.总有人要赢，那个人为什么不是我！</p>
+<p>1.我于昨日死去，走时心如止水；我于今早重生，来时心怀暖阳。</p>
+<p>2.雨会停，天会晴，没有什么会糟糕透顶。</p>
+<p>3.今朝落叶，自是秋日常景，惟愿拾叶几枚，静享秋日安然。</p>
+<p>4.</p>
+<pre><code>薄衣微寒 驱车至日暮 
+秋高天阔飞鸿各自觅归处 
+三尺瑶琴可将雅韵传千古 
+高山流水工尺谱 
+伯牙子期却何处 
+人间四时 匆匆留不住 
+何幸与你相识余生不相负 
+丝竹悦耳 岁月如诉 话当初 
+红泥新酒秋声赋 雨如酥 
+千秋风流去 
+而今又谁人吟 
+故友新交何患无知音 
+转轴五弦琴 
+音律划过掌心 
+惟愿不负时光不负卿
+                   ——冥凰，为了狮子头 《不负时光》
+</code></pre><p>5.曲未终，人已散，是谁轻许了诺言，又看淡了别离。</p>
+<p>6.何为不甘，大海星辰不可及,但我还是想试一试。</p>
+<p>7.从前慢，车马缓，书信长，一生只够爱一人。如今慢，趁少年，尽情欢，一心只容你一人。</p>
+<p>8.若能避开猛烈的欢喜，自然不会有悲痛的来袭。—人间失格</p>
+<p>9.自己开开心心才是人生必备，其他多只是锦上添花，愿你好好努力，好好爱自己。</p>
+<p>10.愿你能够明白，生活的目标，从来多不是…，是快乐。</p>
+<p>11.林深时见鹿，海蓝时见鲸，梦醒时见你。</p>
+<p>12.我见过春日夏风，秋叶冬雪，也踏遍南水北山，东麓西岭，可这四季春秋，苍山泱水，又怎及…。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/06/05/2019-06-02/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="零之zero">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/05/2019-06-02/" itemprop="url">你不知道的javaScript--中卷</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-05T21:51:33+08:00">
+                2019-06-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>##值：<br>1.javaScript中的数组是通过数字索引的一组任意类型的值。字符串和数组类似，但是他们的行为特征不同，在将字符作为数组来处理是需要特别小心。javaScript中的数字包括”整数”和”浮点型”。<br>2.null类型只有一个值null，undefined类型也只有一个值undefined。所有变量在赋值之前默认值都是undefined。void运算符返回undefined。<br>3.数字类型有几个特殊值，包括NaN（意思是“not a number”），更确切地说是“invalid number”、+Infinity，-Infinity和-0。<br>4.NaN是一个特殊值，他和自身不相等，是唯一一个非自反（自反，reflexive，即x===x不成立）的值，而NaN != NaN为true。<br>5.一个有意思的事，JSON.stringify(-0)返回为”0”,而JSON.stringify(“-0”)为0。<br>6.简单标量基本类型值（字符串和数字等）通过值复制来复制/传递，而复合值（对象等），通过引用复制来赋值/传递。javaScript中的引用和其他语言中的引用/指针不同，它们不能只想别的变量/引用，只能指向值。</p>
+<p>##开发遇到的问题<br>1.使用ueditor时想要引用其中的功能但是找不到all.mini.js文件.<br>解决方式:<br>git clone 仓库<br>npm install 安装依赖（如果没有安装 grunt , 请先在全局安装 grunt）<br>在终端执行 grunt default<br>打包成dist文件,在dist文件里就有全部的all.mini.js文件.</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/06/05/2019-06-01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="零之zero">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/05/2019-06-01/" itemprop="url">你不知道的javaScript--中卷</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-05T21:25:12+08:00">
+                2019-06-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>##类型：<br>1.javaScript有七种内置类型：null，undefined，boolean，number，string，object和symbol（符号为ES6新增），当然你可以用typeof查看他们的类型。<br>2.变量没有类型，但是他们持有的值有类型，类型定义了值的行为特征。<br>3.我们经常把undefined和undeclared混为一谈，但在javaScript中它们是两码事。undefined是值的一种，undeclared则表示变量还没有被声明过。<br>4.javaScript却将它们混为一谈，在我们试图访问”undeclared”变量时这样报错：ReferenceError：a is not defined，并且typeof 对undefined和undeclared变量都返回”undefined”,<br>然而，通过typeof的安全防范机制（阻止报错）来检查undeclared变量，有时是个不错的办法。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="onemind.top/2019/05/31/2019-05-31/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1062,531 +1588,6 @@ Eclipse中默认的模板.xml文件如下：
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/05/26/2019-05-26/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/26/2019-05-26/" itemprop="url">90%程序员都没有完全答对Cookie和Session的区别</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-26T23:06:38+08:00">
-                2019-05-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>时间:2019-05-26</p>
-<p>来自：Java极客技术<br>转载自:<a href="https://www.toutiao.com/a6693986851193094664/?tt_from=weixin&amp;utm_campaign=client_share&amp;wxshare_count=1&amp;timestamp=1558654439&amp;app=news_article&amp;utm_source=weixin&amp;utm_medium=toutiao_ios&amp;req_id=2019052407335801002205604796699C4&amp;group_id=6693986851193094664" target="_blank" rel="noopener">https://www.toutiao.com/a6693986851193094664/?tt_from=weixin&amp;utm_campaign=client_share&amp;wxshare_count=1&amp;timestamp=1558654439&amp;app=news_article&amp;utm_source=weixin&amp;utm_medium=toutiao_ios&amp;req_id=2019052407335801002205604796699C4&amp;group_id=6693986851193094664</a></p>
-<p>第一层楼</p>
-<p>什么是 Cookie 和 Session ?初级程序员高频面试题。</p>
-<p>什么是 Cookie</p>
-<p>HTTP Cookie（也叫 Web Cookie或浏览器 Cookie）是服务器发送到用户浏览器并保存在本地的一小块数据，它会在浏览器下次向同一服务器再发起请求时被携带并发送到服务器上。通常，它用于告知服务端两个请求是否来自同一浏览器，如保持用户的登录状态。Cookie 使基于无状态的 HTTP 协议记录稳定的状态信息成为了可能。</p>
-<p>Cookie 主要用于以下三个方面：<br>◾会话状态管理（如用户登录状态、购物车、游戏分数或其它需要记录的信息）<br>◾个性化设置（如用户自定义设置、主题等）<br>◾浏览器行为跟踪（如跟踪分析用户行为等）</p>
-<p>什么是 Session</p>
-<p>Session 代表着服务器和客户端一次会话的过程。Session 对象存储特定用户会话所需的属性及配置信息。这样，当用户在应用程序的 Web 页之间跳转时，存储在 Session 对象中的变量将不会丢失，而是在整个用户会话中一直存在下去。当客户端关闭会话，或者 Session 超时失效时会话结束。</p>
-<p>第二层楼</p>
-<p>Cookie 和 Session 有什么不同？<br>◾作用范围不同，Cookie 保存在客户端（浏览器），Session 保存在服务器端。<br>◾存取方式的不同，Cookie 只能保存 ASCII，Session 可以存任意数据类型，一般情况下我们可以在 Session 中保持一些常用变量信息，比如说 UserId 等。<br>◾有效期不同，Cookie 可设置为长时间保持，比如我们经常使用的默认登录功能，Session 一般失效时间较短，客户端关闭或者 Session 超时都会失效。<br>◾隐私策略不同，Cookie 存储在客户端，比较容易遭到不法获取，早期有人将用户的登录名和密码存储在 Cookie 中导致信息被窃取；Session 存储在服务端，安全性相对 Cookie 要好一些。<br>◾存储大小不同， 单个 Cookie 保存的数据不能超过 4K，Session 可存储数据远高于 Cookie。</p>
-<p>前两层楼内容，绝大部分同学都可以准确回答</p>
-<p>第三层楼</p>
-<p>为什么需要 Cookie 和 Session，他们有什么关联？</p>
-<p>说起来为什么需要 Cookie ，这就需要从浏览器开始说起，我们都知道浏览器是没有状态的(HTTP 协议无状态)，这意味着浏览器并不知道是张三还是李四在和服务端打交道。这个时候就需要有一个机制来告诉服务端，本次操作用户是否登录，是哪个用户在执行的操作，那这套机制的实现就需要 Cookie 和 Session 的配合。</p>
-<p>那么 Cookie 和 Session 是如何配合的呢？我画了一张图大家可以先了解下。</p>
-<p>90%程序员都没有完全答对Cookie和Session的区别<br>用户第一次请求服务器的时候，服务器根据用户提交的相关信息，创建创建对应的 Session ，请求返回时将此 Session 的唯一标识信息 SessionID 返回给浏览器，浏览器接收到服务器返回的 SessionID 信息后，会将此信息存入到 Cookie 中，同时 Cookie 记录此 SessionID 属于哪个域名。</p>
-<p>当用户第二次访问服务器的时候，请求会自动判断此域名下是否存在 Cookie 信息，如果存在自动将 Cookie 信息也发送给服务端，服务端会从 Cookie 中获取 SessionID，再根据 SessionID 查找对应的 Session 信息，如果没有找到说明用户没有登录或者登录失效，如果找到 Session 证明用户已经登录可执行后面操作。</p>
-<p>根据以上流程可知，SessionID 是连接 Cookie 和 Session 的一道桥梁，大部分系统也是根据此原理来验证用户登录状态。</p>
-<p>三层楼的内容，大部分同学可以讲清楚。</p>
-<p>第四层楼</p>
-<p>既然服务端是根据 Cookie 中的信息判断用户是否登录，那么如果浏览器中禁止了 Cookie，如何保障整个机制的正常运转。</p>
-<p>第一种方案，每次请求中都携带一个 SessionID 的参数，也可以 Post 的方式提交，也可以在请求的地址后面拼接 xxx?SessionID=123456…。</p>
-<p>第二种方案，Token 机制。Token 机制多用于 App 客户端和服务器交互的模式，也可以用于 Web 端做用户状态管理。</p>
-<p>Token 的意思是“令牌”，是服务端生成的一串字符串，作为客户端进行请求的一个标识。Token 机制和 Cookie 和 Session 的使用机制比较类似。</p>
-<p>当用户第一次登录后，服务器根据提交的用户信息生成一个 Token，响应时将 Token 返回给客户端，以后客户端只需带上这个 Token 前来请求数据即可，无需再次登录验证。</p>
-<p>四层楼的内容，一部分同学可以讲清楚。</p>
-<p>第五层楼</p>
-<p>如何考虑分布式 Session 问题？</p>
-<p>在互联网公司为了可以支撑更大的流量，后端往往需要多台服务器共同来支撑前端用户请求，那如果用户在 A 服务器登录了，第二次请求跑到服务 B 就会出现登录失效问题。</p>
-<p>分布式 Session 一般会有以下几种解决方案：<br>◾Nginx ip_hash 策略，服务端使用 Nginx 代理，每个请求按访问 IP 的 hash 分配，这样来自同一 IP 固定访问一个后台服务器，避免了在服务器 A 创建 Session，第二次分发到服务器 B 的现象。<br>◾Session 复制，任何一个服务器上的 Session 发生改变（增删改），该节点会把这个 Session 的所有内容序列化，然后广播给所有其它节点。<br>◾共享 Session，服务端无状态话，将用户的 Session 等信息使用缓存中间件来统一管理，保障分发到每一个服务器的响应结果都一致。</p>
-<p>建议采用第三种方案。</p>
-<p>第六层楼</p>
-<p>如何解决跨域请求？Jsonp 跨域的原理是什么？</p>
-<p>说起跨域请求，必须要了解浏览器的同源策略，同源策略/SOP（Same origin policy）是一种约定，由 Netscape 公司 1995年引入浏览器，它是浏览器最核心也最基本的安全功能，如果缺少了同源策略，浏览器很容易受到 XSS、CSFR 等攻击。所谓同源是指”协议+域名+端口”三者相同，即便两个不同的域名指向同一个 ip 地址，也非同源。</p>
-<p>解决跨域请求的常用方法是：<br>◾通过代理来避免，比如使用 Nginx 在后端转发请求，避免了前端出现跨域的问题。<br>◾通过 Jsonp 跨域<br>◾其它跨域解决方案</p>
-<p>重点谈一下 Jsonp 跨域原理。浏览器的同源策略把跨域请求都禁止了，但是页面中的 <script><img><iframe>标签是例外，不受同源策略限制。Jsonp 就是利用 <script> 标签跨域特性进行跨域数据访问。</p>
-<p>JSONP 的理念就是，与服务端约定好一个回调函数名，服务端接收到请求后，将返回一段 Javascript，在这段 Javascript 代码中调用了约定好的回调函数，并且将数据作为参数进行传递。当网页接收到这段 Javascript 代码后，就会执行这个回调函数，这时数据已经成功传输到客户端了。</p>
-<p>JSONP 的缺点是：它只支持 GET 请求，而不支持 POST 请求等其他类型的 HTTP 请求。</p>
-<p>以上就是有关 Cookie 和 Session 常见的面试点，不知道有多少同学可以在面试中准确回答所有问题。</p>
-</script></p>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/05/26/2019-05-23/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/26/2019-05-23/" itemprop="url">混合对象"类"。</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-26T22:55:04+08:00">
-                2019-05-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>时间:2019-05-23</p>
-<p>#读后结语。<br>1.类是一种设计模式。许多语言提供了对于面向类软件的原生语法，例如java。但是在javascript有类似的语言，但是一定要区分他和其他语言是不一样的，他没有类的，只有对象，只是通过复杂的逻辑模拟了类似的语法。<br>2.类他意味着复制。<br>3.传统的类被实例化，会被复制到实例中。类被继承，行为也会被子类继承。<br>4.多态，看起来似乎是从子类引用了父类，但是本质上引用的其实是复制的结果。（就是复制父类的行为结合子类本身不一样的行为，形成了多种多样的类）<br>5.javascript并不会像类那样，自动创建对象的副本。 本质上其实是创建的还是指向的对象。因为对象只能复制引用，没有办法复制被引用的对象或者函数本身。这一点不能忽视不然会导致许多问题。<br>最好不要在javascript模拟类，虽然可以解决很多问题，但是可能会买下很多隐患。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/05/25/2019-05-22/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/25/2019-05-22/" itemprop="url">小王子读后感</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-25T18:12:16+08:00">
-                2019-05-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>时间:2019-05-22<br>1.看东西只有用心才能看得清楚,重要的东西眼睛是看不见的，其实所有的事与物.只是你付出了感情和时间,才会让他独一无二.<br>2.小孩子的思维,才是最纯粹的,因为他们不为外物所左右。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/05/25/2019-05-21/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/25/2019-05-21/" itemprop="url">对象</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-25T18:12:16+08:00">
-                2019-05-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>###时间:2019-05-21</p>
-<p>##访问对象的属性方式:<br>1.通过.a,这个语法通常被称为”属性访问”.<br>2.通过[“a”],这个语法通常被称为”键访问”</p>
-<p>##两者的区别:<br>1.属性访问满足了命名规范,键值访问可以接受任意UFT-8/unicode字符串作为属性名.</p>
-<p>##对象的属性描述：<br>       var myObject = { }<br>       object.getOwnPropertyDescriptor(myObject,”a”,{<br>         value:2,<br>         writable:true,//决定是否可以修改属性的值，即我们通常说的，可读和可写。<br>         enumerable:true,//这个属性为是否可枚举，（简单理解就是存在，但是不展示出来）可通过for … in循环，也可以通过object.keys(..) 来判断。<br>         configurable:true//这个只有设置了可配置，才能使用defineProperty(..)方法来修改属性描述符<br>       });</p>
-<p>## </p>
-<p>##其他知识<br>1.对象中属性名永远是字符串。<br>2.属性不一定包含值，但是它们可能多具备getter/setter的”访问描述符”。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1637,7 +1638,7 @@ Eclipse中默认的模板.xml文件如下：
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
