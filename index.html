@@ -492,7 +492,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/07/2019-08-04/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/2019/08/07/2019-08-04/" itemprop="url">实现mint-ui的swiper用函数控制切换</a></h1>
         
 
         <div class="post-meta">
@@ -544,8 +544,7 @@
       
         
           
-            <p>title:实现mint-ui的swiper用函数控制切换</p>
-<p>一.公司有个需求，头部是年月，每个月份对应一组数据，点击月份地下的轮播图自动切换到对应的月份的数据。<br>因为公司公众好用到的mint-ui插件，所以我就直接用了里面的swiper模块，但是没料到网上差了api文档，只有这些参数：</p>
+            <p>一.公司有个需求，头部是年月，每个月份对应一组数据，点击月份地下的轮播图自动切换到对应的月份的数据。<br>因为公司公众好用到的mint-ui插件，所以我就直接用了里面的swiper模块，但是没料到网上差了api文档，只有这些参数：</p>
 <p>speed              动画持时（毫秒）<br>auto               自动播放的时间间隔（毫秒）<br>defaultIndex       初始显示的轮播图的索引<br>continuous         是否可以循环播放<br>showIndicators    是否显示 indicators<br>prevent            是否在 touchstart 事件触发时阻止事件的默认行为。设为 true 可提高运行在低版本安卓浏览器时的性能<br>stopPropagation    是否在 touchstart 事件触发时阻止冒泡。</p>
 <p>通过上述参数的defaultIndex，只能控制初始页面，跳转到那一页，但是我是要用函数控制啊，也不是开始控制，这个参数根本满足不了我。<br>于是我网上查啊查查啊，找到了this.$refs.swipe.index ，但他只是改变索引还是不能满足我，好气花了好多时间但是还是没找到解决办法。<br>于是没办法的我只能看源码了。<br>源码是从该博客找到的：<a href="https://blog.csdn.net/u010014658/article/details/73605167" target="_blank" rel="noopener">https://blog.csdn.net/u010014658/article/details/73605167</a><br>doAnimate(towards, options) {<br>    if (this.$children.length === 0) return;<br>    if (!options &amp;&amp; this.$children.length &lt; 2) return;<br>    var prevPage, nextPage, currentPage, pageWidth, offsetLeft;<br>    var speed = this.speed || 300;<br>    var index = this.index;<br>    var pages = this.pages;<br>    var pageCount = pages.length;</p>
 <pre><code>if (!options) { // 没有options,是 自动播放或手动触发切换页面的处理
