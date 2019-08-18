@@ -232,6 +232,256 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/06/30/2019-06-29/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="零之zero">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/30/2019-06-29/" itemprop="url">斐波那契数列</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-30T14:23:34+08:00">
+                2019-06-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.何为斐波那契数列，例如 1,2,3,5,8,13,21,34……<br>function* fibonacci() {<br>  let [prev, curr] = [0, 1];<br>  for (;;) {<br>    [prev, curr] = [curr, prev + curr];<br>    yield curr;<br>  }<br>}</p>
+<p>for (let n of fibonacci()) {<br>  if (n &gt; 1000) break;<br>  console.log(n);<br>}</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/06/28/2019-06-28/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="零之zero">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/28/2019-06-28/" itemprop="url">深拷贝</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-28T19:06:35+08:00">
+                2019-06-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.function deepCopy(obj) {<br>   var newArray = Array.isArray(obj) ? []:{};<br>   for (key in obj) {//for in 循环可以取到对象名<br>      if(obj.hasOwnProperty(key)) {//Object的hasOwnProperty()方法返回一个布尔值，判断对象是否包含特定的自身（非继承）属性。<br>          if(typeof obj[key] === “object” &amp;&amp;  obj[key] != null ) {<br>            newArray[key] = deepCopy(obj[key])<br>           }else {<br>            newArray[key] = obj[key];</p>
+<pre><code>     }
+
+  }
+
+}
+</code></pre><p>return deepcopy<br>}</p>
+<p>2.function deepClone(obj){<br>    let _obj = JSON.stringify(obj),<br>        objClone = JSON.parse(_obj);<br>    return objClone<br>}<br>let a=[0,1,[2,3],4],<br>    b=deepClone(a);<br>a[0]=1;<br>a[2][0]=1;<br>console.log(a,b);</p>
+<p>3.$.extend( [deep ], target, object1 [, objectN ] )<br>let a=[0,1,[2,3],4],<br>    b=$.extend(true,[],a);<br>a[0]=1;<br>a[2][0]=1;<br>console.log(a,b);</p>
+<p>1.为什么要写一个深拷贝，因为这个平时的时候用到的地方很多，当然主要的是面试的时候被问到，知道原理但是不怎么会写，这当然不能允许了，<br>所以，今天我来写一个深拷贝，打扰代码可以网上找啦，主要还是讲下什么是深拷贝，这个涉及到堆和栈。<br>当然深拷贝主要是针对的引用类型。说到引用类型，就不得不说一下什么是基本类型和引用类型了。<br>基本类型：number，string，boolean，null，undefined，symbol以及未来ES10新增的BigInt(任意精度整数)七类。<br>引用类型：(Object类)有常规名值对的无序对象{a:1}，数组[1,2,3]，以及函数等。<br>基本数据类型只会在栈内存会新开辟一个内存。<br>而引用数据类型–名存在栈内存中，值存在于堆内存中，但是栈内存会提供一个引用的地址指向堆内存中的值<br>当b=a进行拷贝时，其实复制的是a的引用地址，而并非堆里面的值。<br>而当我们a[0]=1时进行数组修改时，由于a与b指向的是同一个地址，所以自然b也受了影响，这就是所谓的浅拷贝了。<br>那，要是在堆内存中也开辟一个新的内存专门为b存放值，就像基本类型那样，岂不就达到深拷贝的效果了，所以就有了上述3种方式进行深拷贝啦。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="onemind.top/2019/06/06/2019-05-28/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1347,247 +1597,6 @@ Eclipse中默认的模板.xml文件如下：
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/05/27/2019-05-25/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/27/2019-05-25/" itemprop="url">SEO优化</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-27T08:46:50+08:00">
-                2019-05-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>时间:2019-05-25<br>1.百度抓取标题一定是从h1-&gt;h2-&gt;h3…<br>2.请求的时候尽量用get请求而不是用post请求,这里由于百度抓取的时候是很难抓取或者根本抓取不到post请求的内容.<br>3.页面的路径要用绝对路径,而相对路径百度是抓取不到的<br>4.在一个网站里放一个xml文件,把网站所有页面的绝对路径存放到里面有利于搜索引擎抓取.<br>5.如果你不想让百度爬虫爬去, 而想要他只能站内搜索,可以添加一个js文件,来告诉百度爬虫,不让你爬去我网站里面的内容.例如淘宝内的商品只能在淘宝内搜索.</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/05/26/2019-05-24/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/26/2019-05-24/" itemprop="url">object.prototype原型</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-26T23:19:19+08:00">
-                2019-05-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>时间:2019-05-24</p>
-<p>1.访问对象并不存在一个属性，get的操作就会找到对象内部，关联的对象，这个关系实际上就是原型链。<br>2.所有普通的对象多有内置的object.prototype，指向原型链的顶端，其中tostring()，valueOf()和其他一些通用的功能存在于object.prototype,所有对象多可以引用。<br>3.使用new调用函数时会把新对象.prototype属性关联到”其他对象上”，带new被称为”构造函数”。<br>4.虽然javascript有类似其他语言的类功能，但是它实际上是并不能进行复制，只是通过prototype链进行对象内部之间的关联，所以我们不能用继续进行描述，而是用委托更合适，因为对象之间的关系不是复制而是委托。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1638,7 +1647,7 @@ Eclipse中默认的模板.xml文件如下：
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
