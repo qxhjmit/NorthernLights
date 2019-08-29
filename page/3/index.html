@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/05/26/2019-05-24/">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-05-27/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="零之zero">
@@ -251,7 +251,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/26/2019-05-24/" itemprop="url">object.prototype原型</a></h1>
+                <a class="post-title-link" href="/2019/08/27/2019-05-27/" itemprop="url">5-27</a></h1>
         
 
         <div class="post-meta">
@@ -263,8 +263,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-26T23:19:19+08:00">
-                2019-05-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
+                2019-08-27
               </time>
             
 
@@ -303,8 +303,7 @@
       
         
           
-            <p>时间:2019-05-24</p>
-<p>1.访问对象并不存在一个属性，get的操作就会找到对象内部，关联的对象，这个关系实际上就是原型链。<br>2.所有普通的对象多有内置的object.prototype，指向原型链的顶端，其中tostring()，valueOf()和其他一些通用的功能存在于object.prototype,所有对象多可以引用。<br>3.使用new调用函数时会把新对象.prototype属性关联到”其他对象上”，带new被称为”构造函数”。<br>4.虽然javascript有类似其他语言的类功能，但是它实际上是并不能进行复制，只是通过prototype链进行对象内部之间的关联，所以我们不能用继续进行描述，而是用委托更合适，因为对象之间的关系不是复制而是委托。</p>
+            <p>时间:2019-05-27<br>1.aci的dao没有配置(applicationContext.xml)导致执行aci任务的时候抛出空指针.<br>2.我们知道一般任何对象都是Object的instance，因为原型链的顶端都指向Object.prototype。那么Object本身是什么？Object也是个函数，而任何函数都是Function的实例对象，比如Array，String，当然Object也包括在内，它也是Function的实例;<br>Object instanceof Function === true<br>Function instanceof Object === true</p>
 
           
         
@@ -353,7 +352,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/05/26/2019-05-26/">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-05-26/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="零之zero">
@@ -372,7 +371,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/26/2019-05-26/" itemprop="url">90%程序员都没有完全答对Cookie和Session的区别</a></h1>
+                <a class="post-title-link" href="/2019/08/27/2019-05-26/" itemprop="url">90%程序员都没有完全答对Cookie和Session的区别</a></h1>
         
 
         <div class="post-meta">
@@ -384,8 +383,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-26T23:06:38+08:00">
-                2019-05-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
+                2019-08-27
               </time>
             
 
@@ -512,7 +511,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/05/26/2019-05-23/">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-05-25/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="零之zero">
@@ -531,7 +530,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/26/2019-05-23/" itemprop="url">混合对象"类"。</a></h1>
+                <a class="post-title-link" href="/2019/08/27/2019-05-25/" itemprop="url">SEO优化</a></h1>
         
 
         <div class="post-meta">
@@ -543,8 +542,249 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-26T22:55:04+08:00">
-                2019-05-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
+                2019-08-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>时间:2019-05-25<br>1.百度抓取标题一定是从h1-&gt;h2-&gt;h3…<br>2.请求的时候尽量用get请求而不是用post请求,这里由于百度抓取的时候是很难抓取或者根本抓取不到post请求的内容.<br>3.页面的路径要用绝对路径,而相对路径百度是抓取不到的<br>4.在一个网站里放一个xml文件,把网站所有页面的绝对路径存放到里面有利于搜索引擎抓取.<br>5.如果你不想让百度爬虫爬去, 而想要他只能站内搜索,可以添加一个js文件,来告诉百度爬虫,不让你爬去我网站里面的内容.例如淘宝内的商品只能在淘宝内搜索.</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-05-24/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="零之zero">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/27/2019-05-24/" itemprop="url">object.prototype原型</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
+                2019-08-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>时间:2019-05-24</p>
+<p>1.访问对象并不存在一个属性，get的操作就会找到对象内部，关联的对象，这个关系实际上就是原型链。<br>2.所有普通的对象多有内置的object.prototype，指向原型链的顶端，其中tostring()，valueOf()和其他一些通用的功能存在于object.prototype,所有对象多可以引用。<br>3.使用new调用函数时会把新对象.prototype属性关联到”其他对象上”，带new被称为”构造函数”。<br>4.虽然javascript有类似其他语言的类功能，但是它实际上是并不能进行复制，只是通过prototype链进行对象内部之间的关联，所以我们不能用继续进行描述，而是用委托更合适，因为对象之间的关系不是复制而是委托。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-05-23/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="零之zero">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/27/2019-05-23/" itemprop="url">混合对象"类"。</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
+                2019-08-27
               </time>
             
 
@@ -633,7 +873,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/05/25/2019-05-22/">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-05-22/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="零之zero">
@@ -652,7 +892,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/25/2019-05-22/" itemprop="url">小王子读后感</a></h1>
+                <a class="post-title-link" href="/2019/08/27/2019-05-22/" itemprop="url">小王子读后感</a></h1>
         
 
         <div class="post-meta">
@@ -664,8 +904,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-25T18:12:16+08:00">
-                2019-05-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
+                2019-08-27
               </time>
             
 
@@ -753,7 +993,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/05/25/2019-05-21/">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-05-21/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="零之zero">
@@ -772,7 +1012,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/25/2019-05-21/" itemprop="url">对象</a></h1>
+                <a class="post-title-link" href="/2019/08/27/2019-05-21/" itemprop="url">对象</a></h1>
         
 
         <div class="post-meta">
@@ -784,8 +1024,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-25T18:12:16+08:00">
-                2019-05-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
+                2019-08-27
               </time>
             
 
@@ -878,7 +1118,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/05/25/2019-05-20/">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-05-20/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="零之zero">
@@ -897,7 +1137,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/25/2019-05-20/" itemprop="url">恰似花火</a></h1>
+                <a class="post-title-link" href="/2019/08/27/2019-05-20/" itemprop="url">恰似花火</a></h1>
         
 
         <div class="post-meta">
@@ -909,8 +1149,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-25T18:12:16+08:00">
-                2019-05-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
+                2019-08-27
               </time>
             
 
@@ -1391,7 +1631,7 @@ document.addEventListener(&apos;DOMContentLoaded&apos;,
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/05/25/2019-05-15/">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-05-15/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="零之zero">
@@ -1410,7 +1650,7 @@ document.addEventListener(&apos;DOMContentLoaded&apos;,
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/25/2019-05-15/" itemprop="url">jq绑定元素,事件丢失问题</a></h1>
+                <a class="post-title-link" href="/2019/08/27/2019-05-15/" itemprop="url">jq绑定元素,事件丢失问题</a></h1>
         
 
         <div class="post-meta">
@@ -1422,8 +1662,8 @@ document.addEventListener(&apos;DOMContentLoaded&apos;,
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-25T18:12:16+08:00">
-                2019-05-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
+                2019-08-27
               </time>
             
 
@@ -1524,7 +1764,7 @@ document.addEventListener(&apos;DOMContentLoaded&apos;,
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/05/25/2019-05-14/">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-05-14/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="零之zero">
@@ -1543,7 +1783,7 @@ document.addEventListener(&apos;DOMContentLoaded&apos;,
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/25/2019-05-14/" itemprop="url">Oracle commonly used sql syntax</a></h1>
+                <a class="post-title-link" href="/2019/08/27/2019-05-14/" itemprop="url">Oracle commonly used sql syntax</a></h1>
         
 
         <div class="post-meta">
@@ -1555,8 +1795,8 @@ document.addEventListener(&apos;DOMContentLoaded&apos;,
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-25T18:12:16+08:00">
-                2019-05-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
+                2019-08-27
               </time>
             
 
@@ -1664,435 +1904,11 @@ alter sequence sys_admin_loginlog_seq increment by 1;
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/05/25/2019-05-13/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/25/2019-05-13/" itemprop="url">读取文件,替换参数根据参数生成excel文件</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-25T18:12:16+08:00">
-                2019-05-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>###时间:2019-05-13</p>
-<h2 id="获取需要参数-动态生成需要的sql语句"><a href="#获取需要参数-动态生成需要的sql语句" class="headerlink" title="获取需要参数,动态生成需要的sql语句"></a>获取需要参数,动态生成需要的sql语句</h2><pre><code>package ExcelToJSON;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
-import jxl.Workbook;
-import jxl.write.Label;
-import jxl.write.WritableSheet;
-import jxl.write.WritableWorkbook;
-import jxl.write.WriteException;
-
-import com.lot.back.bean.ExportDemo;
-@SuppressWarnings(&quot;resource&quot;)
-public class createInsertSql1 {
-    private static final String SAVEFILE = &quot;C:\\Users\\huangjianming\\Desktop&quot;;//存放目录
-
-public static void main(String[] args) throws Exception {
-    String i18nPath = &quot;C:\\Users\\huangjianming\\Desktop\\demoData.txt&quot;;//读取文件路径
-    getI18nPropertiesToExcel(i18nPath);
-    System.out.println(&quot;completed&quot;);
-    System.exit(0);
-}
-
-private static List&lt;File&gt; getFiles(String path) {
-    File root = new File(path);
-    List&lt;File&gt; files = new ArrayList&lt;File&gt;();
-    if (!root.isDirectory()) {
-        files.add(root);
-    } else {
-        File[] subFiles = root.listFiles();
-        for (File f : subFiles) {
-            files.addAll(getFiles(f.getAbsolutePath()));
-        }
-    }
-    return files;
-}
-
-//通过冲入的list&lt;object&gt;创建excel表格.2017
-private static String createExcel(List&lt;? extends Object&gt; list, String path) {
-    String result = &quot;&quot;;
-    if (list.size() == 0 || list == null) {
-        result = &quot;没有对象信息&quot;;
-    } else {
-        Object o = list.get(0);
-        Class&lt;? extends Object&gt; clazz = o.getClass();
-        String className = clazz.getSimpleName();
-        java.lang.reflect.Field[] fields = clazz.getDeclaredFields(); // 这里通过反射获取字段数组
-        File folder = new File(path);
-        if (!folder.exists()) {
-            folder.mkdirs();
-        }
-        //获取String类型的时间
-        String fileName = &quot;&quot;;
-        SimpleDateFormat df = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);//设置日期格式
-        String dateStr = df.format(new Date());
-        dateStr = dateStr.replaceAll(&quot;[-/:\\s]+&quot;, &quot;&quot;);
-        fileName = &quot;exportI18n&quot; + dateStr;
-        String name = fileName.concat(&quot;.xls&quot;);
-        WritableWorkbook book = null;
-        File file = null;
-        try {
-            file = new File(path.concat(File.separator).concat(name));
-            book = Workbook.createWorkbook(file); // 创建xls文件
-            WritableSheet sheet = book.createSheet(className, 0);
-            int i = 0; // 列
-            int j = 0; // 行
-            for (java.lang.reflect.Field f : fields) {
-                j = 0;
-                Label label = new Label(i, j, f.getName()); // 这里把字段名称写入excel第一行中
-                sheet.addCell(label);
-                j = 1;
-                for (Object obj : list) {
-                    Object temp = getFieldValueByName(f.getName(), obj);
-                    String strTemp = &quot;&quot;;
-                    if (temp != null) {
-                        strTemp = temp.toString();
-                    }
-                    sheet.addCell(new Label(i, j, strTemp)); // 把每个对象此字段的属性写入这一列excel中
-                    j++;
-                }
-                i++;
-            }
-            book.write();
-            result = file.getPath();
-        } catch (Exception e) {
-            result = &quot;SystemException&quot;;
-            e.printStackTrace();
-        } finally {
-
-            fileName = null;
-            name = null;
-            folder = null;
-            file = null;
-
-            if (book != null) {
-                try {
-                    book.close();
-                } catch (WriteException e) {
-                    result = &quot;WriteException&quot;;
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    result = &quot;IOException&quot;;
-                    e.printStackTrace();
-                }
-            }
-        }
-
-    }
-
-    return result; // 最后输出文件路径
-}
-
-//根据参数名生成栏位和数据
-private static Object getFieldValueByName(String fieldName, Object o) {
-    try {
-        String firstLetter = fieldName.substring(0, 1).toUpperCase();
-        String getter = &quot;get&quot; + firstLetter + fieldName.substring(1); // 获取方法名
-        java.lang.reflect.Method method = o.getClass().getMethod(getter,
-                new Class[]{}); // 获取方法对象
-        Object value = method.invoke(o, new Object[]{}); // 用invoke调用此对象的get字段方法
-        return value; // 返回值
-    } catch (Exception e) {
-        e.printStackTrace();
-        return null;
-    }
-}
-
-private static void getI18nPropertiesToExcel(String path) throws Exception {
-    List&lt;File&gt; files = getFiles(path);
-    for (File file : files) { 
-            FileReader fileReader = new FileReader(file);
-
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-            String line;
-            Long lineNum = 0L;
-            String first = &quot;&quot;;
-            String two = &quot;&quot;;
-            String  table = &quot;S00016&quot;;
-            String  tableName = &quot;em.&quot;;
-            List&lt;DemoData&gt; keyValueMap = new ArrayList&lt;DemoData&gt;();
-            while ((line = bufferedReader.readLine()) != null) {
-                lineNum++;
-                DemoData map = new DemoData();
-                first = &quot;insert into ccps_report_format (RF_ID, RH_ID, RF_SEQNUM, RF_COLKEY, RF_SEL_COL, RF_COLNAM_EN, RF_COLNAM_ZH, RF_KEY_TYPE, RF_DFT_SHOW, RF_FILTER_ALLOW, RF_CRTUSR, RF_CRTLOG, RF_DN_FILTER_ALLOW, RF_CONDITION, RF_CONDITION_2, RF_EMAIL_COL, RF_SETUP_HIDE_FLAG, RF_SCHDULE_HIDE_FLAG, RF_SYS_TYPE, RF_DATE_RANGE, RF_KEY_TYPE_DESC, RF_ST_CODE,RF_REPLACE)values (sq_ccps_report_format.nextval, (select rh_id from ccps_report_hd where RH_CODE = &apos;@ONE@&apos;), @TWO@, &apos;@THREE@&apos;, &apos;@FOUR@&apos;, &apos;@FIVE@&apos;, &apos;@SIX@&apos;, &apos;@SEVEN@&apos;, 0, 1, &apos;admin&apos;, systimestamp, 0, &apos;  @EIGHT@ &apos;, null ,&apos;@FOUR@&apos;, 1, 1, 2, null, &apos;@NINE@&apos;, null ,&apos;@replace1&apos;);&quot;;
-                two = &quot;insert into ccps_report_profile_format (RFP_ID, RFM_ID, RF_ID, RFP_SEQNUM, RFP_SHOW_FLAG, RFP_FILTER_FLAG, RFP_CRTUSR, RFP_CRTLOG) values (sq_ccps_report_profile_format.nextval, (select RFM_ID from ccps_report_mer_profile where rh_id = (select rh_id from ccps_report_hd where RH_CODE = &apos;@ONE@&apos;) and RFM_PROFILE = &apos;Default&apos;), (select rf_id from ccps_report_format where RH_ID = (select rh_id from ccps_report_hd where RH_CODE = &apos;@ONE@&apos;) and RF_COLKEY = &apos;@TWO@&apos;), @THREE@, 1, 0, &apos;admin&apos;, systimestamp);&quot;;
-                String[] lineList = line.split(&quot;;&quot;);  
-                String type = &quot;S&quot;;
-                String types = &quot;string&quot;;
-                String lineType = lineList[2];
-                if(lineType.contains(&quot;NUMBER&quot;)) {
-                    type = &quot;N&quot;;
-                    types = &quot;number1&quot;;
-                }else if(lineType.contains(&quot;VARCHANT&quot;)) {
-                    type = &quot;S&quot;;
-                    types = &quot;string&quot;;
-                }else if(lineType.contains(&quot;DATE&quot;)) {
-                    type = &quot;D&quot;;
-                    types = &quot;datetime&quot;;
-                }
-                String sqlOne  = first.replace(&quot;@ONE@&quot;,table).replace(&quot;@TWO@&quot;,&quot;&quot;+lineNum+&quot;&quot;).replace(&quot;@THREE@&quot;,lineList[0].trim()).replace(&quot;@FOUR@&quot;,&quot; &quot;+tableName + lineList[1].trim() + &quot; as &quot; + lineList[0].trim() +&quot;,&quot;).replace(&quot;@FIVE@&quot;,lineList[5]).replace(&quot;@SIX@&quot;,lineList[4].trim()).replace(&quot;@SEVEN@&quot;,type).replace(&quot;@EIGHT@&quot;,&quot; and &quot;+ tableName +lineList[1].trim()+&quot; = ?&quot;).replace(&quot;@NINE@&quot;,types);
-                String sqlTwo  = two.replace(&quot;@ONE@&quot;,table).replace(&quot;@TWO@&quot;,lineList[0].trim()).replace(&quot;@THREE@&quot;,&quot;&quot;+lineNum+&quot;&quot;);
-                map.setSqlOne(sqlOne);
-                map.setSqlTwo(sqlTwo);
-                keyValueMap.add(map);
-            }
-            createExcel(keyValueMap, SAVEFILE);
-    }
-}
-</code></pre><p>}</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/05/25/2019-05-10/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/25/2019-05-10/" itemprop="url">使用打印功能重新渲染页面,导致jq按钮功能失效!</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-25T18:12:16+08:00">
-                2019-05-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>###时间:2019-05-09</p>
-<h2 id="用jq绑定的节点按钮失效"><a href="#用jq绑定的节点按钮失效" class="headerlink" title="用jq绑定的节点按钮失效."></a>用jq绑定的节点按钮失效.</h2><pre><code>var OldDdhtml = window.document.body.innerHTML;//获取当前页的html代码    
-var prnhtml = &quot;html&quot;;//这里随便定义,可以定义任意html内容
-window.document.body.innerHTML = prnhtml; 
-window.document.body.innerHTML = OldDdhtml;
-使用上述方法改变页面内容,导致按钮点击事件失效.
-</code></pre><p>原因分析:由于直接使用节点绑定事件,当页面重新内容替换,虽然没有改变布局,但是节点的点击事件并没有重新绑定,导致了按钮点击事件失效.</p>
-<p>解决方法:</p>
-<p>第一种方法:重新刷新当前页 —– window.location.reload();</p>
-<p>第二种方法:如果你是用节点绑定事件,例如:$(‘.button’).clcik(function(){}),改用用document绑定$(document).on(‘click’,’.button’,function(){})这样就可以解决按钮事件失效.<br>为什么这样可以处理这个问题,这就是你直接操作节点,但是你页面并没有重新渲染,导致事件没有绑定,但是如果直接把时间绑定在document上,在去寻找这个节点,就可以找寻得到.   </p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2138,7 +1954,7 @@ window.document.body.innerHTML = OldDdhtml;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
