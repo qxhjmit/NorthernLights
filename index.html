@@ -6,10 +6,10 @@
 
 
 <html class="theme-next muse use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
 
 
@@ -20,8 +20,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -40,7 +40,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -48,9 +48,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -118,7 +118,7 @@
 
 
 
-  <link rel="canonical" href="onemind.top/"/>
+  <link rel="canonical" href="onemind.top/">
 
 
 
@@ -153,7 +153,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">The top of the world</span>
         <span class="logo-line-after"><i></i></span>
@@ -183,7 +183,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -193,7 +193,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -232,11 +232,253 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/31/2019-08-31/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="零之zero">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/31/2019-08-31/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-31T09:51:03+08:00">
+                2019-08-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <hr>
+<h2 id="title-vue跳转页面出现固定滚动高度。"><a href="#title-vue跳转页面出现固定滚动高度。" class="headerlink" title="title:vue跳转页面出现固定滚动高度。"></a>title:vue跳转页面出现固定滚动高度。</h2><p>第一 ,今天遇到一个问题，vue路由跳转的时候，每次刚渲染完页面就出现一个固定的滚动高度，好气，我不想要这样的效果，测试又说这是一个bug，所以我一定是要解决的，由于这个页面是我copy其他人页面来做简单修改的，所以代码并不是我自己写的，所以我首先要找到是否有在那个地方设置了scroll，然后我找了很久代码里面并没有这个功能，我有想了想是不是动态设置了高度或者一些定位元素影响到了，马上我有去看了一下并没有，我气是什么影响的，找不到原因项目又急，所以我就简单的做了一下处理，但是还是没有效果，处理过程如下：<br>1.我所以是在mouted里面设置了滚动的距离，在这个生命周期里面我设置了滚动的距离为0，在本地测试ok，很高兴的我发布到了线上，结果测试说还是一样，哎哎哎，没办法我只能继续找其他处理方式。<br>2.有与上述的方式不行，所以我这次想了想，既然在这个生命周期里不行，是不是因为在数据渲染的时候出现了，滚动距离的改变，所以这次我就在你渲染完成之后做处理，我还不信，你不行，所以这次我在updated里面做出里，本地测试ok，线上又不行，game over。<br>3.上述两种情况又不行，所以没办法，我又想了一下，是不是因为什么因素导致了这个问题，这样都不行，那我就给你设置个定时器，我不信你还不行，然后我就去弄了一个定时器，本地ok，上线又gg，我真的是气死了。<br>4.这次没办法了，我感觉是我的思路有问题，是不是这些代码无效或者标签在微信上无效，所以这次给他设置了一个alert但是有执行到这个步骤，在测试环境里面也可以执行这个方法，所以又排除这个原因。<br>5.自己的思路有问题，我就问问其他人，参考一下他们的已意见，结果听了一下别人的思路，突然就想通了，应该不是其他问题，是代码布局的问题，所以我就把么有的步伐一一去掉，用排除法，我ka，我终于找到了，出现问题的原因了，原来是代码多了一段这行代码：<br> <!--    <div class="bg" v-if="this.goodList.length < 1"></div>--><br> .bg {<br>    height: 20rem;<br>    background: url(../../common/image/pic_没有数据@2x.png) no-repeat;<br>    background-size: 100%;<br>  }<br>最后终于解决了，这次的文章是为了给我以后查找问题给出思路，有的时候就是这么简单的问题，静下心来，就可以很快的找到他。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/29/2019-08-29/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="零之zero">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/29/2019-08-29/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-29T14:38:58+08:00">
+                2019-08-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <hr>
+<h2 id="title-重构迈一步：vuex的引入。"><a href="#title-重构迈一步：vuex的引入。" class="headerlink" title="title:重构迈一步：vuex的引入。"></a>title:重构迈一步：vuex的引入。</h2><p>参考文章：1.<a href="https://segmentfault.com/a/1190000015782272" target="_blank" rel="noopener">https://segmentfault.com/a/1190000015782272</a><br>          2.<a href="https://blog.csdn.net/weixin_43648947/article/details/88997946" target="_blank" rel="noopener">https://blog.csdn.net/weixin_43648947/article/details/88997946</a><br>第一.前言：在vue的项目中vuex应该是很通用的了，但是公司的项目竟然没有使用vuex而是使用了本地缓存，啊啊啊，太落后了，我接手了这个项目肯定不能这样，为此我去深入了解了vuex，为了能够把之前项目的一些公用变量提取出来。<br>第二.介绍我对这个vuex的理解。我主要是找了一遍文章很不错写得很详细，但是有一些我要补充一下:<br>     1.当然首先要去了解ES6的语法。<br>     2.state =&gt; 基本数据<br>       getters =&gt; 从基本数据派生的数据<br>       mutations =&gt; 提交更改数据的方法，同步！<br>       actions =&gt; 像一个装饰器，包裹mutations，使之可以异步。<br>       modules =&gt; 模块化Vuex<br>     简而言之就是上面这个意思，而mapState，mapGetters,mapMutations,mapActions其实就是它们的重命名一样。与一个使用的例子<br>     …mapState({<br>      counts:(state) =&gt; state.count<br>     })<br>     …mapMutations({<br>      addnum:’SET_COUMT_ADD’,<br>      reducenum:’SET_COUMT_REDUCE’<br>     })<br>     首先你要知道…的语法是什么作用，其实他相当于一个展开式，展开成一个一个可以使用的数据，我的理解就是一个个参数或者方法，然后你可以在｛｝里面使用里面使用这个属性，值是直接使用参数把对象传递进counts:(state) =&gt; state.count而方法是直接使用对象名addnum:’SET_COUMT_ADD’,用’’括起来<br>     当然你如果想自己提交，在mutations可以使用this.$store.commit，在actions中使用this.$store.dispatch，最好使用后一种，因为在 Vuex 中，mutations里面的方法 都是同步事务，意思就是说：比如这里的一个this.$store.commit(‘newNum’,sum)方法,两个组件里用执行得到的值，每次都是一样的，这样肯定不是理想的需求</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/28/2019-08-26/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -304,7 +546,8 @@
         
           
             <hr>
-<h2 id="title-你不知道的相等"><a href="#title-你不知道的相等" class="headerlink" title="title:你不知道的相等==/==="></a>title:你不知道的相等==/===</h2><p>第一：<br>1.==检查值相等，且它是允许类型转换情况下的值的相等性，<br>2.===检查类型和值相等，不允许类型转换<br>3.===经常被称为严格相等<br>一个有趣的现象，很不错记录下来给大家看一下：<br>var a = [1,2,3]<br>var b = [1,2,3]<br>var c = ‘1,2,3’<br>a == c //true<br>b == c //true<br>a == b //false</p>
+<h2 id="title-你不知道的相等"><a href="#title-你不知道的相等" class="headerlink" title="title:你不知道的相等==/==="></a>title:你不知道的相等==/===</h2><p>第一.相等的两种表达式：<br>1.==检查值相等，且它是允许类型转换情况下的值的相等性，<br>2.===检查类型和值相等，不允许类型转换<br>3.===经常被称为严格相等<br>第二.一个有趣的现象，很不错记录下来给大家看一下：<br>var a = [1,2,3]<br>var b = [1,2,3]<br>var c = ‘1,2,3’<br>a == c //true<br>b == c //true<br>a == b //false</p>
+<p>ES5比较两个值是否相等，只有两个运算符：相等运算符（==）和严格相等运算符（===）。它们都有缺点，前者会自动转换数据类型，后者的NaN不等于自身，以及+0等于-0。JavaScript缺乏一种运算，在所有环境中，只要两个值是一样的，它们就应该相等。<br>+0 === -0 //true<br>NaN === NaN // false<br>Object.is(+0, -0) // false<br>Object.is(NaN, NaN) // true</p>
 
           
         
@@ -357,7 +600,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -596,7 +839,7 @@ Eclipse中默认的模板.xml文件如下：
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -717,7 +960,7 @@ Eclipse中默认的模板.xml文件如下：
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -784,9 +1027,8 @@ Eclipse中默认的模板.xml文件如下：
       
         
           
-            <p>第一：今天同事有个功能，下周图片由于后端他实现不了下载功能，他想直接从前端实现这个功能，所以我在网上找了一下，当前的下载图片功能，但是由于图片跨域了，导致download失效，所以并没有解决当前的功能，所以还在解决的办法。待续<br>&lt;!DOCTYPE html&gt;</p>
-<html lang="en"><br><head><meta name="generator" content="Hexo 3.8.0"><br>    <meta charset="UTF-8"><br>    <title>Title</title><br>    <script src="demo.js"></script><br>    <style><br>        *{<br>            padding: 0;<br>            margin: 0;<br>        }<br>        img {<br>            display: block;<br>            width: 500px;<br>        }<br>        .card{<br>            display: inline-block;<br>            position: relative;<br>            width: 400px;<br>            height: 250px;<br>        }<br>        .card img{<br>            width: 100%;<br>        }<br>        .card .down_btn_a {<br>            display: inline-block;<br>            position: absolute;<br>            right: 0;<br>            bottom: 0;<br>            width: 100px;<br>            height: 40px;<br>            line-height: 40px;<br>            background-color: #20b1aa;<br>            text-decoration: none;<br>            text-align: center;<br>            color: #fff;<br>        }<br>        .card .down_btn_a:hover {<br>            background-color: #ccc;<br>            color: #000;<br>        }<br>    </style><br></head><br><body><br><div class="card"><br>    <img id="testimg" src="beauty.jpg"><br>    <a href="javascript:;" class="down_btn_a" target="_blank" rel="noopener">点击下载</a><br></div><br><script><br>  //判断是否为Trident内核浏览器(IE等)函数<br>  function browserIsIe() {<br>      if (!!window.ActiveXObject || “ActiveXObject” in window){<br>          return true;<br>      }<br>      else{<br>          return false;<br>      }<br>  }<br>  //创建iframe并赋值的函数,传入参数为图片的src属性值.<br>  function createIframe(imgSrc) {<br>      //如果隐藏的iframe不存在则创建<br>      if ($(“#IframeReportImg”).length === 0){<br>          $(‘<iframe style="display:none;" id="IframeReportImg" name="IframeReportImg" onload="downloadImg();" width="0" height="0" src="about:blank"></iframe>‘).appendTo(“body”);<br>      }<br>      //iframe的src属性如不指向图片地址,则手动修改,加载图片<br>      if ($(‘#IframeReportImg’).attr(“src”) != imgSrc) {<br>          $(‘#IframeReportImg’).attr(“src”,imgSrc);<br>      } else {<br>          //如指向图片地址,直接调用下载方法<br>          downloadImg();<br>      }<br>  }<br>  //下载图片的函数<br>  function downloadImg() {<br>      //iframe的src属性不为空,调用execCommand(),保存图片<br>      if ($(‘#IframeReportImg’).src != “about:blank”) {<br>          window.frames[“IframeReportImg”].document.execCommand(“SaveAs”);<br>      }<br>  }<br>  //接下来进行事件绑定<br>  var aBtn = $(“.card .down_btn_a”);<br>  if (browserIsIe()) {<br>      //是ie等,绑定事件<br>      aBtn.on(“click”, function() {<br>          var imgSrc = $(this).siblings(“img”).attr(“src”);<br>          //调用创建iframe的函数<br>          createIframe(imgSrc);<br>      });<br>  } else {<br>      aBtn.each(function(i,v){<br>          //支持download,添加属性.<br>          var imgSrc = $(v).siblings(“img”).attr(“src”);<br>          $(v).attr(“download”,imgSrc);<br>          $(v).attr(“href”,imgSrc);<br>      })<br>  }<br></script><br></body><br></html>
-
+            <p>第一：今天同事有个功能，下周图片由于后端他实现不了下载功能，他想直接从前端实现这个功能，所以我在网上找了一下，当前的下载图片功能，但是由于图片跨域了，导致download失效，所以并没有解决当前的功能，所以还在解决的办法。待续<br>//<body><br>//<div class="card"><br>//   <img id="testimg" src="beauty.jpg"><br>//   <a href="javascript:;" class="down_btn_a" target="_blank" rel="noopener">点击下载</a><br>//</div></body></p>
+<p><script><br>  //判断是否为Trident内核浏览器(IE等)函数<br>  function browserIsIe() {<br>      if (!!window.ActiveXObject || “ActiveXObject” in window){<br>          return true;<br>      }<br>      else{<br>          return false;<br>      }<br>  }<br>  //创建iframe并赋值的函数,传入参数为图片的src属性值.<br>  function createIframe(imgSrc) {<br>      //如果隐藏的iframe不存在则创建<br>      if ($(“#IframeReportImg”).length === 0){<br>          $(‘<iframe style="display:none;" id="IframeReportImg" name="IframeReportImg" onload="downloadImg();" width="0" height="0" src="about:blank"></iframe>‘).appendTo(“body”);<br>      }<br>      //iframe的src属性如不指向图片地址,则手动修改,加载图片<br>      if ($(‘#IframeReportImg’).attr(“src”) != imgSrc) {<br>          $(‘#IframeReportImg’).attr(“src”,imgSrc);<br>      } else {<br>          //如指向图片地址,直接调用下载方法<br>          downloadImg();<br>      }<br>  }<br>  //下载图片的函数<br>  function downloadImg() {<br>      //iframe的src属性不为空,调用execCommand(),保存图片<br>      if ($(‘#IframeReportImg’).src != “about:blank”) {<br>          window.frames[“IframeReportImg”].document.execCommand(“SaveAs”);<br>      }<br>  }<br>  //接下来进行事件绑定<br>  var aBtn = $(“.card .down_btn_a”);<br>  if (browserIsIe()) {<br>      //是ie等,绑定事件<br>      aBtn.on(“click”, function() {<br>          var imgSrc = $(this).siblings(“img”).attr(“src”);<br>          //调用创建iframe的函数<br>          createIframe(imgSrc);<br>      });<br>  } else {<br>      aBtn.each(function(i,v){<br>          //支持download,添加属性.<br>          var imgSrc = $(v).siblings(“img”).attr(“src”);<br>          $(v).attr(“download”,imgSrc);<br>          $(v).attr(“href”,imgSrc);<br>      })<br>  }<br></script><br>//</p>
 <p>第二：由于上述功能行不通，所以我有找了一个下载图片的功能，代码如下，但是由于时间的问题，我还没有进行验证，如果要实现下述功能，必须要去下周JSZip.js这一点你一定要记住。还有我修改了一些语法，由于前段直接报错，例如let url:string ，报错改成let url = “”;<br>/**</p>
 <ul>
 <li>将图片转换成base64 并返回路径</li>
@@ -874,7 +1116,7 @@ Eclipse中默认的模板.xml文件如下：
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -995,7 +1237,7 @@ Eclipse中默认的模板.xml文件如下：
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -1115,7 +1357,7 @@ Eclipse中默认的模板.xml文件如下：
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -1236,7 +1478,7 @@ Eclipse中默认的模板.xml文件如下：
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -1339,361 +1581,6 @@ Eclipse中默认的模板.xml文件如下：
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-08-04/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/27/2019-08-04/" itemprop="url">实现mint-ui的swiper用函数控制切换</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
-                2019-08-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>一.公司有个需求，头部是年月，每个月份对应一组数据，点击月份地下的轮播图自动切换到对应的月份的数据。<br>因为公司公众好用到的mint-ui插件，所以我就直接用了里面的swiper模块，但是没料到网上差了api文档，只有这些参数：</p>
-<p>speed              动画持时（毫秒）<br>auto               自动播放的时间间隔（毫秒）<br>defaultIndex       初始显示的轮播图的索引<br>continuous         是否可以循环播放<br>showIndicators    是否显示 indicators<br>prevent            是否在 touchstart 事件触发时阻止事件的默认行为。设为 true 可提高运行在低版本安卓浏览器时的性能<br>stopPropagation    是否在 touchstart 事件触发时阻止冒泡。</p>
-<p>通过上述参数的defaultIndex，只能控制初始页面，跳转到那一页，但是我是要用函数控制啊，也不是开始控制，这个参数根本满足不了我。<br>于是我网上查啊查查啊，找到了this.$refs.swipe.index ，但他只是改变索引还是不能满足我，好气花了好多时间但是还是没找到解决办法。<br>于是没办法的我只能看源码了。<br>源码是从该博客找到的：<a href="https://blog.csdn.net/u010014658/article/details/73605167" target="_blank" rel="noopener">https://blog.csdn.net/u010014658/article/details/73605167</a><br>doAnimate(towards, options) {<br>    if (this.$children.length === 0) return;<br>    if (!options &amp;&amp; this.$children.length &lt; 2) return;<br>    var prevPage, nextPage, currentPage, pageWidth, offsetLeft;<br>    var speed = this.speed || 300;<br>    var index = this.index;<br>    var pages = this.pages;<br>    var pageCount = pages.length;</p>
-<pre><code>if (!options) { // 没有options,是 自动播放或手动触发切换页面的处理
-  pageWidth = this.$el.clientWidth;
-  currentPage = pages[index];
-  prevPage = pages[index - 1];
-  nextPage = pages[index + 1];
-  if (this.continuous &amp;&amp; pages.length &gt; 1) {
-    if (!prevPage) {
-      prevPage = pages[pages.length - 1];
-    }
-    if (!nextPage) {
-      nextPage = pages[0];
-    }
-  }
-  // 将 prevPage 和 nextPage 定位到应该的位置(也就是开始执行切换页面的位置)
-  if (prevPage) {
-    prevPage.style.display = &apos;block&apos;; // 显示出来
-    this.translate(prevPage, -pageWidth); // 移到当前index的前面
-  }
-  if (nextPage) {
-    nextPage.style.display = &apos;block&apos;;
-    this.translate(nextPage, pageWidth); // 移到当前index的后面
-  }
-} else {
-  prevPage = options.prevPage;
-  currentPage = options.currentPage;
-  nextPage = options.nextPage;
-  pageWidth = options.pageWidth;
-  offsetLeft = options.offsetLeft;
-}
-// 确定 要切换的item的索引
-var newIndex;
-
-var oldPage = this.$children[index].$el;
-
-if (towards === &apos;prev&apos;) {
-  if (index &gt; 0) {var oldPage = this.$children[index].$el;
-
-if (towards === &apos;prev&apos;) {
-  if (index &gt; 0) {
-    newIndex = index - 1;
-  }
-  if (this.continuous &amp;&amp; index === 0) {
-    newIndex = pageCount - 1;
-  }
-} else if (towards === &apos;next&apos;) {
-  if (index &lt; pageCount - 1) {
-    newIndex = index + 1;
-  }
-  if (this.continuous &amp;&amp; index === pageCount - 1) {
-    newIndex = 0;
-  }
-}
-
-var callback = () =&gt; { // 动画完成的回调: 重置dom的样式信息
-  if (newIndex !== undefined) {
-    // 重置dom的样式信息
-    var newPage = this.$children[newIndex].$el;
-    removeClass(oldPage, &apos;is-active&apos;); // is-active 设置当前item的display:block
-    addClass(newPage, &apos;is-active&apos;);
-
-    this.index = newIndex;
-  }
-  if (this.isDone) { // 切换了页面,向外部发送切换页面完成的事件
-    this.end();
-  }
-
-  // 在touchStart 时设置的style中的display清空, 也就是使用class里面的display:none隐藏属性
-  if (prevPage) {
-    prevPage.style.display = &apos;&apos;;
-  }
-
-  if (nextPage) {
-    nextPage.style.display = &apos;&apos;;
-  }
-};
-
-setTimeout(() =&gt; {
-  if (towards === &apos;next&apos;) { // 切换到下一页
-    this.isDone = true;
-    this.before(currentPage); // 执行切换页面之前,向外部发送事件
-    this.translate(currentPage, -pageWidth, speed, callback);
-    if (nextPage) {
-      this.translate(nextPage, 0, speed);
-    }
-  } else if (towards === &apos;prev&apos;) { // 切换到上一页
-    this.isDone = true;
-    this.before(currentPage);
-    this.translate(currentPage, pageWidth, speed, callback);
-    if (prevPage) {
-      this.translate(prevPage, 0, speed);
-    }
-  } else { // 回到当前页面,不切换页面
-    this.isDone = false; // 当前没有进入到前一个页面和后一个页面, 还是回到当前页面
-    this.translate(currentPage, 0, speed, callback);
-    if (typeof offsetLeft !== &apos;undefined&apos;) {
-      if (prevPage &amp;&amp; offsetLeft &gt; 0) {
-        this.translate(prevPage, pageWidth * -1, speed);
-      }
-      if (nextPage &amp;&amp; offsetLeft &lt; 0) {
-        this.translate(nextPage, pageWidth, speed);
-      }
-    } else {
-      if (prevPage) {
-        this.translate(prevPage, pageWidth * -1, speed);
-      }
-      if (nextPage) {
-        this.translate(nextPage, pageWidth, speed);
-      }
-    }
-  }
-}, 10);
-</code></pre><p>  }<br>最后的思路是，先在每次切换的时候，把索引改变为它的上一个，点击切换的时候改变成当前。虽然解决了问题但是会出现闪烁。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-07-02/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/27/2019-07-02/" itemprop="url">axios实现原理</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
-                2019-08-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>var Ajax={<br>        get: function(url, fn) {<br>            // XMLHttpRequest对象用于在后台与服务器交换数据<br>            var xhr = new XMLHttpRequest();<br>            xhr.open(‘GET’, url, true);<br>            xhr.onreadystatechange = function() {<br>                // readyState == 4说明请求已完成<br>                if (xhr.readyState == 4 &amp;&amp; xhr.status == 200) {<br>                    // 从服务器获得数据<br>                    fn.call(this, xhr.responseText);<br>                }<br>            };<br>            xhr.send();<br>        }<br>    }</p>
-<p>var Axios = {<br>        get: function(url) {<br>            return new Promise((resolve, reject) =&gt; {<br>                var xhr = new XMLHttpRequest();<br>                xhr.open(‘GET’, url, true);<br>                xhr.onreadystatechange = function() {<br>                    // readyState == 4说明请求已完成<br>                    if (xhr.readyState == 4 &amp;&amp; xhr.status == 200) {<br>                        // 从服务器获得数据<br>                        resolve(xhr.responseText)<br>                    }<br>                };<br>                xhr.send();<br>            })<br>        },<br>    }</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1744,7 +1631,7 @@ setTimeout(() =&gt; {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">44</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
