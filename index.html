@@ -232,6 +232,714 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/09/30/2019-09-29/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="零之zero">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/30/2019-09-29/" itemprop="url">ios和安卓对接公众号H5大转盘，如何实现两端的消息对接</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-30T08:58:33+08:00">
+                2019-09-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>//这里是通过window.Android和window.webkit判断是否是ios和安卓端<br>if(window.Android &amp;&amp; this.isApp == 1) {<br>　 //  给Android传递参数需要用 window.Android.注册的方法名({body:传输的数据} 来给native发送消息<br>    window.Android.goPage(type);//goPage需要与安卓端交互的方法一致<br>    return true;<br>}<br>if(window.webkit &amp;&amp; this.isApp == 1) {<br>　　//  给iOS传递参数需要用 window.webkit.messageHandlers.注册的方法名.postMessage({body:传输的数据} 来给native发送消息<br>    window.webkit.messageHandlers.goPage.postMessage(type);//goPage需要与安卓端交互的方法一致<br>    return true;<br>}</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/09/23/2019-09-23/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="零之zero">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/23/2019-09-23/" itemprop="url">Vue触发隐藏input file的方法实例详解</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-23T14:20:14+08:00">
+                2019-09-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>第一.由于<br>参考链接：<a href="https://www.jb51.net/article/167664.htm" target="_blank" rel="noopener">https://www.jb51.net/article/167664.htm</a></p>
+<p><div @click="upload">点击选择文件</div>    </p>
+<p><input type="file" id="ifaceFile" @change="uploadPic('ifaceFile','ifaceShow','1')" style="display: none;"><br>upload: function(e) {<br>document.getElementById(“ifaceFile”).click()<br>},<br>公司原本使用的文件上传是这种方式，这样就导致需要连续点击两次实现，操作起来太麻烦了，刚好产品演示的时候也由于这个一直失败，所以我必须找到一个完美的解决方法，所以我就找啊找，终于让我找到了，就是用透明嵌套input终于解决了，原来这么简单。</p>
+<p></p><p class="uploadImg"><br>  <input type="file" @change="picUpload($event)" accept="image/*"><br></p><br><br>.uploadImg {<br>  width: 100%;<br>  height: 1.46rem;<br>  position: relative;<br>  input {<br>   width: 1.46rem;<br>   height: 100%;<br>   z-index: 1;<br>   opacity: 0;<br>   position: absolute;<br>   cursor: pointer;<br>  }<br>}<p></p>
+<p>有的时候，确实应该转换一些思路不能被限制死，所以写程序一个好的逻辑思维才是最重要的。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/09/19/2019-09-18/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="零之zero">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/19/2019-09-18/" itemprop="url">mint-ui loadmore的上拉兼容性问题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-19T17:54:28+08:00">
+                2019-09-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.loadmore的上拉加载在一些手机上表现没有任何问题，而且很流畅。但是另外一些机型则是问题百出！</p>
+<p>ios不同机型出现上拉一直刷新，但是并没有到底底部。<br>解决办法网上已经给出，就是对loadmore外层标签加个高度和overflow:auto/scroll。<br>但是光加这些样式，在ios下滑动会变得卡顿，所以还要针对ios加个-webkit-overflow-scrolling: touch的属性。<br>最后效果不可以说是完美，但是至少保证页面基本运行。</p>
+<section class="prdListWrap"><br>    <mt-loadmore :top-method="loadTop" :bottom-method="loadBottom" :bottom-all-loaded="allLoaded" :auto-fill="false" ref="loadmore"><br>        <ul><li></li></ul><br>    </mt-loadmore><br></section>
+
+<style scoped lang="scss">
+  .prdListWrap{
+    position: absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    overflow:auto;
+    padding-top: 3.7rem;
+    box-sizing:border-box;
+    -webkit-overflow-scrolling: touch;
+  }
+</style>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/09/19/2019-09-17/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="零之zero">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/19/2019-09-17/" itemprop="url">预售功能定时器实现</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-19T17:54:28+08:00">
+                2019-09-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+             <countdown :time="item.advanceInfo.advanceEndTime" :details="details" @countdownclose="countdownShow=false"></countdown>
+
+
+<template><br>  <div class="timeBox" v-if="countdownShow"><br>    <span class="value" v-if="pageData.day > 0"></span><span class="label" v-if="pageData.day > 0">天</span><br>    <span class="value presale-time"></span><span class="label">:</span><br>    <span class="value presale-time"></span><span class="label">:</span><br>    <span class="value presale-time"></span><br>  </div><br></template>
+
+<script>
+  export default {
+    name: 'countdown',
+    data() {
+      return {
+        countdownShow: true,
+        pageData: {
+          day: '0',
+          hour: '00',
+          minute: '00',
+          second: '00'
+        }
+      }
+    },
+    props: {
+      time: {
+        type: Number
+      },
+      details:{
+        type:Array
+      }
+    },
+    created() {
+     this.initData();
+    },
+    methods:{
+      initData(){
+        this.interval = setInterval(() => {
+          const endTime = new Date(this.time).getTime() - new Date().getTime();
+          if ( endTime <=0 ) {
+            clearInterval(this.interval);
+            this.details[0].advanceTimeType += 1;
+            if(this.details[0].advanceTimeType != 5){//这个功能是为了是定时器平稳过渡到下段时间。例如支付定金时限=》支付尾款时限
+              this.initData();
+            }else {
+              this.countdownShow = false;
+              this.$emit('countdownClose');
+            }
+
+          }
+          let date = {
+            day: Math.floor(endTime / 86400000),
+            hour: Math.floor((endTime / 3600000) % 24),
+            minute: Math.floor((endTime / 60000) % 60),
+            second: Math.floor((endTime / 1000) % 60)
+          }
+          Object.keys(date).forEach(value => {
+            let times = date[value];
+            times =  times < 0 ? 0 : times;//平滑过渡的时候会出现-1：-1：-1 所以要限制最新的值
+            if (times.toString().length < 2 && value !== 'day') {
+              this.pageData[value] = "0" + times;
+            } else {
+              this.pageData[value] = times;
+            }
+          })
+        }, 1000);
+      }
+    },
+    beforeDestroy() {
+      clearInterval(this.interval)
+    },
+
+  }
+</script>
+
+<style lang="scss" scoped="scoped">
+   .presale-time{
+     width: 20px;
+     height: 20px;
+     background: rgba(254,254,254,1);
+     border-radius: 4px;
+     font-size: 12px;
+     font-family: PingFangSC;
+     font-weight: 400;
+     color: rgba(249,118,0,1);
+     line-height: 17px;
+     padding:2px 3px;
+   }
+  .label {
+    margin-left: 2px;
+  }
+</style>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/09/19/2019-09-19/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="零之zero">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/19/2019-09-19/" itemprop="url">H5公众号图片上传使用拍照功能失败</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-19T17:54:27+08:00">
+                2019-09-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>第一.公司有个新需求店主入驻，所以我使用了原始input的type=file，但是其他没有问题但是使用拍照图片上传功能的时候报错了，查了很多文档，一直找不到问题，拍照也是有经过请求哪一步，但是到达这一步之后就一直抱加载失败，我打印了图片转化成的base64码，竟然有2.56M好大，这个格式化，其他又没有什么问题所以我终于想到了是不是图片压缩的问题，所以我找了一个压缩的功能的代码。如下<br>参考链接：<a href="https://www.cnblogs.com/lvshaonan/p/8547676.html" target="_blank" rel="noopener">https://www.cnblogs.com/lvshaonan/p/8547676.html</a><br>import {api} from ‘../../api/api.js’;<br>import axios from ‘axios’;<br>export function imgPreview (that, file, type) {<br>    let self = that;<br>    let Orientation;<br>    if (!file || !window.FileReader) return;<br>    if (/^image/.test(file.type)) {<br>        // 创建一个reader<br>        let reader = new FileReader();<br>        // 将图片2将转成 base64 格式<br>        reader.readAsDataURL(file);<br>        // 读取成功后的回调<br>        reader.onloadend = function () {<br>            let result = this.result;<br>            let img = new Image();<br>            img.src = result;<br>            //判断图片是否大于100K,是就直接上传，反之压缩图片<br>            if (this.result.length &lt;= (100 <em> 1024)) {<br>                if(type == ‘imageFront’){<br>                    upImgFront(self, this.result);<br>                }<br>            }else {<br>                img.onload = function () {<br>                    let src = compress(img,Orientation);<br>                    if(type == ‘imageFront’){<br>                        upImgFront(self, src);<br>                    }<br>                }<br>            }<br>        }<br>    }<br>}<br>function compress(img,Orientation) {<br>    let canvas = document.createElement(“canvas”);<br>    let ctx = canvas.getContext(‘2d’);<br>        //瓦片canvas<br>    let tCanvas = document.createElement(“canvas”);<br>    let tctx = tCanvas.getContext(“2d”);<br>    let initSize = img.src.length;<br>    let width = img.width;<br>    let height = img.height;<br>    //如果图片大于四百万像素，计算压缩比并将大小压至400万以下<br>    let ratio;<br>    if ((ratio = width </em> height / 4000000) &gt; 1) {<br>        console.log(“大于400万像素”)<br>        ratio = Math.sqrt(ratio);<br>        width /= ratio;<br>        height /= ratio;<br>    } else {<br>        ratio = 1;<br>    }<br>    canvas.width = width;<br>    canvas.height = height;<br>//        铺底色<br>    ctx.fillStyle = “#fff”;<br>    ctx.fillRect(0, 0, canvas.width, canvas.height);<br>    //如果图片像素大于100万则使用瓦片绘制<br>    let count;<br>    if ((count = width <em> height / 1000000) &gt; 1) {<br>        console.log(“超过100W像素”);<br>        count = ~~(Math.sqrt(count) + 1); //计算要分成多少块瓦片<br>//            计算每块瓦片的宽和高<br>        let nw = ~~(width / count);<br>        let nh = ~~(height / count);<br>        tCanvas.width = nw;<br>        tCanvas.height = nh;<br>        for (let i = 0; i &lt; count; i++) {<br>        for (let j = 0; j &lt; count; j++) {<br>            tctx.drawImage(img, i </em> nw <em> ratio, j </em> nh <em> ratio, nw </em> ratio, nh <em> ratio, 0, 0, nw, nh);<br>            ctx.drawImage(tCanvas, i </em> nw, j * nh, nw, nh);<br>        }<br>        }<br>    } else {<br>        ctx.drawImage(img, 0, 0, width, height);<br>    }<br>    //进行最小压缩<br>    let ndata = canvas.toDataURL(‘image/jpeg’, 0.3);<br>    tCanvas.width = tCanvas.height = canvas.width = canvas.height = 0;<br>    return ndata;<br>}<br>// 身份证正面<br>function upImgFront(that, src) {<br>    that.isLoadingShow = true;<br>    that.loadingTit = ‘图片上传中…’;<br>    axios({<br>        method: ‘post’,<br>        url: api + ‘/upload/image/base64’,<br>        data: {<br>            fileBase64: src,<br>            authType: ‘1’<br>        },<br>        transformRequest: [function (data) {<br>            let ret = ‘’<br>            for (let it in data) {<br>            ret += encodeURIComponent(it) + ‘=’ + encodeURIComponent(data[it]) + ‘&amp;’<br>            }<br>            return ret<br>        }],<br>        headers: {<br>            ‘Content-Type’: ‘application/x-www-form-urlencoded’<br>        }<br>    })<br>    .then((res) =&gt; {<br>        that.isLoadingShow = false;<br>        if(res.data.code == 0){<br>            that.imageFrontPath = res.data.data.path;<br>            if(res.data.data.info){<br>                if(res.data.data.info.address){<br>                    that.idCardFrontDialogAddress = res.data.data.info.address;<br>                }<br>                if(res.data.data.info.name){<br>                    that.idCardFrontDialogName = res.data.data.info.name;<br>                }<br>                if(res.data.data.info.number){<br>                    that.idCardFrontDialogId = res.data.data.info.number;<br>                }<br>            }<br>            that.idCardFrontDialog = true;<br>            that.isFrontSuccess = true;<br>            that.imageFront = src;<br>        }else{<br>            setTimeout(() =&gt; {<br>                that.isDialogShow = true;<br>            },100);<br>            that.dialogTit = ‘图片上传失败’;<br>        }<br>    })<br>    .catch((error) =&gt; {<br>        // that.isLoadingShow = false;<br>        // setTimeout(() =&gt; {<br>        //     that.isDialogShow = true;<br>        // },100);<br>        // that.dialogTit = ‘服务器错误’;<br>        // console.log(‘错误了’+ error);<br>    });<br>}<br>终于可以拍照上传了，太感动了，花了好几个小时候就是这个小问题，终是经验太少，还学努力。</p>
+<p>function photoCompress(file, w, callback) { //图片质量压缩，文件，宽度，回调</p>
+<p>  Indicator.open({<br>    text: “图片加载中…”,<br>    spinnerType: “triple-bounce”<br>  });<br>  var ready = new FileReader();<br>  /<em>开始读取指定的Blob对象或File对象中的内容. 当读取操作完成时,readyState属性的值会成为DONE,如果设置了onloadend事件处理程序,则调用之.同时,result属性中将包含一个data: URL格式的字符串以表示所读取文件的内容.</em>/<br>  ready.readAsDataURL(file);<br>  ready.onload = function () {<br>    var re = this.result;<br>    let obj = {}<br>    if (typeof (w) != ‘object’) { //默认只传宽度，传一个对象也可以，具有宽高，质量三种属性<br>      obj = {<br>        width: w,<br>      }<br>    }<br>    canvasDataURL(re, obj, callback)<br>  }<br>}</p>
+<p>又找到公司的压缩代码直接调用解决OK</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/31/2019-08-31/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -943,644 +1651,6 @@ Eclipse中默认的模板.xml文件如下：
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-08-24/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/27/2019-08-24/" itemprop="url">js实现下载图片功能</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
-                2019-08-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>第一：今天同事有个功能，下周图片由于后端他实现不了下载功能，他想直接从前端实现这个功能，所以我在网上找了一下，当前的下载图片功能，但是由于图片跨域了，导致download失效，所以并没有解决当前的功能，所以还在解决的办法。待续<br>//<body><br>//<div class="card"><br>//   <img id="testimg" src="beauty.jpg"><br>//   <a href="javascript:;" class="down_btn_a" target="_blank" rel="noopener">点击下载</a><br>//</div></body></p>
-<p><script><br>  //判断是否为Trident内核浏览器(IE等)函数<br>  function browserIsIe() {<br>      if (!!window.ActiveXObject || “ActiveXObject” in window){<br>          return true;<br>      }<br>      else{<br>          return false;<br>      }<br>  }<br>  //创建iframe并赋值的函数,传入参数为图片的src属性值.<br>  function createIframe(imgSrc) {<br>      //如果隐藏的iframe不存在则创建<br>      if ($(“#IframeReportImg”).length === 0){<br>          $(‘<iframe style="display:none;" id="IframeReportImg" name="IframeReportImg" onload="downloadImg();" width="0" height="0" src="about:blank"></iframe>‘).appendTo(“body”);<br>      }<br>      //iframe的src属性如不指向图片地址,则手动修改,加载图片<br>      if ($(‘#IframeReportImg’).attr(“src”) != imgSrc) {<br>          $(‘#IframeReportImg’).attr(“src”,imgSrc);<br>      } else {<br>          //如指向图片地址,直接调用下载方法<br>          downloadImg();<br>      }<br>  }<br>  //下载图片的函数<br>  function downloadImg() {<br>      //iframe的src属性不为空,调用execCommand(),保存图片<br>      if ($(‘#IframeReportImg’).src != “about:blank”) {<br>          window.frames[“IframeReportImg”].document.execCommand(“SaveAs”);<br>      }<br>  }<br>  //接下来进行事件绑定<br>  var aBtn = $(“.card .down_btn_a”);<br>  if (browserIsIe()) {<br>      //是ie等,绑定事件<br>      aBtn.on(“click”, function() {<br>          var imgSrc = $(this).siblings(“img”).attr(“src”);<br>          //调用创建iframe的函数<br>          createIframe(imgSrc);<br>      });<br>  } else {<br>      aBtn.each(function(i,v){<br>          //支持download,添加属性.<br>          var imgSrc = $(v).siblings(“img”).attr(“src”);<br>          $(v).attr(“download”,imgSrc);<br>          $(v).attr(“href”,imgSrc);<br>      })<br>  }<br></script><br>//</p>
-<p>第二：由于上述功能行不通，所以我有找了一个下载图片的功能，代码如下，但是由于时间的问题，我还没有进行验证，如果要实现下述功能，必须要去下周JSZip.js这一点你一定要记住。还有我修改了一些语法，由于前段直接报错，例如let url:string ，报错改成let url = “”;<br>/**</p>
-<ul>
-<li>将图片转换成base64 并返回路径</li>
-<li>@param img</li>
-<li>@param {number} width 调用时传入具体像素值，控制大小 ,不传则默认图像大小</li>
-<li>@param {number} height</li>
-<li><p>@returns {string}<br>*/<br>function getBase64Image(img,width = 0,height = 0) {<br>const canvas = document.createElement(‘canvas’);<br>canvas.width = width ? width : img.width;<br>canvas.height = height ? height : img.height;</p>
-<p>const ctx = canvas.getContext(‘2d’);<br>ctx.drawImage(img, 0, 0, canvas.width, canvas.height);<br>const dataURL = canvas.toDataURL();<br>return dataURL;<br>}</p>
-<p>/**</p>
-</li>
-<li>检查是不是Base64</li>
-<li>@param img</li>
-<li><p>@returns {boolean}<br>*/<br>function IsBase64(img) {<br>// jpg jpeg png gif<br>const _img = img.toLowerCase();<br>if (_img.endsWith(‘jpg’) || _img.endsWith(‘jpeg’) || _img.endsWith(‘png’) || _img.endsWith(‘gif’) )  return false;<br>return true;<br>}</p>
-<p>/**</p>
-</li>
-<li>加载图片 加载成功后经图片返回</li>
-<li>@param img</li>
-<li><p>@returns {Promise<any>}<br><em>/<br>function getBase64(img){<br>let url = ‘’;<br>if (IsBase64(img)) {<br> // 有一些数据 后台没有返回前缀<br> const _base64 = ‘data:image/jpeg;base64,’;<br> if (img.startsWith(_base64)) {<br>   url = img;<br> } else {<br>   url = _base64 + img;<br> }<br> return url;<br>} else {<br> url = img;<br> const image = new Image();<br> image.crossOrigin = ‘</em>‘;<br> image.src = url;<br> return new Promise(function (resolve, reject) {<br>   image.onload =function (){</any></p>
-<pre><code>resolve(getBase64Image(image));//将base64传给done上传处理
-</code></pre><p>   }<br> });<br>}<br>}</p>
-<p>/**</p>
-</li>
-<li><p>压缩图片<br>*/<br>function setBase64Img(zip, imgFolder, base64, imgArr, index, downloadName) {<br>base64 = base64.split(‘base64,’)[1];<br>imgFolder.file(downloadName + ‘_’ + index + ‘.png’, base64, { base64: true });<br>if (index === imgArr.length - 1) {<br> zip.generateAsync({ type: ‘blob’ }).then((blob) =&gt; {<br>   saveAs(blob, downloadName + ‘.zip’);<br> });<br>}<br>}</p>
-<p>/**</p>
-</li>
-<li>下载压缩图片</li>
-<li>@param {any[]} imgArr  图片合集</li>
-<li><p>@param {string} imgKey  如果不是单纯的图片路径 需要传入路径的key<br>*/<br>function downloadZipImage (imgArr, imgKey = ‘’, downloadName = ‘img’) {</p>
-<p>if (!imgArr || !imgArr.length) {<br> return;<br>}<br>const zip = new JSZip();<br>// 创建images文件夹<br>const imgFolder = zip.folder(‘images’);<br>// test<br>// imgArr = [‘assets/img/charts/return-upper-level.png’,<br>// ‘assets/img/tree/arrow_right.png’,<br>// ‘assets/img/tree/arrow_left.png’,<br>// ‘assets/img/charts/map_ShadowMap.png’];</p>
-<p>let index = 0; //  判断加载了几张图片的标识<br>for (let i = 0;i &lt; imgArr.length;i++) {<br> const itemImg = imgKey ? imgArr[i][imgKey] : imgArr[i];<br> /**</p>
-<ul>
-<li>如果是Base64就不需要再做异步处理了<br>*/<br>const Base64Img = getBase64(itemImg);<br>if (Base64Img[‘then’]) {<br>Base64Img<a href="function(base64 =">‘then’</a>{<br> setBase64Img(zip, imgFolder, base64, imgArr, index, downloadName);<br> index++;<br>},function(err){<br> console.log(err);//打印异常信息<br>});<br>} else {<br>setBase64Img(zip, imgFolder, Base64Img, imgArr, index, downloadName);<br>index++;<br>}<br>}<br>}<br>结束语：后面做了各种调试，但是还是解决不了跨域的问题，我网上也查了很多资料，都说要后端要配置跨域，但是我们公司后端说做不了，我也不敢说，所以最后还是没有解决。啊啊啊啊啊！但是同源的时候应该可以解决。</li>
-</ul>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-08-18/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/27/2019-08-18/" itemprop="url">如何运行网上下载的项目。</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
-                2019-08-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>前言：一直想了解一个网站从后端到前段，再到数据库的整个流程，之前一直想做但是比较懒，工作也比较忙，所以一直没有找到时间来做这样的事，<br>最近终于对自己说：有些事，一旦是你想做的，就能做到，不想做是因为你根本没有那个想法，所以这个月，不管在怎么忙，在怎么不想做，我都抽空<br>出来完成了，一个项目的运行和前后端配置，虽然项目不是自己构建的，但是看了整体的架构和配置，从这次配置中我也了解到了，一个完整项目的大致搭建流程，<br>感觉这次做的非常的值得。接下来介绍我在运行这个项目上遇到的问题，和是如何解决的。</p>
-<p>1.到线上下载项目（项目<a href="https://github.com/zhangdaiscott/jeecg-boot）" target="_blank" rel="noopener">https://github.com/zhangdaiscott/jeecg-boot）</a><br>2.前段运行基本不用配置什么，按照文档上的运行方法运行一下就ok，主要是后端配置遇到了问题。<br>3.后端项目启动，首先，要准备一个数据库，并把对应的数据库地址链接改为你自己的数据库，因为本地上我没有安装数据库，刚好显示有个测试服务器，所以我就在线上建了一个数据库，在本地链接他。数据库搞定。<br>4.由于这个项目，省略了get和set，所以在idea上一直报错，后来看了下项目的包，原来已经被封装了，所以检测报错只是因为编辑器的原因<br>5.数据库表结构insert的时候出错，因为用的是mysql数据库，所以表有区大小写，所以在运行它给我的那段sql的时候他一直报不存在那张表，因为我之前用的是oracle所以并不知道<br>表要区分大小写。一直查不到原因，后来问了公司的后端开发才意识到。到目前为止终于把表结构解决了。<br>6.解决了上述的问题，突然有出现一个问题，没有redis，这个没关系，问下后端开发给了一个包，解压启动就ok了。就是如此的快。<br>7.要发布到线上</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-08-17/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/27/2019-08-17/" itemprop="url">在vue项目中向上走马灯，延迟失效</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
-                2019-08-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1.为了实现广告效果的走马灯，自己参照网上谢了一个，向上翻滚的效果，原本在一个单独的页面上是没有问题的，<br>效果非常理想，但是一把样式和定时器放进另外一个页面中，就突然出现，延迟效果无效了，为了弄清楚为什么会导致这个<br>问题，我把各个模块的代码注释掉然后查找是哪个模块影响到了，结果发现是v-for生成的列表好像对这个有影响，至于<br>为什么会影响到走马灯哪一款，我找了半天不知道，为什么，猜测应该是生命周期生成数据的时候影响到了，但是这个效果<br>我必须要实现，后来，没办法我就把他独立成一个模块，结果问题就解决了，但是在解决的时候还是遇到了几个坑，我这里<br>列出来防止以后自己还犯这个错误：<br>1.在使用模块接收数据的时候，由于父组件数据是异步的，之前没有使用v-if判断数据是否存在，导致在子组件一直拿不到数据。<br>2.在定时器里的this的指向，没有在外部定义或者用箭头函数去表示，结果在定时器里面是用了this，导致指向问题，一直<br>拿不到数据，还以为是数据没有传过来，但是我发在create里面可以接收到。最后才查到是这个问题，平时我一定会注意到，<br>但是查问题差乱了，自己这个细节多没注意到，这是恨不应该的。<br>3.最后解决了问题，然后又在销毁组件之前，把定时器清除了，这个是很重要的一定要清除定时器，不然他可能没有自己销毁一直<br>在。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-08-07/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/27/2019-08-07/" itemprop="url">实现页面渲染完之后，进行一次dom操作。</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
-                2019-08-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>//每次页面渲染完之后<br>updated:function(){<br>      this.$nextTick(function(){<br>      var div = document.getElementById(‘dialogue_box’);<br>        div.scrollTop = div.scrollHeight;<br>      })<br>    }</p>
-<p>//第一次页面渲染完之后<br>methods:function(){<br>      this.$nextTick(function(){<br>      var div = document.getElementById(‘dialogue_box’);<br>        div.scrollTop = div.scrollHeight;<br>      })<br>    }</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-08-05/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/27/2019-08-05/" itemprop="url">vue中IOS的遮罩有时候禁止滚动失败，如何实现禁止滚动？</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
-                2019-08-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>//遮罩层出现禁止页面滚动函数<br>stop: function() {<br> var mo = function(e) {<br>  e.preventDefault();<br> };<br> document.body.style.overflowY  = ‘hidden’;<br>     document.body.style.position = ‘fixed’;<br>     document.body.style.width = ‘100%’;<br>     document.addEventListener(“touchmove”, mo, false); //禁止页面滑动<br>},<br>//恢复页面滚动<br>move: function() {<br> var mo = function(e) {<br>  e.preventDefault();<br> };<br> document.body.style.overflow = ‘’; //出现滚动条<br>     document.body.style.position = ‘’;<br>     document.body.style.width = ‘’;<br>     document.removeEventListener(“touchmove”, mo, false);<br>},</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1631,7 +1701,7 @@ Eclipse中默认的模板.xml文件如下：
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-count">49</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

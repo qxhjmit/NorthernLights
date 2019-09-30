@@ -232,6 +232,644 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-08-24/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="零之zero">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/27/2019-08-24/" itemprop="url">js实现下载图片功能</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
+                2019-08-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>第一：今天同事有个功能，下周图片由于后端他实现不了下载功能，他想直接从前端实现这个功能，所以我在网上找了一下，当前的下载图片功能，但是由于图片跨域了，导致download失效，所以并没有解决当前的功能，所以还在解决的办法。待续<br>//<body><br>//<div class="card"><br>//   <img id="testimg" src="beauty.jpg"><br>//   <a href="javascript:;" class="down_btn_a" target="_blank" rel="noopener">点击下载</a><br>//</div></body></p>
+<p><script><br>  //判断是否为Trident内核浏览器(IE等)函数<br>  function browserIsIe() {<br>      if (!!window.ActiveXObject || “ActiveXObject” in window){<br>          return true;<br>      }<br>      else{<br>          return false;<br>      }<br>  }<br>  //创建iframe并赋值的函数,传入参数为图片的src属性值.<br>  function createIframe(imgSrc) {<br>      //如果隐藏的iframe不存在则创建<br>      if ($(“#IframeReportImg”).length === 0){<br>          $(‘<iframe style="display:none;" id="IframeReportImg" name="IframeReportImg" onload="downloadImg();" width="0" height="0" src="about:blank"></iframe>‘).appendTo(“body”);<br>      }<br>      //iframe的src属性如不指向图片地址,则手动修改,加载图片<br>      if ($(‘#IframeReportImg’).attr(“src”) != imgSrc) {<br>          $(‘#IframeReportImg’).attr(“src”,imgSrc);<br>      } else {<br>          //如指向图片地址,直接调用下载方法<br>          downloadImg();<br>      }<br>  }<br>  //下载图片的函数<br>  function downloadImg() {<br>      //iframe的src属性不为空,调用execCommand(),保存图片<br>      if ($(‘#IframeReportImg’).src != “about:blank”) {<br>          window.frames[“IframeReportImg”].document.execCommand(“SaveAs”);<br>      }<br>  }<br>  //接下来进行事件绑定<br>  var aBtn = $(“.card .down_btn_a”);<br>  if (browserIsIe()) {<br>      //是ie等,绑定事件<br>      aBtn.on(“click”, function() {<br>          var imgSrc = $(this).siblings(“img”).attr(“src”);<br>          //调用创建iframe的函数<br>          createIframe(imgSrc);<br>      });<br>  } else {<br>      aBtn.each(function(i,v){<br>          //支持download,添加属性.<br>          var imgSrc = $(v).siblings(“img”).attr(“src”);<br>          $(v).attr(“download”,imgSrc);<br>          $(v).attr(“href”,imgSrc);<br>      })<br>  }<br></script><br>//</p>
+<p>第二：由于上述功能行不通，所以我有找了一个下载图片的功能，代码如下，但是由于时间的问题，我还没有进行验证，如果要实现下述功能，必须要去下周JSZip.js这一点你一定要记住。还有我修改了一些语法，由于前段直接报错，例如let url:string ，报错改成let url = “”;<br>/**</p>
+<ul>
+<li>将图片转换成base64 并返回路径</li>
+<li>@param img</li>
+<li>@param {number} width 调用时传入具体像素值，控制大小 ,不传则默认图像大小</li>
+<li>@param {number} height</li>
+<li><p>@returns {string}<br>*/<br>function getBase64Image(img,width = 0,height = 0) {<br>const canvas = document.createElement(‘canvas’);<br>canvas.width = width ? width : img.width;<br>canvas.height = height ? height : img.height;</p>
+<p>const ctx = canvas.getContext(‘2d’);<br>ctx.drawImage(img, 0, 0, canvas.width, canvas.height);<br>const dataURL = canvas.toDataURL();<br>return dataURL;<br>}</p>
+<p>/**</p>
+</li>
+<li>检查是不是Base64</li>
+<li>@param img</li>
+<li><p>@returns {boolean}<br>*/<br>function IsBase64(img) {<br>// jpg jpeg png gif<br>const _img = img.toLowerCase();<br>if (_img.endsWith(‘jpg’) || _img.endsWith(‘jpeg’) || _img.endsWith(‘png’) || _img.endsWith(‘gif’) )  return false;<br>return true;<br>}</p>
+<p>/**</p>
+</li>
+<li>加载图片 加载成功后经图片返回</li>
+<li>@param img</li>
+<li><p>@returns {Promise<any>}<br><em>/<br>function getBase64(img){<br>let url = ‘’;<br>if (IsBase64(img)) {<br> // 有一些数据 后台没有返回前缀<br> const _base64 = ‘data:image/jpeg;base64,’;<br> if (img.startsWith(_base64)) {<br>   url = img;<br> } else {<br>   url = _base64 + img;<br> }<br> return url;<br>} else {<br> url = img;<br> const image = new Image();<br> image.crossOrigin = ‘</em>‘;<br> image.src = url;<br> return new Promise(function (resolve, reject) {<br>   image.onload =function (){</any></p>
+<pre><code>resolve(getBase64Image(image));//将base64传给done上传处理
+</code></pre><p>   }<br> });<br>}<br>}</p>
+<p>/**</p>
+</li>
+<li><p>压缩图片<br>*/<br>function setBase64Img(zip, imgFolder, base64, imgArr, index, downloadName) {<br>base64 = base64.split(‘base64,’)[1];<br>imgFolder.file(downloadName + ‘_’ + index + ‘.png’, base64, { base64: true });<br>if (index === imgArr.length - 1) {<br> zip.generateAsync({ type: ‘blob’ }).then((blob) =&gt; {<br>   saveAs(blob, downloadName + ‘.zip’);<br> });<br>}<br>}</p>
+<p>/**</p>
+</li>
+<li>下载压缩图片</li>
+<li>@param {any[]} imgArr  图片合集</li>
+<li><p>@param {string} imgKey  如果不是单纯的图片路径 需要传入路径的key<br>*/<br>function downloadZipImage (imgArr, imgKey = ‘’, downloadName = ‘img’) {</p>
+<p>if (!imgArr || !imgArr.length) {<br> return;<br>}<br>const zip = new JSZip();<br>// 创建images文件夹<br>const imgFolder = zip.folder(‘images’);<br>// test<br>// imgArr = [‘assets/img/charts/return-upper-level.png’,<br>// ‘assets/img/tree/arrow_right.png’,<br>// ‘assets/img/tree/arrow_left.png’,<br>// ‘assets/img/charts/map_ShadowMap.png’];</p>
+<p>let index = 0; //  判断加载了几张图片的标识<br>for (let i = 0;i &lt; imgArr.length;i++) {<br> const itemImg = imgKey ? imgArr[i][imgKey] : imgArr[i];<br> /**</p>
+<ul>
+<li>如果是Base64就不需要再做异步处理了<br>*/<br>const Base64Img = getBase64(itemImg);<br>if (Base64Img[‘then’]) {<br>Base64Img<a href="function(base64 =">‘then’</a>{<br> setBase64Img(zip, imgFolder, base64, imgArr, index, downloadName);<br> index++;<br>},function(err){<br> console.log(err);//打印异常信息<br>});<br>} else {<br>setBase64Img(zip, imgFolder, Base64Img, imgArr, index, downloadName);<br>index++;<br>}<br>}<br>}<br>结束语：后面做了各种调试，但是还是解决不了跨域的问题，我网上也查了很多资料，都说要后端要配置跨域，但是我们公司后端说做不了，我也不敢说，所以最后还是没有解决。啊啊啊啊啊！但是同源的时候应该可以解决。</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-08-18/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="零之zero">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/27/2019-08-18/" itemprop="url">如何运行网上下载的项目。</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
+                2019-08-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>前言：一直想了解一个网站从后端到前段，再到数据库的整个流程，之前一直想做但是比较懒，工作也比较忙，所以一直没有找到时间来做这样的事，<br>最近终于对自己说：有些事，一旦是你想做的，就能做到，不想做是因为你根本没有那个想法，所以这个月，不管在怎么忙，在怎么不想做，我都抽空<br>出来完成了，一个项目的运行和前后端配置，虽然项目不是自己构建的，但是看了整体的架构和配置，从这次配置中我也了解到了，一个完整项目的大致搭建流程，<br>感觉这次做的非常的值得。接下来介绍我在运行这个项目上遇到的问题，和是如何解决的。</p>
+<p>1.到线上下载项目（项目<a href="https://github.com/zhangdaiscott/jeecg-boot）" target="_blank" rel="noopener">https://github.com/zhangdaiscott/jeecg-boot）</a><br>2.前段运行基本不用配置什么，按照文档上的运行方法运行一下就ok，主要是后端配置遇到了问题。<br>3.后端项目启动，首先，要准备一个数据库，并把对应的数据库地址链接改为你自己的数据库，因为本地上我没有安装数据库，刚好显示有个测试服务器，所以我就在线上建了一个数据库，在本地链接他。数据库搞定。<br>4.由于这个项目，省略了get和set，所以在idea上一直报错，后来看了下项目的包，原来已经被封装了，所以检测报错只是因为编辑器的原因<br>5.数据库表结构insert的时候出错，因为用的是mysql数据库，所以表有区大小写，所以在运行它给我的那段sql的时候他一直报不存在那张表，因为我之前用的是oracle所以并不知道<br>表要区分大小写。一直查不到原因，后来问了公司的后端开发才意识到。到目前为止终于把表结构解决了。<br>6.解决了上述的问题，突然有出现一个问题，没有redis，这个没关系，问下后端开发给了一个包，解压启动就ok了。就是如此的快。<br>7.要发布到线上</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-08-17/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="零之zero">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/27/2019-08-17/" itemprop="url">在vue项目中向上走马灯，延迟失效</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
+                2019-08-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.为了实现广告效果的走马灯，自己参照网上谢了一个，向上翻滚的效果，原本在一个单独的页面上是没有问题的，<br>效果非常理想，但是一把样式和定时器放进另外一个页面中，就突然出现，延迟效果无效了，为了弄清楚为什么会导致这个<br>问题，我把各个模块的代码注释掉然后查找是哪个模块影响到了，结果发现是v-for生成的列表好像对这个有影响，至于<br>为什么会影响到走马灯哪一款，我找了半天不知道，为什么，猜测应该是生命周期生成数据的时候影响到了，但是这个效果<br>我必须要实现，后来，没办法我就把他独立成一个模块，结果问题就解决了，但是在解决的时候还是遇到了几个坑，我这里<br>列出来防止以后自己还犯这个错误：<br>1.在使用模块接收数据的时候，由于父组件数据是异步的，之前没有使用v-if判断数据是否存在，导致在子组件一直拿不到数据。<br>2.在定时器里的this的指向，没有在外部定义或者用箭头函数去表示，结果在定时器里面是用了this，导致指向问题，一直<br>拿不到数据，还以为是数据没有传过来，但是我发在create里面可以接收到。最后才查到是这个问题，平时我一定会注意到，<br>但是查问题差乱了，自己这个细节多没注意到，这是恨不应该的。<br>3.最后解决了问题，然后又在销毁组件之前，把定时器清除了，这个是很重要的一定要清除定时器，不然他可能没有自己销毁一直<br>在。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-08-05/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="零之zero">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/27/2019-08-05/" itemprop="url">vue中IOS的遮罩有时候禁止滚动失败，如何实现禁止滚动？</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
+                2019-08-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>//遮罩层出现禁止页面滚动函数<br>stop: function() {<br> var mo = function(e) {<br>  e.preventDefault();<br> };<br> document.body.style.overflowY  = ‘hidden’;<br>     document.body.style.position = ‘fixed’;<br>     document.body.style.width = ‘100%’;<br>     document.addEventListener(“touchmove”, mo, false); //禁止页面滑动<br>},<br>//恢复页面滚动<br>move: function() {<br> var mo = function(e) {<br>  e.preventDefault();<br> };<br> document.body.style.overflow = ‘’; //出现滚动条<br>     document.body.style.position = ‘’;<br>     document.body.style.width = ‘’;<br>     document.removeEventListener(“touchmove”, mo, false);<br>},</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-08-07/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="零之zero">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/27/2019-08-07/" itemprop="url">实现页面渲染完之后，进行一次dom操作。</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
+                2019-08-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>//每次页面渲染完之后<br>updated:function(){<br>      this.$nextTick(function(){<br>      var div = document.getElementById(‘dialogue_box’);<br>        div.scrollTop = div.scrollHeight;<br>      })<br>    }</p>
+<p>//第一次页面渲染完之后<br>methods:function(){<br>      this.$nextTick(function(){<br>      var div = document.getElementById(‘dialogue_box’);<br>        div.scrollTop = div.scrollHeight;<br>      })<br>    }</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-08-04/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -985,617 +1623,6 @@ function onFulfilled(res) {
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-06-29/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/27/2019-06-29/" itemprop="url">斐波那契数列</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
-                2019-08-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1.何为斐波那契数列，例如 1,2,3,5,8,13,21,34……<br>function* fibonacci() {<br>  let [prev, curr] = [0, 1];<br>  for (;;) {<br>    [prev, curr] = [curr, prev + curr];<br>    yield curr;<br>  }<br>}</p>
-<p>for (let n of fibonacci()) {<br>  if (n &gt; 1000) break;<br>  console.log(n);<br>}</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-06-02/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/27/2019-06-02/" itemprop="url">你不知道的javaScript--中卷</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
-                2019-08-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>##值：<br>1.javaScript中的数组是通过数字索引的一组任意类型的值。字符串和数组类似，但是他们的行为特征不同，在将字符作为数组来处理是需要特别小心。javaScript中的数字包括”整数”和”浮点型”。<br>2.null类型只有一个值null，undefined类型也只有一个值undefined。所有变量在赋值之前默认值都是undefined。void运算符返回undefined。<br>3.数字类型有几个特殊值，包括NaN（意思是“not a number”），更确切地说是“invalid number”、+Infinity，-Infinity和-0。<br>4.NaN是一个特殊值，他和自身不相等，是唯一一个非自反（自反，reflexive，即x===x不成立）的值，而NaN != NaN为true。<br>5.一个有意思的事，JSON.stringify(-0)返回为”0”,而JSON.stringify(“-0”)为0。<br>6.简单标量基本类型值（字符串和数字等）通过值复制来复制/传递，而复合值（对象等），通过引用复制来赋值/传递。javaScript中的引用和其他语言中的引用/指针不同，它们不能只想别的变量/引用，只能指向值。</p>
-<p>##开发遇到的问题<br>1.使用ueditor时想要引用其中的功能但是找不到all.mini.js文件.<br>解决方式:<br>git clone 仓库<br>npm install 安装依赖（如果没有安装 grunt , 请先在全局安装 grunt）<br>在终端执行 grunt default<br>打包成dist文件,在dist文件里就有全部的all.mini.js文件.</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-06-28/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/27/2019-06-28/" itemprop="url">深拷贝</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
-                2019-08-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1.function deepCopy(obj) {<br>   var newArray = Array.isArray(obj) ? []:{};<br>   for (key in obj) {//for in 循环可以取到对象名<br>      if(obj.hasOwnProperty(key)) {//Object的hasOwnProperty()方法返回一个布尔值，判断对象是否包含特定的自身（非继承）属性。<br>          if(typeof obj[key] === “object” &amp;&amp;  obj[key] != null ) {<br>            newArray[key] = deepCopy(obj[key])<br>           }else {<br>            newArray[key] = obj[key];</p>
-<pre><code>     }
-
-  }
-
-}
-</code></pre><p>return deepcopy<br>}</p>
-<p>2.function deepClone(obj){<br>    let _obj = JSON.stringify(obj),<br>        objClone = JSON.parse(_obj);<br>    return objClone<br>}<br>let a=[0,1,[2,3],4],<br>    b=deepClone(a);<br>a[0]=1;<br>a[2][0]=1;<br>console.log(a,b);</p>
-<p>3.$.extend( [deep ], target, object1 [, objectN ] )<br>let a=[0,1,[2,3],4],<br>    b=$.extend(true,[],a);<br>a[0]=1;<br>a[2][0]=1;<br>console.log(a,b);</p>
-<p>1.为什么要写一个深拷贝，因为这个平时的时候用到的地方很多，当然主要的是面试的时候被问到，知道原理但是不怎么会写，这当然不能允许了，<br>所以，今天我来写一个深拷贝，打扰代码可以网上找啦，主要还是讲下什么是深拷贝，这个涉及到堆和栈。<br>当然深拷贝主要是针对的引用类型。说到引用类型，就不得不说一下什么是基本类型和引用类型了。<br>基本类型：number，string，boolean，null，undefined，symbol以及未来ES10新增的BigInt(任意精度整数)七类。<br>引用类型：(Object类)有常规名值对的无序对象{a:1}，数组[1,2,3]，以及函数等。<br>基本数据类型只会在栈内存会新开辟一个内存。<br>而引用数据类型–名存在栈内存中，值存在于堆内存中，但是栈内存会提供一个引用的地址指向堆内存中的值<br>当b=a进行拷贝时，其实复制的是a的引用地址，而并非堆里面的值。<br>而当我们a[0]=1时进行数组修改时，由于a与b指向的是同一个地址，所以自然b也受了影响，这就是所谓的浅拷贝了。<br>那，要是在堆内存中也开辟一个新的内存专门为b存放值，就像基本类型那样，岂不就达到深拷贝的效果了，所以就有了上述3种方式进行深拷贝啦。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-06-01/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/27/2019-06-01/" itemprop="url">你不知道的javaScript--中卷</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
-                2019-08-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>##类型：<br>1.javaScript有七种内置类型：null，undefined，boolean，number，string，object和symbol（符号为ES6新增），当然你可以用typeof查看他们的类型。<br>2.变量没有类型，但是他们持有的值有类型，类型定义了值的行为特征。<br>3.我们经常把undefined和undeclared混为一谈，但在javaScript中它们是两码事。undefined是值的一种，undeclared则表示变量还没有被声明过。<br>4.javaScript却将它们混为一谈，在我们试图访问”undeclared”变量时这样报错：ReferenceError：a is not defined，并且typeof 对undefined和undeclared变量都返回”undefined”,<br>然而，通过typeof的安全防范机制（阻止报错）来检查undeclared变量，有时是个不错的办法。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-05-31/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/27/2019-05-31/" itemprop="url">listagg的拼接为空</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
-                2019-08-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>时间：2019-06-05<br>开发时遇到的问题:<br>1.用 listagg(i.eti_lang_code,’;’)within group(order by eti_lang_code) as eti_lang_code 转化查询为空.<br>由于eti_lang_code为varchar类型,所以导致拼接为空而number则没有这个问题.<br>解决方法:加上to_char(),如下:<br>listagg(to_char(i.eti_lang_code),’;’)within group(order by eti_lang_code) as eti_lang_code</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1646,7 +1673,7 @@ function onFulfilled(res) {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-count">49</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

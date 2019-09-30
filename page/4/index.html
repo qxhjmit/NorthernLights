@@ -232,6 +232,1006 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-05-24/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="零之zero">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/27/2019-05-24/" itemprop="url">object.prototype原型</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
+                2019-08-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>时间:2019-05-24</p>
+<p>1.访问对象并不存在一个属性，get的操作就会找到对象内部，关联的对象，这个关系实际上就是原型链。<br>2.所有普通的对象多有内置的object.prototype，指向原型链的顶端，其中tostring()，valueOf()和其他一些通用的功能存在于object.prototype,所有对象多可以引用。<br>3.使用new调用函数时会把新对象.prototype属性关联到”其他对象上”，带new被称为”构造函数”。<br>4.虽然javascript有类似其他语言的类功能，但是它实际上是并不能进行复制，只是通过prototype链进行对象内部之间的关联，所以我们不能用继续进行描述，而是用委托更合适，因为对象之间的关系不是复制而是委托。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-05-23/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="零之zero">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/27/2019-05-23/" itemprop="url">混合对象"类"。</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
+                2019-08-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>时间:2019-05-23</p>
+<p>#读后结语。<br>1.类是一种设计模式。许多语言提供了对于面向类软件的原生语法，例如java。但是在javascript有类似的语言，但是一定要区分他和其他语言是不一样的，他没有类的，只有对象，只是通过复杂的逻辑模拟了类似的语法。<br>2.类他意味着复制。<br>3.传统的类被实例化，会被复制到实例中。类被继承，行为也会被子类继承。<br>4.多态，看起来似乎是从子类引用了父类，但是本质上引用的其实是复制的结果。（就是复制父类的行为结合子类本身不一样的行为，形成了多种多样的类）<br>5.javascript并不会像类那样，自动创建对象的副本。 本质上其实是创建的还是指向的对象。因为对象只能复制引用，没有办法复制被引用的对象或者函数本身。这一点不能忽视不然会导致许多问题。<br>最好不要在javascript模拟类，虽然可以解决很多问题，但是可能会买下很多隐患。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-05-22/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="零之zero">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/27/2019-05-22/" itemprop="url">小王子读后感</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
+                2019-08-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>时间:2019-05-22<br>1.看东西只有用心才能看得清楚,重要的东西眼睛是看不见的，其实所有的事与物.只是你付出了感情和时间,才会让他独一无二.<br>2.小孩子的思维,才是最纯粹的,因为他们不为外物所左右。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-05-21/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="零之zero">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/27/2019-05-21/" itemprop="url">对象</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
+                2019-08-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>###时间:2019-05-21</p>
+<p>##访问对象的属性方式:<br>1.通过.a,这个语法通常被称为”属性访问”.<br>2.通过[“a”],这个语法通常被称为”键访问”</p>
+<p>##两者的区别:<br>1.属性访问满足了命名规范,键值访问可以接受任意UFT-8/unicode字符串作为属性名.</p>
+<p>##对象的属性描述：<br>       var myObject = { }<br>       object.getOwnPropertyDescriptor(myObject,”a”,{<br>         value:2,<br>         writable:true,//决定是否可以修改属性的值，即我们通常说的，可读和可写。<br>         enumerable:true,//这个属性为是否可枚举，（简单理解就是存在，但是不展示出来）可通过for … in循环，也可以通过object.keys(..) 来判断。<br>         configurable:true//这个只有设置了可配置，才能使用defineProperty(..)方法来修改属性描述符<br>       });</p>
+<p>## </p>
+<p>##其他知识<br>1.对象中属性名永远是字符串。<br>2.属性不一定包含值，但是它们可能多具备getter/setter的”访问描述符”。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-05-20/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="零之zero">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/27/2019-05-20/" itemprop="url">恰似花火</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
+                2019-08-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>###时间:2019-05-20</p>
+<p>#播放mp3音乐的时候,微信端和手机不能支持自动播放问题</p>
+<p>##原因是：android ios 内部原因 为了节省流量，规定不自动播放音频视频</p>
+<p>###解决微信或钉钉不能自动播放处理方法:<br>     window.onload = function () {<br>        var myAudio = document.getElementById(‘audio’);<br>        myAudio.addEventListener(‘ends’,loopAudio,false);<br>    }</p>
+<pre><code>function loopAudio(){
+    var myAudio = document.getElementById(&apos;audio&apos;);
+     myAudio.play();
+}
+document.addEventListener(&apos;DOMContentLoaded&apos;,
+    function () {
+        function audioAutoPlay() {
+            var audio = document.getElementById(&apos;audio&apos;);
+            audio.play();
+            document.addEventListener(&quot;WeixinJSBridgeReady&quot;,
+                function () {
+                    audio.play();
+                },
+                false);
+        }
+        audioAutoPlay();
+    });
+</code></pre><h3 id="游览器不能播放处理方法"><a href="#游览器不能播放处理方法" class="headerlink" title="游览器不能播放处理方法:"></a>游览器不能播放处理方法:</h3><pre><code>var canvas = document.getElementById(&quot;canvas&quot;);
+   canvas.addEventListener(&apos;touchstart&apos;, function() {
+       audio.play();
+})
+</code></pre><h3 id="烟花源码"><a href="#烟花源码" class="headerlink" title="烟花源码"></a>烟花源码</h3><pre><code>&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;happy always&lt;/title&gt;
+
+&lt;style&gt;
+    html,body{
+        margin:0px;
+        width:100%;
+        height:100%;
+        overflow:hidden;
+        background:#000;
+    }
+
+    #canvas{
+        width:100%;
+        height:100%;
+    }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;canvas id=&quot;canvas&quot;&gt;&lt;/canvas&gt;&lt;script&gt;
+function initVars(){
+
+    pi=Math.PI;
+    ctx=canvas.getContext(&quot;2d&quot;);
+    canvas.width=canvas.clientWidth;
+    canvas.height=canvas.clientHeight;
+    cx=canvas.width/2;
+    cy=canvas.height/2;
+    playerZ=-25;
+    playerX=playerY=playerVX=playerVY=playerVZ=pitch=yaw=pitchV=yawV=0;
+    scale=600;
+    seedTimer=0;seedInterval=5,seedLife=100;gravity=.02;
+    seeds=new Array();
+    sparkPics=new Array();
+    s=&quot;https://cantelope.org/NYE/&quot;;
+    for(i=1;i&lt;=10;++i){
+        sparkPic=new Image();
+        sparkPic.src=s+&quot;spark&quot;+i+&quot;.png&quot;;
+        sparkPics.push(sparkPic);
+    }
+    sparks=new Array();
+    pow1=new Audio(s+&quot;pow1.ogg&quot;);
+    pow2=new Audio(s+&quot;pow2.ogg&quot;);
+    pow3=new Audio(s+&quot;pow3.ogg&quot;);
+    pow4=new Audio(s+&quot;pow4.ogg&quot;);
+    frames = 0;
+}
+
+function rasterizePoint(x,y,z){
+
+    var p,d;
+    x-=playerX;
+    y-=playerY;
+    z-=playerZ;
+    p=Math.atan2(x,z);
+    d=Math.sqrt(x*x+z*z);
+    x=Math.sin(p-yaw)*d;
+    z=Math.cos(p-yaw)*d;
+    p=Math.atan2(y,z);
+    d=Math.sqrt(y*y+z*z);
+    y=Math.sin(p-pitch)*d;
+    z=Math.cos(p-pitch)*d;
+    var rx1=-1000,ry1=1,rx2=1000,ry2=1,rx3=0,ry3=0,rx4=x,ry4=z,uc=(ry4-ry3)*(rx2-rx1)-(rx4-rx3)*(ry2-ry1);
+    if(!uc) return {x:0,y:0,d:-1};
+    var ua=((rx4-rx3)*(ry1-ry3)-(ry4-ry3)*(rx1-rx3))/uc;
+    var ub=((rx2-rx1)*(ry1-ry3)-(ry2-ry1)*(rx1-rx3))/uc;
+    if(!z)z=.000000001;
+    if(ua&gt;0&amp;&amp;ua&lt;1&amp;&amp;ub&gt;0&amp;&amp;ub&lt;1){
+        return {
+            x:cx+(rx1+ua*(rx2-rx1))*scale,
+            y:cy+y/z*scale,
+            d:Math.sqrt(x*x+y*y+z*z)
+        };
+    }else{
+        return {
+            x:cx+(rx1+ua*(rx2-rx1))*scale,
+            y:cy+y/z*scale,
+            d:-1
+        };
+    }
+}
+
+function spawnSeed(){
+
+    seed=new Object();
+    seed.x=-50+Math.random()*100;
+    seed.y=25;
+    seed.z=-50+Math.random()*100;
+    seed.vx=.1-Math.random()*.2;
+    seed.vy=-1.5;//*(1+Math.random()/2);
+    seed.vz=.1-Math.random()*.2;
+    seed.born=frames;
+    seeds.push(seed);
+}
+
+function splode(x,y,z){
+
+    t=5+parseInt(Math.random()*150);
+    sparkV=1+Math.random()*2.5;
+    type=parseInt(Math.random()*3);
+    switch(type){
+        case 0:
+            pic1=parseInt(Math.random()*10);
+            break;
+        case 1:
+            pic1=parseInt(Math.random()*10);
+            do{ pic2=parseInt(Math.random()*10); }while(pic2==pic1);
+            break;
+        case 2:
+            pic1=parseInt(Math.random()*10);
+            do{ pic2=parseInt(Math.random()*10); }while(pic2==pic1);
+            do{ pic3=parseInt(Math.random()*10); }while(pic3==pic1 || pic3==pic2);
+            break;
+    }
+    for(m=1;m&lt;t;++m){
+        spark=new Object();
+        spark.x=x; spark.y=y; spark.z=z;
+        p1=pi*2*Math.random();
+        p2=pi*Math.random();
+        v=sparkV*(1+Math.random()/6)
+        spark.vx=Math.sin(p1)*Math.sin(p2)*v;
+        spark.vz=Math.cos(p1)*Math.sin(p2)*v;
+        spark.vy=Math.cos(p2)*v;
+        switch(type){
+            case 0: spark.img=sparkPics[pic1]; break;
+            case 1:
+                spark.img=sparkPics[parseInt(Math.random()*2)?pic1:pic2];
+                break;
+            case 2:
+                switch(parseInt(Math.random()*3)){
+                    case 0: spark.img=sparkPics[pic1]; break;
+                    case 1: spark.img=sparkPics[pic2]; break;
+                    case 2: spark.img=sparkPics[pic3]; break;
+                }
+                break;
+        }
+        spark.radius=25+Math.random()*50;
+        spark.alpha=1;
+        spark.trail=new Array();
+        sparks.push(spark);
+    }
+    switch(parseInt(Math.random()*4)){
+        case 0:    pow=new Audio(s+&quot;pow1.ogg&quot;); break;
+        case 1:    pow=new Audio(s+&quot;pow2.ogg&quot;); break;
+        case 2:    pow=new Audio(s+&quot;pow3.ogg&quot;); break;
+        case 3:    pow=new Audio(s+&quot;pow4.ogg&quot;); break;
+    }
+    d=Math.sqrt((x-playerX)*(x-playerX)+(y-playerY)*(y-playerY)+(z-playerZ)*(z-playerZ));
+    pow.volume=1.5/(1+d/10);
+    pow.play();
+}
+
+function doLogic(){
+
+    if(seedTimer&lt;frames){
+        seedTimer=frames+seedInterval*Math.random()*10;
+        spawnSeed();
+    }
+    for(i=0;i&lt;seeds.length;++i){
+        seeds[i].vy+=gravity;
+        seeds[i].x+=seeds[i].vx;
+        seeds[i].y+=seeds[i].vy;
+        seeds[i].z+=seeds[i].vz;
+        if(frames-seeds[i].born&gt;seedLife){
+            splode(seeds[i].x,seeds[i].y,seeds[i].z);
+            seeds.splice(i,1);
+        }
+    }
+    for(i=0;i&lt;sparks.length;++i){
+        if(sparks[i].alpha&gt;0 &amp;&amp; sparks[i].radius&gt;5){
+            sparks[i].alpha-=.01;
+            sparks[i].radius/=1.02;
+            sparks[i].vy+=gravity;
+            point=new Object();
+            point.x=sparks[i].x;
+            point.y=sparks[i].y;
+            point.z=sparks[i].z;
+            if(sparks[i].trail.length){
+                x=sparks[i].trail[sparks[i].trail.length-1].x;
+                y=sparks[i].trail[sparks[i].trail.length-1].y;
+                z=sparks[i].trail[sparks[i].trail.length-1].z;
+                d=((point.x-x)*(point.x-x)+(point.y-y)*(point.y-y)+(point.z-z)*(point.z-z));
+                if(d&gt;9){
+                    sparks[i].trail.push(point);
+                }
+            }else{
+                sparks[i].trail.push(point);
+            }
+            if(sparks[i].trail.length&gt;5)sparks[i].trail.splice(0,1);
+            sparks[i].x+=sparks[i].vx;
+            sparks[i].y+=sparks[i].vy;
+            sparks[i].z+=sparks[i].vz;
+            sparks[i].vx/=1.075;
+            sparks[i].vy/=1.075;
+            sparks[i].vz/=1.075;
+        }else{
+            sparks.splice(i,1);
+        }
+    }
+    p=Math.atan2(playerX,playerZ);
+    d=Math.sqrt(playerX*playerX+playerZ*playerZ);
+    d+=Math.sin(frames/80)/1.25;
+    t=Math.sin(frames/200)/40;
+    playerX=Math.sin(p+t)*d;
+    playerZ=Math.cos(p+t)*d;
+    yaw=pi+p+t;
+}
+
+function rgb(col){
+
+    var r = parseInt((.5+Math.sin(col)*.5)*16);
+    var g = parseInt((.5+Math.cos(col)*.5)*16);
+    var b = parseInt((.5-Math.sin(col)*.5)*16);
+    return &quot;#&quot;+r.toString(16)+g.toString(16)+b.toString(16);
+}
+
+function randColor() {
+    var r= Math.floor(Math.random() *256);
+    var g= Math.floor(Math.random() *256);
+    var b= Math.floor(Math.random() *256);
+    var color = &apos;rgb($r,$g,$b)&apos;;
+    color = color.replace(&apos;$r&apos;,r);
+    color = color.replace(&apos;$g&apos;,g);
+    color = color.replace(&apos;$b&apos;,b);
+    return color;
+}
+function draw(){
+
+    ctx.clearRect(0,0,cx*2,cy*2);
+
+    ctx.fillStyle=&quot;#ff8&quot;;
+    for(i=-100;i&lt;100;i+=3){
+        for(j=-100;j&lt;100;j+=4){
+            x=i;z=j;y=25;
+            point=rasterizePoint(x,y,z);
+            if(point.d!=-1){
+                size=250/(1+point.d);
+                d = Math.sqrt(x * x + z * z);
+                a = 0.75 - Math.pow(d / 100, 6) * 0.75;
+                if(a&gt;0){
+                    ctx.globalAlpha = a;
+                    ctx.fillRect(point.x-size/2,point.y-size/2,size,size);
+                }
+            }
+        }
+    }
+    ctx.globalAlpha=1;
+    for(i=0;i&lt;seeds.length;++i){
+        point=rasterizePoint(seeds[i].x,seeds[i].y,seeds[i].z);
+        if(point.d!=-1){
+            size=200/(1+point.d);
+            ctx.fillRect(point.x-size/2,point.y-size/2,size,size);
+        }
+    }
+    point1=new Object();
+    for(i=0;i&lt;sparks.length;++i){
+        point=rasterizePoint(sparks[i].x,sparks[i].y,sparks[i].z);
+        if(point.d!=-1){
+            size=sparks[i].radius*200/(1+point.d);
+            if(sparks[i].alpha&lt;0)sparks[i].alpha=0;
+            if(sparks[i].trail.length){
+                point1.x=point.x;
+                point1.y=point.y;
+                switch(sparks[i].img){
+                    case sparkPics[0]:ctx.strokeStyle=randColor();break;
+                    case sparkPics[1]:ctx.strokeStyle=randColor();break;
+                    case sparkPics[2]:ctx.strokeStyle=randColor();break;
+                    case sparkPics[3]:ctx.strokeStyle=randColor();break;
+                    case sparkPics[4]:ctx.strokeStyle=randColor();break;
+                    case sparkPics[5]:ctx.strokeStyle=randColor();break;
+                    case sparkPics[6]:ctx.strokeStyle=randColor();break;
+                    case sparkPics[7]:ctx.strokeStyle=randColor();break;
+                    case sparkPics[8]:ctx.strokeStyle=randColor();break;
+                    case sparkPics[9]:ctx.strokeStyle=randColor();break;
+                }
+                for(j=sparks[i].trail.length-1;j&gt;=0;--j){
+                    point2=rasterizePoint(sparks[i].trail[j].x,sparks[i].trail[j].y,sparks[i].trail[j].z);
+                    if(point2.d!=-1){
+                        ctx.globalAlpha=j/sparks[i].trail.length*sparks[i].alpha/2;
+                        ctx.beginPath();
+                        ctx.moveTo(point1.x,point1.y);
+                        ctx.lineWidth=1+sparks[i].radius*10/(sparks[i].trail.length-j)/(1+point2.d);
+                        ctx.lineTo(point2.x,point2.y);
+                        ctx.stroke();
+                        point1.x=point2.x;
+                        point1.y=point2.y;
+                    }
+                }
+            }
+            ctx.globalAlpha=sparks[i].alpha;
+            ctx.drawImage(sparks[i].img,point.x-size/2,point.y-size/2,size,size);
+        }
+    }
+}
+
+function frame(){
+
+    if(frames&gt;100000){
+        seedTimer=0;
+        frames=0;
+    }
+    frames++;
+    draw();
+    doLogic();
+    requestAnimationFrame(frame);
+}
+
+window.addEventListener(&quot;resize&quot;,()=&gt;{
+    canvas.width=canvas.clientWidth;
+    canvas.height=canvas.clientHeight;
+    cx=canvas.width/2;
+    cy=canvas.height/2;
+});
+
+initVars();
+frame();&lt;/script&gt;
+&lt;div style=&quot;text-align:center;&quot;&gt;
+&lt;/div&gt;
+&lt;audio src=&quot;fireworks.mp3&quot; autoplay=&quot;autoplay&quot; class=&quot;music-audio&quot; id=&quot;audio&quot; loop=&quot;loop&quot;&gt;&lt;/audio&gt;
+&lt;script&gt;
+window.onload = function () {
+    var myAudio = document.getElementById(&apos;audio&apos;);
+    myAudio.addEventListener(&apos;ends&apos;,loopAudio,false);
+}
+
+function loopAudio(){
+    var myAudio = document.getElementById(&apos;audio&apos;);
+     myAudio.play();
+}
+document.addEventListener(&apos;DOMContentLoaded&apos;,
+    function () {
+        function audioAutoPlay() {
+            var audio = document.getElementById(&apos;audio&apos;);
+            audio.play();
+            document.addEventListener(&quot;WeixinJSBridgeReady&quot;,
+                function () {
+                    audio.play();
+                },
+                false);
+        }
+        audioAutoPlay();
+    });
+  var canvas = document.getElementById(&quot;canvas&quot;);
+    canvas.addEventListener(&apos;touchstart&apos;, function() {
+        audio.play();
+ });
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>##本地缓存localStorage<br>     1.localStorage - 没有时间限制的数据存储<br>    　　 var arr=[1,2,3];<br>    　　 localStorage.setItem(“stor”,arr);<br>    　　 console.log(localStorage.getItem(“stor”));</p>
+<pre><code>　2.清空localStorage
+　　localStorage.clear(); //
+
+　3.删除键值对
+　　localStorage.removeItem(&quot;stor&quot;);　　
+　　注意：存入的数据只能以字符串形式存入。
+
+
+//JSON对象转JSON字符串
+　　var obj = {&quot;a&quot;: 1,&quot;b&quot;: 2};
+　　obj = JSON.stringify(obj); //转化为JSON字符串
+　　localStorage.setItem(&quot;stor1&quot;, obj);
+
+　　//JSON字符串转JSON对象
+　　obj=JSON.parse(localStorage.getItem(&quot;stor1&quot;));
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-05-15/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1052,722 +2052,6 @@ window.document.body.innerHTML = OldDdhtml;
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-05-07/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/27/2019-05-07/" itemprop="url">oracle-for</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
-                2019-08-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="oracle的for循环"><a href="#oracle的for循环" class="headerlink" title="oracle的for循环"></a>oracle的for循环</h2><pre><code>begin
- for j in (SELECT max(hd.pfh_id) as pfh_id,
-               hd.pfh_mer_no,
-               hd.pfh_gw_no,
-               max(hd.pfh_version)
-          FROM ccps_prc_fee_hd hd
-         where hd.pfh_status = 4
-         group by hd.pfh_mer_no, hd.pfh_gw_no)     
-         loop
-   delete from ccps_prc_fee_tier t
-    where exists (select h.param_id
-          from ccps_prc_feelist_param h
-         where h.pfh_id = j.pfh_id);
-   delete from CCPS_prc_FEELIST_PARAM fp where fp.pfh_id = j.pfh_id;
-   for i in (select * from ccps_feelist_param p where p.gw_no = j.pfh_gw_no) loop
-   insert into ccps_prc_feelist_param
-    (param_id,
-     PFH_ID,
-     feelist_id,
-     contient,
-     country,
-     cardtyp,
-     chrgmth,
-     chrgcle,
-     stardate,
-     tier_flg,
-     chrgpct,
-     chrgval,
-     aft_chrgpct,
-     aft_chrgval,
-     tier_mth,
-     tier_unit,
-     succ_flag,
-     minchrgval,
-     chrg_apply_flag,
-     maxchrgval,
-     chrg_currency,
-     chrgval_currency)
-  values
-    (sq_ccps_feelist_param_seq.nextval,
-     j.pfh_id,
-     i.feelist_id,
-     i.contient,
-     i.country,
-     i.cardtyp,
-     i.chrgmth,
-     i.chrgcle,
-     i.stardate,
-     i.tier_flg,
-     i.chrgpct,
-     i.chrgval,
-     i.aft_chrgpct,
-     i.aft_chrgval,
-     i.tier_mth,
-     i.tier_unit,
-     i.succ_flag,
-     i.minchrgval,
-     i.chrg_apply_flag,
-     i.maxchrgval,
-     i.chrg_currency,
-     i.chrgval_currency);
-  for k in (select * from ccps_fee_tier t where t.param_id = i.param_id) loop
-    insert into ccps_prc_fee_tier
-      (tier_id,
-       param_id,
-       tier_frm,
-       tier_to,
-       tier_pct,
-       tier_val,
-       tier_startdate,
-       tier_aft_pct,
-       tier_aft_val)
-    values
-      (sq_ccps_fee_tier_seq.nextval,
-       sq_ccps_feelist_param_seq.currval,//取的为前面的索引
-       k.tier_frm,
-       k.tier_to,
-       k.tier_pct,
-       k.tier_val,
-       k.tier_startdate,
-       k.tier_aft_pct,
-       k.tier_aft_val);
-  end loop;
-end loop;
-end loop;
-end ;
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-05-05/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/27/2019-05-05/" itemprop="url">List  remove</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
-                2019-08-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>时间:2019-05-05</p>
-<h2 id="修改tomcat底下的server-xml-E-apache-tomcat-8-5-9-conf-server-xml"><a href="#修改tomcat底下的server-xml-E-apache-tomcat-8-5-9-conf-server-xml" class="headerlink" title="修改tomcat底下的server.xml(E:\apache-tomcat-8.5.9\conf\server.xml)"></a>修改tomcat底下的server.xml(E:\apache-tomcat-8.5.9\conf\server.xml)</h2><p>   例如把127.0.0.1:8090/ApacPay的/ApacPay指向/。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-04-25/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/27/2019-04-25/" itemprop="url">Regular configuration</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
-                2019-08-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>###时间:2019-04-25</p>
-<h2 id="正则表达是整理"><a href="#正则表达是整理" class="headerlink" title="正则表达是整理:"></a>正则表达是整理:</h2><p>1.匹配最后一个字符后的所有内容（\）=MID(B2,FIND(“<em>“,SUBSTITUTE(B2,”\”,”</em>“,(LEN(B2)-LEN(SUBSTITUTE(B2,”\”,””)))))+1,99)</p>
-<p>2.匹配第二个字符后所有的内容：=RIGHT(D2,LEN(D2)-FIND(“/“,SUBSTITUTE(D2,”.”,”/“,2)))</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-04-24/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/27/2019-04-24/" itemprop="url">java你不知道的list转换!</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
-                2019-08-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>时间:2019-04-24</p>
-<h2 id="String-–-gt-List转化形式"><a href="#String-–-gt-List转化形式" class="headerlink" title="String[] –&gt; List转化形式:"></a>String[] –&gt; List转化形式:</h2><p>String [] arr = new String[] {“1”, “2”};</p>
-<p>List<string> list = Arrays.asList(arr); </string></p>
-<p>由于String[]转化为list的时候存储空间已经固定为2,所以不能是用list中的list.remove(i)方法,如果想要<br>使用remove(i)这个方式,必须开辟一个新的空间.</p>
-<p>如何开辟新的空间?</p>
-<p>形式如下:</p>
-<p>List<string> list = new ArrayList(Arrays.asList(arr)); </string></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-04-23/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/27/2019-04-23/" itemprop="url">激活window操作</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
-                2019-08-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>时间:2019-5-04</p>
-<p>##激活方法：</p>
-<pre><code>系统安装完毕后，首先以管理员身份打开CMD命令行窗口，按下Win+X，选择命令提示符(管理员)。
-
-说明：kms.xspace.in是kms服务器地址，可能会失效，如果激活失败，可以自行搜索kms服务器地址，
- 将kms.xspace.in替换成新的地址即可，比如换成kms.03k.org，参考可用的kms激活服务器有哪些
-</code></pre><p>##需要先删除之前配置的秘匙<br>    slmgr /upk</p>
-<h2 id="Win10专业版用户请依次输入"><a href="#Win10专业版用户请依次输入" class="headerlink" title="Win10专业版用户请依次输入:"></a>Win10专业版用户请依次输入:</h2><pre><code>slmgr /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX
-
-slmgr /skms kms.03k.org
-
-slmgr /ato
-</code></pre><h2 id="Win10企业版用户请依次输入："><a href="#Win10企业版用户请依次输入：" class="headerlink" title="Win10企业版用户请依次输入："></a>Win10企业版用户请依次输入：</h2><pre><code>slmgr /ipk NPPR9-FWDCX-D2C8J-H872K-2YT43
-
-slmgr /skms kms.03k.org
-
-slmgr /ato
-</code></pre><p>##Win10家庭版用户依次输入：</p>
-<pre><code>slmgr /ipk TX9XD-98N7V-6WMQ6-BX7FG-H8Q99
-
-slmgr /skms kms.03k.org
-
-slmgr /ato
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1818,7 +2102,7 @@ slmgr /ato
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-count">49</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

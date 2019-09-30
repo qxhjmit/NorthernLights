@@ -232,6 +232,617 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-06-29/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="零之zero">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/27/2019-06-29/" itemprop="url">斐波那契数列</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
+                2019-08-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.何为斐波那契数列，例如 1,2,3,5,8,13,21,34……<br>function* fibonacci() {<br>  let [prev, curr] = [0, 1];<br>  for (;;) {<br>    [prev, curr] = [curr, prev + curr];<br>    yield curr;<br>  }<br>}</p>
+<p>for (let n of fibonacci()) {<br>  if (n &gt; 1000) break;<br>  console.log(n);<br>}</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-06-28/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="零之zero">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/27/2019-06-28/" itemprop="url">深拷贝</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
+                2019-08-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.function deepCopy(obj) {<br>   var newArray = Array.isArray(obj) ? []:{};<br>   for (key in obj) {//for in 循环可以取到对象名<br>      if(obj.hasOwnProperty(key)) {//Object的hasOwnProperty()方法返回一个布尔值，判断对象是否包含特定的自身（非继承）属性。<br>          if(typeof obj[key] === “object” &amp;&amp;  obj[key] != null ) {<br>            newArray[key] = deepCopy(obj[key])<br>           }else {<br>            newArray[key] = obj[key];</p>
+<pre><code>     }
+
+  }
+
+}
+</code></pre><p>return deepcopy<br>}</p>
+<p>2.function deepClone(obj){<br>    let _obj = JSON.stringify(obj),<br>        objClone = JSON.parse(_obj);<br>    return objClone<br>}<br>let a=[0,1,[2,3],4],<br>    b=deepClone(a);<br>a[0]=1;<br>a[2][0]=1;<br>console.log(a,b);</p>
+<p>3.$.extend( [deep ], target, object1 [, objectN ] )<br>let a=[0,1,[2,3],4],<br>    b=$.extend(true,[],a);<br>a[0]=1;<br>a[2][0]=1;<br>console.log(a,b);</p>
+<p>1.为什么要写一个深拷贝，因为这个平时的时候用到的地方很多，当然主要的是面试的时候被问到，知道原理但是不怎么会写，这当然不能允许了，<br>所以，今天我来写一个深拷贝，打扰代码可以网上找啦，主要还是讲下什么是深拷贝，这个涉及到堆和栈。<br>当然深拷贝主要是针对的引用类型。说到引用类型，就不得不说一下什么是基本类型和引用类型了。<br>基本类型：number，string，boolean，null，undefined，symbol以及未来ES10新增的BigInt(任意精度整数)七类。<br>引用类型：(Object类)有常规名值对的无序对象{a:1}，数组[1,2,3]，以及函数等。<br>基本数据类型只会在栈内存会新开辟一个内存。<br>而引用数据类型–名存在栈内存中，值存在于堆内存中，但是栈内存会提供一个引用的地址指向堆内存中的值<br>当b=a进行拷贝时，其实复制的是a的引用地址，而并非堆里面的值。<br>而当我们a[0]=1时进行数组修改时，由于a与b指向的是同一个地址，所以自然b也受了影响，这就是所谓的浅拷贝了。<br>那，要是在堆内存中也开辟一个新的内存专门为b存放值，就像基本类型那样，岂不就达到深拷贝的效果了，所以就有了上述3种方式进行深拷贝啦。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-06-02/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="零之zero">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/27/2019-06-02/" itemprop="url">你不知道的javaScript--中卷</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
+                2019-08-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>##值：<br>1.javaScript中的数组是通过数字索引的一组任意类型的值。字符串和数组类似，但是他们的行为特征不同，在将字符作为数组来处理是需要特别小心。javaScript中的数字包括”整数”和”浮点型”。<br>2.null类型只有一个值null，undefined类型也只有一个值undefined。所有变量在赋值之前默认值都是undefined。void运算符返回undefined。<br>3.数字类型有几个特殊值，包括NaN（意思是“not a number”），更确切地说是“invalid number”、+Infinity，-Infinity和-0。<br>4.NaN是一个特殊值，他和自身不相等，是唯一一个非自反（自反，reflexive，即x===x不成立）的值，而NaN != NaN为true。<br>5.一个有意思的事，JSON.stringify(-0)返回为”0”,而JSON.stringify(“-0”)为0。<br>6.简单标量基本类型值（字符串和数字等）通过值复制来复制/传递，而复合值（对象等），通过引用复制来赋值/传递。javaScript中的引用和其他语言中的引用/指针不同，它们不能只想别的变量/引用，只能指向值。</p>
+<p>##开发遇到的问题<br>1.使用ueditor时想要引用其中的功能但是找不到all.mini.js文件.<br>解决方式:<br>git clone 仓库<br>npm install 安装依赖（如果没有安装 grunt , 请先在全局安装 grunt）<br>在终端执行 grunt default<br>打包成dist文件,在dist文件里就有全部的all.mini.js文件.</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-06-01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="零之zero">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/27/2019-06-01/" itemprop="url">你不知道的javaScript--中卷</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
+                2019-08-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>##类型：<br>1.javaScript有七种内置类型：null，undefined，boolean，number，string，object和symbol（符号为ES6新增），当然你可以用typeof查看他们的类型。<br>2.变量没有类型，但是他们持有的值有类型，类型定义了值的行为特征。<br>3.我们经常把undefined和undeclared混为一谈，但在javaScript中它们是两码事。undefined是值的一种，undeclared则表示变量还没有被声明过。<br>4.javaScript却将它们混为一谈，在我们试图访问”undeclared”变量时这样报错：ReferenceError：a is not defined，并且typeof 对undefined和undeclared变量都返回”undefined”,<br>然而，通过typeof的安全防范机制（阻止报错）来检查undeclared变量，有时是个不错的办法。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-05-31/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="零之zero">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/27/2019-05-31/" itemprop="url">listagg的拼接为空</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
+                2019-08-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>时间：2019-06-05<br>开发时遇到的问题:<br>1.用 listagg(i.eti_lang_code,’;’)within group(order by eti_lang_code) as eti_lang_code 转化查询为空.<br>由于eti_lang_code为varchar类型,所以导致拼接为空而number则没有这个问题.<br>解决方法:加上to_char(),如下:<br>listagg(to_char(i.eti_lang_code),’;’)within group(order by eti_lang_code) as eti_lang_code</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-05-29/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -878,1006 +1489,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-05-23/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/27/2019-05-23/" itemprop="url">混合对象"类"。</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
-                2019-08-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>时间:2019-05-23</p>
-<p>#读后结语。<br>1.类是一种设计模式。许多语言提供了对于面向类软件的原生语法，例如java。但是在javascript有类似的语言，但是一定要区分他和其他语言是不一样的，他没有类的，只有对象，只是通过复杂的逻辑模拟了类似的语法。<br>2.类他意味着复制。<br>3.传统的类被实例化，会被复制到实例中。类被继承，行为也会被子类继承。<br>4.多态，看起来似乎是从子类引用了父类，但是本质上引用的其实是复制的结果。（就是复制父类的行为结合子类本身不一样的行为，形成了多种多样的类）<br>5.javascript并不会像类那样，自动创建对象的副本。 本质上其实是创建的还是指向的对象。因为对象只能复制引用，没有办法复制被引用的对象或者函数本身。这一点不能忽视不然会导致许多问题。<br>最好不要在javascript模拟类，虽然可以解决很多问题，但是可能会买下很多隐患。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-05-24/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/27/2019-05-24/" itemprop="url">object.prototype原型</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
-                2019-08-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>时间:2019-05-24</p>
-<p>1.访问对象并不存在一个属性，get的操作就会找到对象内部，关联的对象，这个关系实际上就是原型链。<br>2.所有普通的对象多有内置的object.prototype，指向原型链的顶端，其中tostring()，valueOf()和其他一些通用的功能存在于object.prototype,所有对象多可以引用。<br>3.使用new调用函数时会把新对象.prototype属性关联到”其他对象上”，带new被称为”构造函数”。<br>4.虽然javascript有类似其他语言的类功能，但是它实际上是并不能进行复制，只是通过prototype链进行对象内部之间的关联，所以我们不能用继续进行描述，而是用委托更合适，因为对象之间的关系不是复制而是委托。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-05-22/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/27/2019-05-22/" itemprop="url">小王子读后感</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
-                2019-08-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>时间:2019-05-22<br>1.看东西只有用心才能看得清楚,重要的东西眼睛是看不见的，其实所有的事与物.只是你付出了感情和时间,才会让他独一无二.<br>2.小孩子的思维,才是最纯粹的,因为他们不为外物所左右。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-05-21/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/27/2019-05-21/" itemprop="url">对象</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
-                2019-08-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>###时间:2019-05-21</p>
-<p>##访问对象的属性方式:<br>1.通过.a,这个语法通常被称为”属性访问”.<br>2.通过[“a”],这个语法通常被称为”键访问”</p>
-<p>##两者的区别:<br>1.属性访问满足了命名规范,键值访问可以接受任意UFT-8/unicode字符串作为属性名.</p>
-<p>##对象的属性描述：<br>       var myObject = { }<br>       object.getOwnPropertyDescriptor(myObject,”a”,{<br>         value:2,<br>         writable:true,//决定是否可以修改属性的值，即我们通常说的，可读和可写。<br>         enumerable:true,//这个属性为是否可枚举，（简单理解就是存在，但是不展示出来）可通过for … in循环，也可以通过object.keys(..) 来判断。<br>         configurable:true//这个只有设置了可配置，才能使用defineProperty(..)方法来修改属性描述符<br>       });</p>
-<p>## </p>
-<p>##其他知识<br>1.对象中属性名永远是字符串。<br>2.属性不一定包含值，但是它们可能多具备getter/setter的”访问描述符”。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-05-20/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/27/2019-05-20/" itemprop="url">恰似花火</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
-                2019-08-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>###时间:2019-05-20</p>
-<p>#播放mp3音乐的时候,微信端和手机不能支持自动播放问题</p>
-<p>##原因是：android ios 内部原因 为了节省流量，规定不自动播放音频视频</p>
-<p>###解决微信或钉钉不能自动播放处理方法:<br>     window.onload = function () {<br>        var myAudio = document.getElementById(‘audio’);<br>        myAudio.addEventListener(‘ends’,loopAudio,false);<br>    }</p>
-<pre><code>function loopAudio(){
-    var myAudio = document.getElementById(&apos;audio&apos;);
-     myAudio.play();
-}
-document.addEventListener(&apos;DOMContentLoaded&apos;,
-    function () {
-        function audioAutoPlay() {
-            var audio = document.getElementById(&apos;audio&apos;);
-            audio.play();
-            document.addEventListener(&quot;WeixinJSBridgeReady&quot;,
-                function () {
-                    audio.play();
-                },
-                false);
-        }
-        audioAutoPlay();
-    });
-</code></pre><h3 id="游览器不能播放处理方法"><a href="#游览器不能播放处理方法" class="headerlink" title="游览器不能播放处理方法:"></a>游览器不能播放处理方法:</h3><pre><code>var canvas = document.getElementById(&quot;canvas&quot;);
-   canvas.addEventListener(&apos;touchstart&apos;, function() {
-       audio.play();
-})
-</code></pre><h3 id="烟花源码"><a href="#烟花源码" class="headerlink" title="烟花源码"></a>烟花源码</h3><pre><code>&lt;!doctype html&gt;
-&lt;html&gt;
-&lt;head&gt;
-&lt;meta charset=&quot;utf-8&quot;&gt;
-&lt;title&gt;happy always&lt;/title&gt;
-
-&lt;style&gt;
-    html,body{
-        margin:0px;
-        width:100%;
-        height:100%;
-        overflow:hidden;
-        background:#000;
-    }
-
-    #canvas{
-        width:100%;
-        height:100%;
-    }
-&lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;canvas id=&quot;canvas&quot;&gt;&lt;/canvas&gt;&lt;script&gt;
-function initVars(){
-
-    pi=Math.PI;
-    ctx=canvas.getContext(&quot;2d&quot;);
-    canvas.width=canvas.clientWidth;
-    canvas.height=canvas.clientHeight;
-    cx=canvas.width/2;
-    cy=canvas.height/2;
-    playerZ=-25;
-    playerX=playerY=playerVX=playerVY=playerVZ=pitch=yaw=pitchV=yawV=0;
-    scale=600;
-    seedTimer=0;seedInterval=5,seedLife=100;gravity=.02;
-    seeds=new Array();
-    sparkPics=new Array();
-    s=&quot;https://cantelope.org/NYE/&quot;;
-    for(i=1;i&lt;=10;++i){
-        sparkPic=new Image();
-        sparkPic.src=s+&quot;spark&quot;+i+&quot;.png&quot;;
-        sparkPics.push(sparkPic);
-    }
-    sparks=new Array();
-    pow1=new Audio(s+&quot;pow1.ogg&quot;);
-    pow2=new Audio(s+&quot;pow2.ogg&quot;);
-    pow3=new Audio(s+&quot;pow3.ogg&quot;);
-    pow4=new Audio(s+&quot;pow4.ogg&quot;);
-    frames = 0;
-}
-
-function rasterizePoint(x,y,z){
-
-    var p,d;
-    x-=playerX;
-    y-=playerY;
-    z-=playerZ;
-    p=Math.atan2(x,z);
-    d=Math.sqrt(x*x+z*z);
-    x=Math.sin(p-yaw)*d;
-    z=Math.cos(p-yaw)*d;
-    p=Math.atan2(y,z);
-    d=Math.sqrt(y*y+z*z);
-    y=Math.sin(p-pitch)*d;
-    z=Math.cos(p-pitch)*d;
-    var rx1=-1000,ry1=1,rx2=1000,ry2=1,rx3=0,ry3=0,rx4=x,ry4=z,uc=(ry4-ry3)*(rx2-rx1)-(rx4-rx3)*(ry2-ry1);
-    if(!uc) return {x:0,y:0,d:-1};
-    var ua=((rx4-rx3)*(ry1-ry3)-(ry4-ry3)*(rx1-rx3))/uc;
-    var ub=((rx2-rx1)*(ry1-ry3)-(ry2-ry1)*(rx1-rx3))/uc;
-    if(!z)z=.000000001;
-    if(ua&gt;0&amp;&amp;ua&lt;1&amp;&amp;ub&gt;0&amp;&amp;ub&lt;1){
-        return {
-            x:cx+(rx1+ua*(rx2-rx1))*scale,
-            y:cy+y/z*scale,
-            d:Math.sqrt(x*x+y*y+z*z)
-        };
-    }else{
-        return {
-            x:cx+(rx1+ua*(rx2-rx1))*scale,
-            y:cy+y/z*scale,
-            d:-1
-        };
-    }
-}
-
-function spawnSeed(){
-
-    seed=new Object();
-    seed.x=-50+Math.random()*100;
-    seed.y=25;
-    seed.z=-50+Math.random()*100;
-    seed.vx=.1-Math.random()*.2;
-    seed.vy=-1.5;//*(1+Math.random()/2);
-    seed.vz=.1-Math.random()*.2;
-    seed.born=frames;
-    seeds.push(seed);
-}
-
-function splode(x,y,z){
-
-    t=5+parseInt(Math.random()*150);
-    sparkV=1+Math.random()*2.5;
-    type=parseInt(Math.random()*3);
-    switch(type){
-        case 0:
-            pic1=parseInt(Math.random()*10);
-            break;
-        case 1:
-            pic1=parseInt(Math.random()*10);
-            do{ pic2=parseInt(Math.random()*10); }while(pic2==pic1);
-            break;
-        case 2:
-            pic1=parseInt(Math.random()*10);
-            do{ pic2=parseInt(Math.random()*10); }while(pic2==pic1);
-            do{ pic3=parseInt(Math.random()*10); }while(pic3==pic1 || pic3==pic2);
-            break;
-    }
-    for(m=1;m&lt;t;++m){
-        spark=new Object();
-        spark.x=x; spark.y=y; spark.z=z;
-        p1=pi*2*Math.random();
-        p2=pi*Math.random();
-        v=sparkV*(1+Math.random()/6)
-        spark.vx=Math.sin(p1)*Math.sin(p2)*v;
-        spark.vz=Math.cos(p1)*Math.sin(p2)*v;
-        spark.vy=Math.cos(p2)*v;
-        switch(type){
-            case 0: spark.img=sparkPics[pic1]; break;
-            case 1:
-                spark.img=sparkPics[parseInt(Math.random()*2)?pic1:pic2];
-                break;
-            case 2:
-                switch(parseInt(Math.random()*3)){
-                    case 0: spark.img=sparkPics[pic1]; break;
-                    case 1: spark.img=sparkPics[pic2]; break;
-                    case 2: spark.img=sparkPics[pic3]; break;
-                }
-                break;
-        }
-        spark.radius=25+Math.random()*50;
-        spark.alpha=1;
-        spark.trail=new Array();
-        sparks.push(spark);
-    }
-    switch(parseInt(Math.random()*4)){
-        case 0:    pow=new Audio(s+&quot;pow1.ogg&quot;); break;
-        case 1:    pow=new Audio(s+&quot;pow2.ogg&quot;); break;
-        case 2:    pow=new Audio(s+&quot;pow3.ogg&quot;); break;
-        case 3:    pow=new Audio(s+&quot;pow4.ogg&quot;); break;
-    }
-    d=Math.sqrt((x-playerX)*(x-playerX)+(y-playerY)*(y-playerY)+(z-playerZ)*(z-playerZ));
-    pow.volume=1.5/(1+d/10);
-    pow.play();
-}
-
-function doLogic(){
-
-    if(seedTimer&lt;frames){
-        seedTimer=frames+seedInterval*Math.random()*10;
-        spawnSeed();
-    }
-    for(i=0;i&lt;seeds.length;++i){
-        seeds[i].vy+=gravity;
-        seeds[i].x+=seeds[i].vx;
-        seeds[i].y+=seeds[i].vy;
-        seeds[i].z+=seeds[i].vz;
-        if(frames-seeds[i].born&gt;seedLife){
-            splode(seeds[i].x,seeds[i].y,seeds[i].z);
-            seeds.splice(i,1);
-        }
-    }
-    for(i=0;i&lt;sparks.length;++i){
-        if(sparks[i].alpha&gt;0 &amp;&amp; sparks[i].radius&gt;5){
-            sparks[i].alpha-=.01;
-            sparks[i].radius/=1.02;
-            sparks[i].vy+=gravity;
-            point=new Object();
-            point.x=sparks[i].x;
-            point.y=sparks[i].y;
-            point.z=sparks[i].z;
-            if(sparks[i].trail.length){
-                x=sparks[i].trail[sparks[i].trail.length-1].x;
-                y=sparks[i].trail[sparks[i].trail.length-1].y;
-                z=sparks[i].trail[sparks[i].trail.length-1].z;
-                d=((point.x-x)*(point.x-x)+(point.y-y)*(point.y-y)+(point.z-z)*(point.z-z));
-                if(d&gt;9){
-                    sparks[i].trail.push(point);
-                }
-            }else{
-                sparks[i].trail.push(point);
-            }
-            if(sparks[i].trail.length&gt;5)sparks[i].trail.splice(0,1);
-            sparks[i].x+=sparks[i].vx;
-            sparks[i].y+=sparks[i].vy;
-            sparks[i].z+=sparks[i].vz;
-            sparks[i].vx/=1.075;
-            sparks[i].vy/=1.075;
-            sparks[i].vz/=1.075;
-        }else{
-            sparks.splice(i,1);
-        }
-    }
-    p=Math.atan2(playerX,playerZ);
-    d=Math.sqrt(playerX*playerX+playerZ*playerZ);
-    d+=Math.sin(frames/80)/1.25;
-    t=Math.sin(frames/200)/40;
-    playerX=Math.sin(p+t)*d;
-    playerZ=Math.cos(p+t)*d;
-    yaw=pi+p+t;
-}
-
-function rgb(col){
-
-    var r = parseInt((.5+Math.sin(col)*.5)*16);
-    var g = parseInt((.5+Math.cos(col)*.5)*16);
-    var b = parseInt((.5-Math.sin(col)*.5)*16);
-    return &quot;#&quot;+r.toString(16)+g.toString(16)+b.toString(16);
-}
-
-function randColor() {
-    var r= Math.floor(Math.random() *256);
-    var g= Math.floor(Math.random() *256);
-    var b= Math.floor(Math.random() *256);
-    var color = &apos;rgb($r,$g,$b)&apos;;
-    color = color.replace(&apos;$r&apos;,r);
-    color = color.replace(&apos;$g&apos;,g);
-    color = color.replace(&apos;$b&apos;,b);
-    return color;
-}
-function draw(){
-
-    ctx.clearRect(0,0,cx*2,cy*2);
-
-    ctx.fillStyle=&quot;#ff8&quot;;
-    for(i=-100;i&lt;100;i+=3){
-        for(j=-100;j&lt;100;j+=4){
-            x=i;z=j;y=25;
-            point=rasterizePoint(x,y,z);
-            if(point.d!=-1){
-                size=250/(1+point.d);
-                d = Math.sqrt(x * x + z * z);
-                a = 0.75 - Math.pow(d / 100, 6) * 0.75;
-                if(a&gt;0){
-                    ctx.globalAlpha = a;
-                    ctx.fillRect(point.x-size/2,point.y-size/2,size,size);
-                }
-            }
-        }
-    }
-    ctx.globalAlpha=1;
-    for(i=0;i&lt;seeds.length;++i){
-        point=rasterizePoint(seeds[i].x,seeds[i].y,seeds[i].z);
-        if(point.d!=-1){
-            size=200/(1+point.d);
-            ctx.fillRect(point.x-size/2,point.y-size/2,size,size);
-        }
-    }
-    point1=new Object();
-    for(i=0;i&lt;sparks.length;++i){
-        point=rasterizePoint(sparks[i].x,sparks[i].y,sparks[i].z);
-        if(point.d!=-1){
-            size=sparks[i].radius*200/(1+point.d);
-            if(sparks[i].alpha&lt;0)sparks[i].alpha=0;
-            if(sparks[i].trail.length){
-                point1.x=point.x;
-                point1.y=point.y;
-                switch(sparks[i].img){
-                    case sparkPics[0]:ctx.strokeStyle=randColor();break;
-                    case sparkPics[1]:ctx.strokeStyle=randColor();break;
-                    case sparkPics[2]:ctx.strokeStyle=randColor();break;
-                    case sparkPics[3]:ctx.strokeStyle=randColor();break;
-                    case sparkPics[4]:ctx.strokeStyle=randColor();break;
-                    case sparkPics[5]:ctx.strokeStyle=randColor();break;
-                    case sparkPics[6]:ctx.strokeStyle=randColor();break;
-                    case sparkPics[7]:ctx.strokeStyle=randColor();break;
-                    case sparkPics[8]:ctx.strokeStyle=randColor();break;
-                    case sparkPics[9]:ctx.strokeStyle=randColor();break;
-                }
-                for(j=sparks[i].trail.length-1;j&gt;=0;--j){
-                    point2=rasterizePoint(sparks[i].trail[j].x,sparks[i].trail[j].y,sparks[i].trail[j].z);
-                    if(point2.d!=-1){
-                        ctx.globalAlpha=j/sparks[i].trail.length*sparks[i].alpha/2;
-                        ctx.beginPath();
-                        ctx.moveTo(point1.x,point1.y);
-                        ctx.lineWidth=1+sparks[i].radius*10/(sparks[i].trail.length-j)/(1+point2.d);
-                        ctx.lineTo(point2.x,point2.y);
-                        ctx.stroke();
-                        point1.x=point2.x;
-                        point1.y=point2.y;
-                    }
-                }
-            }
-            ctx.globalAlpha=sparks[i].alpha;
-            ctx.drawImage(sparks[i].img,point.x-size/2,point.y-size/2,size,size);
-        }
-    }
-}
-
-function frame(){
-
-    if(frames&gt;100000){
-        seedTimer=0;
-        frames=0;
-    }
-    frames++;
-    draw();
-    doLogic();
-    requestAnimationFrame(frame);
-}
-
-window.addEventListener(&quot;resize&quot;,()=&gt;{
-    canvas.width=canvas.clientWidth;
-    canvas.height=canvas.clientHeight;
-    cx=canvas.width/2;
-    cy=canvas.height/2;
-});
-
-initVars();
-frame();&lt;/script&gt;
-&lt;div style=&quot;text-align:center;&quot;&gt;
-&lt;/div&gt;
-&lt;audio src=&quot;fireworks.mp3&quot; autoplay=&quot;autoplay&quot; class=&quot;music-audio&quot; id=&quot;audio&quot; loop=&quot;loop&quot;&gt;&lt;/audio&gt;
-&lt;script&gt;
-window.onload = function () {
-    var myAudio = document.getElementById(&apos;audio&apos;);
-    myAudio.addEventListener(&apos;ends&apos;,loopAudio,false);
-}
-
-function loopAudio(){
-    var myAudio = document.getElementById(&apos;audio&apos;);
-     myAudio.play();
-}
-document.addEventListener(&apos;DOMContentLoaded&apos;,
-    function () {
-        function audioAutoPlay() {
-            var audio = document.getElementById(&apos;audio&apos;);
-            audio.play();
-            document.addEventListener(&quot;WeixinJSBridgeReady&quot;,
-                function () {
-                    audio.play();
-                },
-                false);
-        }
-        audioAutoPlay();
-    });
-  var canvas = document.getElementById(&quot;canvas&quot;);
-    canvas.addEventListener(&apos;touchstart&apos;, function() {
-        audio.play();
- });
-
-&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre><p>##本地缓存localStorage<br>     1.localStorage - 没有时间限制的数据存储<br>    　　 var arr=[1,2,3];<br>    　　 localStorage.setItem(“stor”,arr);<br>    　　 console.log(localStorage.getItem(“stor”));</p>
-<pre><code>　2.清空localStorage
-　　localStorage.clear(); //
-
-　3.删除键值对
-　　localStorage.removeItem(&quot;stor&quot;);　　
-　　注意：存入的数据只能以字符串形式存入。
-
-
-//JSON对象转JSON字符串
-　　var obj = {&quot;a&quot;: 1,&quot;b&quot;: 2};
-　　obj = JSON.stringify(obj); //转化为JSON字符串
-　　localStorage.setItem(&quot;stor1&quot;, obj);
-
-　　//JSON字符串转JSON对象
-　　obj=JSON.parse(localStorage.getItem(&quot;stor1&quot;));
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1928,7 +1539,7 @@ document.addEventListener(&apos;DOMContentLoaded&apos;,
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-count">49</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
