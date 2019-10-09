@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="title:判断图片是否加载完成  第一：由于用图片做背景，没有加载完成的时候，刚进页面会导致布局错乱，这太影响体验，坚决不能让这个问题产生，于是我找了网上一些资料，解决了这个问题，现在把大致的方法记下来，方便下次自己忘了还可以查找。 imgUrl//图片路径 let newImg = new Image(); newImg.src = imgUrl; newImg.onerror = () =">
+<meta name="description" content="title:判断图片是否加载完成 第一：由于用图片做背景，没有加载完成的时候，刚进页面会导致布局错乱，这太影响体验，坚决不能让这个问题产生，于是我找了网上一些资料，解决了这个问题，现在把大致的方法记下来，方便下次自己忘了还可以查找。 imgUrl//图片路径 let newImg = new Image(); newImg.src = imgUrl; newImg.onerror = () =&amp;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="The top of the world">
 <meta property="og:url" content="onemind.top/2019/08/27/2019-08-25/index.html">
 <meta property="og:site_name" content="The top of the world">
-<meta property="og:description" content="title:判断图片是否加载完成  第一：由于用图片做背景，没有加载完成的时候，刚进页面会导致布局错乱，这太影响体验，坚决不能让这个问题产生，于是我找了网上一些资料，解决了这个问题，现在把大致的方法记下来，方便下次自己忘了还可以查找。 imgUrl//图片路径 let newImg = new Image(); newImg.src = imgUrl; newImg.onerror = () =">
+<meta property="og:description" content="title:判断图片是否加载完成 第一：由于用图片做背景，没有加载完成的时候，刚进页面会导致布局错乱，这太影响体验，坚决不能让这个问题产生，于是我找了网上一些资料，解决了这个问题，现在把大致的方法记下来，方便下次自己忘了还可以查找。 imgUrl//图片路径 let newImg = new Image(); newImg.src = imgUrl; newImg.onerror = () =&amp;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-26T12:35:13.763Z">
+<meta property="og:updated_time" content="2019-10-09T02:17:06.890Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="The top of the world">
-<meta name="twitter:description" content="title:判断图片是否加载完成  第一：由于用图片做背景，没有加载完成的时候，刚进页面会导致布局错乱，这太影响体验，坚决不能让这个问题产生，于是我找了网上一些资料，解决了这个问题，现在把大致的方法记下来，方便下次自己忘了还可以查找。 imgUrl//图片路径 let newImg = new Image(); newImg.src = imgUrl; newImg.onerror = () =">
+<meta name="twitter:description" content="title:判断图片是否加载完成 第一：由于用图片做背景，没有加载完成的时候，刚进页面会导致布局错乱，这太影响体验，坚决不能让这个问题产生，于是我找了网上一些资料，解决了这个问题，现在把大致的方法记下来，方便下次自己忘了还可以查找。 imgUrl//图片路径 let newImg = new Image(); newImg.src = imgUrl; newImg.onerror = () =&amp;">
 
 
 
@@ -300,7 +300,7 @@
 
       
         <hr>
-<h2 id="title-判断图片是否加载完成"><a href="#title-判断图片是否加载完成" class="headerlink" title="title:判断图片是否加载完成 "></a>title:判断图片是否加载完成 </h2><p> 第一：由于用图片做背景，没有加载完成的时候，刚进页面会导致布局错乱，这太影响体验，坚决不能让这个问题产生，于是我找了网上一些资料，解决了这个问题，现在把大致的方法记下来，方便下次自己忘了还可以查找。<br> imgUrl//图片路径<br> let newImg = new Image();<br> newImg.src = imgUrl;<br> newImg.onerror = () =&gt; { // 图片加载错误时的替换图片<br>    newImg.src = imgUrl;<br> };<br> newImg.onload = () =&gt; { // 图片加载成功后把地址给原来的img<br>    this.imgUrl = newImg.src<br> }</p>
+<h2 id="title-判断图片是否加载完成"><a href="#title-判断图片是否加载完成" class="headerlink" title="title:判断图片是否加载完成 "></a>title:判断图片是否加载完成 </h2><p>第一：由于用图片做背景，没有加载完成的时候，刚进页面会导致布局错乱，这太影响体验，坚决不能让这个问题产生，于是我找了网上一些资料，解决了这个问题，现在把大致的方法记下来，方便下次自己忘了还可以查找。<br> imgUrl//图片路径<br> let newImg = new Image();<br> newImg.src = imgUrl;<br> newImg.onerror = () =&gt; { // 图片加载错误时的替换图片<br>    newImg.src = imgUrl;<br> };<br> newImg.onload = () =&gt; { // 图片加载成功后把地址给原来的img<br>    this.imgUrl = newImg.src<br> }</p>
 
       
     </div>
