@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="title:重构迈一步：vuex的引入。参考文章：1.https://segmentfault.com/a/1190000015782272          2.https://blog.csdn.net/weixin_43648947/article/details/88997946第一.前言：在vue的项目中vuex应该是很通用的了，但是公司的项目竟然没有使用vuex而是使用了本地缓存，啊">
+<meta name="description" content="参考文章：1.https://segmentfault.com/a/1190000015782272          2.https://blog.csdn.net/weixin_43648947/article/details/88997946第一.前言：在vue的项目中vuex应该是很通用的了，但是公司的项目竟然没有使用vuex而是使用了本地缓存，啊啊啊，太落后了，我接手了这个项目肯定不能这">
 <meta property="og:type" content="article">
-<meta property="og:title" content="The top of the world">
+<meta property="og:title" content="vuex的引入">
 <meta property="og:url" content="onemind.top/2019/08/29/2019-08-29/index.html">
 <meta property="og:site_name" content="The top of the world">
-<meta property="og:description" content="title:重构迈一步：vuex的引入。参考文章：1.https://segmentfault.com/a/1190000015782272          2.https://blog.csdn.net/weixin_43648947/article/details/88997946第一.前言：在vue的项目中vuex应该是很通用的了，但是公司的项目竟然没有使用vuex而是使用了本地缓存，啊">
+<meta property="og:description" content="参考文章：1.https://segmentfault.com/a/1190000015782272          2.https://blog.csdn.net/weixin_43648947/article/details/88997946第一.前言：在vue的项目中vuex应该是很通用的了，但是公司的项目竟然没有使用vuex而是使用了本地缓存，啊啊啊，太落后了，我接手了这个项目肯定不能这">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-29T08:51:58.577Z">
+<meta property="og:updated_time" content="2019-10-09T01:48:27.524Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="The top of the world">
-<meta name="twitter:description" content="title:重构迈一步：vuex的引入。参考文章：1.https://segmentfault.com/a/1190000015782272          2.https://blog.csdn.net/weixin_43648947/article/details/88997946第一.前言：在vue的项目中vuex应该是很通用的了，但是公司的项目竟然没有使用vuex而是使用了本地缓存，啊">
+<meta name="twitter:title" content="vuex的引入">
+<meta name="twitter:description" content="参考文章：1.https://segmentfault.com/a/1190000015782272          2.https://blog.csdn.net/weixin_43648947/article/details/88997946第一.前言：在vue的项目中vuex应该是很通用的了，但是公司的项目竟然没有使用vuex而是使用了本地缓存，啊啊啊，太落后了，我接手了这个项目肯定不能这">
 
 
 
@@ -125,7 +125,7 @@
 
 
 
-  <title> | The top of the world</title>
+  <title>vuex的引入 | The top of the world</title>
   
 
 
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">vuex的引入</h1>
         
 
         <div class="post-meta">
@@ -299,8 +299,7 @@
       
 
       
-        <hr>
-<h2 id="title-重构迈一步：vuex的引入。"><a href="#title-重构迈一步：vuex的引入。" class="headerlink" title="title:重构迈一步：vuex的引入。"></a>title:重构迈一步：vuex的引入。</h2><p>参考文章：1.<a href="https://segmentfault.com/a/1190000015782272" target="_blank" rel="noopener">https://segmentfault.com/a/1190000015782272</a><br>          2.<a href="https://blog.csdn.net/weixin_43648947/article/details/88997946" target="_blank" rel="noopener">https://blog.csdn.net/weixin_43648947/article/details/88997946</a><br>第一.前言：在vue的项目中vuex应该是很通用的了，但是公司的项目竟然没有使用vuex而是使用了本地缓存，啊啊啊，太落后了，我接手了这个项目肯定不能这样，为此我去深入了解了vuex，为了能够把之前项目的一些公用变量提取出来。<br>第二.介绍我对这个vuex的理解。我主要是找了一遍文章很不错写得很详细，但是有一些我要补充一下:<br>     1.当然首先要去了解ES6的语法。<br>     2.state =&gt; 基本数据<br>       getters =&gt; 从基本数据派生的数据<br>       mutations =&gt; 提交更改数据的方法，同步！<br>       actions =&gt; 像一个装饰器，包裹mutations，使之可以异步。<br>       modules =&gt; 模块化Vuex<br>     简而言之就是上面这个意思，而mapState，mapGetters,mapMutations,mapActions其实就是它们的重命名一样。与一个使用的例子<br>     …mapState({<br>      counts:(state) =&gt; state.count<br>     })<br>     …mapMutations({<br>      addnum:’SET_COUMT_ADD’,<br>      reducenum:’SET_COUMT_REDUCE’<br>     })<br>     首先你要知道…的语法是什么作用，其实他相当于一个展开式，展开成一个一个可以使用的数据，我的理解就是一个个参数或者方法，然后你可以在｛｝里面使用里面使用这个属性，值是直接使用参数把对象传递进counts:(state) =&gt; state.count而方法是直接使用对象名addnum:’SET_COUMT_ADD’,用’’括起来<br>     当然你如果想自己提交，在mutations可以使用this.$store.commit，在actions中使用this.$store.dispatch，最好使用后一种，因为在 Vuex 中，mutations里面的方法 都是同步事务，意思就是说：比如这里的一个this.$store.commit(‘newNum’,sum)方法,两个组件里用执行得到的值，每次都是一样的，这样肯定不是理想的需求</p>
+        <p>参考文章：1.<a href="https://segmentfault.com/a/1190000015782272" target="_blank" rel="noopener">https://segmentfault.com/a/1190000015782272</a><br>          2.<a href="https://blog.csdn.net/weixin_43648947/article/details/88997946" target="_blank" rel="noopener">https://blog.csdn.net/weixin_43648947/article/details/88997946</a><br>第一.前言：在vue的项目中vuex应该是很通用的了，但是公司的项目竟然没有使用vuex而是使用了本地缓存，啊啊啊，太落后了，我接手了这个项目肯定不能这样，为此我去深入了解了vuex，为了能够把之前项目的一些公用变量提取出来。<br>第二.介绍我对这个vuex的理解。我主要是找了一遍文章很不错写得很详细，但是有一些我要补充一下:<br>     1.当然首先要去了解ES6的语法。<br>     2.state =&gt; 基本数据<br>       getters =&gt; 从基本数据派生的数据<br>       mutations =&gt; 提交更改数据的方法，同步！<br>       actions =&gt; 像一个装饰器，包裹mutations，使之可以异步。<br>       modules =&gt; 模块化Vuex<br>     简而言之就是上面这个意思，而mapState，mapGetters,mapMutations,mapActions其实就是它们的重命名一样。与一个使用的例子<br>     …mapState({<br>      counts:(state) =&gt; state.count<br>     })<br>     …mapMutations({<br>      addnum:’SET_COUMT_ADD’,<br>      reducenum:’SET_COUMT_REDUCE’<br>     })<br>     首先你要知道…的语法是什么作用，其实他相当于一个展开式，展开成一个一个可以使用的数据，我的理解就是一个个参数或者方法，然后你可以在｛｝里面使用里面使用这个属性，值是直接使用参数把对象传递进counts:(state) =&gt; state.count而方法是直接使用对象名addnum:’SET_COUMT_ADD’,用’’括起来<br>     当然你如果想自己提交，在mutations可以使用this.$store.commit，在actions中使用this.$store.dispatch，最好使用后一种，因为在 Vuex 中，mutations里面的方法 都是同步事务，意思就是说：比如这里的一个this.$store.commit(‘newNum’,sum)方法,两个组件里用执行得到的值，每次都是一样的，这样肯定不是理想的需求</p>
 
       
     </div>
@@ -325,8 +324,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/28/2019-08-26/" rel="next" title>
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2019/08/28/2019-08-26/" rel="next" title="你不知道的相等==/===">
+                <i class="fa fa-chevron-left"></i> 你不知道的相等==/===
               </a>
             
           </div>
@@ -335,8 +334,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/08/31/2019-08-31/" rel="prev" title>
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/08/31/2019-08-31/" rel="prev" title="vue跳转页面出现固定滚动高度。">
+                vue跳转页面出现固定滚动高度。 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -389,17 +388,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -414,7 +404,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-count">50</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -441,22 +431,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#title-重构迈一步：vuex的引入。"><span class="nav-number">1.</span> <span class="nav-text">title:重构迈一步：vuex的引入。</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
