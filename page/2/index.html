@@ -998,6 +998,126 @@ Eclipse中默认的模板.xml文件如下：
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-08-05/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="零之zero">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/27/2019-08-05/" itemprop="url">vue中IOS的遮罩有时候禁止滚动失败，如何实现禁止滚动？</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
+                2019-08-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>//遮罩层出现禁止页面滚动函数<br>stop: function() {<br> var mo = function(e) {<br>  e.preventDefault();<br> };<br> document.body.style.overflowY  = ‘hidden’;<br>     document.body.style.position = ‘fixed’;<br>     document.body.style.width = ‘100%’;<br>     document.addEventListener(“touchmove”, mo, false); //禁止页面滑动<br>},<br>//恢复页面滚动<br>move: function() {<br> var mo = function(e) {<br>  e.preventDefault();<br> };<br> document.body.style.overflow = ‘’; //出现滚动条<br>     document.body.style.position = ‘’;<br>     document.body.style.width = ‘’;<br>     document.removeEventListener(“touchmove”, mo, false);<br>},</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-08-07/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1071,126 +1191,6 @@ Eclipse中默认的模板.xml文件如下：
           
             <p>//每次页面渲染完之后<br>updated:function(){<br>      this.$nextTick(function(){<br>      var div = document.getElementById(‘dialogue_box’);<br>        div.scrollTop = div.scrollHeight;<br>      })<br>    }</p>
 <p>//第一次页面渲染完之后<br>methods:function(){<br>      this.$nextTick(function(){<br>      var div = document.getElementById(‘dialogue_box’);<br>        div.scrollTop = div.scrollHeight;<br>      })<br>    }</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-08-05/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/27/2019-08-05/" itemprop="url">vue中IOS的遮罩有时候禁止滚动失败，如何实现禁止滚动？</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
-                2019-08-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>//遮罩层出现禁止页面滚动函数<br>stop: function() {<br> var mo = function(e) {<br>  e.preventDefault();<br> };<br> document.body.style.overflowY  = ‘hidden’;<br>     document.body.style.position = ‘fixed’;<br>     document.body.style.width = ‘100%’;<br>     document.addEventListener(“touchmove”, mo, false); //禁止页面滑动<br>},<br>//恢复页面滚动<br>move: function() {<br> var mo = function(e) {<br>  e.preventDefault();<br> };<br> document.body.style.overflow = ‘’; //出现滚动条<br>     document.body.style.position = ‘’;<br>     document.body.style.width = ‘’;<br>     document.removeEventListener(“touchmove”, mo, false);<br>},</p>
 
           
         
