@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="title: 单例模式 简单研究下单例模式，加深底层的理解123456789101112131415161718192021222324252627282930313233343536 var SingletonTester = (function () &amp;#123;    //参数：传递给单例的一个参数集合    function Singleton(args) &amp;#123;        //">
+<meta name="description" content="简单研究下单例模式，加深底层的理解 123456789101112131415161718192021222324252627282930313233343536 var SingletonTester = (function () &amp;#123;    //参数：传递给单例的一个参数集合    function Singleton(args) &amp;#123;        //设置args变量为接">
 <meta property="og:type" content="article">
-<meta property="og:title" content="The top of the world">
+<meta property="og:title" content="单例模式">
 <meta property="og:url" content="onemind.top/2020/04/25/2020-04-25/index.html">
 <meta property="og:site_name" content="The top of the world">
-<meta property="og:description" content="title: 单例模式 简单研究下单例模式，加深底层的理解123456789101112131415161718192021222324252627282930313233343536 var SingletonTester = (function () &amp;#123;    //参数：传递给单例的一个参数集合    function Singleton(args) &amp;#123;        //">
+<meta property="og:description" content="简单研究下单例模式，加深底层的理解 123456789101112131415161718192021222324252627282930313233343536 var SingletonTester = (function () &amp;#123;    //参数：传递给单例的一个参数集合    function Singleton(args) &amp;#123;        //设置args变量为接">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-04-25T03:20:08.175Z">
+<meta property="og:updated_time" content="2020-04-27T07:21:57.120Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="The top of the world">
-<meta name="twitter:description" content="title: 单例模式 简单研究下单例模式，加深底层的理解123456789101112131415161718192021222324252627282930313233343536 var SingletonTester = (function () &amp;#123;    //参数：传递给单例的一个参数集合    function Singleton(args) &amp;#123;        //">
+<meta name="twitter:title" content="单例模式">
+<meta name="twitter:description" content="简单研究下单例模式，加深底层的理解 123456789101112131415161718192021222324252627282930313233343536 var SingletonTester = (function () &amp;#123;    //参数：传递给单例的一个参数集合    function Singleton(args) &amp;#123;        //设置args变量为接">
 
 
 
@@ -125,7 +125,7 @@
 
 
 
-  <title> | The top of the world</title>
+  <title>单例模式 | The top of the world</title>
   
 
 
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">单例模式</h1>
         
 
         <div class="post-meta">
@@ -299,9 +299,10 @@
       
 
       
-        <h2 id="title-单例模式"><a href="#title-单例模式" class="headerlink" title="title: 单例模式"></a>title: 单例模式</h2><p> 简单研究下单例模式，加深底层的理解<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"> var SingletonTester = (function () &#123;</span><br><span class="line"></span><br><span class="line">    //参数：传递给单例的一个参数集合</span><br><span class="line">    function Singleton(args) &#123;</span><br><span class="line"></span><br><span class="line">        //设置args变量为接收的参数或者为空（如果没有提供的话）</span><br><span class="line">        var args = args || &#123;&#125;;</span><br><span class="line">        //设置name参数</span><br><span class="line">        this.name = &apos;SingletonTester&apos;;</span><br><span class="line">        //设置pointX的值</span><br><span class="line">        this.pointX = args.pointX || 6; //从接收的参数里获取，或者设置为默认值</span><br><span class="line">        //设置pointY的值</span><br><span class="line">        this.pointY = args.pointY || 10;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //实例容器</span><br><span class="line">    var instance;</span><br><span class="line"></span><br><span class="line">    var _static = &#123;</span><br><span class="line">        name: &apos;SingletonTester&apos;,</span><br><span class="line"></span><br><span class="line">        //获取实例的方法</span><br><span class="line">        //返回Singleton的实例</span><br><span class="line">        getInstance: function (args) &#123;</span><br><span class="line">            if (instance === undefined) &#123;</span><br><span class="line">                instance = new Singleton(args);</span><br><span class="line">            &#125;</span><br><span class="line">            return instance;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    return _static;</span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line">var singletonTest = SingletonTester.getInstance(&#123; pointX: 5 &#125;);</span><br><span class="line">console.log(singletonTest.pointX); // 输出 5</span><br></pre></td></tr></table></figure></p>
+        <p> 简单研究下单例模式，加深底层的理解</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"> var SingletonTester = (function () &#123;</span><br><span class="line"></span><br><span class="line">    //参数：传递给单例的一个参数集合</span><br><span class="line">    function Singleton(args) &#123;</span><br><span class="line"></span><br><span class="line">        //设置args变量为接收的参数或者为空（如果没有提供的话）</span><br><span class="line">        var args = args || &#123;&#125;;</span><br><span class="line">        //设置name参数</span><br><span class="line">        this.name = &apos;SingletonTester&apos;;</span><br><span class="line">        //设置pointX的值</span><br><span class="line">        this.pointX = args.pointX || 6; //从接收的参数里获取，或者设置为默认值</span><br><span class="line">        //设置pointY的值</span><br><span class="line">        this.pointY = args.pointY || 10;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //实例容器</span><br><span class="line">    var instance;</span><br><span class="line"></span><br><span class="line">    var _static = &#123;</span><br><span class="line">        name: &apos;SingletonTester&apos;,</span><br><span class="line"></span><br><span class="line">        //获取实例的方法</span><br><span class="line">        //返回Singleton的实例</span><br><span class="line">        getInstance: function (args) &#123;</span><br><span class="line">            if (instance === undefined) &#123;</span><br><span class="line">                instance = new Singleton(args);</span><br><span class="line">            &#125;</span><br><span class="line">            return instance;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    return _static;</span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line">var singletonTest = SingletonTester.getInstance(&#123; pointX: 5 &#125;);</span><br><span class="line">console.log(singletonTest.pointX); // 输出 5</span><br></pre></td></tr></table></figure>
 <p>上述的思路其实很简单，通过匿名函数SingletonTester得到想要的Singleton的实例，</p>
-<p>最后贴一个高度抽象的单例模式代码，惰性单例的精髓！！：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//单例模式抽象，分离创建对象的函数和判断对象是否已经创建</span><br><span class="line">   var getSingle = function (fn) &#123;</span><br><span class="line">       var result;</span><br><span class="line">       return function () &#123;</span><br><span class="line">           return result || ( result = fn.apply(this, arguments) );</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;;</span><br></pre></td></tr></table></figure></p>
+<p>最后贴一个高度抽象的单例模式代码，惰性单例的精髓！！：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//单例模式抽象，分离创建对象的函数和判断对象是否已经创建</span><br><span class="line">   var getSingle = function (fn) &#123;</span><br><span class="line">       var result;//第一次被赋值之后一直存在在这个作用于中，所以下次调用这个方法只会返回存在的result</span><br><span class="line">       return function () &#123;</span><br><span class="line">           return result || ( result = fn.apply(this, arguments) );</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;;</span><br></pre></td></tr></table></figure></p>
 <p>　形参fn是我们的构造函数，我们只要传入任何自己需要的构造函数，就能生成一个新的惰性单例。例如传入一个车的构造函数，并调用getSingle（），就能生成新的车，以后再调用getSingle（），只会返回之前创建的那台车，至于新的车不存在了。</p>
 
       
@@ -327,8 +328,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/04/22/2020-04-22/" rel="next" title>
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2019/12/18/2019-12-12/" rel="next" title="解决安卓视频全屏之后滚动出现的闪烁bug。">
+                <i class="fa fa-chevron-left"></i> 解决安卓视频全屏之后滚动出现的闪烁bug。
               </a>
             
           </div>
@@ -337,8 +338,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/04/25/2020-04-25-1/" rel="prev" title>
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/04/25/2020-04-25-1/" rel="prev" title="堆和栈">
+                堆和栈 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -391,17 +392,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -416,7 +408,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-count">54</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -443,22 +435,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#title-单例模式"><span class="nav-number">1.</span> <span class="nav-text">title: 单例模式</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
