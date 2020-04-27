@@ -232,6 +232,1229 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-05-20/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="零之zero">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/27/2019-05-20/" itemprop="url">恰似花火</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
+                2019-08-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>###时间:2019-05-20</p>
+<p>#播放mp3音乐的时候,微信端和手机不能支持自动播放问题</p>
+<p>##原因是：android ios 内部原因 为了节省流量，规定不自动播放音频视频</p>
+<p>###解决微信或钉钉不能自动播放处理方法:<br>     window.onload = function () {<br>        var myAudio = document.getElementById(‘audio’);<br>        myAudio.addEventListener(‘ends’,loopAudio,false);<br>    }</p>
+<pre><code>function loopAudio(){
+    var myAudio = document.getElementById(&apos;audio&apos;);
+     myAudio.play();
+}
+document.addEventListener(&apos;DOMContentLoaded&apos;,
+    function () {
+        function audioAutoPlay() {
+            var audio = document.getElementById(&apos;audio&apos;);
+            audio.play();
+            document.addEventListener(&quot;WeixinJSBridgeReady&quot;,
+                function () {
+                    audio.play();
+                },
+                false);
+        }
+        audioAutoPlay();
+    });
+</code></pre><h3 id="游览器不能播放处理方法"><a href="#游览器不能播放处理方法" class="headerlink" title="游览器不能播放处理方法:"></a>游览器不能播放处理方法:</h3><pre><code>var canvas = document.getElementById(&quot;canvas&quot;);
+   canvas.addEventListener(&apos;touchstart&apos;, function() {
+       audio.play();
+})
+</code></pre><h3 id="烟花源码"><a href="#烟花源码" class="headerlink" title="烟花源码"></a>烟花源码</h3><pre><code>&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;happy always&lt;/title&gt;
+
+&lt;style&gt;
+    html,body{
+        margin:0px;
+        width:100%;
+        height:100%;
+        overflow:hidden;
+        background:#000;
+    }
+
+    #canvas{
+        width:100%;
+        height:100%;
+    }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;canvas id=&quot;canvas&quot;&gt;&lt;/canvas&gt;&lt;script&gt;
+function initVars(){
+
+    pi=Math.PI;
+    ctx=canvas.getContext(&quot;2d&quot;);
+    canvas.width=canvas.clientWidth;
+    canvas.height=canvas.clientHeight;
+    cx=canvas.width/2;
+    cy=canvas.height/2;
+    playerZ=-25;
+    playerX=playerY=playerVX=playerVY=playerVZ=pitch=yaw=pitchV=yawV=0;
+    scale=600;
+    seedTimer=0;seedInterval=5,seedLife=100;gravity=.02;
+    seeds=new Array();
+    sparkPics=new Array();
+    s=&quot;https://cantelope.org/NYE/&quot;;
+    for(i=1;i&lt;=10;++i){
+        sparkPic=new Image();
+        sparkPic.src=s+&quot;spark&quot;+i+&quot;.png&quot;;
+        sparkPics.push(sparkPic);
+    }
+    sparks=new Array();
+    pow1=new Audio(s+&quot;pow1.ogg&quot;);
+    pow2=new Audio(s+&quot;pow2.ogg&quot;);
+    pow3=new Audio(s+&quot;pow3.ogg&quot;);
+    pow4=new Audio(s+&quot;pow4.ogg&quot;);
+    frames = 0;
+}
+
+function rasterizePoint(x,y,z){
+
+    var p,d;
+    x-=playerX;
+    y-=playerY;
+    z-=playerZ;
+    p=Math.atan2(x,z);
+    d=Math.sqrt(x*x+z*z);
+    x=Math.sin(p-yaw)*d;
+    z=Math.cos(p-yaw)*d;
+    p=Math.atan2(y,z);
+    d=Math.sqrt(y*y+z*z);
+    y=Math.sin(p-pitch)*d;
+    z=Math.cos(p-pitch)*d;
+    var rx1=-1000,ry1=1,rx2=1000,ry2=1,rx3=0,ry3=0,rx4=x,ry4=z,uc=(ry4-ry3)*(rx2-rx1)-(rx4-rx3)*(ry2-ry1);
+    if(!uc) return {x:0,y:0,d:-1};
+    var ua=((rx4-rx3)*(ry1-ry3)-(ry4-ry3)*(rx1-rx3))/uc;
+    var ub=((rx2-rx1)*(ry1-ry3)-(ry2-ry1)*(rx1-rx3))/uc;
+    if(!z)z=.000000001;
+    if(ua&gt;0&amp;&amp;ua&lt;1&amp;&amp;ub&gt;0&amp;&amp;ub&lt;1){
+        return {
+            x:cx+(rx1+ua*(rx2-rx1))*scale,
+            y:cy+y/z*scale,
+            d:Math.sqrt(x*x+y*y+z*z)
+        };
+    }else{
+        return {
+            x:cx+(rx1+ua*(rx2-rx1))*scale,
+            y:cy+y/z*scale,
+            d:-1
+        };
+    }
+}
+
+function spawnSeed(){
+
+    seed=new Object();
+    seed.x=-50+Math.random()*100;
+    seed.y=25;
+    seed.z=-50+Math.random()*100;
+    seed.vx=.1-Math.random()*.2;
+    seed.vy=-1.5;//*(1+Math.random()/2);
+    seed.vz=.1-Math.random()*.2;
+    seed.born=frames;
+    seeds.push(seed);
+}
+
+function splode(x,y,z){
+
+    t=5+parseInt(Math.random()*150);
+    sparkV=1+Math.random()*2.5;
+    type=parseInt(Math.random()*3);
+    switch(type){
+        case 0:
+            pic1=parseInt(Math.random()*10);
+            break;
+        case 1:
+            pic1=parseInt(Math.random()*10);
+            do{ pic2=parseInt(Math.random()*10); }while(pic2==pic1);
+            break;
+        case 2:
+            pic1=parseInt(Math.random()*10);
+            do{ pic2=parseInt(Math.random()*10); }while(pic2==pic1);
+            do{ pic3=parseInt(Math.random()*10); }while(pic3==pic1 || pic3==pic2);
+            break;
+    }
+    for(m=1;m&lt;t;++m){
+        spark=new Object();
+        spark.x=x; spark.y=y; spark.z=z;
+        p1=pi*2*Math.random();
+        p2=pi*Math.random();
+        v=sparkV*(1+Math.random()/6)
+        spark.vx=Math.sin(p1)*Math.sin(p2)*v;
+        spark.vz=Math.cos(p1)*Math.sin(p2)*v;
+        spark.vy=Math.cos(p2)*v;
+        switch(type){
+            case 0: spark.img=sparkPics[pic1]; break;
+            case 1:
+                spark.img=sparkPics[parseInt(Math.random()*2)?pic1:pic2];
+                break;
+            case 2:
+                switch(parseInt(Math.random()*3)){
+                    case 0: spark.img=sparkPics[pic1]; break;
+                    case 1: spark.img=sparkPics[pic2]; break;
+                    case 2: spark.img=sparkPics[pic3]; break;
+                }
+                break;
+        }
+        spark.radius=25+Math.random()*50;
+        spark.alpha=1;
+        spark.trail=new Array();
+        sparks.push(spark);
+    }
+    switch(parseInt(Math.random()*4)){
+        case 0:    pow=new Audio(s+&quot;pow1.ogg&quot;); break;
+        case 1:    pow=new Audio(s+&quot;pow2.ogg&quot;); break;
+        case 2:    pow=new Audio(s+&quot;pow3.ogg&quot;); break;
+        case 3:    pow=new Audio(s+&quot;pow4.ogg&quot;); break;
+    }
+    d=Math.sqrt((x-playerX)*(x-playerX)+(y-playerY)*(y-playerY)+(z-playerZ)*(z-playerZ));
+    pow.volume=1.5/(1+d/10);
+    pow.play();
+}
+
+function doLogic(){
+
+    if(seedTimer&lt;frames){
+        seedTimer=frames+seedInterval*Math.random()*10;
+        spawnSeed();
+    }
+    for(i=0;i&lt;seeds.length;++i){
+        seeds[i].vy+=gravity;
+        seeds[i].x+=seeds[i].vx;
+        seeds[i].y+=seeds[i].vy;
+        seeds[i].z+=seeds[i].vz;
+        if(frames-seeds[i].born&gt;seedLife){
+            splode(seeds[i].x,seeds[i].y,seeds[i].z);
+            seeds.splice(i,1);
+        }
+    }
+    for(i=0;i&lt;sparks.length;++i){
+        if(sparks[i].alpha&gt;0 &amp;&amp; sparks[i].radius&gt;5){
+            sparks[i].alpha-=.01;
+            sparks[i].radius/=1.02;
+            sparks[i].vy+=gravity;
+            point=new Object();
+            point.x=sparks[i].x;
+            point.y=sparks[i].y;
+            point.z=sparks[i].z;
+            if(sparks[i].trail.length){
+                x=sparks[i].trail[sparks[i].trail.length-1].x;
+                y=sparks[i].trail[sparks[i].trail.length-1].y;
+                z=sparks[i].trail[sparks[i].trail.length-1].z;
+                d=((point.x-x)*(point.x-x)+(point.y-y)*(point.y-y)+(point.z-z)*(point.z-z));
+                if(d&gt;9){
+                    sparks[i].trail.push(point);
+                }
+            }else{
+                sparks[i].trail.push(point);
+            }
+            if(sparks[i].trail.length&gt;5)sparks[i].trail.splice(0,1);
+            sparks[i].x+=sparks[i].vx;
+            sparks[i].y+=sparks[i].vy;
+            sparks[i].z+=sparks[i].vz;
+            sparks[i].vx/=1.075;
+            sparks[i].vy/=1.075;
+            sparks[i].vz/=1.075;
+        }else{
+            sparks.splice(i,1);
+        }
+    }
+    p=Math.atan2(playerX,playerZ);
+    d=Math.sqrt(playerX*playerX+playerZ*playerZ);
+    d+=Math.sin(frames/80)/1.25;
+    t=Math.sin(frames/200)/40;
+    playerX=Math.sin(p+t)*d;
+    playerZ=Math.cos(p+t)*d;
+    yaw=pi+p+t;
+}
+
+function rgb(col){
+
+    var r = parseInt((.5+Math.sin(col)*.5)*16);
+    var g = parseInt((.5+Math.cos(col)*.5)*16);
+    var b = parseInt((.5-Math.sin(col)*.5)*16);
+    return &quot;#&quot;+r.toString(16)+g.toString(16)+b.toString(16);
+}
+
+function randColor() {
+    var r= Math.floor(Math.random() *256);
+    var g= Math.floor(Math.random() *256);
+    var b= Math.floor(Math.random() *256);
+    var color = &apos;rgb($r,$g,$b)&apos;;
+    color = color.replace(&apos;$r&apos;,r);
+    color = color.replace(&apos;$g&apos;,g);
+    color = color.replace(&apos;$b&apos;,b);
+    return color;
+}
+function draw(){
+
+    ctx.clearRect(0,0,cx*2,cy*2);
+
+    ctx.fillStyle=&quot;#ff8&quot;;
+    for(i=-100;i&lt;100;i+=3){
+        for(j=-100;j&lt;100;j+=4){
+            x=i;z=j;y=25;
+            point=rasterizePoint(x,y,z);
+            if(point.d!=-1){
+                size=250/(1+point.d);
+                d = Math.sqrt(x * x + z * z);
+                a = 0.75 - Math.pow(d / 100, 6) * 0.75;
+                if(a&gt;0){
+                    ctx.globalAlpha = a;
+                    ctx.fillRect(point.x-size/2,point.y-size/2,size,size);
+                }
+            }
+        }
+    }
+    ctx.globalAlpha=1;
+    for(i=0;i&lt;seeds.length;++i){
+        point=rasterizePoint(seeds[i].x,seeds[i].y,seeds[i].z);
+        if(point.d!=-1){
+            size=200/(1+point.d);
+            ctx.fillRect(point.x-size/2,point.y-size/2,size,size);
+        }
+    }
+    point1=new Object();
+    for(i=0;i&lt;sparks.length;++i){
+        point=rasterizePoint(sparks[i].x,sparks[i].y,sparks[i].z);
+        if(point.d!=-1){
+            size=sparks[i].radius*200/(1+point.d);
+            if(sparks[i].alpha&lt;0)sparks[i].alpha=0;
+            if(sparks[i].trail.length){
+                point1.x=point.x;
+                point1.y=point.y;
+                switch(sparks[i].img){
+                    case sparkPics[0]:ctx.strokeStyle=randColor();break;
+                    case sparkPics[1]:ctx.strokeStyle=randColor();break;
+                    case sparkPics[2]:ctx.strokeStyle=randColor();break;
+                    case sparkPics[3]:ctx.strokeStyle=randColor();break;
+                    case sparkPics[4]:ctx.strokeStyle=randColor();break;
+                    case sparkPics[5]:ctx.strokeStyle=randColor();break;
+                    case sparkPics[6]:ctx.strokeStyle=randColor();break;
+                    case sparkPics[7]:ctx.strokeStyle=randColor();break;
+                    case sparkPics[8]:ctx.strokeStyle=randColor();break;
+                    case sparkPics[9]:ctx.strokeStyle=randColor();break;
+                }
+                for(j=sparks[i].trail.length-1;j&gt;=0;--j){
+                    point2=rasterizePoint(sparks[i].trail[j].x,sparks[i].trail[j].y,sparks[i].trail[j].z);
+                    if(point2.d!=-1){
+                        ctx.globalAlpha=j/sparks[i].trail.length*sparks[i].alpha/2;
+                        ctx.beginPath();
+                        ctx.moveTo(point1.x,point1.y);
+                        ctx.lineWidth=1+sparks[i].radius*10/(sparks[i].trail.length-j)/(1+point2.d);
+                        ctx.lineTo(point2.x,point2.y);
+                        ctx.stroke();
+                        point1.x=point2.x;
+                        point1.y=point2.y;
+                    }
+                }
+            }
+            ctx.globalAlpha=sparks[i].alpha;
+            ctx.drawImage(sparks[i].img,point.x-size/2,point.y-size/2,size,size);
+        }
+    }
+}
+
+function frame(){
+
+    if(frames&gt;100000){
+        seedTimer=0;
+        frames=0;
+    }
+    frames++;
+    draw();
+    doLogic();
+    requestAnimationFrame(frame);
+}
+
+window.addEventListener(&quot;resize&quot;,()=&gt;{
+    canvas.width=canvas.clientWidth;
+    canvas.height=canvas.clientHeight;
+    cx=canvas.width/2;
+    cy=canvas.height/2;
+});
+
+initVars();
+frame();&lt;/script&gt;
+&lt;div style=&quot;text-align:center;&quot;&gt;
+&lt;/div&gt;
+&lt;audio src=&quot;fireworks.mp3&quot; autoplay=&quot;autoplay&quot; class=&quot;music-audio&quot; id=&quot;audio&quot; loop=&quot;loop&quot;&gt;&lt;/audio&gt;
+&lt;script&gt;
+window.onload = function () {
+    var myAudio = document.getElementById(&apos;audio&apos;);
+    myAudio.addEventListener(&apos;ends&apos;,loopAudio,false);
+}
+
+function loopAudio(){
+    var myAudio = document.getElementById(&apos;audio&apos;);
+     myAudio.play();
+}
+document.addEventListener(&apos;DOMContentLoaded&apos;,
+    function () {
+        function audioAutoPlay() {
+            var audio = document.getElementById(&apos;audio&apos;);
+            audio.play();
+            document.addEventListener(&quot;WeixinJSBridgeReady&quot;,
+                function () {
+                    audio.play();
+                },
+                false);
+        }
+        audioAutoPlay();
+    });
+  var canvas = document.getElementById(&quot;canvas&quot;);
+    canvas.addEventListener(&apos;touchstart&apos;, function() {
+        audio.play();
+ });
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>##本地缓存localStorage<br>     1.localStorage - 没有时间限制的数据存储<br>    　　 var arr=[1,2,3];<br>    　　 localStorage.setItem(“stor”,arr);<br>    　　 console.log(localStorage.getItem(“stor”));</p>
+<pre><code>　2.清空localStorage
+　　localStorage.clear(); //
+
+　3.删除键值对
+　　localStorage.removeItem(&quot;stor&quot;);　　
+　　注意：存入的数据只能以字符串形式存入。
+
+
+//JSON对象转JSON字符串
+　　var obj = {&quot;a&quot;: 1,&quot;b&quot;: 2};
+　　obj = JSON.stringify(obj); //转化为JSON字符串
+　　localStorage.setItem(&quot;stor1&quot;, obj);
+
+　　//JSON字符串转JSON对象
+　　obj=JSON.parse(localStorage.getItem(&quot;stor1&quot;));
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-05-15/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="零之zero">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/27/2019-05-15/" itemprop="url">jq绑定元素,事件丢失问题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
+                2019-08-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>###时间:2019-05-15</p>
+<p>#点击元素以为的位置，隐藏该元素。<br>    $(‘.protocoll-content .layer-main’).click(function(){<br>        event.stopPropagation();<br>    });<br>    $(document).click(function(){<br>       $(‘.protocoll-content .layer-main’).hide();<br>    });</p>
+<p>#重新绘制元素，需要注意调用方式，不能直接用该元素绑定事件，由于页面部分重绘导致，找不到该元素。<br>    例如：var pprotocollContent = $(“.layer-main .layer-main-content”).html();<br>         pprotocollContent = pprotocollContent.replace(“@card@”,cardNumber).replace(“@date@”,month+”/“+year);<br>         $(“.layer-main .layer-main-content”).html(pprotocollCont);<br>         //不能直接用一下方式绑定：<br>         $(‘.protocoll-content .layer-main .layer-main-content’).click(function(){<br>            console.log(1)<br>         });<br>          //用以下方式绑定：<br>         $(document).on(‘click’,’.protocoll-content .layer-main .layer-main-content’,function(){<br>            $(‘.protocoll-content .layer-main’).hide();<br>          });</p>
+<p>#数据库连接池自动断开<br>     java.sql.SQLException: Couldn’t perform the operation setAutoCommit: You can’t perform any operations on this connection. It has been automatically closed by Proxool for some reason (see logs).<br>       解决方法：错误的意思是说，由于某些原因连接被Proxool自动关闭，出现这种情况，一般有如下原因：</p>
+<pre><code>1.可能为连接数据库超时，比如调试时，对一个窗口停留太久。（对Lucene建立的站内搜索时，俺就出现了这个错误~）
+
+2.网上的说法：
+
+&lt;proxool.minimumConnectionCount&gt;5&lt;/proxool.minimumConnectionCount&gt;//最小连接数
+&lt;proxool.maximumConnectionCount&gt;150&lt;/proxool.maximumConnectionCount&gt;//最大连接数
+ &lt;proxool.simultaneousBuildThrottle&gt;20&lt;/proxool.simultaneousBuildThrottle&gt;//同时最大连接数
+
+连接数够用，但是同时最大连接数设置的小了点，取不到连接导致报错。
+</code></pre><p>##如何在线上直接跳过一个验证方法。<br>     1.重写函数方法即可。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-05-14/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="零之zero">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/27/2019-05-14/" itemprop="url">Oracle commonly used sql syntax</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
+                2019-08-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>###时间:2019-05-14</p>
+<h1 id="oracle常用sql语法汇总"><a href="#oracle常用sql语法汇总" class="headerlink" title="oracle常用sql语法汇总:"></a>oracle常用sql语法汇总:</h1><p>#创建表：<br>    　CREATE TABLE Student(</p>
+<pre><code>　　　　id varchar2(32) primary key,
+
+　　　　name varchar2(8) not null,
+
+　　　　age number
+
+　　);
+</code></pre><p>#修改字段名:<br>    alter table Student rename name to StuName;</p>
+<p>#修改数据类型：<br>    alter table Student modify (id varchar2(64));</p>
+<p>#添加字段<br>    alter table 表名 add 新字段名 类型+长度</p>
+<p>例如:alter table test add pid varchar2(10);</p>
+<p>#添加备注<br>    comment on column  test.pid  IS  ‘测试备注’;</p>
+<p>#删除字段<br>    ALTER TABLE ccps_report_hd DROP COLUMN RH_MENU_POSITION;</p>
+<p>#修改增值序列<br>    alter sequence sq_CCPS_TRADERECORD_STATUS increment by 1;</p>
+<p>#字段名查表<br>    select * from user_tab_columns t where t.COLUMN_NAME =’BCI_SEND_ORDERNO_FLAG’;</p>
+<p>#分组<br>    –使用分析函数row_number() over (partiion by … order by …)来进行分组编号，然后取分组标号值为1的记录即可。目前主流的数据库都有支持分析函数，很好用。</p>
+<pre><code>--其中，partition by 是指定按哪些字段进行分组，这些字段值相同的记录将在一起编号；order by则是指定在同一组中进行编号时是按照怎样的顺序。
+
+select s.*  from ( 
+    select pfh.*, row_number() over (partition by pfh.pfh_mer_no,pfh.pfh_gw_no,pfh.pfh_version order by pfh.pfh_version) as group_idx  
+    from ccps_prc_fee_hd pfh where pfh.pfh_mer_no = 21580
+) s
+where s.group_idx = 1
+</code></pre><p>#去重<br>    select  distinct(a.rf_key_type_desc) from ccps_report_format a</p>
+<p>#删除 或者更新失误返回数据(不适用有外键的表)<br>    select * from ccps_report_format as of timestamp to_timestamp(‘2018-05-11 16:48:11’,’yyyy-mm-dd hh24:mi:ss’)<br>    alter table ccps_report_format enable row movement;<br>    flashback table ccps_report_format to timestamp to_timestamp(‘2018-05-11 16:48:11’,’yyyy-mm-dd hh24:mi:ss’)</p>
+<p>#合并多列成一个字符串，多行成一个字符串(listagg优于wm_concat)<br>    select deptno,listagg(ename,’,’)within group(order by sal)name from emp group by deptno;<br>    cast(wm_concat(distinct to_receive) as varchar2(1000)) as to_receive</p>
+<p>#过滤重复数据<br>    select <em> from xi a where (a.username) in  (select username from xi group by username  having count(</em>) &gt; 1)</p>
+<p>#删除重复数据<br>    delete from ccps_test_1 a where (a.PARAM_ID) in (select ft.PARAM_ID from ccps_test_1 t , ccps_test_2 ft where t.param_id=ft.param_id and ft.gw_no = 9999999999001 group by ft.PARAM_ID having count(<em>) &gt; 1) and rowid not in (select min(rowid) from ccps_test_1 t   group by t.PARAM_ID having count(</em>) &gt; 1)</p>
+<p>#自增索引</p>
+<pre><code>alter sequence sys_admin_loginlog_seq increment by 30000;
+  select sys_admin_loginlog_seq.nextval from dual;
+alter sequence sys_admin_loginlog_seq increment by 1;
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-05-13/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="零之zero">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/27/2019-05-13/" itemprop="url">读取文件,替换参数根据参数生成excel文件</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
+                2019-08-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>###时间:2019-05-13</p>
+<h2 id="获取需要参数-动态生成需要的sql语句"><a href="#获取需要参数-动态生成需要的sql语句" class="headerlink" title="获取需要参数,动态生成需要的sql语句"></a>获取需要参数,动态生成需要的sql语句</h2><pre><code>package ExcelToJSON;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import jxl.Workbook;
+import jxl.write.Label;
+import jxl.write.WritableSheet;
+import jxl.write.WritableWorkbook;
+import jxl.write.WriteException;
+
+import com.lot.back.bean.ExportDemo;
+@SuppressWarnings(&quot;resource&quot;)
+public class createInsertSql1 {
+    private static final String SAVEFILE = &quot;C:\\Users\\huangjianming\\Desktop&quot;;//存放目录
+
+public static void main(String[] args) throws Exception {
+    String i18nPath = &quot;C:\\Users\\huangjianming\\Desktop\\demoData.txt&quot;;//读取文件路径
+    getI18nPropertiesToExcel(i18nPath);
+    System.out.println(&quot;completed&quot;);
+    System.exit(0);
+}
+
+private static List&lt;File&gt; getFiles(String path) {
+    File root = new File(path);
+    List&lt;File&gt; files = new ArrayList&lt;File&gt;();
+    if (!root.isDirectory()) {
+        files.add(root);
+    } else {
+        File[] subFiles = root.listFiles();
+        for (File f : subFiles) {
+            files.addAll(getFiles(f.getAbsolutePath()));
+        }
+    }
+    return files;
+}
+
+//通过冲入的list&lt;object&gt;创建excel表格.2017
+private static String createExcel(List&lt;? extends Object&gt; list, String path) {
+    String result = &quot;&quot;;
+    if (list.size() == 0 || list == null) {
+        result = &quot;没有对象信息&quot;;
+    } else {
+        Object o = list.get(0);
+        Class&lt;? extends Object&gt; clazz = o.getClass();
+        String className = clazz.getSimpleName();
+        java.lang.reflect.Field[] fields = clazz.getDeclaredFields(); // 这里通过反射获取字段数组
+        File folder = new File(path);
+        if (!folder.exists()) {
+            folder.mkdirs();
+        }
+        //获取String类型的时间
+        String fileName = &quot;&quot;;
+        SimpleDateFormat df = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);//设置日期格式
+        String dateStr = df.format(new Date());
+        dateStr = dateStr.replaceAll(&quot;[-/:\\s]+&quot;, &quot;&quot;);
+        fileName = &quot;exportI18n&quot; + dateStr;
+        String name = fileName.concat(&quot;.xls&quot;);
+        WritableWorkbook book = null;
+        File file = null;
+        try {
+            file = new File(path.concat(File.separator).concat(name));
+            book = Workbook.createWorkbook(file); // 创建xls文件
+            WritableSheet sheet = book.createSheet(className, 0);
+            int i = 0; // 列
+            int j = 0; // 行
+            for (java.lang.reflect.Field f : fields) {
+                j = 0;
+                Label label = new Label(i, j, f.getName()); // 这里把字段名称写入excel第一行中
+                sheet.addCell(label);
+                j = 1;
+                for (Object obj : list) {
+                    Object temp = getFieldValueByName(f.getName(), obj);
+                    String strTemp = &quot;&quot;;
+                    if (temp != null) {
+                        strTemp = temp.toString();
+                    }
+                    sheet.addCell(new Label(i, j, strTemp)); // 把每个对象此字段的属性写入这一列excel中
+                    j++;
+                }
+                i++;
+            }
+            book.write();
+            result = file.getPath();
+        } catch (Exception e) {
+            result = &quot;SystemException&quot;;
+            e.printStackTrace();
+        } finally {
+
+            fileName = null;
+            name = null;
+            folder = null;
+            file = null;
+
+            if (book != null) {
+                try {
+                    book.close();
+                } catch (WriteException e) {
+                    result = &quot;WriteException&quot;;
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    result = &quot;IOException&quot;;
+                    e.printStackTrace();
+                }
+            }
+        }
+
+    }
+
+    return result; // 最后输出文件路径
+}
+
+//根据参数名生成栏位和数据
+private static Object getFieldValueByName(String fieldName, Object o) {
+    try {
+        String firstLetter = fieldName.substring(0, 1).toUpperCase();
+        String getter = &quot;get&quot; + firstLetter + fieldName.substring(1); // 获取方法名
+        java.lang.reflect.Method method = o.getClass().getMethod(getter,
+                new Class[]{}); // 获取方法对象
+        Object value = method.invoke(o, new Object[]{}); // 用invoke调用此对象的get字段方法
+        return value; // 返回值
+    } catch (Exception e) {
+        e.printStackTrace();
+        return null;
+    }
+}
+
+private static void getI18nPropertiesToExcel(String path) throws Exception {
+    List&lt;File&gt; files = getFiles(path);
+    for (File file : files) { 
+            FileReader fileReader = new FileReader(file);
+
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String line;
+            Long lineNum = 0L;
+            String first = &quot;&quot;;
+            String two = &quot;&quot;;
+            String  table = &quot;S00016&quot;;
+            String  tableName = &quot;em.&quot;;
+            List&lt;DemoData&gt; keyValueMap = new ArrayList&lt;DemoData&gt;();
+            while ((line = bufferedReader.readLine()) != null) {
+                lineNum++;
+                DemoData map = new DemoData();
+                first = &quot;insert into ccps_report_format (RF_ID, RH_ID, RF_SEQNUM, RF_COLKEY, RF_SEL_COL, RF_COLNAM_EN, RF_COLNAM_ZH, RF_KEY_TYPE, RF_DFT_SHOW, RF_FILTER_ALLOW, RF_CRTUSR, RF_CRTLOG, RF_DN_FILTER_ALLOW, RF_CONDITION, RF_CONDITION_2, RF_EMAIL_COL, RF_SETUP_HIDE_FLAG, RF_SCHDULE_HIDE_FLAG, RF_SYS_TYPE, RF_DATE_RANGE, RF_KEY_TYPE_DESC, RF_ST_CODE,RF_REPLACE)values (sq_ccps_report_format.nextval, (select rh_id from ccps_report_hd where RH_CODE = &apos;@ONE@&apos;), @TWO@, &apos;@THREE@&apos;, &apos;@FOUR@&apos;, &apos;@FIVE@&apos;, &apos;@SIX@&apos;, &apos;@SEVEN@&apos;, 0, 1, &apos;admin&apos;, systimestamp, 0, &apos;  @EIGHT@ &apos;, null ,&apos;@FOUR@&apos;, 1, 1, 2, null, &apos;@NINE@&apos;, null ,&apos;@replace1&apos;);&quot;;
+                two = &quot;insert into ccps_report_profile_format (RFP_ID, RFM_ID, RF_ID, RFP_SEQNUM, RFP_SHOW_FLAG, RFP_FILTER_FLAG, RFP_CRTUSR, RFP_CRTLOG) values (sq_ccps_report_profile_format.nextval, (select RFM_ID from ccps_report_mer_profile where rh_id = (select rh_id from ccps_report_hd where RH_CODE = &apos;@ONE@&apos;) and RFM_PROFILE = &apos;Default&apos;), (select rf_id from ccps_report_format where RH_ID = (select rh_id from ccps_report_hd where RH_CODE = &apos;@ONE@&apos;) and RF_COLKEY = &apos;@TWO@&apos;), @THREE@, 1, 0, &apos;admin&apos;, systimestamp);&quot;;
+                String[] lineList = line.split(&quot;;&quot;);  
+                String type = &quot;S&quot;;
+                String types = &quot;string&quot;;
+                String lineType = lineList[2];
+                if(lineType.contains(&quot;NUMBER&quot;)) {
+                    type = &quot;N&quot;;
+                    types = &quot;number1&quot;;
+                }else if(lineType.contains(&quot;VARCHANT&quot;)) {
+                    type = &quot;S&quot;;
+                    types = &quot;string&quot;;
+                }else if(lineType.contains(&quot;DATE&quot;)) {
+                    type = &quot;D&quot;;
+                    types = &quot;datetime&quot;;
+                }
+                String sqlOne  = first.replace(&quot;@ONE@&quot;,table).replace(&quot;@TWO@&quot;,&quot;&quot;+lineNum+&quot;&quot;).replace(&quot;@THREE@&quot;,lineList[0].trim()).replace(&quot;@FOUR@&quot;,&quot; &quot;+tableName + lineList[1].trim() + &quot; as &quot; + lineList[0].trim() +&quot;,&quot;).replace(&quot;@FIVE@&quot;,lineList[5]).replace(&quot;@SIX@&quot;,lineList[4].trim()).replace(&quot;@SEVEN@&quot;,type).replace(&quot;@EIGHT@&quot;,&quot; and &quot;+ tableName +lineList[1].trim()+&quot; = ?&quot;).replace(&quot;@NINE@&quot;,types);
+                String sqlTwo  = two.replace(&quot;@ONE@&quot;,table).replace(&quot;@TWO@&quot;,lineList[0].trim()).replace(&quot;@THREE@&quot;,&quot;&quot;+lineNum+&quot;&quot;);
+                map.setSqlOne(sqlOne);
+                map.setSqlTwo(sqlTwo);
+                keyValueMap.add(map);
+            }
+            createExcel(keyValueMap, SAVEFILE);
+    }
+}
+</code></pre><p>}</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-05-10/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="零之zero">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The top of the world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/27/2019-05-10/" itemprop="url">使用打印功能重新渲染页面,导致jq按钮功能失效!</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
+                2019-08-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>###时间:2019-05-09</p>
+<h2 id="用jq绑定的节点按钮失效"><a href="#用jq绑定的节点按钮失效" class="headerlink" title="用jq绑定的节点按钮失效."></a>用jq绑定的节点按钮失效.</h2><pre><code>var OldDdhtml = window.document.body.innerHTML;//获取当前页的html代码    
+var prnhtml = &quot;html&quot;;//这里随便定义,可以定义任意html内容
+window.document.body.innerHTML = prnhtml; 
+window.document.body.innerHTML = OldDdhtml;
+使用上述方法改变页面内容,导致按钮点击事件失效.
+</code></pre><p>原因分析:由于直接使用节点绑定事件,当页面重新内容替换,虽然没有改变布局,但是节点的点击事件并没有重新绑定,导致了按钮点击事件失效.</p>
+<p>解决方法:</p>
+<p>第一种方法:重新刷新当前页 —– window.location.reload();</p>
+<p>第二种方法:如果你是用节点绑定事件,例如:$(‘.button’).clcik(function(){}),改用用document绑定$(document).on(‘click’,’.button’,function(){})这样就可以解决按钮事件失效.<br>为什么这样可以处理这个问题,这就是你直接操作节点,但是你页面并没有重新渲染,导致事件没有绑定,但是如果直接把时间绑定在document上,在去寻找这个节点,就可以找寻得到.   </p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-05-08/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -916,728 +2139,11 @@ end ;
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-04-23/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/27/2019-04-23/" itemprop="url">激活window操作</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
-                2019-08-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>时间:2019-5-04</p>
-<p>##激活方法：</p>
-<pre><code>系统安装完毕后，首先以管理员身份打开CMD命令行窗口，按下Win+X，选择命令提示符(管理员)。
-
-说明：kms.xspace.in是kms服务器地址，可能会失效，如果激活失败，可以自行搜索kms服务器地址，
- 将kms.xspace.in替换成新的地址即可，比如换成kms.03k.org，参考可用的kms激活服务器有哪些
-</code></pre><p>##需要先删除之前配置的秘匙<br>    slmgr /upk</p>
-<h2 id="Win10专业版用户请依次输入"><a href="#Win10专业版用户请依次输入" class="headerlink" title="Win10专业版用户请依次输入:"></a>Win10专业版用户请依次输入:</h2><pre><code>slmgr /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX
-
-slmgr /skms kms.03k.org
-
-slmgr /ato
-</code></pre><h2 id="Win10企业版用户请依次输入："><a href="#Win10企业版用户请依次输入：" class="headerlink" title="Win10企业版用户请依次输入："></a>Win10企业版用户请依次输入：</h2><pre><code>slmgr /ipk NPPR9-FWDCX-D2C8J-H872K-2YT43
-
-slmgr /skms kms.03k.org
-
-slmgr /ato
-</code></pre><p>##Win10家庭版用户依次输入：</p>
-<pre><code>slmgr /ipk TX9XD-98N7V-6WMQ6-BX7FG-H8Q99
-
-slmgr /skms kms.03k.org
-
-slmgr /ato
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-03-28/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/27/2019-03-28/" itemprop="url">List  remove</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
-                2019-08-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>###时间:2019-3-28</p>
-<h2 id="String-–-gt-List转化形式"><a href="#String-–-gt-List转化形式" class="headerlink" title="String[] –&gt; List转化形式:"></a>String[] –&gt; List转化形式:</h2><pre><code>String [] arr = new String[] {&quot;1&quot;, &quot;2&quot;};
-
-List&lt;String&gt; list = Arrays.asList(arr); 
-</code></pre><p>由于String[]转化为list的时候存储空间已经固定为2,所以不能是用list中的list.remove(i)方法,如果想要<br>使用remove(i)这个方式,必须开辟一个新的空间.</p>
-<p>如何开辟新的空间?</p>
-<p>形式如下:</p>
-<pre><code>List&lt;String&gt; list = new ArrayList(Arrays.asList(arr)); 
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2019-03-10/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/27/2019-03-10/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
-                2019-08-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>时间:2019-3-10 博客诞生日<br>安装博客步骤：<br>1.前面我们已经安装了Git、Node.js，然后使用npm，安装hexo:<br>$ npm install -g hexo-cli</p>
-<p>2.安装完毕，我们就需要对自己的仓库进行配置，首先使用Git，将自己的仓库克隆到本地<br>克隆仓库<br>复制仓库地址，在本地创建一个个人博客的文件夹，例如GitHub_Blog，进入文件夹，使用git命令：<br>git clone <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:dazhaoDai/dazhaoDai.github.io.git</p>
-<p>3.配置Hexo<br>使用命令行<br>$ hexo init &lt;替换为当前博客文件夹，例如我的是/Users/dai/Documents/android_dai&gt;<br>$ cd /Users/dai/Documents/android_dai<br>$ npm install</p>
-<p>4.新建完成后，指定文件夹的目录如下：<br>├── _config.yml #配置信息<br>├── package.json<br>├── scaffolds<br>├── source<br>| ├── _drafts<br>| └── _posts #博客内容<br>└── themes #主题</p>
-<p>5.去前面GitHub_Blog,进入themes,克隆这个主题<br>cd themes<br>git clone <a href="https://github.com/MOxFIVE/hexo-theme-yelee.git" target="_blank" rel="noopener">https://github.com/MOxFIVE/hexo-theme-yelee.git</a></p>
-<p>6.在GitHub_Blog文件下，执行命令(建议每次都按照如下步骤部署)：<br>hexo clean<br>hexo generate<br>hexo deploy</p>
-<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post  666"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/2015-05-04/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/27/2015-05-04/" itemprop="url">window.print()打印</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
-                2019-08-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>时间:2019-5-04</p>
-<h2 id="打印固定区域功能实现"><a href="#打印固定区域功能实现" class="headerlink" title="打印固定区域功能实现"></a>打印固定区域功能实现</h2><pre><code>function dayin() {
-    var OldDdhtml = window.document.body.innerHTML;//获取当前页的html代码,用作还原    
-    //去掉页脚页眉
-    var headHtml = &quot;&lt;head&gt;&lt;style type=&apos;text/css&apos; media=&apos;print&apos;&gt; @page{ size:  auto;   /* auto is the initial value */margin: 0mm;  /* this affects the margin in the printer settings */}html{/*background-color: #FFFFFF; */margin: 0px;  /* this affects the margin on the html before sending to printer */}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&quot;
-    var bottHtml = &quot;&lt;/body&gt;&quot;;        
-    $(&quot;.logo-img&quot;).show();
-    var trLength = $(&apos;.content-download table tr&apos;).length;
-    var heightContent = $(&apos;.content-download&apos;).height();
-    var heightDifference = heightContent - (trLength + 1) * 32;
-    if (heightDifference &gt; 0) {
-        var $tdPadding = $(&apos;.content-download table tr td&apos;);
-        var tdLength = $tdPadding.length - 1;
-        var padding = $tdPadding.eq(tdLength).css(&apos;padding&apos;).substring(0,
-                $tdPadding.eq(tdLength).css(&apos;padding&apos;).length - 2);
-        var paddingValue = padding - heightDifference / trLength &gt; 0.5 ? padding
-                - heightDifference / trLength
-                : 0.5;
-        $tdPadding.css(&apos;padding&apos;, paddingValue);
-    }
-
-     bdhtml = window.document.body.innerHTML; //获取当前页的html代码
-     var  sprnstr=&quot;&lt;!--startprint--&gt;&quot;;//设置打印开始区域
-     var  eprnstr=&quot;&lt;!--endprint--&gt;&quot;;//设置打印结束区域
-     prnhtml = headHtml + bdhtml.substring(bdhtml.indexOf(sprnstr) + 18); //从开始代码向后取html
-     prnhtml = prnhtml.substring(0, prnhtml.indexOf(eprnstr)) + bottHtml; //从结束代码向前取html
-     //var styleHtml =  &quot; style = &apos;&apos; &quot;;
-     window.document.body.innerHTML = prnhtml;       
-    pagesetup_null();
-    window.print();
-    window.document.body.innerHTML = OldDdhtml;
-}
-
-var hkey_root, hkey_path, hkey_key;
-hkey_root = &quot;HKEY_CURRENT_USER&quot;;
-hkey_path = &quot;\Software\Microsoft\Internet Explorer\PageSetup\ &quot;;
-
-function pagesetup_null() {
-    try {
-        var RegWsh = new ActiveXObject(&quot;WScript.Shell&quot;);
-        hkey_key = &quot;header&quot;;
-        RegWsh.RegWrite(hkey_root + hkey_path + hkey_key, &quot;&quot;);
-        hkey_key = &quot;footer&quot;;
-        RegWsh.RegWrite(hkey_root + hkey_path + hkey_key, &quot;&quot;);
-    } catch (e) {
-    }
-}
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="onemind.top/2019/08/27/0-Poetry/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="零之zero">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The top of the world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/27/0-Poetry/" itemprop="url">诗，词，句</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:54+08:00">
-                2019-08-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>0.总有人要赢，那个人为什么不是我！</p>
-<p>1.我于昨日死去，走时心如止水；我于今早重生，来时心怀暖阳。</p>
-<p>2.雨会停，天会晴，没有什么会糟糕透顶。</p>
-<p>3.今朝落叶，自是秋日常景，惟愿拾叶几枚，静享秋日安然。</p>
-<p>4.</p>
-<pre><code>薄衣微寒 驱车至日暮 
-秋高天阔飞鸿各自觅归处 
-三尺瑶琴可将雅韵传千古 
-高山流水工尺谱 
-伯牙子期却何处 
-人间四时 匆匆留不住 
-何幸与你相识余生不相负 
-丝竹悦耳 岁月如诉 话当初 
-红泥新酒秋声赋 雨如酥 
-千秋风流去 
-而今又谁人吟 
-故友新交何患无知音 
-转轴五弦琴 
-音律划过掌心 
-惟愿不负时光不负卿
-                   ——冥凰，为了狮子头 《不负时光》
-</code></pre><p>5.曲未终，人已散，是谁轻许了诺言，又看淡了别离。</p>
-<p>6.何为不甘，大海星辰不可及,但我还是想试一试。</p>
-<p>7.从前慢，车马缓，书信长，一生只够爱一人。如今慢，趁少年，尽情欢，一心只容你一人。</p>
-<p>8.若能避开猛烈的欢喜，自然不会有悲痛的来袭。—人间失格</p>
-<p>9.自己开开心心才是人生必备，其他多只是锦上添花，愿你好好努力，好好爱自己。</p>
-<p>10.愿你能够明白，生活的目标，从来多不是…，是快乐。</p>
-<p>11.林深时见鹿，海蓝时见鲸，梦醒时见你。</p>
-<p>12.我见过春日夏风，秋叶冬雪，也踏遍南水北山，东麓西岭，可这四季春秋，苍山泱水，又怎及…。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1683,7 +2189,7 @@ function pagesetup_null() {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">50</span>
+                  <span class="site-state-item-count">55</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1724,7 +2230,7 @@ function pagesetup_null() {
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
